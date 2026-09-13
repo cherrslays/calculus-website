@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A modern LaTeX-inspired calculus learning website with interactive visualizations." />
+  <title>Calculus — Modern LaTeX Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="paper-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Calculus home">
+      <span class="brand-mark">∫</span>
+      <span>Calculus.</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#limits">Limits</a>
+      <a href="#derivatives">Derivatives</a>
+      <a href="#integrals">Integrals</a>
+      <a href="#practice">Practice</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">◐</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">A visual introduction to single-variable calculus</p>
+        <h1>See change.<br><em>Understand calculus.</em></h1>
+        <p class="hero-lead">
+          Learn limits, derivatives, and integrals through concise notes, geometric intuition, and interactive demonstrations.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#limits">Start learning</a>
+          <a class="button ghost" href="#formula-sheet">Formula sheet</a>
+        </div>
+      </div>
+      <aside class="hero-math card" aria-label="Featured equation">
+        <span class="card-kicker">Fundamental Theorem</span>
+        <div class="display-equation">$$\frac{d}{dx}\int_a^x f(t)\,dt = f(x)$$</div>
+        <p>Derivatives and integrals are not separate ideas—they are inverse views of accumulation and change.</p>
+      </aside>
+    </section>
+
+    <section class="section-shell chapter-intro">
+      <div class="section-label">Core ideas</div>
+      <div class="chapter-grid">
+        <a class="chapter-card" href="#limits">
+          <span>01</span>
+          <h3>Limits</h3>
+          <p>What value does a function approach?</p>
+          <strong>Explore →</strong>
+        </a>
+        <a class="chapter-card" href="#derivatives">
+          <span>02</span>
+          <h3>Derivatives</h3>
+          <p>How fast is a quantity changing?</p>
+          <strong>Explore →</strong>
+        </a>
+        <a class="chapter-card" href="#integrals">
+          <span>03</span>
+          <h3>Integrals</h3>
+          <p>How much has accumulated?</p>
+          <strong>Explore →</strong>
+        </a>
+      </div>
+    </section>
+
+    <section id="limits" class="section-shell lesson-section">
+      <div class="lesson-heading">
+        <div>
+          <span class="section-number">01</span>
+          <p class="eyebrow">Approaching a value</p>
+          <h2>Limits</h2>
+        </div>
+        <div class="definition-box">
+          <span>Definition</span>
+          <div>$$\lim_{x\to a}f(x)=L$$</div>
+          <p>means that $f(x)$ can be made arbitrarily close to $L$ by taking $x$ sufficiently close to $a$.</p>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <article class="prose-card">
+          <h3>Why limits matter</h3>
+          <p>Calculus studies continuous change. Limits give us a precise language for talking about values that a function approaches, even when the function is undefined at the point itself.</p>
+          <div class="example-block">
+            <span>Example</span>
+            <p>Evaluate</p>
+            <div>$$\lim_{x\to 2}\frac{x^2-4}{x-2}$$</div>
+            <p>Factor the numerator:</p>
+            <div>$$\frac{(x-2)(x+2)}{x-2}=x+2\quad (x\ne2)$$</div>
+            <p>Therefore, the limit is $4$.</p>
+          </div>
+        </article>
+
+        <article class="prose-card compact-list">
+          <h3>Limit checklist</h3>
+          <ol>
+            <li><strong>Substitute first.</strong> If the result is finite, you are done.</li>
+            <li><strong>Factor or rationalize</strong> when you get an indeterminate form like $0/0$.</li>
+            <li><strong>Compare one-sided limits</strong> for piecewise functions.</li>
+            <li><strong>Use dominant terms</strong> when $x\to\infty$.</li>
+          </ol>
+          <div class="note">A limit describes nearby behavior. The actual value $f(a)$ can be different—or may not exist at all.</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="derivatives" class="section-shell lesson-section">
+      <div class="lesson-heading">
+        <div>
+          <span class="section-number">02</span>
+          <p class="eyebrow">Instantaneous change</p>
+          <h2>Derivatives</h2>
+        </div>
+        <div class="definition-box">
+          <span>Definition</span>
+          <div>$$f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$$</div>
+          <p>The derivative is the slope of the tangent line and the instantaneous rate of change.</p>
+        </div>
+      </div>
+
+      <div class="interactive-card">
+        <div class="interactive-copy">
+          <span class="card-kicker">Interactive tangent line</span>
+          <h3>Explore $f(x)=x^2$</h3>
+          <p>Move the point. The tangent line updates to show the local linear approximation.</p>
+          <label for="xSlider">Point $x_0$: <strong id="xValue">1.0</strong></label>
+          <input id="xSlider" type="range" min="-2.5" max="2.5" value="1" step="0.1" />
+          <div class="mini-equation" id="derivativeEquation">$f'(1)=2$</div>
+        </div>
+        <canvas id="derivativeCanvas" width="720" height="420" aria-label="Graph of x squared with tangent line"></canvas>
+      </div>
+
+      <div class="formula-grid">
+        <div class="formula-card"><span>Power rule</span><div>$$\frac{d}{dx}x^n=nx^{n-1}$$</div></div>
+        <div class="formula-card"><span>Product rule</span><div>$$\frac{d}{dx}(uv)=u'v+uv'$$</div></div>
+        <div class="formula-card"><span>Chain rule</span><div>$$\frac{d}{dx}f(g(x))=f'(g(x))g'(x)$$</div></div>
+        <div class="formula-card"><span>Trig</span><div>$$\frac{d}{dx}\sin x=\cos x$$</div></div>
+      </div>
+    </section>
+
+    <section id="integrals" class="section-shell lesson-section">
+      <div class="lesson-heading">
+        <div>
+          <span class="section-number">03</span>
+          <p class="eyebrow">Accumulation and area</p>
+          <h2>Integrals</h2>
+        </div>
+        <div class="definition-box">
+          <span>Riemann sum</span>
+          <div>$$\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{i=1}^{n}f(x_i^*)\Delta x$$</div>
+          <p>An integral is the limiting sum of many tiny contributions.</p>
+        </div>
+      </div>
+
+      <div class="interactive-card reverse">
+        <canvas id="integralCanvas" width="720" height="420" aria-label="Riemann sum visualization"></canvas>
+        <div class="interactive-copy">
+          <span class="card-kicker">Interactive Riemann sum</span>
+          <h3>Area under $f(x)=x^2+1$</h3>
+          <p>Increase the number of rectangles. The approximation approaches the exact integral on $[0,2]$.</p>
+          <label for="nSlider">Rectangles: <strong id="nValue">6</strong></label>
+          <input id="nSlider" type="range" min="2" max="40" value="6" step="1" />
+          <div class="stat-row">
+            <div><span>Approx.</span><strong id="approxArea">—</strong></div>
+            <div><span>Exact</span><strong>4.667</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-grid">
+        <div class="formula-card"><span>Power rule</span><div>$$\int x^n\,dx=\frac{x^{n+1}}{n+1}+C$$</div></div>
+        <div class="formula-card"><span>Linearity</span><div>$$\int(af+bg)\,dx=a\int f\,dx+b\int g\,dx$$</div></div>
+        <div class="formula-card"><span>Substitution</span><div>$$\int f(g(x))g'(x)\,dx=\int f(u)\,du$$</div></div>
+        <div class="formula-card"><span>By parts</span><div>$$\int u\,dv=uv-\int v\,du$$</div></div>
+      </div>
+    </section>
+
+    <section id="formula-sheet" class="section-shell formula-sheet">
+      <div class="section-label">Reference</div>
+      <div class="formula-sheet-inner">
+        <div>
+          <p class="eyebrow">Keep this close</p>
+          <h2>Mini formula sheet</h2>
+          <p>Enough to solve a surprising number of first-course calculus problems.</p>
+        </div>
+        <div class="formula-table-wrap">
+          <table class="formula-table">
+            <thead><tr><th>Function</th><th>Derivative</th><th>Antiderivative</th></tr></thead>
+            <tbody>
+              <tr><td>$x^n$</td><td>$nx^{n-1}$</td><td>$\frac{x^{n+1}}{n+1}+C$</td></tr>
+              <tr><td>$e^x$</td><td>$e^x$</td><td>$e^x+C$</td></tr>
+              <tr><td>$\sin x$</td><td>$\cos x$</td><td>$-\cos x+C$</td></tr>
+              <tr><td>$\cos x$</td><td>$-\sin x$</td><td>$\sin x+C$</td></tr>
+              <tr><td>$\ln x$</td><td>$1/x$</td><td>$x\ln x-x+C$</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="practice" class="section-shell lesson-section practice-section">
+      <div class="section-label">Practice</div>
+      <div class="practice-header">
+        <div>
+          <p class="eyebrow">Check your understanding</p>
+          <h2>Quick problems</h2>
+        </div>
+        <p>Click each card to reveal the solution.</p>
+      </div>
+
+      <div class="practice-grid">
+        <button class="problem-card" type="button">
+          <span>Limit</span>
+          <div>$$\lim_{x\to3}\frac{x^2-9}{x-3}$$</div>
+          <p class="solution">Factor: $(x-3)(x+3)/(x-3)$. Answer: $6$.</p>
+        </button>
+        <button class="problem-card" type="button">
+          <span>Derivative</span>
+          <div>$$\frac{d}{dx}(3x^4-2x^2+7)$$</div>
+          <p class="solution">$12x^3-4x$</p>
+        </button>
+        <button class="problem-card" type="button">
+          <span>Integral</span>
+          <div>$$\int(6x^2+4x)\,dx$$</div>
+          <p class="solution">$2x^3+2x^2+C$</p>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div><span class="brand-mark">∫</span> Calculus.</div>
+    <p>Modern notes for limits, derivatives, and integrals.</p>
+  </footer>
+</body>
+</html>
