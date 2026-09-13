@@ -6,7 +6,7 @@
   --warning: #946019; --error: #a12d3a;
   --shadow: 0 8px 30px rgba(28, 40, 32, .035);
   --sans: Inter, "Noto Sans Thai", system-ui, sans-serif;
-  --serif: "STIX Two Text", "Noto Serif Thai", Georgia, serif;
+  --serif: Inter, "Noto Sans Thai", system-ui, sans-serif;
   --max: 1220px;
 }
 html[data-theme="dark"] {
@@ -18,7 +18,7 @@ html[data-theme="dark"] {
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.8 var(--serif); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 18px/1.8 var(--sans); }
 a { color: inherit; text-underline-offset: .2em; }
 button, input, select, summary { font-family: var(--sans); font-size: .88rem; }
 button, summary, select, input[type="checkbox"], input[type="range"] { cursor: pointer; }
