@@ -1,10 +1,1015 @@
-<!doctype html><html lang="en" data-lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Limits — Calculus Atlas</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjs@14.0.1/lib/browser/math.js"></script><script defer src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/all.min.js"></script><script defer src="app.js"></script></head><body><div class="paper-grid"></div>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">∫</span><span>Calculus Atlas</span></a><nav class="top-nav"><a href="index.html">Home</a><a class="active" href="limits.html">Limits</a><a href="derivatives.html">Derivatives</a><a href="integrals.html">Integrals</a><a href="practice.html">Practice</a></nav><div class="header-actions"><button class="icon-btn" data-search-open>⌕</button><button class="lang-btn" data-lang-toggle>TH</button><button class="icon-btn" data-theme-toggle>◐</button></div></header>
-<div class="lesson-layout"><aside class="sidebar"><p class="toc-title"><span class="lang-en">Chapter 1 · contents</span><span class="lang-th">บทที่ 1 · สารบัญ</span></p><a href="#intuition"><span class="lang-en">1. Intuition</span><span class="lang-th">1. แนวคิด</span></a><a href="#laws"><span class="lang-en">2. Limit laws</span><span class="lang-th">2. กฎของลิมิต</span></a><a href="#indeterminate"><span class="lang-en">3. Indeterminate forms</span><span class="lang-th">3. รูปไม่กำหนด</span></a><a href="#continuity"><span class="lang-en">4. Continuity</span><span class="lang-th">4. ความต่อเนื่อง</span></a><a href="#infinity"><span class="lang-en">5. Limits at infinity</span><span class="lang-th">5. ลิมิตที่อนันต์</span></a><a href="practice.html#limits-practice"><span class="lang-en">Practice →</span><span class="lang-th">แบบฝึกหัด →</span></a></aside>
-<main class="lesson-main"><section class="page-hero reveal"><p class="eyebrow">Chapter 01</p><h1>Limits</h1><p><span class="lang-en">Limits describe what a function approaches. They let us define continuity, derivatives, improper behavior, and much of the language of analysis.</span><span class="lang-th">ลิมิตใช้อธิบายว่าฟังก์ชัน “เข้าใกล้” ค่าใด และเป็นพื้นฐานของความต่อเนื่อง อนุพันธ์ และแนวคิดสำคัญในแคลคูลัส</span></p></section>
-<section id="intuition" class="lesson-section reveal"><h2><span class="lang-en">1. Intuition and notation</span><span class="lang-th">1. แนวคิดและสัญลักษณ์</span></h2><div class="definition"><span class="box-label">Definition</span>$$\lim_{x\to a}f(x)=L$$<p><span class="lang-en">means that $f(x)$ can be made arbitrarily close to $L$ by choosing $x$ sufficiently close to $a$ (with $x\neq a$).</span><span class="lang-th">หมายความว่าเราสามารถทำให้ $f(x)$ ใกล้ $L$ ได้มากเท่าใดก็ได้ โดยเลือก $x$ ให้ใกล้ $a$ มากพอ โดยไม่จำเป็นต้องให้ $x=a$</span></p></div><p><span class="lang-en">A limit concerns nearby behavior, not necessarily the value at the point. Therefore $f(a)$ may be different from the limit, or even undefined.</span><span class="lang-th">ลิมิตสนใจพฤติกรรม “รอบ ๆ จุด” ไม่จำเป็นต้องสนใจค่าที่จุดนั้นโดยตรง ดังนั้น $f(a)$ อาจไม่เท่ากับลิมิต หรืออาจนิยามไม่ได้เลย</span></p><div class="example"><span class="box-label">Example</span>$$\lim_{x\to2}\frac{x^2-4}{x-2}$$<p><span class="lang-en">Factor $x^2-4=(x-2)(x+2)$, cancel the common factor for $x\ne2$, then evaluate $x+2$ at $x=2$. The limit is $4$.</span><span class="lang-th">แยกตัวประกอบ $x^2-4=(x-2)(x+2)$ แล้วตัดตัวประกอบร่วมเมื่อ $x\ne2$ จะเหลือ $x+2$ ดังนั้นลิมิตเท่ากับ $4$</span></p></div><h3><span class="lang-en">One-sided limits</span><span class="lang-th">ลิมิตด้านเดียว</span></h3>$$\lim_{x\to a^-}f(x),\qquad \lim_{x\to a^+}f(x)$$<p><span class="lang-en">The two-sided limit exists only when the left-hand and right-hand limits both exist and are equal.</span><span class="lang-th">ลิมิตสองด้านจะมีอยู่ก็ต่อเมื่อลิมิตด้านซ้ายและด้านขวามีอยู่และมีค่าเท่ากัน</span></p></section>
-<section id="laws" class="lesson-section reveal"><h2><span class="lang-en">2. Limit laws</span><span class="lang-th">2. กฎของลิมิต</span></h2><p><span class="lang-en">If $\lim f(x)=L$ and $\lim g(x)=M$, then limits behave algebraically in familiar ways.</span><span class="lang-th">ถ้า $\lim f(x)=L$ และ $\lim g(x)=M$ เราสามารถจัดการลิมิตเชิงพีชคณิตได้คล้ายกับตัวเลขทั่วไป</span></p><div class="formula-grid"><div class="formula-card"><small>Sum / ผลบวก</small>$$\lim(f+g)=L+M$$</div><div class="formula-card"><small>Product / ผลคูณ</small>$$\lim(fg)=LM$$</div><div class="formula-card"><small>Quotient / ผลหาร</small>$$\lim\frac{f}{g}=\frac{L}{M},\;M\ne0$$</div><div class="formula-card"><small>Power / ยกกำลัง</small>$$\lim[f(x)]^n=L^n$$</div></div><div class="note"><span class="lang-en">Always try direct substitution first. If it gives a finite value, continuity often finishes the problem immediately.</span><span class="lang-th">เริ่มจากแทนค่าตรง ๆ ก่อนเสมอ ถ้าได้ค่าจำกัด มักจบโจทย์ได้ทันทีจากความต่อเนื่อง</span></div></section>
-<section id="indeterminate" class="lesson-section reveal"><h2><span class="lang-en">3. Indeterminate forms</span><span class="lang-th">3. รูปไม่กำหนด</span></h2><p><span class="lang-en">Expressions such as $0/0$ and $\infty/\infty$ do not determine a limit by themselves. They signal that simplification or another theorem is needed.</span><span class="lang-th">รูปอย่าง $0/0$ หรือ $\infty/\infty$ ไม่ได้บอกคำตอบของลิมิต แต่เป็นสัญญาณว่าต้องจัดรูปหรือใช้ทฤษฎีเพิ่มเติม</span></p><div class="two-col"><div class="example"><span class="box-label">Factoring</span>$$\lim_{x\to3}\frac{x^2-9}{x-3}=\lim_{x\to3}(x+3)=6$$</div><div class="example"><span class="box-label">Rationalizing</span>$$\lim_{x\to0}\frac{\sqrt{1+x}-1}{x}=\frac12$$</div></div><h3><span class="lang-en">Important trigonometric limit</span><span class="lang-th">ลิมิตตรีโกณมิติสำคัญ</span></h3><div class="theorem">$$\lim_{x\to0}\frac{\sin x}{x}=1$$<p><span class="lang-en">This result is central to differentiating sine and cosine.</span><span class="lang-th">ผลลัพธ์นี้เป็นหัวใจสำคัญในการหาอนุพันธ์ของ sine และ cosine</span></p></div></section>
-<section id="continuity" class="lesson-section reveal"><h2><span class="lang-en">4. Continuity</span><span class="lang-th">4. ความต่อเนื่อง</span></h2><p><span class="lang-en">A function $f$ is continuous at $x=a$ when all three conditions hold:</span><span class="lang-th">ฟังก์ชัน $f$ ต่อเนื่องที่ $x=a$ เมื่อครบทั้งสามเงื่อนไข:</span></p><div class="definition">$$f(a)\text{ exists},\qquad \lim_{x\to a}f(x)\text{ exists},\qquad \lim_{x\to a}f(x)=f(a)$$</div><div class="theorem"><span class="box-label">Intermediate Value Theorem</span><p><span class="lang-en">If $f$ is continuous on $[a,b]$ and $N$ lies between $f(a)$ and $f(b)$, then there is some $c\in[a,b]$ such that $f(c)=N$.</span><span class="lang-th">ถ้า $f$ ต่อเนื่องบน $[a,b]$ และ $N$ อยู่ระหว่าง $f(a)$ กับ $f(b)$ จะมีอย่างน้อยหนึ่งค่า $c\in[a,b]$ ที่ทำให้ $f(c)=N$</span></p></div></section>
-<section id="infinity" class="lesson-section reveal"><h2><span class="lang-en">5. Limits at infinity</span><span class="lang-th">5. ลิมิตเมื่อ $x\to\infty$</span></h2><p><span class="lang-en">For rational functions, compare the highest powers in numerator and denominator.</span><span class="lang-th">สำหรับฟังก์ชันตรรกยะ ให้เปรียบเทียบดีกรีสูงสุดของตัวเศษและตัวส่วน</span></p><div class="formula-grid"><div class="formula-card"><small>degree top &lt; bottom</small>$$\lim_{x\to\infty}\frac{x}{x^2+1}=0$$</div><div class="formula-card"><small>same degree</small>$$\lim_{x\to\infty}\frac{3x^2+1}{2x^2-5}=\frac32$$</div></div><div class="note"><span class="lang-en">Horizontal asymptotes describe end behavior; they do not forbid the graph from crossing the asymptote.</span><span class="lang-th">เส้นกำกับแนวนอนอธิบายพฤติกรรมเมื่อ $|x|$ ใหญ่มาก แต่กราฟยังสามารถตัดเส้นกำกับนั้นได้</span></div></section>
-</main></div><footer class="site-footer"><a href="derivatives.html">Next: Derivatives →</a></footer><div id="searchOverlay" class="search-overlay"><div class="search-modal"><div class="search-box"><input id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…"><button id="searchClose" class="search-close">×</button></div><div id="searchResults" class="search-results"></div></div></div></body></html>
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Limits — Calculus Atlas
+  </title>
+  <script src="theme.js">
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Serif+Thai:wght@400;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script>
+   window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
+  </script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
+  <script defer="" src="vendor/math.js">
+  </script>
+  <script defer="" src="math-core.js">
+  </script>
+  <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="app.js">
+  </script>
+  <meta content="Bilingual university calculus: rigorous explanations, worked problems and interactive graphs." name="description"/>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main-content">
+   <span class="lang-en" lang="en">
+    Skip to content
+   </span>
+   <span class="lang-th" lang="th">
+    ข้ามไปเนื้อหา
+   </span>
+  </a>
+  <div class="paper-grid">
+  </div>
+  <header class="site-header">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ∫
+    </span>
+    <span>
+     Calculus Atlas
+    </span>
+   </a>
+   <nav aria-label="Main navigation" class="top-nav" data-label-en="Main navigation" data-label-th="เมนูหลัก">
+    <a href="index.html">
+     <span class="lang-en" lang="en">
+      Home
+     </span>
+     <span class="lang-th" lang="th">
+      หน้าแรก
+     </span>
+    </a>
+    <a aria-current="page" class="active" href="limits.html">
+     <span class="lang-en" lang="en">
+      Limits
+     </span>
+     <span class="lang-th" lang="th">
+      ลิมิต
+     </span>
+    </a>
+    <a href="derivatives.html">
+     <span class="lang-en" lang="en">
+      Derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      อนุพันธ์
+     </span>
+    </a>
+    <a href="integrals.html">
+     <span class="lang-en" lang="en">
+      Integrals
+     </span>
+     <span class="lang-th" lang="th">
+      ปริพันธ์
+     </span>
+    </a>
+    <a href="practice.html">
+     <span class="lang-en" lang="en">
+      Practice
+     </span>
+     <span class="lang-th" lang="th">
+      แบบฝึกหัด
+     </span>
+    </a>
+   </nav>
+   <div class="header-actions">
+    <details class="mobile-nav">
+     <summary>
+      <span class="lang-en" lang="en">
+       Menu
+      </span>
+      <span class="lang-th" lang="th">
+       เมนู
+      </span>
+     </summary>
+     <nav aria-label="Mobile navigation" data-label-en="Mobile navigation" data-label-th="เมนูสำหรับมือถือ">
+      <a href="index.html">
+       <span class="lang-en" lang="en">
+        Home
+       </span>
+       <span class="lang-th" lang="th">
+        หน้าแรก
+       </span>
+      </a>
+      <a aria-current="page" href="limits.html">
+       <span class="lang-en" lang="en">
+        Limits
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิต
+       </span>
+      </a>
+      <a href="derivatives.html">
+       <span class="lang-en" lang="en">
+        Derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        อนุพันธ์
+       </span>
+      </a>
+      <a href="integrals.html">
+       <span class="lang-en" lang="en">
+        Integrals
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์
+       </span>
+      </a>
+      <a href="practice.html">
+       <span class="lang-en" lang="en">
+        Practice
+       </span>
+       <span class="lang-th" lang="th">
+        แบบฝึกหัด
+       </span>
+      </a>
+     </nav>
+    </details>
+    <button aria-label="Search" class="icon-btn" data-label-en="Search" data-label-th="ค้นหา" data-search-open="">
+     <span aria-hidden="true">
+      ⌕
+     </span>
+     <span class="search-label">
+      <span class="lang-en" lang="en">
+       Search
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหา
+      </span>
+     </span>
+    </button>
+    <button aria-label="Switch to Thai" class="lang-btn" data-label-en="Switch to Thai" data-label-th="สลับเป็นภาษาอังกฤษ" data-lang-toggle="">
+     TH
+    </button>
+    <button aria-label="Toggle dark mode" aria-pressed="false" class="icon-btn" data-label-en="Toggle dark mode" data-label-th="สลับโหมดมืด" data-theme-toggle="">
+     ◐
+    </button>
+   </div>
+  </header>
+  <div class="lesson-layout">
+   <aside aria-label="Table of contents" class="sidebar" data-label-en="Table of contents" data-label-th="สารบัญ">
+    <p class="toc-title">
+     <span class="lang-en" lang="en">
+      On this page
+     </span>
+     <span class="lang-th" lang="th">
+      สารบัญหน้านี้
+     </span>
+    </p>
+    <a href="#intuition">
+     <span class="lang-en" lang="en">
+      1. Intuition and notation
+     </span>
+     <span class="lang-th" lang="th">
+      1. แนวคิดและสัญลักษณ์
+     </span>
+    </a>
+    <a href="#laws">
+     <span class="lang-en" lang="en">
+      2. Limit laws
+     </span>
+     <span class="lang-th" lang="th">
+      2. กฎของลิมิต
+     </span>
+    </a>
+    <a href="#indeterminate">
+     <span class="lang-en" lang="en">
+      3. Indeterminate forms
+     </span>
+     <span class="lang-th" lang="th">
+      3. รูปไม่กำหนด
+     </span>
+    </a>
+    <a href="#continuity">
+     <span class="lang-en" lang="en">
+      4. Continuity
+     </span>
+     <span class="lang-th" lang="th">
+      4. ความต่อเนื่อง
+     </span>
+    </a>
+    <a href="#infinity">
+     <span class="lang-en" lang="en">
+      5. Limits at infinity
+     </span>
+     <span class="lang-th" lang="th">
+      5. ลิมิตเมื่อ $x\to\infty$
+     </span>
+    </a>
+    <a href="#epsilon-delta">
+     <span class="lang-en" lang="en">
+      6. The precise ε–δ definition
+     </span>
+     <span class="lang-th" lang="th">
+      6. นิยามเอปไซลอน–เดลตา
+     </span>
+    </a>
+    <a href="#squeeze">
+     <span class="lang-en" lang="en">
+      7. Squeeze theorem and oscillation
+     </span>
+     <span class="lang-th" lang="th">
+      7. ทฤษฎีบทบีบและการแกว่ง
+     </span>
+    </a>
+    <a href="#lhopital">
+     <span class="lang-en" lang="en">
+      8. L’Hôpital’s rule and its limits
+     </span>
+     <span class="lang-th" lang="th">
+      8. กฎโลปิตาลและเงื่อนไขการใช้
+     </span>
+    </a>
+    <a href="#limit-lab">
+     <span class="lang-en" lang="en">
+      9. Laboratory: approaching a point
+     </span>
+     <span class="lang-th" lang="th">
+      9. ห้องทดลอง: การเข้าใกล้จุด
+     </span>
+    </a>
+    <a class="toc-practice" href="practice.html#limits-practice">
+     <span class="lang-en" lang="en">
+      Practice this chapter →
+     </span>
+     <span class="lang-th" lang="th">
+      ฝึกโจทย์บทนี้ →
+     </span>
+    </a>
+   </aside>
+   <main class="lesson-main" id="main-content" tabindex="-1">
+    <section class="page-hero reveal">
+     <p class="eyebrow">
+      <span class="lang-en" lang="en">
+       Chapter 01 · Course notes
+      </span>
+      <span class="lang-th" lang="th">
+       บทที่ 01 · เอกสารประกอบการเรียน
+      </span>
+     </p>
+     <h1>
+      <span class="lang-en" lang="en">
+       Limits
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิต
+      </span>
+     </h1>
+     <p>
+      <span class="lang-en" lang="en">
+       Limits describe what a function approaches. They let us define continuity, derivatives, improper behavior, and much of the language of analysis.
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิตใช้อธิบายว่าฟังก์ชัน “เข้าใกล้” ค่าใด และเป็นพื้นฐานของความต่อเนื่อง อนุพันธ์ และแนวคิดสำคัญในแคลคูลัส
+      </span>
+     </p>
+    </section>
+    <details class="mobile-toc">
+     <summary>
+      <span class="lang-en" lang="en">
+       On this page
+      </span>
+      <span class="lang-th" lang="th">
+       สารบัญหน้านี้
+      </span>
+     </summary>
+     <nav>
+      <p class="toc-title">
+       <span class="lang-en" lang="en">
+        On this page
+       </span>
+       <span class="lang-th" lang="th">
+        สารบัญหน้านี้
+       </span>
+      </p>
+      <a href="#intuition">
+       <span class="lang-en" lang="en">
+        1. Intuition and notation
+       </span>
+       <span class="lang-th" lang="th">
+        1. แนวคิดและสัญลักษณ์
+       </span>
+      </a>
+      <a href="#laws">
+       <span class="lang-en" lang="en">
+        2. Limit laws
+       </span>
+       <span class="lang-th" lang="th">
+        2. กฎของลิมิต
+       </span>
+      </a>
+      <a href="#indeterminate">
+       <span class="lang-en" lang="en">
+        3. Indeterminate forms
+       </span>
+       <span class="lang-th" lang="th">
+        3. รูปไม่กำหนด
+       </span>
+      </a>
+      <a href="#continuity">
+       <span class="lang-en" lang="en">
+        4. Continuity
+       </span>
+       <span class="lang-th" lang="th">
+        4. ความต่อเนื่อง
+       </span>
+      </a>
+      <a href="#infinity">
+       <span class="lang-en" lang="en">
+        5. Limits at infinity
+       </span>
+       <span class="lang-th" lang="th">
+        5. ลิมิตเมื่อ $x\to\infty$
+       </span>
+      </a>
+      <a href="#epsilon-delta">
+       <span class="lang-en" lang="en">
+        6. The precise ε–δ definition
+       </span>
+       <span class="lang-th" lang="th">
+        6. นิยามเอปไซลอน–เดลตา
+       </span>
+      </a>
+      <a href="#squeeze">
+       <span class="lang-en" lang="en">
+        7. Squeeze theorem and oscillation
+       </span>
+       <span class="lang-th" lang="th">
+        7. ทฤษฎีบทบีบและการแกว่ง
+       </span>
+      </a>
+      <a href="#lhopital">
+       <span class="lang-en" lang="en">
+        8. L’Hôpital’s rule and its limits
+       </span>
+       <span class="lang-th" lang="th">
+        8. กฎโลปิตาลและเงื่อนไขการใช้
+       </span>
+      </a>
+      <a href="#limit-lab">
+       <span class="lang-en" lang="en">
+        9. Laboratory: approaching a point
+       </span>
+       <span class="lang-th" lang="th">
+        9. ห้องทดลอง: การเข้าใกล้จุด
+       </span>
+      </a>
+      <a class="toc-practice" href="practice.html#limits-practice">
+       <span class="lang-en" lang="en">
+        Practice this chapter →
+       </span>
+       <span class="lang-th" lang="th">
+        ฝึกโจทย์บทนี้ →
+       </span>
+      </a>
+     </nav>
+    </details>
+    <section class="lesson-section reveal" id="intuition">
+     <h2>
+      <span class="lang-en" lang="en">
+       1. Intuition and notation
+      </span>
+      <span class="lang-th" lang="th">
+       1. แนวคิดและสัญลักษณ์
+      </span>
+     </h2>
+     <div class="definition">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Definition
+       </span>
+       <span class="lang-th" lang="th">
+        นิยาม
+       </span>
+      </span>
+      $$\lim_{x\to a}f(x)=L$$
+      <p>
+       <span class="lang-en" lang="en">
+        means that $f(x)$ can be made arbitrarily close to $L$ by choosing $x$ sufficiently close to $a$ (with $x\neq a$).
+       </span>
+       <span class="lang-th" lang="th">
+        หมายความว่าเราสามารถทำให้ $f(x)$ ใกล้ $L$ ได้มากเท่าใดก็ได้ โดยเลือก $x$ ให้ใกล้ $a$ มากพอ โดยไม่จำเป็นต้องให้ $x=a$
+       </span>
+      </p>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       A limit concerns nearby behavior, not necessarily the value at the point. Therefore $f(a)$ may be different from the limit, or even undefined.
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิตสนใจพฤติกรรม “รอบ ๆ จุด” ไม่จำเป็นต้องสนใจค่าที่จุดนั้นโดยตรง ดังนั้น $f(a)$ อาจไม่เท่ากับลิมิต หรืออาจนิยามไม่ได้เลย
+      </span>
+     </p>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Example
+       </span>
+       <span class="lang-th" lang="th">
+        ตัวอย่าง
+       </span>
+      </span>
+      $$\lim_{x\to2}\frac{x^2-4}{x-2}$$
+      <p>
+       <span class="lang-en" lang="en">
+        Factor $x^2-4=(x-2)(x+2)$, cancel the common factor for $x\ne2$, then evaluate $x+2$ at $x=2$. The limit is $4$.
+       </span>
+       <span class="lang-th" lang="th">
+        แยกตัวประกอบ $x^2-4=(x-2)(x+2)$ แล้วตัดตัวประกอบร่วมเมื่อ $x\ne2$ จะเหลือ $x+2$ ดังนั้นลิมิตเท่ากับ $4$
+       </span>
+      </p>
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       One-sided limits
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิตด้านเดียว
+      </span>
+     </h3>
+     $$\lim_{x\to a^-}f(x),\qquad \lim_{x\to a^+}f(x)$$
+     <p>
+      <span class="lang-en" lang="en">
+       The two-sided limit exists only when the left-hand and right-hand limits both exist and are equal.
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิตสองด้านจะมีอยู่ก็ต่อเมื่อลิมิตด้านซ้ายและด้านขวามีอยู่และมีค่าเท่ากัน
+      </span>
+     </p>
+    </section>
+    <section class="lesson-section reveal" id="laws">
+     <h2>
+      <span class="lang-en" lang="en">
+       2. Limit laws
+      </span>
+      <span class="lang-th" lang="th">
+       2. กฎของลิมิต
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       If $\lim f(x)=L$ and $\lim g(x)=M$, then limits behave algebraically in familiar ways.
+      </span>
+      <span class="lang-th" lang="th">
+       ถ้า $\lim f(x)=L$ และ $\lim g(x)=M$ เราสามารถจัดการลิมิตเชิงพีชคณิตได้คล้ายกับตัวเลขทั่วไป
+      </span>
+     </p>
+     <div class="formula-grid">
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Sum
+        </span>
+        <span class="lang-th" lang="th">
+         ผลบวก
+        </span>
+       </small>
+       $$\lim(f+g)=L+M$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Product
+        </span>
+        <span class="lang-th" lang="th">
+         ผลคูณ
+        </span>
+       </small>
+       $$\lim(fg)=LM$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Quotient
+        </span>
+        <span class="lang-th" lang="th">
+         ผลหาร
+        </span>
+       </small>
+       $$\lim\frac{f}{g}=\frac{L}{M},\;M\ne0$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Power
+        </span>
+        <span class="lang-th" lang="th">
+         ยกกำลัง
+        </span>
+       </small>
+       $$\lim[f(x)]^n=L^n$$
+      </div>
+     </div>
+     <div class="note">
+      <span class="lang-en" lang="en">
+       Always try direct substitution first. If it gives a finite value, continuity often finishes the problem immediately.
+      </span>
+      <span class="lang-th" lang="th">
+       เริ่มจากแทนค่าตรง ๆ ก่อนเสมอ ถ้าได้ค่าจำกัด มักจบโจทย์ได้ทันทีจากความต่อเนื่อง
+      </span>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       These algebraic laws assume finite limits L and M. In the power law above, n is a positive integer. For roots or general real powers, also check the real domain and continuity of the outer function.
+      </span>
+      <span class="lang-th" lang="th">
+       กฎพีชคณิตนี้สมมติว่า L และ M เป็นลิมิตจำกัด ในกฎยกกำลังข้างต้น n เป็นจำนวนเต็มบวก สำหรับรากหรือกำลังจริงทั่วไป ต้องตรวจโดเมนค่าจริงและความต่อเนื่องของฟังก์ชันชั้นนอกด้วย
+      </span>
+     </p>
+    </section>
+    <section class="lesson-section reveal" id="indeterminate">
+     <h2>
+      <span class="lang-en" lang="en">
+       3. Indeterminate forms
+      </span>
+      <span class="lang-th" lang="th">
+       3. รูปไม่กำหนด
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       Expressions such as $0/0$ and $\infty/\infty$ do not determine a limit by themselves. They signal that simplification or another theorem is needed.
+      </span>
+      <span class="lang-th" lang="th">
+       รูปอย่าง $0/0$ หรือ $\infty/\infty$ ไม่ได้บอกคำตอบของลิมิต แต่เป็นสัญญาณว่าต้องจัดรูปหรือใช้ทฤษฎีเพิ่มเติม
+      </span>
+     </p>
+     <div class="two-col">
+      <div class="example">
+       <span class="box-label">
+        <span class="lang-en" lang="en">
+         Factoring
+        </span>
+        <span class="lang-th" lang="th">
+         แยกตัวประกอบ
+        </span>
+       </span>
+       $$\lim_{x\to3}\frac{x^2-9}{x-3}=\lim_{x\to3}(x+3)=6$$
+      </div>
+      <div class="example">
+       <span class="box-label">
+        <span class="lang-en" lang="en">
+         Rationalizing
+        </span>
+        <span class="lang-th" lang="th">
+         คูณด้วยพจน์สังยุค
+        </span>
+       </span>
+       $$\lim_{x\to0}\frac{\sqrt{1+x}-1}{x}=\frac12$$
+      </div>
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       Important trigonometric limit
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิตตรีโกณมิติสำคัญ
+      </span>
+     </h3>
+     <div class="theorem">
+      $$\lim_{x\to0}\frac{\sin x}{x}=1$$
+      <p>
+       <span class="lang-en" lang="en">
+        This result is central to differentiating sine and cosine.
+       </span>
+       <span class="lang-th" lang="th">
+        ผลลัพธ์นี้เป็นหัวใจสำคัญในการหาอนุพันธ์ของ sine และ cosine
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="continuity">
+     <h2>
+      <span class="lang-en" lang="en">
+       4. Continuity
+      </span>
+      <span class="lang-th" lang="th">
+       4. ความต่อเนื่อง
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       A function $f$ is continuous at $x=a$ when all three conditions hold:
+      </span>
+      <span class="lang-th" lang="th">
+       ฟังก์ชัน $f$ ต่อเนื่องที่ $x=a$ เมื่อครบทั้งสามเงื่อนไข:
+      </span>
+     </p>
+     <div class="definition">
+      <p>
+       <span class="lang-en" lang="en">
+        Both f(a) and the limit must exist, and their values must agree.
+       </span>
+       <span class="lang-th" lang="th">
+        ทั้ง f(a) และลิมิตต้องมีค่า และค่าทั้งสองต้องเท่ากัน
+       </span>
+      </p>
+      <div class="equation-block">
+       $$\lim_{x\to a}f(x)=f(a)$$
+      </div>
+     </div>
+     <div class="theorem">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Intermediate Value Theorem
+       </span>
+       <span class="lang-th" lang="th">
+        ทฤษฎีบทค่าระหว่างกลาง
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        If $f$ is continuous on $[a,b]$ and $N$ lies between $f(a)$ and $f(b)$, then there is some $c\in[a,b]$ such that $f(c)=N$.
+       </span>
+       <span class="lang-th" lang="th">
+        ถ้า $f$ ต่อเนื่องบน $[a,b]$ และ $N$ อยู่ระหว่าง $f(a)$ กับ $f(b)$ จะมีอย่างน้อยหนึ่งค่า $c\in[a,b]$ ที่ทำให้ $f(c)=N$
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="infinity">
+     <h2>
+      <span class="lang-en" lang="en">
+       5. Limits at infinity
+      </span>
+      <span class="lang-th" lang="th">
+       5. ลิมิตเมื่อ $x\to\infty$
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       For rational functions, compare the highest powers in numerator and denominator.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับฟังก์ชันตรรกยะ ให้เปรียบเทียบดีกรีสูงสุดของตัวเศษและตัวส่วน
+      </span>
+     </p>
+     <div class="formula-grid">
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         degree top &lt; bottom
+        </span>
+        <span class="lang-th" lang="th">
+         ดีกรีเศษน้อยกว่าส่วน
+        </span>
+       </small>
+       $$\lim_{x\to\infty}\frac{x}{x^2+1}=0$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         same degree
+        </span>
+        <span class="lang-th" lang="th">
+         ดีกรีเท่ากัน
+        </span>
+       </small>
+       $$\lim_{x\to\infty}\frac{3x^2+1}{2x^2-5}=\frac32$$
+      </div>
+     </div>
+     <div class="note">
+      <span class="lang-en" lang="en">
+       Horizontal asymptotes describe end behavior; they do not forbid the graph from crossing the asymptote.
+      </span>
+      <span class="lang-th" lang="th">
+       เส้นกำกับแนวนอนอธิบายพฤติกรรมเมื่อ $|x|$ ใหญ่มาก แต่กราฟยังสามารถตัดเส้นกำกับนั้นได้
+      </span>
+     </div>
+    </section>
+    <section class="lesson-section" id="epsilon-delta">
+     <h2>
+      <span class="lang-en" lang="en">
+       6. The precise ε–δ definition
+      </span>
+      <span class="lang-th" lang="th">
+       6. นิยามเอปไซลอน–เดลตา
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       Intuition becomes a theorem when “close” has a measurable meaning. The output tolerance ε is chosen first; you must then find an input tolerance δ that works for every point in the punctured neighborhood.
+      </span>
+      <span class="lang-th" lang="th">
+       แนวคิดเรื่อง “ใกล้” จะแม่นยำเมื่อวัดได้ เรากำหนดความคลาดเคลื่อนของผลลัพธ์ ε ก่อน แล้วต้องหา δ ที่ทำให้เงื่อนไขเป็นจริงสำหรับทุกจุดรอบจุดเป้าหมาย ยกเว้นจุดนั้นเอง
+      </span>
+     </p>
+     <div class="definition">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Formal definition
+       </span>
+       <span class="lang-th" lang="th">
+        นิยามอย่างเป็นทางการ
+       </span>
+      </span>
+      <div class="equation-block">
+       $$\forall\varepsilon&gt;0\;\exists\delta&gt;0:\quad 0&lt;|x-a|&lt;\delta\implies|f(x)-L|&lt;\varepsilon$$
+      </div>
+      <p>
+       <span class="lang-en" lang="en">
+        Here x belongs to the domain of f, and a must be an accumulation point of that domain. δ may depend on ε and a, but not on x.
+       </span>
+       <span class="lang-th" lang="th">
+        ในที่นี้ x ต้องอยู่ในโดเมนของ f และ a ต้องเป็นจุดสะสมของโดเมน δ ขึ้นกับ ε และ a ได้ แต่ต้องไม่ขึ้นกับ x
+       </span>
+      </p>
+     </div>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Proof: a linear function
+       </span>
+       <span class="lang-th" lang="th">
+        พิสูจน์: ฟังก์ชันเชิงเส้น
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        Prove that the limit of 3x + 1 at x = 2 is 7. Let ε &gt; 0 be arbitrary and choose δ = ε/3.
+       </span>
+       <span class="lang-th" lang="th">
+        พิสูจน์ว่าลิมิตของ 3x + 1 เมื่อ x เข้าใกล้ 2 เท่ากับ 7 ให้ ε &gt; 0 เป็นจำนวนใด ๆ แล้วเลือก δ = ε/3
+       </span>
+      </p>
+      <div class="equation-block">
+       $$0&lt;|x-2|&lt;\delta\quad\Longrightarrow\quad |(3x+1)-7|=3|x-2|&lt;3\delta=\varepsilon$$
+      </div>
+      <p>
+       <span class="lang-en" lang="en">
+        This proves the statement for every positive tolerance, not just for a few numerical samples.
+       </span>
+       <span class="lang-th" lang="th">
+        จึงพิสูจน์ได้สำหรับความคลาดเคลื่อนบวกทุกค่า ไม่ใช่เพียงตัวอย่างเชิงตัวเลขบางค่า
+       </span>
+      </p>
+     </div>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Proof: a nonlinear function
+       </span>
+       <span class="lang-th" lang="th">
+        พิสูจน์: ฟังก์ชันไม่เชิงเส้น
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        To prove the limit of x² at 2 is 4, factor |x² − 4| = |x − 2||x + 2|. First require |x − 2| &lt; 1, so |x + 2| &lt; 5. Choose δ = min(1, ε/5). Then the error is less than 5δ ≤ ε.
+       </span>
+       <span class="lang-th" lang="th">
+        เพื่อพิสูจน์ว่าลิมิตของ x² ที่ 2 เท่ากับ 4 ให้แยก |x² − 4| = |x − 2||x + 2| กำหนด |x − 2| &lt; 1 ก่อน จึงได้ |x + 2| &lt; 5 แล้วเลือก δ = min(1, ε/5) ความคลาดเคลื่อนจึงน้อยกว่า 5δ ≤ ε
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section" id="squeeze">
+     <h2>
+      <span class="lang-en" lang="en">
+       7. Squeeze theorem and oscillation
+      </span>
+      <span class="lang-th" lang="th">
+       7. ทฤษฎีบทบีบและการแกว่ง
+      </span>
+     </h2>
+     <div class="theorem">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Squeeze theorem
+       </span>
+       <span class="lang-th" lang="th">
+        ทฤษฎีบทบีบ
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        If g(x) ≤ f(x) ≤ h(x) near a (except possibly at a), and both bounding functions tend to L, then f(x) tends to L.
+       </span>
+       <span class="lang-th" lang="th">
+        ถ้า g(x) ≤ f(x) ≤ h(x) ในบริเวณใกล้ a (อาจยกเว้นที่ a) และฟังก์ชันที่บีบทั้งสองเข้าใกล้ L แล้ว f(x) จะเข้าใกล้ L เช่นกัน
+       </span>
+      </p>
+     </div>
+     <div class="equation-block">
+      $$-x^2\le x^2\sin(1/x)\le x^2\quad\Longrightarrow\quad\lim_{x\to0}x^2\sin(1/x)=0$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       The oscillation of sin(1/x) never settles, but multiplying by x² squeezes its amplitude to zero. By itself, sin(1/x) has no limit: sequences approaching zero can produce values 1 and −1.
+      </span>
+      <span class="lang-th" lang="th">
+       sin(1/x) แกว่งไม่หยุด แต่เมื่อคูณด้วย x² ขนาดการแกว่งจะถูกบีบเข้าหาศูนย์ ส่วน sin(1/x) เพียงอย่างเดียวไม่มีลิมิต เพราะเลือกลำดับที่เข้าใกล้ศูนย์แล้วได้ค่า 1 และ −1 ได้
+      </span>
+     </p>
+     <div class="note">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Radians are essential
+       </span>
+       <span class="lang-th" lang="th">
+        ต้องใช้เรเดียน
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        The limit sin(x)/x = 1 uses radians. Replacing x by kx gives sin(kx)/x → k. This result can be proved geometrically by squeezing, without assuming the derivative of sine.
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิต sin(x)/x = 1 ใช้เมื่อวัดมุมเป็นเรเดียน เมื่อแทน x ด้วย kx จะได้ sin(kx)/x → k สามารถพิสูจน์ด้วยเรขาคณิตและทฤษฎีบทบีบ โดยไม่ต้องสมมติอนุพันธ์ของ sine ก่อน
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section" id="lhopital">
+     <h2>
+      <span class="lang-en" lang="en">
+       8. L’Hôpital’s rule and its limits
+      </span>
+      <span class="lang-th" lang="th">
+       8. กฎโลปิตาลและเงื่อนไขการใช้
+      </span>
+     </h2>
+     <div class="theorem">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Check hypotheses first
+       </span>
+       <span class="lang-th" lang="th">
+        ตรวจเงื่อนไขก่อนใช้
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        Suppose f and g are differentiable on a punctured one-sided interval near a, g′ is nonzero there, and f/g has form 0/0 or ∞/∞. If f′/g′ tends to a finite or infinite limit, then f/g has that same limit. Apply each side separately for a two-sided limit.
+       </span>
+       <span class="lang-th" lang="th">
+        สมมติ f และ g หาอนุพันธ์ได้ในช่วงด้านเดียวใกล้ a ที่ยกเว้นจุด a และ g′ ไม่เป็นศูนย์ในช่วงนั้น ถ้า f/g อยู่ในรูป 0/0 หรือ ∞/∞ และ f′/g′ มีลิมิตเป็นจำนวนจำกัดหรืออนันต์ แล้ว f/g มีลิมิตเดียวกัน สำหรับลิมิตสองด้านต้องตรวจทั้งสองด้าน
+       </span>
+      </p>
+     </div>
+     <div class="equation-block">
+      $$\lim_{x\to0}\frac{e^x-1-x}{x^2}=\lim_{x\to0}\frac{e^x-1}{2x}=\lim_{x\to0}\frac{e^x}{2}=\frac12$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Both applications above still have form 0/0. The rule differentiates numerator and denominator separately; it does not use the quotient rule. It also does not apply to 1/0. Rewrite products, differences, and powers into an eligible quotient first.
+      </span>
+      <span class="lang-th" lang="th">
+       ทั้งสองครั้งข้างต้นยังอยู่ในรูป 0/0 กฎนี้หาอนุพันธ์ตัวเศษและตัวส่วนแยกกัน ไม่ใช่ใช้กฎผลหาร และใช้กับ 1/0 ไม่ได้ สำหรับผลคูณ ผลต่าง หรือเลขยกกำลัง ต้องจัดให้อยู่ในรูปผลหารที่เข้าเงื่อนไขก่อน
+      </span>
+     </p>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        A power limit
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิตของเลขยกกำลัง
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        For x &gt; 0 let y = xˣ. Then ln y = x ln x = ln x/(1/x). L’Hôpital gives a limit of 0 for ln y, so y tends to e⁰ = 1 as x approaches zero from the right.
+       </span>
+       <span class="lang-th" lang="th">
+        เมื่อ x &gt; 0 ให้ y = xˣ จะได้ ln y = x ln x = ln x/(1/x) ใช้กฎโลปิตาลได้ลิมิตของ ln y เท่ากับ 0 ดังนั้น y เข้าใกล้ e⁰ = 1 เมื่อ x เข้าใกล้ศูนย์จากด้านขวา
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section" id="limit-lab">
+     <h2>
+      <span class="lang-en" lang="en">
+       9. Laboratory: approaching a point
+      </span>
+      <span class="lang-th" lang="th">
+       9. ห้องทดลอง: การเข้าใกล้จุด
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       Compare a removable hole with a jump. Move the distance slider toward zero and inspect both sides. Numerical evidence suggests behavior; the definition or a theorem proves it.
+      </span>
+      <span class="lang-th" lang="th">
+       เปรียบเทียบจุดขาดที่เติมเต็มได้กับการกระโดด เลื่อนระยะเข้าหาศูนย์แล้วสังเกตทั้งสองด้าน ข้อมูลเชิงตัวเลขช่วยคาดการณ์ แต่ต้องใช้นิยามหรือทฤษฎีบทเพื่อพิสูจน์
+      </span>
+     </p>
+     <div class="panel lab" data-lab="limits">
+      <div class="lab-controls">
+       <label for="limitFunction">
+        <span class="lang-en" lang="en">
+         Example
+        </span>
+        <span class="lang-th" lang="th">
+         ตัวอย่าง
+        </span>
+       </label>
+       <select id="limitFunction">
+        <option data-en="Removable hole: (x²−4)/(x−2)" data-th="จุดขาดที่เติมเต็มได้: (x²−4)/(x−2)" value="hole">
+         Removable hole: (x²−4)/(x−2)
+        </option>
+        <option data-en="Jump: −1 on the left, 1 on the right" data-th="การกระโดด: ซ้าย −1 ขวา 1" value="jump">
+         Jump: −1 on the left, 1 on the right
+        </option>
+       </select>
+       <label for="limitDistance">
+        <span class="lang-en" lang="en">
+         Closeness (powers of 10)
+        </span>
+        <span class="lang-th" lang="th">
+         ความใกล้ (กำลังของ 10)
+        </span>
+       </label>
+       <input id="limitDistance" max="4" min="0" step="0.1" type="range" value="1"/>
+       <output aria-live="polite" id="limitStats">
+       </output>
+      </div>
+      <canvas aria-describedby="limitStats" aria-label="Left and right approach to a limit" class="graph" data-label-en="Left and right approach to a limit" data-label-th="การเข้าใกล้ลิมิตจากซ้ายและขวา" id="limitCanvas" role="img">
+       <span class="lang-en" lang="en">
+        Left and right approach to a limit
+       </span>
+       <span class="lang-th" lang="th">
+        การเข้าใกล้ลิมิตจากซ้ายและขวา
+       </span>
+      </canvas>
+     </div>
+    </section>
+   </main>
+  </div>
+  <footer class="site-footer">
+   <a class="button" href="derivatives.html">
+    <span class="lang-en" lang="en">
+     Continue to Derivatives →
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนต่อ: อนุพันธ์ →
+    </span>
+   </a>
+   <p>
+    Calculus Atlas
+    <span aria-hidden="true">
+     ·
+    </span>
+    <span class="lang-en" lang="en">
+     A study of change &amp; accumulation
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนรู้การเปลี่ยนแปลงและการสะสม
+    </span>
+   </p>
+  </footer>
+  <dialog aria-labelledby="searchTitle" class="search-dialog" id="searchOverlay">
+   <div class="search-box">
+    <div>
+     <label for="searchInput" id="searchTitle">
+      <span class="lang-en" lang="en">
+       Search the atlas
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหาในแอตลาส
+      </span>
+     </label>
+     <input aria-controls="searchResults" autocomplete="off" id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…" type="search"/>
+    </div>
+    <button aria-label="Close search" class="search-close" data-label-en="Close search" data-label-th="ปิดการค้นหา" id="searchClose">
+     ×
+    </button>
+   </div>
+   <p class="search-count" id="searchCount" role="status">
+   </p>
+   <div class="search-results" id="searchResults">
+   </div>
+   <p class="search-help">
+    <span class="lang-en" lang="en">
+     Ctrl / ⌘ K to open · Tab to navigate · Esc to close
+    </span>
+    <span class="lang-th" lang="th">
+     Ctrl / ⌘ K เพื่อเปิด · Tab เพื่อเลือก · Esc เพื่อปิด
+    </span>
+   </p>
+  </dialog>
+  <noscript>
+   <p class="noscript-note">
+    Notes, navigation, and solutions remain readable. Enable JavaScript for graphs, calculators, search, and language switching. อ่านบทเรียนและเฉลยได้โดยไม่ใช้ JavaScript เปิด JavaScript เพื่อใช้กราฟ เครื่องคำนวณ ค้นหา และสลับภาษา
+   </p>
+  </noscript>
+ </body>
+</html>

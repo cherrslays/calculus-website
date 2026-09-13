@@ -1,10 +1,1097 @@
-<!doctype html><html lang="en" data-lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Integrals — Calculus Atlas</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjs@14.0.1/lib/browser/math.js"></script><script defer src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/all.min.js"></script><script defer src="app.js"></script></head><body><div class="paper-grid"></div>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">∫</span><span>Calculus Atlas</span></a><nav class="top-nav"><a href="index.html">Home</a><a href="limits.html">Limits</a><a href="derivatives.html">Derivatives</a><a class="active" href="integrals.html">Integrals</a><a href="practice.html">Practice</a></nav><div class="header-actions"><button class="icon-btn" data-search-open>⌕</button><button class="lang-btn" data-lang-toggle>TH</button><button class="icon-btn" data-theme-toggle>◐</button></div></header>
-<div class="lesson-layout"><aside class="sidebar"><p class="toc-title"><span class="lang-en">Chapter 3 · contents</span><span class="lang-th">บทที่ 3 · สารบัญ</span></p><a href="#riemann"><span class="lang-en">1. Riemann sums</span><span class="lang-th">1. ผลบวกรีมันน์</span></a><a href="#antiderivative"><span class="lang-en">2. Antiderivatives</span><span class="lang-th">2. ปฏิยานุพันธ์</span></a><a href="#ftc"><span class="lang-en">3. Fundamental theorem</span><span class="lang-th">3. ทฤษฎีบทมูลฐาน</span></a><a href="#techniques"><span class="lang-en">4. Techniques</span><span class="lang-th">4. เทคนิค</span></a><a href="#calculator"><span class="lang-en">5. Calculator</span><span class="lang-th">5. เครื่องคำนวณ</span></a><a href="practice.html#integrals-practice">Practice →</a></aside>
-<main class="lesson-main"><section class="page-hero reveal"><p class="eyebrow">Chapter 03</p><h1>Integrals</h1><p><span class="lang-en">Integration measures accumulation. It combines infinitely many tiny contributions and turns local information into a global total.</span><span class="lang-th">ปริพันธ์ใช้วัดการสะสม โดยรวมส่วนเล็กมากจำนวนมหาศาลเข้าด้วยกัน เพื่อเปลี่ยนข้อมูลเฉพาะจุดให้เป็นปริมาณรวม</span></p></section>
-<section id="riemann" class="lesson-section reveal"><h2><span class="lang-en">1. Riemann sums and area</span><span class="lang-th">1. ผลบวกรีมันน์และพื้นที่</span></h2><div class="definition">$$\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{i=1}^{n}f(x_i^*)\,\Delta x$$<p><span class="lang-en">A definite integral is the limit of finer and finer rectangle sums.</span><span class="lang-th">ปริพันธ์จำกัดเขตคือขีดจำกัดของผลรวมพื้นที่สี่เหลี่ยมที่แบ่งช่วงให้ละเอียดขึ้นเรื่อย ๆ</span></p></div><div class="panel interactive reverse"><canvas class="graph" id="riemannCanvas"></canvas><div><span class="card-kicker">Interactive</span><h3>$f(x)=x^2+1$ on $[0,2]$</h3><p><span class="lang-en">Increase the number of rectangles. The midpoint sum approaches the exact area $14/3$.</span><span class="lang-th">เพิ่มจำนวนสี่เหลี่ยม แล้วค่าประมาณแบบจุดกึ่งกลางจะเข้าใกล้พื้นที่จริง $14/3$</span></p><label>n = <strong id="nValue">6</strong></label><input id="nSlider" type="range" min="2" max="50" step="1" value="6"><div class="stat-grid"><div class="stat"><span>Approx.</span><strong id="areaValue">—</strong></div><div class="stat"><span>Exact</span><strong>4.6667</strong></div></div></div></div></section>
-<section id="antiderivative" class="lesson-section reveal"><h2><span class="lang-en">2. Antiderivatives</span><span class="lang-th">2. ปฏิยานุพันธ์</span></h2><p><span class="lang-en">An antiderivative of $f$ is a function $F$ such that $F'=f$.</span><span class="lang-th">ปฏิยานุพันธ์ของ $f$ คือฟังก์ชัน $F$ ที่ทำให้ $F'=f$</span></p><div class="definition">$$\int f(x)\,dx=F(x)+C$$</div><div class="formula-grid"><div class="formula-card"><small>Power rule</small>$$\int x^n dx=\frac{x^{n+1}}{n+1}+C,\quad n\ne-1$$</div><div class="formula-card"><small>Logarithm</small>$$\int\frac1x\,dx=\ln|x|+C$$</div><div class="formula-card">$$\int e^x dx=e^x+C$$</div><div class="formula-card">$$\int\sin x\,dx=-\cos x+C$$</div></div><div class="note"><span class="lang-en">The constant $C$ matters because every vertical shift of an antiderivative has the same derivative.</span><span class="lang-th">ค่าคงที่ $C$ สำคัญ เพราะฟังก์ชันที่ต่างกันด้วยการเลื่อนแนวตั้งมีอนุพันธ์เหมือนกัน</span></div></section>
-<section id="ftc" class="lesson-section reveal"><h2><span class="lang-en">3. Fundamental Theorem of Calculus</span><span class="lang-th">3. ทฤษฎีบทมูลฐานของแคลคูลัส</span></h2><div class="theorem"><span class="box-label">FTC I</span>$$\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$$</div><div class="theorem"><span class="box-label">FTC II</span>$$\int_a^b f(x)\,dx=F(b)-F(a)\quad\text{when }F'=f$$</div><p><span class="lang-en">This theorem says differentiation and integration are inverse processes in a precise sense.</span><span class="lang-th">ทฤษฎีบทนี้บอกว่า “การหาอนุพันธ์” และ “การอินทิเกรต” เป็นกระบวนการผกผันกันในความหมายที่ชัดเจน</span></p><div class="example"><span class="box-label">Example</span>$$\int_0^2(x^2+1)dx=\left[\frac{x^3}{3}+x\right]_0^2=\frac83+2=\frac{14}{3}$$</div></section>
-<section id="techniques" class="lesson-section reveal"><h2><span class="lang-en">4. Integration techniques</span><span class="lang-th">4. เทคนิคการอินทิเกรต</span></h2><h3>Substitution</h3><div class="definition">$$\int f(g(x))g'(x)\,dx=\int f(u)\,du$$</div><div class="example">$$\int 2x\cos(x^2)dx$$<p><span class="lang-en">Let $u=x^2$, so $du=2x\,dx$. Then the integral becomes $\int\cos u\,du=\sin u+C=\sin(x^2)+C$.</span><span class="lang-th">ให้ $u=x^2$ จะได้ $du=2x\,dx$ จึงเหลือ $\int\cos u\,du=\sin u+C=\sin(x^2)+C$</span></p></div><h3><span class="lang-en">Integration by parts</span><span class="lang-th">อินทิเกรตโดยส่วน</span></h3><div class="definition">$$\int u\,dv=uv-\int v\,du$$</div><div class="example">$$\int xe^x dx=xe^x-\int e^x dx=xe^x-e^x+C$$</div></section>
-<section id="calculator" class="lesson-section reveal"><h2><span class="lang-en">5. Integral calculator</span><span class="lang-th">5. เครื่องคำนวณปริพันธ์</span></h2><div class="panel calculator"><span class="card-kicker">Symbolic + definite</span><p><span class="lang-en">Enter a function and optional bounds. The calculator shows a symbolic antiderivative when available and a numerical definite integral.</span><span class="lang-th">ใส่ฟังก์ชันและขอบเขต เครื่องคำนวณจะแสดงปริพันธ์ไม่จำกัดเขตเชิงสัญลักษณ์เมื่อทำได้ และคำนวณปริพันธ์จำกัดเขตเชิงตัวเลข</span></p><div class="calc-grid"><input id="intExpr" value="sin(x)+x^2" aria-label="Integral expression"><button id="intCalcBtn"><span class="lang-en">Integrate</span><span class="lang-th">อินทิเกรต</span></button></div><div class="calc-row"><input id="intA" type="number" value="0" step="any" placeholder="a"><input id="intB" type="number" value="3.1415926536" step="any" placeholder="b"></div><div id="intOut" class="calc-output"><span class="lang-en">Result appears here.</span><span class="lang-th">คำตอบจะแสดงตรงนี้</span></div><canvas id="intGraph" class="graph" style="margin-top:16px"></canvas></div></section>
-</main></div><footer class="site-footer"><a href="practice.html">Next: Practice →</a></footer><div id="searchOverlay" class="search-overlay"><div class="search-modal"><div class="search-box"><input id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…"><button id="searchClose" class="search-close">×</button></div><div id="searchResults" class="search-results"></div></div></div></body></html>
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Integrals — Calculus Atlas
+  </title>
+  <script src="theme.js">
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Serif+Thai:wght@400;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script>
+   window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
+  </script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
+  <script defer="" src="vendor/math.js">
+  </script>
+  <script defer="" src="math-core.js">
+  </script>
+  <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="app.js">
+  </script>
+  <meta content="Bilingual university calculus: rigorous explanations, worked problems and interactive graphs." name="description"/>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main-content">
+   <span class="lang-en" lang="en">
+    Skip to content
+   </span>
+   <span class="lang-th" lang="th">
+    ข้ามไปเนื้อหา
+   </span>
+  </a>
+  <div class="paper-grid">
+  </div>
+  <header class="site-header">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ∫
+    </span>
+    <span>
+     Calculus Atlas
+    </span>
+   </a>
+   <nav aria-label="Main navigation" class="top-nav" data-label-en="Main navigation" data-label-th="เมนูหลัก">
+    <a href="index.html">
+     <span class="lang-en" lang="en">
+      Home
+     </span>
+     <span class="lang-th" lang="th">
+      หน้าแรก
+     </span>
+    </a>
+    <a href="limits.html">
+     <span class="lang-en" lang="en">
+      Limits
+     </span>
+     <span class="lang-th" lang="th">
+      ลิมิต
+     </span>
+    </a>
+    <a href="derivatives.html">
+     <span class="lang-en" lang="en">
+      Derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      อนุพันธ์
+     </span>
+    </a>
+    <a aria-current="page" class="active" href="integrals.html">
+     <span class="lang-en" lang="en">
+      Integrals
+     </span>
+     <span class="lang-th" lang="th">
+      ปริพันธ์
+     </span>
+    </a>
+    <a href="practice.html">
+     <span class="lang-en" lang="en">
+      Practice
+     </span>
+     <span class="lang-th" lang="th">
+      แบบฝึกหัด
+     </span>
+    </a>
+   </nav>
+   <div class="header-actions">
+    <details class="mobile-nav">
+     <summary>
+      <span class="lang-en" lang="en">
+       Menu
+      </span>
+      <span class="lang-th" lang="th">
+       เมนู
+      </span>
+     </summary>
+     <nav aria-label="Mobile navigation" data-label-en="Mobile navigation" data-label-th="เมนูสำหรับมือถือ">
+      <a href="index.html">
+       <span class="lang-en" lang="en">
+        Home
+       </span>
+       <span class="lang-th" lang="th">
+        หน้าแรก
+       </span>
+      </a>
+      <a href="limits.html">
+       <span class="lang-en" lang="en">
+        Limits
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิต
+       </span>
+      </a>
+      <a href="derivatives.html">
+       <span class="lang-en" lang="en">
+        Derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        อนุพันธ์
+       </span>
+      </a>
+      <a aria-current="page" href="integrals.html">
+       <span class="lang-en" lang="en">
+        Integrals
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์
+       </span>
+      </a>
+      <a href="practice.html">
+       <span class="lang-en" lang="en">
+        Practice
+       </span>
+       <span class="lang-th" lang="th">
+        แบบฝึกหัด
+       </span>
+      </a>
+     </nav>
+    </details>
+    <button aria-label="Search" class="icon-btn" data-label-en="Search" data-label-th="ค้นหา" data-search-open="">
+     <span aria-hidden="true">
+      ⌕
+     </span>
+     <span class="search-label">
+      <span class="lang-en" lang="en">
+       Search
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหา
+      </span>
+     </span>
+    </button>
+    <button aria-label="Switch to Thai" class="lang-btn" data-label-en="Switch to Thai" data-label-th="สลับเป็นภาษาอังกฤษ" data-lang-toggle="">
+     TH
+    </button>
+    <button aria-label="Toggle dark mode" aria-pressed="false" class="icon-btn" data-label-en="Toggle dark mode" data-label-th="สลับโหมดมืด" data-theme-toggle="">
+     ◐
+    </button>
+   </div>
+  </header>
+  <div class="lesson-layout">
+   <aside aria-label="Table of contents" class="sidebar" data-label-en="Table of contents" data-label-th="สารบัญ">
+    <p class="toc-title">
+     <span class="lang-en" lang="en">
+      On this page
+     </span>
+     <span class="lang-th" lang="th">
+      สารบัญหน้านี้
+     </span>
+    </p>
+    <a href="#riemann">
+     <span class="lang-en" lang="en">
+      1. Riemann sums and area
+     </span>
+     <span class="lang-th" lang="th">
+      1. ผลบวกรีมันน์และพื้นที่
+     </span>
+    </a>
+    <a href="#antiderivative">
+     <span class="lang-en" lang="en">
+      2. Antiderivatives
+     </span>
+     <span class="lang-th" lang="th">
+      2. ปฏิยานุพันธ์
+     </span>
+    </a>
+    <a href="#ftc">
+     <span class="lang-en" lang="en">
+      3. Fundamental Theorem of Calculus
+     </span>
+     <span class="lang-th" lang="th">
+      3. ทฤษฎีบทมูลฐานของแคลคูลัส
+     </span>
+    </a>
+    <a href="#techniques">
+     <span class="lang-en" lang="en">
+      4. Integration techniques
+     </span>
+     <span class="lang-th" lang="th">
+      4. เทคนิคการอินทิเกรต
+     </span>
+    </a>
+    <a href="#calculator">
+     <span class="lang-en" lang="en">
+      5. Integral calculator
+     </span>
+     <span class="lang-th" lang="th">
+      5. เครื่องคำนวณปริพันธ์
+     </span>
+    </a>
+    <a href="#signed-area">
+     <span class="lang-en" lang="en">
+      6. Signed accumulation and geometric area
+     </span>
+     <span class="lang-th" lang="th">
+      6. การสะสมแบบมีเครื่องหมายและพื้นที่เรขาคณิต
+     </span>
+    </a>
+    <a href="#ftc-conditions">
+     <span class="lang-en" lang="en">
+      7. The FTC: hypotheses and variable bounds
+     </span>
+     <span class="lang-th" lang="th">
+      7. เงื่อนไขของทฤษฎีบทมูลฐานและขอบเขตตัวแปร
+     </span>
+    </a>
+    <a href="#more-techniques">
+     <span class="lang-en" lang="en">
+      8. Choosing an integration technique
+     </span>
+     <span class="lang-th" lang="th">
+      8. เลือกเทคนิคการอินทิเกรต
+     </span>
+    </a>
+    <a href="#improper">
+     <span class="lang-en" lang="en">
+      9. Improper integrals and convergence
+     </span>
+     <span class="lang-th" lang="th">
+      9. ปริพันธ์ไม่ตรงแบบและการลู่เข้า
+     </span>
+    </a>
+    <a href="#numerical">
+     <span class="lang-en" lang="en">
+      10. Numerical integration and error
+     </span>
+     <span class="lang-th" lang="th">
+      10. การอินทิเกรตเชิงตัวเลขและความคลาดเคลื่อน
+     </span>
+    </a>
+    <a class="toc-practice" href="practice.html#integrals-practice">
+     <span class="lang-en" lang="en">
+      Practice this chapter →
+     </span>
+     <span class="lang-th" lang="th">
+      ฝึกโจทย์บทนี้ →
+     </span>
+    </a>
+   </aside>
+   <main class="lesson-main" id="main-content" tabindex="-1">
+    <section class="page-hero reveal">
+     <p class="eyebrow">
+      <span class="lang-en" lang="en">
+       Chapter 03 · Course notes
+      </span>
+      <span class="lang-th" lang="th">
+       บทที่ 03 · เอกสารประกอบการเรียน
+      </span>
+     </p>
+     <h1>
+      <span class="lang-en" lang="en">
+       Integrals
+      </span>
+      <span class="lang-th" lang="th">
+       ปริพันธ์
+      </span>
+     </h1>
+     <p>
+      <span class="lang-en" lang="en">
+       Integration measures accumulation. It combines infinitely many tiny contributions and turns local information into a global total.
+      </span>
+      <span class="lang-th" lang="th">
+       ปริพันธ์ใช้วัดการสะสม โดยรวมส่วนเล็กมากจำนวนมหาศาลเข้าด้วยกัน เพื่อเปลี่ยนข้อมูลเฉพาะจุดให้เป็นปริมาณรวม
+      </span>
+     </p>
+    </section>
+    <details class="mobile-toc">
+     <summary>
+      <span class="lang-en" lang="en">
+       On this page
+      </span>
+      <span class="lang-th" lang="th">
+       สารบัญหน้านี้
+      </span>
+     </summary>
+     <nav>
+      <p class="toc-title">
+       <span class="lang-en" lang="en">
+        On this page
+       </span>
+       <span class="lang-th" lang="th">
+        สารบัญหน้านี้
+       </span>
+      </p>
+      <a href="#riemann">
+       <span class="lang-en" lang="en">
+        1. Riemann sums and area
+       </span>
+       <span class="lang-th" lang="th">
+        1. ผลบวกรีมันน์และพื้นที่
+       </span>
+      </a>
+      <a href="#antiderivative">
+       <span class="lang-en" lang="en">
+        2. Antiderivatives
+       </span>
+       <span class="lang-th" lang="th">
+        2. ปฏิยานุพันธ์
+       </span>
+      </a>
+      <a href="#ftc">
+       <span class="lang-en" lang="en">
+        3. Fundamental Theorem of Calculus
+       </span>
+       <span class="lang-th" lang="th">
+        3. ทฤษฎีบทมูลฐานของแคลคูลัส
+       </span>
+      </a>
+      <a href="#techniques">
+       <span class="lang-en" lang="en">
+        4. Integration techniques
+       </span>
+       <span class="lang-th" lang="th">
+        4. เทคนิคการอินทิเกรต
+       </span>
+      </a>
+      <a href="#calculator">
+       <span class="lang-en" lang="en">
+        5. Integral calculator
+       </span>
+       <span class="lang-th" lang="th">
+        5. เครื่องคำนวณปริพันธ์
+       </span>
+      </a>
+      <a href="#signed-area">
+       <span class="lang-en" lang="en">
+        6. Signed accumulation and geometric area
+       </span>
+       <span class="lang-th" lang="th">
+        6. การสะสมแบบมีเครื่องหมายและพื้นที่เรขาคณิต
+       </span>
+      </a>
+      <a href="#ftc-conditions">
+       <span class="lang-en" lang="en">
+        7. The FTC: hypotheses and variable bounds
+       </span>
+       <span class="lang-th" lang="th">
+        7. เงื่อนไขของทฤษฎีบทมูลฐานและขอบเขตตัวแปร
+       </span>
+      </a>
+      <a href="#more-techniques">
+       <span class="lang-en" lang="en">
+        8. Choosing an integration technique
+       </span>
+       <span class="lang-th" lang="th">
+        8. เลือกเทคนิคการอินทิเกรต
+       </span>
+      </a>
+      <a href="#improper">
+       <span class="lang-en" lang="en">
+        9. Improper integrals and convergence
+       </span>
+       <span class="lang-th" lang="th">
+        9. ปริพันธ์ไม่ตรงแบบและการลู่เข้า
+       </span>
+      </a>
+      <a href="#numerical">
+       <span class="lang-en" lang="en">
+        10. Numerical integration and error
+       </span>
+       <span class="lang-th" lang="th">
+        10. การอินทิเกรตเชิงตัวเลขและความคลาดเคลื่อน
+       </span>
+      </a>
+      <a class="toc-practice" href="practice.html#integrals-practice">
+       <span class="lang-en" lang="en">
+        Practice this chapter →
+       </span>
+       <span class="lang-th" lang="th">
+        ฝึกโจทย์บทนี้ →
+       </span>
+      </a>
+     </nav>
+    </details>
+    <section class="lesson-section reveal" id="riemann">
+     <h2>
+      <span class="lang-en" lang="en">
+       1. Riemann sums and area
+      </span>
+      <span class="lang-th" lang="th">
+       1. ผลบวกรีมันน์และพื้นที่
+      </span>
+     </h2>
+     <div class="definition">
+      $$\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{i=1}^{n}f(x_i^*)\,\Delta x$$
+      <p>
+       <span class="lang-en" lang="en">
+        A definite integral is the limit of finer and finer rectangle sums.
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์จำกัดเขตคือขีดจำกัดของผลรวมพื้นที่สี่เหลี่ยมที่แบ่งช่วงให้ละเอียดขึ้นเรื่อย ๆ
+       </span>
+      </p>
+      <p>
+       <span class="lang-en" lang="en">
+        For continuous f on [a,b], equal subintervals have width Δx = (b−a)/n, and xᵢ* can be any sample in subinterval i. The limit is independent of those choices.
+       </span>
+       <span class="lang-th" lang="th">
+        เมื่อ f ต่อเนื่องบน [a,b] ช่วงย่อยเท่ากันมีความกว้าง Δx = (b−a)/n และ xᵢ* เป็นจุดตัวอย่างใดก็ได้ในช่วงย่อยที่ i ลิมิตไม่ขึ้นกับการเลือกจุดเหล่านี้
+       </span>
+      </p>
+     </div>
+     <div class="panel interactive reverse">
+      <canvas aria-describedby="riemannStats" aria-label="Riemann rectangle sum" class="graph" data-label-en="Riemann rectangle sum" data-label-th="ผลบวกพื้นที่สี่เหลี่ยมรีมันน์" id="riemannCanvas" role="img">
+       <span class="lang-en" lang="en">
+        Riemann rectangle sum
+       </span>
+       <span class="lang-th" lang="th">
+        ผลบวกพื้นที่สี่เหลี่ยมรีมันน์
+       </span>
+      </canvas>
+      <output aria-live="polite" id="riemannStats">
+      </output>
+      <div>
+       <span class="card-kicker">
+        <span class="lang-en" lang="en">
+         Interactive
+        </span>
+        <span class="lang-th" lang="th">
+         โต้ตอบได้
+        </span>
+       </span>
+       <h3>
+        <span class="lang-en" lang="en">
+         $f(x)=x^2+1$ on $[0,2]$
+        </span>
+        <span class="lang-th" lang="th">
+         $f(x)=x^2+1$ บน $[0,2]$
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Choose left, midpoint or right samples. Increase the number of rectangles to approach the exact integral 14/3. Compare the absolute errors.
+        </span>
+        <span class="lang-th" lang="th">
+         เลือกจุดซ้าย กึ่งกลาง หรือขวา เพิ่มจำนวนสี่เหลี่ยมเพื่อเข้าใกล้ปริพันธ์จริง 14/3 แล้วเปรียบเทียบความคลาดเคลื่อนสัมบูรณ์
+        </span>
+       </p>
+       <label for="nSlider">
+        n =
+        <strong id="nValue">
+         6
+        </strong>
+       </label>
+       <label for="riemannMethod">
+        <span class="lang-en" lang="en">
+         Sampling rule
+        </span>
+        <span class="lang-th" lang="th">
+         วิธีเลือกจุด
+        </span>
+       </label>
+       <select id="riemannMethod">
+        <option data-en="Left endpoints" data-th="ปลายซ้าย" value="left">
+         Left endpoints
+        </option>
+        <option data-en="Midpoints" data-th="จุดกึ่งกลาง" selected="" value="midpoint">
+         Midpoints
+        </option>
+        <option data-en="Right endpoints" data-th="ปลายขวา" value="right">
+         Right endpoints
+        </option>
+       </select>
+       <input id="nSlider" max="100" min="2" step="1" type="range" value="6"/>
+       <div class="stat-grid">
+        <div class="stat">
+         <span>
+          <span class="lang-en" lang="en">
+           Approx.
+          </span>
+          <span class="lang-th" lang="th">
+           ค่าประมาณ
+          </span>
+         </span>
+         <strong id="areaValue">
+          —
+         </strong>
+        </div>
+        <div class="stat">
+         <span>
+          <span class="lang-en" lang="en">
+           Exact
+          </span>
+          <span class="lang-th" lang="th">
+           ค่าจริง
+          </span>
+         </span>
+         <strong>
+          4.6667
+         </strong>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="antiderivative">
+     <h2>
+      <span class="lang-en" lang="en">
+       2. Antiderivatives
+      </span>
+      <span class="lang-th" lang="th">
+       2. ปฏิยานุพันธ์
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       An antiderivative of $f$ is a function $F$ such that $F'=f$.
+      </span>
+      <span class="lang-th" lang="th">
+       ปฏิยานุพันธ์ของ $f$ คือฟังก์ชัน $F$ ที่ทำให้ $F'=f$
+      </span>
+     </p>
+     <div class="definition">
+      $$\int f(x)\,dx=F(x)+C$$
+     </div>
+     <div class="formula-grid">
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Power rule
+        </span>
+        <span class="lang-th" lang="th">
+         กฎยกกำลัง
+        </span>
+       </small>
+       $$\int x^n dx=\frac{x^{n+1}}{n+1}+C,\quad n\ne-1$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Logarithm
+        </span>
+        <span class="lang-th" lang="th">
+         ลอการิทึม
+        </span>
+       </small>
+       $$\int\frac1x\,dx=\ln|x|+C$$
+      </div>
+      <div class="formula-card">
+       $$\int e^x dx=e^x+C$$
+      </div>
+      <div class="formula-card">
+       $$\int\sin x\,dx=-\cos x+C$$
+      </div>
+     </div>
+     <div class="note">
+      <span class="lang-en" lang="en">
+       The constant $C$ matters because every vertical shift of an antiderivative has the same derivative.
+      </span>
+      <span class="lang-th" lang="th">
+       ค่าคงที่ $C$ สำคัญ เพราะฟังก์ชันที่ต่างกันด้วยการเลื่อนแนวตั้งมีอนุพันธ์เหมือนกัน
+      </span>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="ftc">
+     <p>
+      <span class="lang-en" lang="en">
+       Assume f is continuous on [a,b]; in Part I take x in the interior. In Part II, F is an antiderivative on that interval.
+      </span>
+      <span class="lang-th" lang="th">
+       สมมติ f ต่อเนื่องบน [a,b] ในส่วนที่ 1 ให้ x อยู่ภายในช่วง และในส่วนที่ 2 ให้ F เป็นปฏิยานุพันธ์บนช่วงนั้น
+      </span>
+     </p>
+     <h2>
+      <span class="lang-en" lang="en">
+       3. Fundamental Theorem of Calculus
+      </span>
+      <span class="lang-th" lang="th">
+       3. ทฤษฎีบทมูลฐานของแคลคูลัส
+      </span>
+     </h2>
+     <div class="theorem">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        FTC I
+       </span>
+       <span class="lang-th" lang="th">
+        ทฤษฎีบทมูลฐาน ส่วนที่ 1
+       </span>
+      </span>
+      $$\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$$
+     </div>
+     <div class="theorem">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        FTC II
+       </span>
+       <span class="lang-th" lang="th">
+        ทฤษฎีบทมูลฐาน ส่วนที่ 2
+       </span>
+      </span>
+      $$\int_a^b f(x)\,dx=F(b)-F(a)\quad\quad F'=f$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       This theorem says differentiation and integration are inverse processes in a precise sense.
+      </span>
+      <span class="lang-th" lang="th">
+       ทฤษฎีบทนี้บอกว่า “การหาอนุพันธ์” และ “การอินทิเกรต” เป็นกระบวนการผกผันกันในความหมายที่ชัดเจน
+      </span>
+     </p>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Example
+       </span>
+       <span class="lang-th" lang="th">
+        ตัวอย่าง
+       </span>
+      </span>
+      $$\int_0^2(x^2+1)dx=\left[\frac{x^3}{3}+x\right]_0^2=\frac83+2=\frac{14}{3}$$
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="techniques">
+     <h2>
+      <span class="lang-en" lang="en">
+       4. Integration techniques
+      </span>
+      <span class="lang-th" lang="th">
+       4. เทคนิคการอินทิเกรต
+      </span>
+     </h2>
+     <h3>
+      <span class="lang-en" lang="en">
+       Substitution
+      </span>
+      <span class="lang-th" lang="th">
+       การแทนค่า
+      </span>
+     </h3>
+     <div class="definition">
+      $$\int f(g(x))g'(x)\,dx=\int f(u)\,du$$
+     </div>
+     <div class="example">
+      $$\int 2x\cos(x^2)dx$$
+      <p>
+       <span class="lang-en" lang="en">
+        Let $u=x^2$, so $du=2x\,dx$. Then the integral becomes $\int\cos u\,du=\sin u+C=\sin(x^2)+C$.
+       </span>
+       <span class="lang-th" lang="th">
+        ให้ $u=x^2$ จะได้ $du=2x\,dx$ จึงเหลือ $\int\cos u\,du=\sin u+C=\sin(x^2)+C$
+       </span>
+      </p>
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       Integration by parts
+      </span>
+      <span class="lang-th" lang="th">
+       อินทิเกรตโดยส่วน
+      </span>
+     </h3>
+     <div class="definition">
+      $$\int u\,dv=uv-\int v\,du$$
+     </div>
+     <div class="example">
+      $$\int xe^x dx=xe^x-\int e^x dx=xe^x-e^x+C$$
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="calculator">
+     <h2>
+      <span class="lang-en" lang="en">
+       5. Integral calculator
+      </span>
+      <span class="lang-th" lang="th">
+       5. เครื่องคำนวณปริพันธ์
+      </span>
+     </h2>
+     <form class="panel calculator" id="calculatorForm" novalidate="">
+      <span class="card-kicker">
+       <span class="lang-en" lang="en">
+        Symbolic + definite
+       </span>
+       <span class="lang-th" lang="th">
+        เชิงสัญลักษณ์และจำกัดเขต
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        Enter a function and optional bounds. The calculator shows a symbolic antiderivative when available and a numerical definite integral.
+       </span>
+       <span class="lang-th" lang="th">
+        ใส่ฟังก์ชันและขอบเขต เครื่องคำนวณจะแสดงปริพันธ์ไม่จำกัดเขตเชิงสัญลักษณ์เมื่อทำได้ และคำนวณปริพันธ์จำกัดเขตเชิงตัวเลข
+       </span>
+      </p>
+      <div class="calc-grid">
+       <label class="field-label" for="intExpr">
+        <span class="lang-en" lang="en">
+         Integrand f(x)
+        </span>
+        <span class="lang-th" lang="th">
+         ฟังก์ชันใต้ปริพันธ์ f(x)
+        </span>
+       </label>
+       <input aria-label="Integral expression" id="intExpr" maxlength="240" value="sin(x)+x^2"/>
+       <button id="intCalcBtn" type="submit">
+        <span class="lang-en" lang="en">
+         Integrate
+        </span>
+        <span class="lang-th" lang="th">
+         อินทิเกรต
+        </span>
+       </button>
+      </div>
+      <div class="calc-row">
+       <label for="intA">
+        <span class="lang-en" lang="en">
+         Lower bound a (optional)
+        </span>
+        <span class="lang-th" lang="th">
+         ขอบล่าง a (ไม่บังคับ)
+        </span>
+        <input id="intA" inputmode="decimal" placeholder="a" type="text" value="0"/>
+       </label>
+       <label for="intB">
+        <span class="lang-en" lang="en">
+         Upper bound b (optional)
+        </span>
+        <span class="lang-th" lang="th">
+         ขอบบน b (ไม่บังคับ)
+        </span>
+        <input id="intB" inputmode="decimal" placeholder="b" type="text" value="3.1415926536"/>
+       </label>
+      </div>
+      <p class="input-help">
+       <span class="lang-en" lang="en">
+        Leave both bounds blank for an antiderivative. Use finite decimal bounds for numerical integration of a continuous real function. Reversed bounds are supported. Estimates cannot certify convergence or detect every singularity. Angles are in radians.
+       </span>
+       <span class="lang-th" lang="th">
+        เว้นขอบทั้งสองว่างเพื่อหาปฏิยานุพันธ์ ใช้ขอบเป็นเลขทศนิยมจำกัดสำหรับปริพันธ์เชิงตัวเลขของฟังก์ชันค่าจริงที่ต่อเนื่อง สลับขอบได้ ค่าประมาณไม่สามารถยืนยันการลู่เข้าหรือตรวจพบจุดเอกฐานทุกจุด มุมเป็นเรเดียน
+       </span>
+      </p>
+      <div aria-live="polite" class="calc-output" id="intOut" role="status">
+       <span class="lang-en" lang="en">
+        Result appears here.
+       </span>
+       <span class="lang-th" lang="th">
+        คำตอบจะแสดงตรงนี้
+       </span>
+      </div>
+      <canvas aria-label="Function and signed integral region" class="graph" data-label-en="Function and signed integral region" data-label-th="ฟังก์ชันและพื้นที่ปริพันธ์แบบมีเครื่องหมาย" id="intGraph" role="img" style="margin-top:16px">
+       <span class="lang-en" lang="en">
+        Function and signed integral region
+       </span>
+       <span class="lang-th" lang="th">
+        ฟังก์ชันและพื้นที่ปริพันธ์แบบมีเครื่องหมาย
+       </span>
+      </canvas>
+     </form>
+    </section>
+    <section class="lesson-section" id="signed-area">
+     <h2>
+      <span class="lang-en" lang="en">
+       6. Signed accumulation and geometric area
+      </span>
+      <span class="lang-th" lang="th">
+       6. การสะสมแบบมีเครื่องหมายและพื้นที่เรขาคณิต
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       A definite integral counts values below the x-axis negatively. Geometric area is nonnegative and uses |f|. Split the interval at zeros where the sign changes; do not take the absolute value of the final signed integral.
+      </span>
+      <span class="lang-th" lang="th">
+       ปริพันธ์จำกัดเขตนับค่าที่อยู่ใต้แกน x เป็นลบ พื้นที่เรขาคณิตไม่ติดลบและใช้ |f| ให้แบ่งช่วงที่รากซึ่งฟังก์ชันเปลี่ยนเครื่องหมาย ไม่ใช่ใส่ค่าสัมบูรณ์ให้ปริพันธ์สุดท้าย
+      </span>
+     </p>
+     <div class="equation-block">
+      $$\int_{-1}^{1}x\,dx=0,\qquad \int_{-1}^{1}|x|\,dx=1$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       For two curves with upper curve g and lower curve f on [a,b], integrate g−f. If the curves cross, split at each intersection and determine which is above on each subinterval.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับสองเส้นโค้งที่ g อยู่บนและ f อยู่ล่างบน [a,b] ให้หาปริพันธ์ g−f ถ้าเส้นโค้งตัดกันให้แบ่งที่จุดตัดแล้วพิจารณาเส้นบนในแต่ละช่วง
+      </span>
+     </p>
+     <div class="equation-block">
+      $$A=\int_0^1(x-x^2)\,dx=\left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1=\frac16$$
+     </div>
+     <div class="panel lab">
+      <label for="areaBound">
+       <span class="lang-en" lang="en">
+        Upper bound b for f(x) = x on [−1,b]
+       </span>
+       <span class="lang-th" lang="th">
+        ขอบบน b ของ f(x) = x บน [−1,b]
+       </span>
+      </label>
+      <input id="areaBound" max="2" min="-1" step="0.05" type="range" value="1"/>
+      <canvas aria-describedby="areaStats" aria-label="Signed area and geometric area" class="graph" data-label-en="Signed area and geometric area" data-label-th="พื้นที่แบบมีเครื่องหมายและพื้นที่เรขาคณิต" id="areaCanvas" role="img">
+       <span class="lang-en" lang="en">
+        Signed area and geometric area
+       </span>
+       <span class="lang-th" lang="th">
+        พื้นที่แบบมีเครื่องหมายและพื้นที่เรขาคณิต
+       </span>
+      </canvas>
+      <output aria-live="polite" id="areaStats">
+      </output>
+     </div>
+    </section>
+    <section class="lesson-section" id="ftc-conditions">
+     <h2>
+      <span class="lang-en" lang="en">
+       7. The FTC: hypotheses and variable bounds
+      </span>
+      <span class="lang-th" lang="th">
+       7. เงื่อนไขของทฤษฎีบทมูลฐานและขอบเขตตัวแปร
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       For the introductory FTC, assume f is continuous on [a,b]. Then A(x) = ∫ₐˣ f(t)dt is differentiable for interior x and A′(x) = f(x). If F is any antiderivative of f on the interval, ∫ₐᵇ f = F(b)−F(a). Continuity is a sufficient hypothesis; applying the formula across a singularity is invalid.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับทฤษฎีบทมูลฐานระดับต้น สมมติ f ต่อเนื่องบน [a,b] แล้ว A(x) = ∫ₐˣ f(t)dt หาอนุพันธ์ได้ที่จุดภายในและ A′(x) = f(x) ถ้า F เป็นปฏิยานุพันธ์ของ f ในช่วงนั้น จะได้ ∫ₐᵇ f = F(b)−F(a) ความต่อเนื่องเป็นเงื่อนไขที่เพียงพอ และห้ามใช้สูตรข้ามจุดเอกฐานโดยไม่ตรวจสอบ
+      </span>
+     </p>
+     <div class="equation-block">
+      $$\frac{d}{dx}\int_{u(x)}^{v(x)}f(t)\,dt=f(v(x))v^{\prime}(x)-f(u(x))u^{\prime}(x)$$
+     </div>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Use the chain rule at each bound
+       </span>
+       <span class="lang-th" lang="th">
+        ใช้กฎลูกโซ่ที่ขอบแต่ละด้าน
+       </span>
+      </span>
+      <div class="equation-block">
+       $$\frac{d}{dx}\int_x^{x^2}\cos t\,dt=2x\cos(x^2)-\cos x$$
+      </div>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Reversing the bounds reverses the sign; an interval of zero length has integral zero. These algebraic properties refer to oriented accumulation, not geometric area.
+      </span>
+      <span class="lang-th" lang="th">
+       เมื่อสลับขอบเขต เครื่องหมายจะเปลี่ยน และช่วงที่ยาวศูนย์มีปริพันธ์เป็นศูนย์ สมบัติเหล่านี้ใช้กับการสะสมที่มีทิศทาง ไม่ใช่พื้นที่เรขาคณิต
+      </span>
+     </p>
+    </section>
+    <section class="lesson-section" id="more-techniques">
+     <h2>
+      <span class="lang-en" lang="en">
+       8. Choosing an integration technique
+      </span>
+      <span class="lang-th" lang="th">
+       8. เลือกเทคนิคการอินทิเกรต
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       First simplify algebra and look for a known derivative. Use substitution for a composition with its inner derivative, parts for a product that becomes simpler when differentiated, and partial fractions for rational functions after polynomial division if needed.
+      </span>
+      <span class="lang-th" lang="th">
+       เริ่มจากจัดรูปพีชคณิตและมองหาอนุพันธ์ที่รู้จัก ใช้การแทนค่าสำหรับฟังก์ชันประกอบที่มีอนุพันธ์ชั้นใน ใช้โดยส่วนเมื่อผลคูณง่ายขึ้นหลังหาอนุพันธ์ และใช้เศษส่วนย่อยสำหรับฟังก์ชันตรรกยะ โดยหารพหุนามก่อนถ้าจำเป็น
+      </span>
+     </p>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Definite substitution: change the bounds
+       </span>
+       <span class="lang-th" lang="th">
+        แทนค่าในปริพันธ์จำกัดเขต: เปลี่ยนขอบเขต
+       </span>
+      </span>
+      <div class="equation-block">
+       $$\int_0^1 2x\cos(x^2)\,dx=\int_0^1\cos u\,du=\sin1$$
+      </div>
+      <p>
+       <span class="lang-en" lang="en">
+        Here u = x² and du = 2x dx; x = 0 gives u = 0 and x = 1 gives u = 1. Once the bounds are in u, finish in u.
+       </span>
+       <span class="lang-th" lang="th">
+        ในที่นี้ u = x² และ du = 2x dx เมื่อ x = 0 ได้ u = 0 และเมื่อ x = 1 ได้ u = 1 เมื่อเปลี่ยนขอบเป็น u แล้ว ให้คำนวณจนจบในตัวแปร u
+       </span>
+      </p>
+     </div>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Partial fractions
+       </span>
+       <span class="lang-th" lang="th">
+        เศษส่วนย่อย
+       </span>
+      </span>
+      <div class="equation-block">
+       $$\frac1{x^2-1}=\frac12\left(\frac1{x-1}-\frac1{x+1}\right)$$
+      </div>
+      <div class="equation-block">
+       $$\int\frac{dx}{x^2-1}=\frac12\ln|x-1|-\frac12\ln|x+1|+C$$
+      </div>
+      <p>
+       <span class="lang-en" lang="en">
+        The formula holds separately on intervals avoiding x = ±1. Absolute values extend the real logarithms to all nonzero arguments.
+       </span>
+       <span class="lang-th" lang="th">
+        สูตรใช้แยกกันบนช่วงที่ไม่ผ่าน x = ±1 ค่าสัมบูรณ์ทำให้ลอการิทึมค่าจริงใช้ได้เมื่ออาร์กิวเมนต์เดิมไม่เป็นศูนย์
+       </span>
+      </p>
+     </div>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Trigonometric identities
+       </span>
+       <span class="lang-th" lang="th">
+        เอกลักษณ์ตรีโกณมิติ
+       </span>
+      </span>
+      <div class="equation-block">
+       $$\int\sin^2x\,dx=\int\frac{1-\cos2x}{2}\,dx=\frac{x}{2}-\frac{\sin2x}{4}+C$$
+      </div>
+     </div>
+    </section>
+    <section class="lesson-section" id="improper">
+     <h2>
+      <span class="lang-en" lang="en">
+       9. Improper integrals and convergence
+      </span>
+      <span class="lang-th" lang="th">
+       9. ปริพันธ์ไม่ตรงแบบและการลู่เข้า
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       An infinite interval or an unbounded integrand requires a limit. Evaluate the proper integral first, then take that limit. At an interior singularity, both sides must converge separately.
+      </span>
+      <span class="lang-th" lang="th">
+       ช่วงอนันต์หรือฟังก์ชันที่ไม่มีขอบเขตต้องใช้นิยามผ่านลิมิต คำนวณปริพันธ์บนช่วงปกติก่อนแล้วจึงหาลิมิต ถ้ามีจุดเอกฐานภายในช่วง ทั้งสองด้านต้องลู่เข้าแยกกัน
+      </span>
+     </p>
+     <div class="equation-block">
+      $$\int_1^{\infty}\frac{dx}{x^p}=\lim_{R\to\infty}\int_1^R x^{-p}\,dx=\frac1{p-1}\quad(p&gt;1)$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       For p ≤ 1 this tail integral diverges. Near zero, ∫₀¹ x⁻ᵖ dx instead converges precisely when p &lt; 1. The harmonic case p = 1 gives a logarithm in both settings.
+      </span>
+      <span class="lang-th" lang="th">
+       เมื่อ p ≤ 1 ปริพันธ์ปลายอนันต์นี้ลู่ออก ส่วนบริเวณใกล้ศูนย์ ∫₀¹ x⁻ᵖ dx จะลู่เข้าก็ต่อเมื่อ p &lt; 1 กรณี p = 1 ให้ลอการิทึมทั้งสองแบบ
+      </span>
+     </p>
+     <div class="note">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Cancellation is not convergence
+       </span>
+       <span class="lang-th" lang="th">
+        การหักล้างไม่ใช่การลู่เข้า
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        The improper integral of 1/x from −1 to 1 diverges: its left and right integrals diverge separately. A symmetric cancellation of zero is a Cauchy principal value, not the improper integral. The calculator is intended for continuous functions on finite intervals.
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์ไม่ตรงแบบของ 1/x จาก −1 ถึง 1 ลู่ออก เพราะปริพันธ์ด้านซ้ายและขวาลู่ออกแยกกัน การหักล้างแบบสมมาตรที่ได้ศูนย์เป็นค่าหลักโคชี ไม่ใช่ค่าปริพันธ์ไม่ตรงแบบ เครื่องคำนวณนี้ใช้กับฟังก์ชันต่อเนื่องบนช่วงจำกัด
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section" id="numerical">
+     <h2>
+      <span class="lang-en" lang="en">
+       10. Numerical integration and error
+      </span>
+      <span class="lang-th" lang="th">
+       10. การอินทิเกรตเชิงตัวเลขและความคลาดเคลื่อน
+      </span>
+     </h2>
+     <div class="equation-block">
+      $$M_n=\Delta x\sum_{i=1}^n f\!\left(a+\left(i-\frac12\right)\Delta x\right),\qquad\Delta x=\frac{b-a}{n}$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Left and right sums use the corresponding endpoint of each subinterval. For increasing functions, the left sum underestimates and the right sum overestimates the signed integral when a &lt; b. Midpoint and trapezoid rules generally converge faster for smooth functions.
+      </span>
+      <span class="lang-th" lang="th">
+       ผลบวกซ้ายและขวาใช้ค่าที่ปลายด้านนั้นของแต่ละช่วงย่อย สำหรับฟังก์ชันเพิ่ม เมื่อ a &lt; b ผลบวกซ้ายให้ค่าต่ำและผลบวกขวาให้ค่าสูงกว่าปริพันธ์แบบมีเครื่องหมาย โดยทั่วไปกฎจุดกึ่งกลางและคางหมูลู่เข้าเร็วกว่าเมื่อฟังก์ชันเรียบ
+      </span>
+     </p>
+     <div class="equation-block">
+      <p>
+       <span class="lang-en" lang="en">
+        Assuming |f″(x)| ≤ K throughout [a,b],
+       </span>
+       <span class="lang-th" lang="th">
+        เมื่อ |f″(x)| ≤ K ตลอดช่วง [a,b]
+       </span>
+      </p>
+      <div class="equation-block">
+       $$|E_M|\le\frac{K(b-a)^3}{24n^2}$$
+      </div>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Simpson’s rule combines quadratic approximations. Adaptive integration subdivides where the estimate changes most. An estimated error is not a proof of continuity or convergence; narrow spikes and singularities require mathematical analysis.
+      </span>
+      <span class="lang-th" lang="th">
+       กฎซิมป์สันรวมการประมาณด้วยพาราโบลา วิธีปรับช่วงอัตโนมัติแบ่งย่อยบริเวณที่ค่าประมาณเปลี่ยนมาก ค่าคลาดเคลื่อนโดยประมาณไม่ใช่การพิสูจน์ความต่อเนื่องหรือการลู่เข้า ยอดแคบและจุดเอกฐานยังต้องวิเคราะห์ทางคณิตศาสตร์
+      </span>
+     </p>
+    </section>
+   </main>
+  </div>
+  <footer class="site-footer">
+   <a class="button" href="practice.html">
+    <span class="lang-en" lang="en">
+     Continue to Practice →
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนต่อ: แบบฝึกหัด →
+    </span>
+   </a>
+   <p>
+    Calculus Atlas
+    <span aria-hidden="true">
+     ·
+    </span>
+    <span class="lang-en" lang="en">
+     A study of change &amp; accumulation
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนรู้การเปลี่ยนแปลงและการสะสม
+    </span>
+   </p>
+  </footer>
+  <dialog aria-labelledby="searchTitle" class="search-dialog" id="searchOverlay">
+   <div class="search-box">
+    <div>
+     <label for="searchInput" id="searchTitle">
+      <span class="lang-en" lang="en">
+       Search the atlas
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหาในแอตลาส
+      </span>
+     </label>
+     <input aria-controls="searchResults" autocomplete="off" id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…" type="search"/>
+    </div>
+    <button aria-label="Close search" class="search-close" data-label-en="Close search" data-label-th="ปิดการค้นหา" id="searchClose">
+     ×
+    </button>
+   </div>
+   <p class="search-count" id="searchCount" role="status">
+   </p>
+   <div class="search-results" id="searchResults">
+   </div>
+   <p class="search-help">
+    <span class="lang-en" lang="en">
+     Ctrl / ⌘ K to open · Tab to navigate · Esc to close
+    </span>
+    <span class="lang-th" lang="th">
+     Ctrl / ⌘ K เพื่อเปิด · Tab เพื่อเลือก · Esc เพื่อปิด
+    </span>
+   </p>
+  </dialog>
+  <noscript>
+   <p class="noscript-note">
+    Notes, navigation, and solutions remain readable. Enable JavaScript for graphs, calculators, search, and language switching. อ่านบทเรียนและเฉลยได้โดยไม่ใช้ JavaScript เปิด JavaScript เพื่อใช้กราฟ เครื่องคำนวณ ค้นหา และสลับภาษา
+   </p>
+  </noscript>
+ </body>
+</html>
