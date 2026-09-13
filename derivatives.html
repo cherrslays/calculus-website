@@ -1,10 +1,1090 @@
-<!doctype html><html lang="en" data-lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Derivatives — Calculus Atlas</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjs@14.0.1/lib/browser/math.js"></script><script defer src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/all.min.js"></script><script defer src="app.js"></script></head><body><div class="paper-grid"></div>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">∫</span><span>Calculus Atlas</span></a><nav class="top-nav"><a href="index.html">Home</a><a href="limits.html">Limits</a><a class="active" href="derivatives.html">Derivatives</a><a href="integrals.html">Integrals</a><a href="practice.html">Practice</a></nav><div class="header-actions"><button class="icon-btn" data-search-open>⌕</button><button class="lang-btn" data-lang-toggle>TH</button><button class="icon-btn" data-theme-toggle>◐</button></div></header>
-<div class="lesson-layout"><aside class="sidebar"><p class="toc-title"><span class="lang-en">Chapter 2 · contents</span><span class="lang-th">บทที่ 2 · สารบัญ</span></p><a href="#definition"><span class="lang-en">1. Definition</span><span class="lang-th">1. นิยาม</span></a><a href="#rules"><span class="lang-en">2. Rules</span><span class="lang-th">2. กฎการหาอนุพันธ์</span></a><a href="#tangent"><span class="lang-en">3. Tangent visual</span><span class="lang-th">3. เส้นสัมผัส</span></a><a href="#applications"><span class="lang-en">4. Applications</span><span class="lang-th">4. การประยุกต์</span></a><a href="#calculator"><span class="lang-en">5. Calculator</span><span class="lang-th">5. เครื่องคำนวณ</span></a><a href="practice.html#derivatives-practice"><span class="lang-en">Practice →</span><span class="lang-th">แบบฝึกหัด →</span></a></aside>
-<main class="lesson-main"><section class="page-hero reveal"><p class="eyebrow">Chapter 02</p><h1>Derivatives</h1><p><span class="lang-en">The derivative converts nearby change into an instantaneous rate. Geometrically, it is the slope of the tangent line; physically, it is velocity from position.</span><span class="lang-th">อนุพันธ์เปลี่ยน “การเปลี่ยนแปลงในช่วงเล็ก ๆ” ให้เป็นอัตราการเปลี่ยนแปลงฉับพลัน ทางเรขาคณิตคือความชันเส้นสัมผัส และทางฟิสิกส์คือความเร็วจากตำแหน่ง</span></p></section>
-<section id="definition" class="lesson-section reveal"><h2><span class="lang-en">1. Definition from a limit</span><span class="lang-th">1. นิยามจากลิมิต</span></h2><div class="definition">$$f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$$<p><span class="lang-en">The fraction is an average rate of change over a small interval. Letting $h\to0$ produces the instantaneous rate.</span><span class="lang-th">เศษส่วนนี้คืออัตราการเปลี่ยนแปลงเฉลี่ยในช่วงเล็ก ๆ และเมื่อให้ $h\to0$ จะได้อัตราการเปลี่ยนแปลงฉับพลัน</span></p></div><div class="example"><span class="box-label">From first principles</span><p>For $f(x)=x^2$:</p>$$\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}=2x+h$$ $$f'(x)=\lim_{h\to0}(2x+h)=2x$$</div><div class="note"><span class="lang-en">Differentiability implies continuity, but continuity does not guarantee differentiability. Example: $|x|$ is continuous at $0$ but has a corner there.</span><span class="lang-th">ถ้าหาอนุพันธ์ได้ย่อมต่อเนื่อง แต่ความต่อเนื่องไม่ได้รับประกันว่าจะหาอนุพันธ์ได้ เช่น $|x|$ ต่อเนื่องที่ 0 แต่มีมุมแหลม</span></div></section>
-<section id="rules" class="lesson-section reveal"><h2><span class="lang-en">2. Differentiation rules</span><span class="lang-th">2. กฎการหาอนุพันธ์</span></h2><div class="formula-grid"><div class="formula-card"><small>Power rule</small>$$\frac{d}{dx}x^n=nx^{n-1}$$</div><div class="formula-card"><small>Product rule</small>$$\frac{d}{dx}(uv)=u'v+uv'$$</div><div class="formula-card"><small>Quotient rule</small>$$\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}$$</div><div class="formula-card"><small>Chain rule</small>$$\frac{d}{dx}f(g(x))=f'(g(x))g'(x)$$</div></div><h3><span class="lang-en">Common derivatives</span><span class="lang-th">อนุพันธ์พื้นฐานที่ควรรู้</span></h3><div class="formula-grid"><div class="formula-card">$$(e^x)'=e^x,\qquad (\ln x)'=\frac1x$$</div><div class="formula-card">$$(\sin x)'=\cos x,\qquad (\cos x)'=-\sin x$$</div><div class="formula-card">$$(\tan x)'=\sec^2x$$</div><div class="formula-card">$$(a^x)'=a^x\ln a$$</div></div><div class="example"><span class="box-label">Chain rule example</span>$$y=(3x^2+1)^5$$ $$y'=5(3x^2+1)^4\cdot6x=30x(3x^2+1)^4$$</div></section>
-<section id="tangent" class="lesson-section reveal"><h2><span class="lang-en">3. Tangent line visualization</span><span class="lang-th">3. ภาพเส้นสัมผัส</span></h2><div class="panel interactive"><div><span class="card-kicker">Interactive</span><h3>$f(x)=x^2$</h3><p><span class="lang-en">Move the point. Since $f'(x)=2x$, the tangent slope changes linearly with $x$.</span><span class="lang-th">เลื่อนจุดบนกราฟ เนื่องจาก $f'(x)=2x$ ความชันของเส้นสัมผัสจะเปลี่ยนตาม $x$</span></p><label>$x_0=$ <strong id="xValue">1.0</strong></label><input id="xSlider" type="range" min="-2.5" max="2.5" step="0.1" value="1"><div class="stat-grid"><div class="stat"><span>Slope / ความชัน</span><strong id="slopeValue">2.00</strong></div><div class="stat"><span>Rule</span><strong>$f'(x)=2x$</strong></div></div></div><canvas class="graph" id="derivativeCanvas"></canvas></div><div class="theorem"><span class="box-label">Tangent line</span>$$y-f(a)=f'(a)(x-a)$$</div></section>
-<section id="applications" class="lesson-section reveal"><h2><span class="lang-en">4. Applications of derivatives</span><span class="lang-th">4. การประยุกต์อนุพันธ์</span></h2><h3><span class="lang-en">Increasing and decreasing</span><span class="lang-th">ช่วงเพิ่มและช่วงลด</span></h3><p><span class="lang-en">If $f'(x)>0$, the function is increasing; if $f'(x)<0$, it is decreasing.</span><span class="lang-th">ถ้า $f'(x)>0$ ฟังก์ชันกำลังเพิ่ม และถ้า $f'(x)<0$ ฟังก์ชันกำลังลด</span></p><h3><span class="lang-en">Optimization</span><span class="lang-th">การหาค่าสูงสุด/ต่ำสุด</span></h3><p><span class="lang-en">Find critical points where $f'(x)=0$ or $f'$ is undefined, then classify them using sign changes or the second derivative.</span><span class="lang-th">หาจุดวิกฤตจาก $f'(x)=0$ หรือจุดที่ $f'$ ไม่มีค่า จากนั้นจำแนกด้วยเครื่องหมายของอนุพันธ์หรืออนุพันธ์อันดับสอง</span></p><div class="example"><span class="box-label">Optimization example</span><p><span class="lang-en">For $f(x)=-x^2+6x+1$, $f'(x)=-2x+6=0$ gives $x=3$. Since $f''(x)=-2<0$, this point is a local maximum.</span><span class="lang-th">สำหรับ $f(x)=-x^2+6x+1$ จะได้ $f'(x)=-2x+6=0$ ดังนั้น $x=3$ และเพราะ $f''(x)=-2<0$ จุดนี้เป็นค่าสูงสุดเฉพาะที่</span></p></div><h3><span class="lang-en">Motion</span><span class="lang-th">การเคลื่อนที่</span></h3>$$v(t)=s'(t),\qquad a(t)=v'(t)=s''(t)$$</section>
-<section id="calculator" class="lesson-section reveal"><h2><span class="lang-en">5. Derivative calculator</span><span class="lang-th">5. เครื่องคำนวณอนุพันธ์</span></h2><div class="panel calculator"><span class="card-kicker">Symbolic calculator</span><p><span class="lang-en">Enter an expression in x, such as x^3*sin(x), exp(2*x), or log(x).</span><span class="lang-th">ใส่นิพจน์ที่มี x เช่น x^3*sin(x), exp(2*x) หรือ log(x)</span></p><div class="calc-grid"><input id="derivExpr" value="x^3*sin(x)" aria-label="Expression"><button id="derivCalcBtn"><span class="lang-en">Differentiate</span><span class="lang-th">หาอนุพันธ์</span></button></div><div id="derivOut" class="calc-output"><span class="lang-en">Result appears here.</span><span class="lang-th">คำตอบจะแสดงตรงนี้</span></div><canvas id="calcGraph" class="graph" style="margin-top:16px"></canvas></div></section>
-</main></div><footer class="site-footer"><a href="integrals.html">Next: Integrals →</a></footer><div id="searchOverlay" class="search-overlay"><div class="search-modal"><div class="search-box"><input id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…"><button id="searchClose" class="search-close">×</button></div><div id="searchResults" class="search-results"></div></div></div></body></html>
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Derivatives — Calculus Atlas
+  </title>
+  <script src="theme.js">
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Serif+Thai:wght@400;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script>
+   window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
+  </script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
+  <script defer="" src="vendor/math.js">
+  </script>
+  <script defer="" src="math-core.js">
+  </script>
+  <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="app.js">
+  </script>
+  <meta content="Bilingual university calculus: rigorous explanations, worked problems and interactive graphs." name="description"/>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main-content">
+   <span class="lang-en" lang="en">
+    Skip to content
+   </span>
+   <span class="lang-th" lang="th">
+    ข้ามไปเนื้อหา
+   </span>
+  </a>
+  <div class="paper-grid">
+  </div>
+  <header class="site-header">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ∫
+    </span>
+    <span>
+     Calculus Atlas
+    </span>
+   </a>
+   <nav aria-label="Main navigation" class="top-nav" data-label-en="Main navigation" data-label-th="เมนูหลัก">
+    <a href="index.html">
+     <span class="lang-en" lang="en">
+      Home
+     </span>
+     <span class="lang-th" lang="th">
+      หน้าแรก
+     </span>
+    </a>
+    <a href="limits.html">
+     <span class="lang-en" lang="en">
+      Limits
+     </span>
+     <span class="lang-th" lang="th">
+      ลิมิต
+     </span>
+    </a>
+    <a aria-current="page" class="active" href="derivatives.html">
+     <span class="lang-en" lang="en">
+      Derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      อนุพันธ์
+     </span>
+    </a>
+    <a href="integrals.html">
+     <span class="lang-en" lang="en">
+      Integrals
+     </span>
+     <span class="lang-th" lang="th">
+      ปริพันธ์
+     </span>
+    </a>
+    <a href="practice.html">
+     <span class="lang-en" lang="en">
+      Practice
+     </span>
+     <span class="lang-th" lang="th">
+      แบบฝึกหัด
+     </span>
+    </a>
+   </nav>
+   <div class="header-actions">
+    <details class="mobile-nav">
+     <summary>
+      <span class="lang-en" lang="en">
+       Menu
+      </span>
+      <span class="lang-th" lang="th">
+       เมนู
+      </span>
+     </summary>
+     <nav aria-label="Mobile navigation" data-label-en="Mobile navigation" data-label-th="เมนูสำหรับมือถือ">
+      <a href="index.html">
+       <span class="lang-en" lang="en">
+        Home
+       </span>
+       <span class="lang-th" lang="th">
+        หน้าแรก
+       </span>
+      </a>
+      <a href="limits.html">
+       <span class="lang-en" lang="en">
+        Limits
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิต
+       </span>
+      </a>
+      <a aria-current="page" href="derivatives.html">
+       <span class="lang-en" lang="en">
+        Derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        อนุพันธ์
+       </span>
+      </a>
+      <a href="integrals.html">
+       <span class="lang-en" lang="en">
+        Integrals
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์
+       </span>
+      </a>
+      <a href="practice.html">
+       <span class="lang-en" lang="en">
+        Practice
+       </span>
+       <span class="lang-th" lang="th">
+        แบบฝึกหัด
+       </span>
+      </a>
+     </nav>
+    </details>
+    <button aria-label="Search" class="icon-btn" data-label-en="Search" data-label-th="ค้นหา" data-search-open="">
+     <span aria-hidden="true">
+      ⌕
+     </span>
+     <span class="search-label">
+      <span class="lang-en" lang="en">
+       Search
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหา
+      </span>
+     </span>
+    </button>
+    <button aria-label="Switch to Thai" class="lang-btn" data-label-en="Switch to Thai" data-label-th="สลับเป็นภาษาอังกฤษ" data-lang-toggle="">
+     TH
+    </button>
+    <button aria-label="Toggle dark mode" aria-pressed="false" class="icon-btn" data-label-en="Toggle dark mode" data-label-th="สลับโหมดมืด" data-theme-toggle="">
+     ◐
+    </button>
+   </div>
+  </header>
+  <div class="lesson-layout">
+   <aside aria-label="Table of contents" class="sidebar" data-label-en="Table of contents" data-label-th="สารบัญ">
+    <p class="toc-title">
+     <span class="lang-en" lang="en">
+      On this page
+     </span>
+     <span class="lang-th" lang="th">
+      สารบัญหน้านี้
+     </span>
+    </p>
+    <a href="#definition">
+     <span class="lang-en" lang="en">
+      1. Definition from a limit
+     </span>
+     <span class="lang-th" lang="th">
+      1. นิยามจากลิมิต
+     </span>
+    </a>
+    <a href="#rules">
+     <span class="lang-en" lang="en">
+      2. Differentiation rules
+     </span>
+     <span class="lang-th" lang="th">
+      2. กฎการหาอนุพันธ์
+     </span>
+    </a>
+    <a href="#tangent">
+     <span class="lang-en" lang="en">
+      3. Tangent line visualization
+     </span>
+     <span class="lang-th" lang="th">
+      3. ภาพเส้นสัมผัส
+     </span>
+    </a>
+    <a href="#applications">
+     <span class="lang-en" lang="en">
+      4. Applications of derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      4. การประยุกต์อนุพันธ์
+     </span>
+    </a>
+    <a href="#calculator">
+     <span class="lang-en" lang="en">
+      5. Derivative calculator
+     </span>
+     <span class="lang-th" lang="th">
+      5. เครื่องคำนวณอนุพันธ์
+     </span>
+    </a>
+    <a href="#implicit">
+     <span class="lang-en" lang="en">
+      6. Implicit and logarithmic differentiation
+     </span>
+     <span class="lang-th" lang="th">
+      6. อนุพันธ์โดยปริยายและลอการิทึม
+     </span>
+    </a>
+    <a href="#mean-value">
+     <span class="lang-en" lang="en">
+      7. Mean Value Theorem
+     </span>
+     <span class="lang-th" lang="th">
+      7. ทฤษฎีบทค่ากลาง
+     </span>
+    </a>
+    <a href="#curve-analysis">
+     <span class="lang-en" lang="en">
+      8. Curve analysis and global extrema
+     </span>
+     <span class="lang-th" lang="th">
+      8. วิเคราะห์กราฟและค่าสุดขั้วสัมบูรณ์
+     </span>
+    </a>
+    <a href="#related-rates">
+     <span class="lang-en" lang="en">
+      9. Related rates and linear approximation
+     </span>
+     <span class="lang-th" lang="th">
+      9. อัตราสัมพัทธ์และการประมาณเชิงเส้น
+     </span>
+    </a>
+    <a class="toc-practice" href="practice.html#derivatives-practice">
+     <span class="lang-en" lang="en">
+      Practice this chapter →
+     </span>
+     <span class="lang-th" lang="th">
+      ฝึกโจทย์บทนี้ →
+     </span>
+    </a>
+   </aside>
+   <main class="lesson-main" id="main-content" tabindex="-1">
+    <section class="page-hero reveal">
+     <p class="eyebrow">
+      <span class="lang-en" lang="en">
+       Chapter 02 · Course notes
+      </span>
+      <span class="lang-th" lang="th">
+       บทที่ 02 · เอกสารประกอบการเรียน
+      </span>
+     </p>
+     <h1>
+      <span class="lang-en" lang="en">
+       Derivatives
+      </span>
+      <span class="lang-th" lang="th">
+       อนุพันธ์
+      </span>
+     </h1>
+     <p>
+      <span class="lang-en" lang="en">
+       The derivative converts nearby change into an instantaneous rate. Geometrically, it is the slope of the tangent line; physically, it is velocity from position.
+      </span>
+      <span class="lang-th" lang="th">
+       อนุพันธ์เปลี่ยน “การเปลี่ยนแปลงในช่วงเล็ก ๆ” ให้เป็นอัตราการเปลี่ยนแปลงฉับพลัน ทางเรขาคณิตคือความชันเส้นสัมผัส และทางฟิสิกส์คือความเร็วจากตำแหน่ง
+      </span>
+     </p>
+    </section>
+    <details class="mobile-toc">
+     <summary>
+      <span class="lang-en" lang="en">
+       On this page
+      </span>
+      <span class="lang-th" lang="th">
+       สารบัญหน้านี้
+      </span>
+     </summary>
+     <nav>
+      <p class="toc-title">
+       <span class="lang-en" lang="en">
+        On this page
+       </span>
+       <span class="lang-th" lang="th">
+        สารบัญหน้านี้
+       </span>
+      </p>
+      <a href="#definition">
+       <span class="lang-en" lang="en">
+        1. Definition from a limit
+       </span>
+       <span class="lang-th" lang="th">
+        1. นิยามจากลิมิต
+       </span>
+      </a>
+      <a href="#rules">
+       <span class="lang-en" lang="en">
+        2. Differentiation rules
+       </span>
+       <span class="lang-th" lang="th">
+        2. กฎการหาอนุพันธ์
+       </span>
+      </a>
+      <a href="#tangent">
+       <span class="lang-en" lang="en">
+        3. Tangent line visualization
+       </span>
+       <span class="lang-th" lang="th">
+        3. ภาพเส้นสัมผัส
+       </span>
+      </a>
+      <a href="#applications">
+       <span class="lang-en" lang="en">
+        4. Applications of derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        4. การประยุกต์อนุพันธ์
+       </span>
+      </a>
+      <a href="#calculator">
+       <span class="lang-en" lang="en">
+        5. Derivative calculator
+       </span>
+       <span class="lang-th" lang="th">
+        5. เครื่องคำนวณอนุพันธ์
+       </span>
+      </a>
+      <a href="#implicit">
+       <span class="lang-en" lang="en">
+        6. Implicit and logarithmic differentiation
+       </span>
+       <span class="lang-th" lang="th">
+        6. อนุพันธ์โดยปริยายและลอการิทึม
+       </span>
+      </a>
+      <a href="#mean-value">
+       <span class="lang-en" lang="en">
+        7. Mean Value Theorem
+       </span>
+       <span class="lang-th" lang="th">
+        7. ทฤษฎีบทค่ากลาง
+       </span>
+      </a>
+      <a href="#curve-analysis">
+       <span class="lang-en" lang="en">
+        8. Curve analysis and global extrema
+       </span>
+       <span class="lang-th" lang="th">
+        8. วิเคราะห์กราฟและค่าสุดขั้วสัมบูรณ์
+       </span>
+      </a>
+      <a href="#related-rates">
+       <span class="lang-en" lang="en">
+        9. Related rates and linear approximation
+       </span>
+       <span class="lang-th" lang="th">
+        9. อัตราสัมพัทธ์และการประมาณเชิงเส้น
+       </span>
+      </a>
+      <a class="toc-practice" href="practice.html#derivatives-practice">
+       <span class="lang-en" lang="en">
+        Practice this chapter →
+       </span>
+       <span class="lang-th" lang="th">
+        ฝึกโจทย์บทนี้ →
+       </span>
+      </a>
+     </nav>
+    </details>
+    <section class="lesson-section reveal" id="definition">
+     <h2>
+      <span class="lang-en" lang="en">
+       1. Definition from a limit
+      </span>
+      <span class="lang-th" lang="th">
+       1. นิยามจากลิมิต
+      </span>
+     </h2>
+     <div class="definition">
+      $$f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}$$
+      <p>
+       <span class="lang-en" lang="en">
+        The fraction is an average rate of change over a small interval. Letting $h\to0$ produces the instantaneous rate.
+       </span>
+       <span class="lang-th" lang="th">
+        เศษส่วนนี้คืออัตราการเปลี่ยนแปลงเฉลี่ยในช่วงเล็ก ๆ และเมื่อให้ $h\to0$ จะได้อัตราการเปลี่ยนแปลงฉับพลัน
+       </span>
+      </p>
+     </div>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        From first principles
+       </span>
+       <span class="lang-th" lang="th">
+        จากนิยาม
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        For $f(x)=x^2$:
+       </span>
+       <span class="lang-th" lang="th">
+        สำหรับ $f(x)=x^2$:
+       </span>
+      </p>
+      $$\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}=2x+h$$ $$f'(x)=\lim_{h\to0}(2x+h)=2x$$
+     </div>
+     <div class="note">
+      <span class="lang-en" lang="en">
+       Differentiability implies continuity, but continuity does not guarantee differentiability. Example: $|x|$ is continuous at $0$ but has a corner there.
+      </span>
+      <span class="lang-th" lang="th">
+       ถ้าหาอนุพันธ์ได้ย่อมต่อเนื่อง แต่ความต่อเนื่องไม่ได้รับประกันว่าจะหาอนุพันธ์ได้ เช่น $|x|$ ต่อเนื่องที่ 0 แต่มีมุมแหลม
+      </span>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="rules">
+     <h2>
+      <span class="lang-en" lang="en">
+       2. Differentiation rules
+      </span>
+      <span class="lang-th" lang="th">
+       2. กฎการหาอนุพันธ์
+      </span>
+     </h2>
+     <div class="formula-grid">
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Power rule
+        </span>
+        <span class="lang-th" lang="th">
+         กฎยกกำลัง
+        </span>
+       </small>
+       $$\frac{d}{dx}x^n=nx^{n-1}$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Product rule
+        </span>
+        <span class="lang-th" lang="th">
+         กฎผลคูณ
+        </span>
+       </small>
+       $$\frac{d}{dx}(uv)=u'v+uv'$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Quotient rule
+        </span>
+        <span class="lang-th" lang="th">
+         กฎผลหาร
+        </span>
+       </small>
+       $$\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}$$
+      </div>
+      <div class="formula-card">
+       <small>
+        <span class="lang-en" lang="en">
+         Chain rule
+        </span>
+        <span class="lang-th" lang="th">
+         กฎลูกโซ่
+        </span>
+       </small>
+       $$\frac{d}{dx}f(g(x))=f'(g(x))g'(x)$$
+      </div>
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       Common derivatives
+      </span>
+      <span class="lang-th" lang="th">
+       อนุพันธ์พื้นฐานที่ควรรู้
+      </span>
+     </h3>
+     <div class="formula-grid">
+      <div class="formula-card">
+       $$(e^x)'=e^x,\qquad (\ln x)'=\frac1x$$
+      </div>
+      <div class="formula-card">
+       $$(\sin x)'=\cos x,\qquad (\cos x)'=-\sin x$$
+      </div>
+      <div class="formula-card">
+       $$(\tan x)'=\sec^2x$$
+      </div>
+      <div class="formula-card">
+       $$(a^x)'=a^x\ln a$$
+      </div>
+     </div>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Chain rule example
+       </span>
+       <span class="lang-th" lang="th">
+        ตัวอย่างกฎลูกโซ่
+       </span>
+      </span>
+      $$y=(3x^2+1)^5$$ $$y'=5(3x^2+1)^4\cdot6x=30x(3x^2+1)^4$$
+     </div>
+     <div class="note">
+      <span class="lang-en" lang="en">
+       Apply rules only where the functions are differentiable. Quotients require a nonzero denominator; ln x requires x &gt; 0; aˣ assumes a &gt; 0. For a general real exponent n, the power rule holds on x &gt; 0 and on other real intervals where the power is defined and differentiable.
+      </span>
+      <span class="lang-th" lang="th">
+       ใช้กฎเมื่อฟังก์ชันหาอนุพันธ์ได้ กฎผลหารต้องมีตัวส่วนไม่เป็นศูนย์ ln x ต้องมี x &gt; 0 และ aˣ สมมติ a &gt; 0 สำหรับกำลังจริง n กฎยกกำลังใช้บน x &gt; 0 และช่วงค่าจริงอื่นที่ฟังก์ชันนิยามและหาอนุพันธ์ได้
+      </span>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="tangent">
+     <h2>
+      <span class="lang-en" lang="en">
+       3. Tangent line visualization
+      </span>
+      <span class="lang-th" lang="th">
+       3. ภาพเส้นสัมผัส
+      </span>
+     </h2>
+     <div class="panel interactive">
+      <div>
+       <span class="card-kicker">
+        <span class="lang-en" lang="en">
+         Interactive
+        </span>
+        <span class="lang-th" lang="th">
+         โต้ตอบได้
+        </span>
+       </span>
+       <h3>
+        $f(x)=x^2$
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Choose a function and move the point. Reduce h to compare the secant slope with the tangent slope; the derivative curve records those tangent slopes.
+        </span>
+        <span class="lang-th" lang="th">
+         เลือกฟังก์ชันแล้วเลื่อนจุด ลด h เพื่อเปรียบเทียบความชันเส้นตัดกับเส้นสัมผัส กราฟอนุพันธ์บันทึกค่าความชันเส้นสัมผัสเหล่านี้
+        </span>
+       </p>
+       <label for="tangentFunction">
+        <span class="lang-en" lang="en">
+         Function
+        </span>
+        <span class="lang-th" lang="th">
+         ฟังก์ชัน
+        </span>
+       </label>
+       <select id="tangentFunction">
+        <option value="square">
+         x²
+        </option>
+        <option value="cubic">
+         x³ − 3x
+        </option>
+        <option value="sine">
+         sin(x)
+        </option>
+       </select>
+       <label for="xSlider">
+        $x_0=$
+        <strong id="xValue">
+         1.0
+        </strong>
+       </label>
+       <input id="xSlider" max="2.5" min="-2.5" step="0.1" type="range" value="1"/>
+       <label for="hSlider">
+        <span class="lang-en" lang="en">
+         Secant interval h
+        </span>
+        <span class="lang-th" lang="th">
+         ช่วงเส้นตัด h
+        </span>
+       </label>
+       <input id="hSlider" max="1" min="0.01" step="0.01" type="range" value="0.5"/>
+       <label class="check-label">
+        <input checked="" id="showDerivative" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Show derivative curve (dashed)
+        </span>
+        <span class="lang-th" lang="th">
+         แสดงกราฟอนุพันธ์ (เส้นประ)
+        </span>
+       </label>
+       <output aria-live="polite" id="tangentStats">
+       </output>
+       <div class="stat-grid">
+        <div class="stat">
+         <span>
+          <span class="lang-en" lang="en">
+           Slope
+          </span>
+          <span class="lang-th" lang="th">
+           ความชัน
+          </span>
+         </span>
+         <strong id="slopeValue">
+          2.00
+         </strong>
+        </div>
+        <div class="stat">
+         <span>
+          <span class="lang-en" lang="en">
+           Rule
+          </span>
+          <span class="lang-th" lang="th">
+           กฎ
+          </span>
+         </span>
+         <strong>
+          $f'(x)=2x$
+         </strong>
+        </div>
+       </div>
+      </div>
+      <canvas aria-describedby="tangentStats" aria-label="Function, tangent, secant and derivative graphs" class="graph" data-label-en="Function, tangent, secant and derivative graphs" data-label-th="กราฟฟังก์ชัน เส้นสัมผัส เส้นตัด และอนุพันธ์" id="derivativeCanvas" role="img">
+       <span class="lang-en" lang="en">
+        Function, tangent, secant and derivative graphs
+       </span>
+       <span class="lang-th" lang="th">
+        กราฟฟังก์ชัน เส้นสัมผัส เส้นตัด และอนุพันธ์
+       </span>
+      </canvas>
+     </div>
+     <div class="theorem">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Tangent line
+       </span>
+       <span class="lang-th" lang="th">
+        เส้นสัมผัส
+       </span>
+      </span>
+      $$y-f(a)=f'(a)(x-a)$$
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="applications">
+     <h2>
+      <span class="lang-en" lang="en">
+       4. Applications of derivatives
+      </span>
+      <span class="lang-th" lang="th">
+       4. การประยุกต์อนุพันธ์
+      </span>
+     </h2>
+     <h3>
+      <span class="lang-en" lang="en">
+       Increasing and decreasing
+      </span>
+      <span class="lang-th" lang="th">
+       ช่วงเพิ่มและช่วงลด
+      </span>
+     </h3>
+     <p>
+      <span class="lang-en" lang="en">
+       If $f'(x)&gt;0$ throughout an interval, the function is strictly increasing there; if $f'(x)&lt;0$ throughout, it is strictly decreasing.
+      </span>
+      <span class="lang-th" lang="th">
+       ถ้า $f'(x)&gt;0$ ตลอดช่วง ฟังก์ชันจะเพิ่มอย่างเคร่งครัดในช่วงนั้น และถ้า $f'(x)&lt;0$ ตลอดช่วง ฟังก์ชันจะลดอย่างเคร่งครัด
+      </span>
+     </p>
+     <h3>
+      <span class="lang-en" lang="en">
+       Optimization
+      </span>
+      <span class="lang-th" lang="th">
+       การหาค่าสูงสุด/ต่ำสุด
+      </span>
+     </h3>
+     <p>
+      <span class="lang-en" lang="en">
+       Find critical points where $f'(x)=0$ or $f'$ is undefined, then classify them using sign changes or the second derivative.
+      </span>
+      <span class="lang-th" lang="th">
+       หาจุดวิกฤตจาก $f'(x)=0$ หรือจุดที่ $f'$ ไม่มีค่า จากนั้นจำแนกด้วยเครื่องหมายของอนุพันธ์หรืออนุพันธ์อันดับสอง
+      </span>
+     </p>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Optimization example
+       </span>
+       <span class="lang-th" lang="th">
+        ตัวอย่างการหาค่าสุดขั้ว
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        For $f(x)=-x^2+6x+1$, $f'(x)=-2x+6=0$ gives $x=3$. Since $f''(x)=-2&lt;0$, this point is a local maximum.
+       </span>
+       <span class="lang-th" lang="th">
+        สำหรับ $f(x)=-x^2+6x+1$ จะได้ $f'(x)=-2x+6=0$ ดังนั้น $x=3$ และเพราะ $f''(x)=-2&lt;0$ จุดนี้เป็นค่าสูงสุดเฉพาะที่
+       </span>
+      </p>
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       Motion
+      </span>
+      <span class="lang-th" lang="th">
+       การเคลื่อนที่
+      </span>
+     </h3>
+     $$v(t)=s'(t),\qquad a(t)=v'(t)=s''(t)$$
+    </section>
+    <section class="lesson-section reveal" id="calculator">
+     <h2>
+      <span class="lang-en" lang="en">
+       5. Derivative calculator
+      </span>
+      <span class="lang-th" lang="th">
+       5. เครื่องคำนวณอนุพันธ์
+      </span>
+     </h2>
+     <form class="panel calculator" id="calculatorForm" novalidate="">
+      <span class="card-kicker">
+       <span class="lang-en" lang="en">
+        Symbolic calculator
+       </span>
+       <span class="lang-th" lang="th">
+        เครื่องคำนวณเชิงสัญลักษณ์
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        Enter an expression in x, such as x^3*sin(x), exp(2*x), or log(x).
+       </span>
+       <span class="lang-th" lang="th">
+        ใส่นิพจน์ที่มี x เช่น x^3*sin(x), exp(2*x) หรือ log(x)
+       </span>
+      </p>
+      <div class="calc-grid">
+       <label class="field-label" for="derivExpr">
+        <span class="lang-en" lang="en">
+         Expression f(x)
+        </span>
+        <span class="lang-th" lang="th">
+         นิพจน์ f(x)
+        </span>
+       </label>
+       <input aria-label="Expression" id="derivExpr" maxlength="240" value="x^3*sin(x)"/>
+       <button id="derivCalcBtn" type="submit">
+        <span class="lang-en" lang="en">
+         Differentiate
+        </span>
+        <span class="lang-th" lang="th">
+         หาอนุพันธ์
+        </span>
+       </button>
+      </div>
+      <div class="calc-row">
+       <label for="derivOrder">
+        <span class="lang-en" lang="en">
+         Derivative order
+        </span>
+        <span class="lang-th" lang="th">
+         อันดับอนุพันธ์
+        </span>
+        <select id="derivOrder">
+         <option value="1">
+          1
+         </option>
+         <option value="2">
+          2
+         </option>
+         <option value="3">
+          3
+         </option>
+        </select>
+       </label>
+       <label for="derivPoint">
+        <span class="lang-en" lang="en">
+         Evaluate at x (optional)
+        </span>
+        <span class="lang-th" lang="th">
+         หาค่าที่ x (ไม่บังคับ)
+        </span>
+        <input id="derivPoint" inputmode="decimal" placeholder="e.g. 1 / เช่น 1"/>
+       </label>
+      </div>
+      <p class="input-help">
+       <span class="lang-en" lang="en">
+        Use x, + − * / ^, sin, cos, tan, exp, log (or ln), sqrt. Angles are in radians. Up to 240 characters.
+       </span>
+       <span class="lang-th" lang="th">
+        ใช้ x, + − * / ^, sin, cos, tan, exp, log (หรือ ln), sqrt มุมเป็นเรเดียน ใส่ได้ไม่เกิน 240 ตัวอักษร
+       </span>
+      </p>
+      <div aria-live="polite" class="calc-output" id="derivOut" role="status">
+       <span class="lang-en" lang="en">
+        Result appears here.
+       </span>
+       <span class="lang-th" lang="th">
+        คำตอบจะแสดงตรงนี้
+       </span>
+      </div>
+      <canvas aria-label="Original function and derivative" class="graph" data-label-en="Original function and derivative" data-label-th="ฟังก์ชันเดิมและอนุพันธ์" id="calcGraph" role="img" style="margin-top:16px">
+       <span class="lang-en" lang="en">
+        Original function and derivative
+       </span>
+       <span class="lang-th" lang="th">
+        ฟังก์ชันเดิมและอนุพันธ์
+       </span>
+      </canvas>
+     </form>
+    </section>
+    <section class="lesson-section" id="implicit">
+     <h2>
+      <span class="lang-en" lang="en">
+       6. Implicit and logarithmic differentiation
+      </span>
+      <span class="lang-th" lang="th">
+       6. อนุพันธ์โดยปริยายและลอการิทึม
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       When x and y are related by an equation, treat y as a function of x. Each derivative involving y needs the chain rule.
+      </span>
+      <span class="lang-th" lang="th">
+       เมื่อ x และ y สัมพันธ์กันด้วยสมการ ให้มอง y เป็นฟังก์ชันของ x ทุกครั้งที่หาอนุพันธ์พจน์ที่มี y ต้องใช้กฎลูกโซ่
+      </span>
+     </p>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        A circle
+       </span>
+       <span class="lang-th" lang="th">
+        วงกลม
+       </span>
+      </span>
+      <div class="equation-block">
+       $$x^2+y^2=25\quad\Longrightarrow\quad 2x+2y\frac{dy}{dx}=0\quad\Longrightarrow\quad\frac{dy}{dx}=-\frac{x}{y}$$
+      </div>
+      <p>
+       <span class="lang-en" lang="en">
+        At (3,4), the slope is −3/4. The formula requires y ≠ 0; at (±5,0) the circle has vertical tangents and cannot locally be a differentiable graph y(x).
+       </span>
+       <span class="lang-th" lang="th">
+        ที่ (3,4) ความชันเท่ากับ −3/4 สูตรนี้ต้องมี y ≠ 0 ที่ (±5,0) วงกลมมีเส้นสัมผัสแนวตั้ง และไม่สามารถเขียนเป็นกราฟ y(x) ที่หาอนุพันธ์ได้ในบริเวณนั้น
+       </span>
+      </p>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       For variable bases and exponents, take logarithms before differentiating. The real-valued function xˣ below is considered on x &gt; 0.
+      </span>
+      <span class="lang-th" lang="th">
+       เมื่อทั้งฐานและเลขชี้กำลังเป็นตัวแปร ให้ใช้ลอการิทึมก่อนหาอนุพันธ์ ฟังก์ชันค่าจริง xˣ ด้านล่างพิจารณาบนโดเมน x &gt; 0
+      </span>
+     </p>
+     <div class="equation-block">
+      $$y=x^x\;\Rightarrow\;\ln y=x\ln x\;\Rightarrow\;\frac{y^{\prime}}y=\ln x+1\;\Rightarrow\;y^{\prime}=x^x(\ln x+1)$$
+     </div>
+    </section>
+    <section class="lesson-section" id="mean-value">
+     <h2>
+      <span class="lang-en" lang="en">
+       7. Mean Value Theorem
+      </span>
+      <span class="lang-th" lang="th">
+       7. ทฤษฎีบทค่ากลาง
+      </span>
+     </h2>
+     <div class="theorem">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Mean Value Theorem
+       </span>
+       <span class="lang-th" lang="th">
+        ทฤษฎีบทค่ากลาง
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        If f is continuous on [a,b] and differentiable on (a,b), with a &lt; b, there is a point c inside the interval whose tangent slope equals the average rate over the whole interval.
+       </span>
+       <span class="lang-th" lang="th">
+        ถ้า f ต่อเนื่องบน [a,b] และหาอนุพันธ์ได้บน (a,b) โดย a &lt; b จะมีจุด c ภายในช่วงที่ความชันเส้นสัมผัสเท่ากับอัตราการเปลี่ยนแปลงเฉลี่ยตลอดช่วง
+       </span>
+      </p>
+      <div class="equation-block">
+       $$f^{\prime}(c)=\frac{f(b)-f(a)}{b-a},\qquad c\in(a,b)$$
+      </div>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Rolle’s theorem is the special case f(a) = f(b), giving f′(c) = 0. The hypotheses matter: |x| on [−1,1] has equal endpoint values but no horizontal tangent because it is not differentiable at zero.
+      </span>
+      <span class="lang-th" lang="th">
+       ทฤษฎีบทของโรลล์เป็นกรณีพิเศษเมื่อ f(a) = f(b) จึงได้ f′(c) = 0 เงื่อนไขมีความสำคัญ เช่น |x| บน [−1,1] มีค่าที่ปลายเท่ากันแต่ไม่มีเส้นสัมผัสแนวนอน เพราะหาอนุพันธ์ที่ศูนย์ไม่ได้
+      </span>
+     </p>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Find the guaranteed point
+       </span>
+       <span class="lang-th" lang="th">
+        หาจุดที่ทฤษฎีบทรองรับ
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        For f(x) = x² on [1,3], the secant slope is (9−1)/(3−1) = 4. Solve 2c = 4 to obtain c = 2, which lies in (1,3).
+       </span>
+       <span class="lang-th" lang="th">
+        สำหรับ f(x) = x² บน [1,3] ความชันเส้นตัดเท่ากับ (9−1)/(3−1) = 4 แก้ 2c = 4 ได้ c = 2 ซึ่งอยู่ใน (1,3)
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section" id="curve-analysis">
+     <h2>
+      <span class="lang-en" lang="en">
+       8. Curve analysis and global extrema
+      </span>
+      <span class="lang-th" lang="th">
+       8. วิเคราะห์กราฟและค่าสุดขั้วสัมบูรณ์
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       A critical number is an interior point in the domain where f′ is zero or does not exist. On a closed bounded interval, a continuous function attains its absolute maximum and minimum. Compare all critical values and both endpoint values.
+      </span>
+      <span class="lang-th" lang="th">
+       จำนวนวิกฤตคือจุดภายในโดเมนที่ f′ เป็นศูนย์หรือไม่มีค่า ฟังก์ชันต่อเนื่องบนช่วงปิดที่มีขอบเขตจะมีค่าสูงสุดและต่ำสุดสัมบูรณ์ ให้เปรียบเทียบค่าที่จุดวิกฤตทั้งหมดและปลายช่วงทั้งสอง
+      </span>
+     </p>
+     <div class="equation-block">
+      $$f(x)=x^3-3x,\quad f^{\prime}(x)=3(x-1)(x+1),\quad f^{\prime^{\prime}}(x)=6x$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       On [−2,2], test x = −2, −1, 1, 2. The corresponding values are −2, 2, −2, 2. The maximum is 2 and the minimum is −2; both can occur at multiple points. The curve is concave down for x &lt; 0 and concave up for x &gt; 0, so (0,0) is an inflection point.
+      </span>
+      <span class="lang-th" lang="th">
+       บน [−2,2] ตรวจ x = −2, −1, 1, 2 ได้ค่าฟังก์ชัน −2, 2, −2, 2 ตามลำดับ ค่าสูงสุดคือ 2 และต่ำสุดคือ −2 ซึ่งอาจเกิดที่หลายจุด กราฟเว้าลงเมื่อ x &lt; 0 และเว้าขึ้นเมื่อ x &gt; 0 ดังนั้น (0,0) เป็นจุดเปลี่ยนเว้า
+      </span>
+     </p>
+     <div class="note">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        Common mistake
+       </span>
+       <span class="lang-th" lang="th">
+        ข้อผิดพลาดที่พบบ่อย
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        The equation f″(c) = 0 only identifies a candidate inflection point; concavity must change. For x⁴, f″(0) = 0 but there is no inflection. Likewise, f″(c) = 0 makes the second derivative test inconclusive.
+       </span>
+       <span class="lang-th" lang="th">
+        สมการ f″(c) = 0 ให้เพียงจุดที่อาจเปลี่ยนเว้า ต้องตรวจว่าความเว้าเปลี่ยนจริง สำหรับ x⁴ มี f″(0) = 0 แต่ไม่เปลี่ยนเว้า และถ้า f″(c) = 0 การทดสอบอนุพันธ์อันดับสองยังสรุปไม่ได้
+       </span>
+      </p>
+     </div>
+    </section>
+    <section class="lesson-section" id="related-rates">
+     <h2>
+      <span class="lang-en" lang="en">
+       9. Related rates and linear approximation
+      </span>
+      <span class="lang-th" lang="th">
+       9. อัตราสัมพัทธ์และการประมาณเชิงเส้น
+      </span>
+     </h2>
+     <div class="example">
+      <span class="box-label">
+       <span class="lang-en" lang="en">
+        An expanding sphere
+       </span>
+       <span class="lang-th" lang="th">
+        ทรงกลมที่กำลังขยาย
+       </span>
+      </span>
+      <p>
+       <span class="lang-en" lang="en">
+        A sphere’s radius grows at 2 cm/s. Differentiate V = 4πr³/3 with respect to time before substituting r = 3 cm.
+       </span>
+       <span class="lang-th" lang="th">
+        รัศมีทรงกลมเพิ่มด้วยอัตรา 2 ซม./วินาที หาอนุพันธ์ V = 4πr³/3 เทียบกับเวลาก่อนแทน r = 3 ซม.
+       </span>
+      </p>
+      <div class="equation-block">
+       $$\frac{dV}{dt}=4\pi r^2\frac{dr}{dt}=4\pi(3)^2(2)=72\pi\;\mathrm{cm^3/s}$$
+      </div>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       A tangent line also provides a local approximation. For differentiable f near a, L(x) = f(a) + f′(a)(x−a). It is accurate near a, but is not an exact equality in general.
+      </span>
+      <span class="lang-th" lang="th">
+       เส้นสัมผัสใช้ประมาณค่าใกล้จุดได้ด้วย ถ้า f หาอนุพันธ์ได้ใกล้ a ให้ L(x) = f(a) + f′(a)(x−a) การประมาณแม่นยำใกล้ a แต่โดยทั่วไปไม่ใช่สมการที่เท่ากันพอดี
+      </span>
+     </p>
+     <div class="equation-block">
+      $$\sqrt{4.1}\approx \sqrt4+\frac{1}{2\sqrt4}(4.1-4)=2.025$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       For Newton’s method, the tangent’s x-intercept becomes the next guess: xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ). A zero derivative, a poor starting guess, or a discontinuity can prevent convergence.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับวิธีนิวตัน ใช้จุดตัดแกน x ของเส้นสัมผัสเป็นค่าประมาณถัดไป: xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ) หากอนุพันธ์เป็นศูนย์ ค่าเริ่มต้นไม่เหมาะสม หรือมีจุดไม่ต่อเนื่อง อาจไม่ลู่เข้า
+      </span>
+     </p>
+    </section>
+   </main>
+  </div>
+  <footer class="site-footer">
+   <a class="button" href="integrals.html">
+    <span class="lang-en" lang="en">
+     Continue to Integrals →
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนต่อ: ปริพันธ์ →
+    </span>
+   </a>
+   <p>
+    Calculus Atlas
+    <span aria-hidden="true">
+     ·
+    </span>
+    <span class="lang-en" lang="en">
+     A study of change &amp; accumulation
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนรู้การเปลี่ยนแปลงและการสะสม
+    </span>
+   </p>
+  </footer>
+  <dialog aria-labelledby="searchTitle" class="search-dialog" id="searchOverlay">
+   <div class="search-box">
+    <div>
+     <label for="searchInput" id="searchTitle">
+      <span class="lang-en" lang="en">
+       Search the atlas
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหาในแอตลาส
+      </span>
+     </label>
+     <input aria-controls="searchResults" autocomplete="off" id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…" type="search"/>
+    </div>
+    <button aria-label="Close search" class="search-close" data-label-en="Close search" data-label-th="ปิดการค้นหา" id="searchClose">
+     ×
+    </button>
+   </div>
+   <p class="search-count" id="searchCount" role="status">
+   </p>
+   <div class="search-results" id="searchResults">
+   </div>
+   <p class="search-help">
+    <span class="lang-en" lang="en">
+     Ctrl / ⌘ K to open · Tab to navigate · Esc to close
+    </span>
+    <span class="lang-th" lang="th">
+     Ctrl / ⌘ K เพื่อเปิด · Tab เพื่อเลือก · Esc เพื่อปิด
+    </span>
+   </p>
+  </dialog>
+  <noscript>
+   <p class="noscript-note">
+    Notes, navigation, and solutions remain readable. Enable JavaScript for graphs, calculators, search, and language switching. อ่านบทเรียนและเฉลยได้โดยไม่ใช้ JavaScript เปิด JavaScript เพื่อใช้กราฟ เครื่องคำนวณ ค้นหา และสลับภาษา
+   </p>
+  </noscript>
+ </body>
+</html>

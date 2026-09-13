@@ -1,18 +1,2775 @@
-<!doctype html><html lang="en" data-lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Practice — Calculus Atlas</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjs@14.0.1/lib/browser/math.js"></script><script defer src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/all.min.js"></script><script defer src="app.js"></script></head><body><div class="paper-grid"></div>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">∫</span><span>Calculus Atlas</span></a><nav class="top-nav"><a href="index.html">Home</a><a href="limits.html">Limits</a><a href="derivatives.html">Derivatives</a><a href="integrals.html">Integrals</a><a class="active" href="practice.html">Practice</a></nav><div class="header-actions"><button class="icon-btn" data-search-open>⌕</button><button class="lang-btn" data-lang-toggle>TH</button><button class="icon-btn" data-theme-toggle>◐</button></div></header>
-<main class="section-shell"><section class="page-hero reveal"><p class="eyebrow">Problem set</p><h1><span class="lang-en">Practice.</span><span class="lang-th">แบบฝึกหัด</span></h1><p><span class="lang-en">Work each problem first, then reveal the solution. The steps emphasize method, not just the final answer.</span><span class="lang-th">ลองทำด้วยตัวเองก่อน แล้วค่อยเปิดเฉลย แต่ละข้อเน้นวิธีคิด ไม่ใช่แค่คำตอบสุดท้าย</span></p></section>
-<section id="limits-practice" class="lesson-section reveal"><h2><span class="lang-en">Limits</span><span class="lang-th">ลิมิต</span></h2><div class="problem-list">
-<article class="card problem"><div class="problem-top"><div><span class="tag">Limit · Easy</span><p>$$\lim_{x\to4}\frac{x^2-16}{x-4}$$</p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution"><p><span class="lang-en">Factor the numerator:</span><span class="lang-th">แยกตัวประกอบ:</span></p>$$\frac{(x-4)(x+4)}{x-4}=x+4$$ $$\therefore\;\lim_{x\to4}=8$$</div></article>
-<article class="card problem"><div class="problem-top"><div><span class="tag">Limit · Medium</span><p>$$\lim_{x\to0}\frac{\sqrt{1+3x}-1}{x}$$</p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution"><p><span class="lang-en">Multiply by the conjugate.</span><span class="lang-th">คูณด้วยพจน์สังยุค</span></p>$$\frac{\sqrt{1+3x}-1}{x}\cdot\frac{\sqrt{1+3x}+1}{\sqrt{1+3x}+1}=\frac{3}{\sqrt{1+3x}+1}\to\frac32$$</div></article>
-<article class="card problem"><div class="problem-top"><div><span class="tag">Limit · Concept</span><p><span class="lang-en">If $\lim_{x\to2^-}f(x)=5$ and $\lim_{x\to2^+}f(x)=7$, what is $\lim_{x\to2}f(x)$?</span><span class="lang-th">ถ้า $\lim_{x\to2^-}f(x)=5$ และ $\lim_{x\to2^+}f(x)=7$ แล้ว $\lim_{x\to2}f(x)$ มีค่าเท่าใด?</span></p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution"><p><span class="lang-en">It does not exist because the one-sided limits are different.</span><span class="lang-th">ไม่มีลิมิตสองด้าน เพราะลิมิตซ้ายและขวามีค่าไม่เท่ากัน</span></p></div></article>
-</div></section>
-<section id="derivatives-practice" class="lesson-section reveal"><h2><span class="lang-en">Derivatives</span><span class="lang-th">อนุพันธ์</span></h2><div class="problem-list">
-<article class="card problem"><div class="problem-top"><div><span class="tag">Derivative · Easy</span><p>$$\frac{d}{dx}(4x^5-3x^2+7)$$</p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution">$$20x^4-6x$$</div></article>
-<article class="card problem"><div class="problem-top"><div><span class="tag">Derivative · Chain rule</span><p>$$\frac{d}{dx}\sin(x^2+1)$$</p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution"><p><span class="lang-en">Outer derivative: cosine. Inner derivative: $2x$.</span><span class="lang-th">อนุพันธ์ฟังก์ชันชั้นนอกคือ cosine และชั้นในคือ $2x$</span></p>$$2x\cos(x^2+1)$$</div></article>
-<article class="card problem"><div class="problem-top"><div><span class="tag">Derivative · Optimization</span><p><span class="lang-en">Find the maximum value of $f(x)=-x^2+8x-5$.</span><span class="lang-th">หาค่าสูงสุดของ $f(x)=-x^2+8x-5$</span></p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution">$$f'(x)=-2x+8=0\Rightarrow x=4$$ $$f(4)=-16+32-5=11$$<p><span class="lang-en">Since $f''(x)=-2<0$, the maximum value is $11$.</span><span class="lang-th">เพราะ $f''(x)=-2<0$ ค่าสูงสุดคือ $11$</span></p></div></article>
-</div></section>
-<section id="integrals-practice" class="lesson-section reveal"><h2><span class="lang-en">Integrals</span><span class="lang-th">ปริพันธ์</span></h2><div class="problem-list">
-<article class="card problem"><div class="problem-top"><div><span class="tag">Integral · Easy</span><p>$$\int(6x^2-4x+3)dx$$</p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution">$$2x^3-2x^2+3x+C$$</div></article>
-<article class="card problem"><div class="problem-top"><div><span class="tag">Integral · Substitution</span><p>$$\int 2x e^{x^2}dx$$</p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution"><p><span class="lang-en">Let $u=x^2$, $du=2x\,dx$.</span><span class="lang-th">ให้ $u=x^2$, $du=2x\,dx$</span></p>$$\int e^u du=e^u+C=e^{x^2}+C$$</div></article>
-<article class="card problem"><div class="problem-top"><div><span class="tag">Integral · Definite</span><p>$$\int_0^2(3x^2+1)dx$$</p></div><button class="solution-btn"><span class="lang-en">Show solution</span><span class="lang-th">ดูเฉลย</span></button></div><div class="solution">$$\left[x^3+x\right]_0^2=8+2=10$$</div></article>
-</div></section></main><footer class="site-footer">Keep practicing: fluency comes from repeated structure recognition.</footer><div id="searchOverlay" class="search-overlay"><div class="search-modal"><div class="search-box"><input id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…"><button id="searchClose" class="search-close">×</button></div><div id="searchResults" class="search-results"></div></div></div></body></html>
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Practice — Calculus Atlas
+  </title>
+  <script src="theme.js">
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Serif+Thai:wght@400;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script>
+   window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
+  </script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
+  <script defer="" src="vendor/math.js">
+  </script>
+  <script defer="" src="math-core.js">
+  </script>
+  <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="app.js">
+  </script>
+  <meta content="Bilingual university calculus: rigorous explanations, worked problems and interactive graphs." name="description"/>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main-content">
+   <span class="lang-en" lang="en">
+    Skip to content
+   </span>
+   <span class="lang-th" lang="th">
+    ข้ามไปเนื้อหา
+   </span>
+  </a>
+  <div class="paper-grid">
+  </div>
+  <header class="site-header">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ∫
+    </span>
+    <span>
+     Calculus Atlas
+    </span>
+   </a>
+   <nav aria-label="Main navigation" class="top-nav" data-label-en="Main navigation" data-label-th="เมนูหลัก">
+    <a href="index.html">
+     <span class="lang-en" lang="en">
+      Home
+     </span>
+     <span class="lang-th" lang="th">
+      หน้าแรก
+     </span>
+    </a>
+    <a href="limits.html">
+     <span class="lang-en" lang="en">
+      Limits
+     </span>
+     <span class="lang-th" lang="th">
+      ลิมิต
+     </span>
+    </a>
+    <a href="derivatives.html">
+     <span class="lang-en" lang="en">
+      Derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      อนุพันธ์
+     </span>
+    </a>
+    <a href="integrals.html">
+     <span class="lang-en" lang="en">
+      Integrals
+     </span>
+     <span class="lang-th" lang="th">
+      ปริพันธ์
+     </span>
+    </a>
+    <a aria-current="page" class="active" href="practice.html">
+     <span class="lang-en" lang="en">
+      Practice
+     </span>
+     <span class="lang-th" lang="th">
+      แบบฝึกหัด
+     </span>
+    </a>
+   </nav>
+   <div class="header-actions">
+    <details class="mobile-nav">
+     <summary>
+      <span class="lang-en" lang="en">
+       Menu
+      </span>
+      <span class="lang-th" lang="th">
+       เมนู
+      </span>
+     </summary>
+     <nav aria-label="Mobile navigation" data-label-en="Mobile navigation" data-label-th="เมนูสำหรับมือถือ">
+      <a href="index.html">
+       <span class="lang-en" lang="en">
+        Home
+       </span>
+       <span class="lang-th" lang="th">
+        หน้าแรก
+       </span>
+      </a>
+      <a href="limits.html">
+       <span class="lang-en" lang="en">
+        Limits
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิต
+       </span>
+      </a>
+      <a href="derivatives.html">
+       <span class="lang-en" lang="en">
+        Derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        อนุพันธ์
+       </span>
+      </a>
+      <a href="integrals.html">
+       <span class="lang-en" lang="en">
+        Integrals
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์
+       </span>
+      </a>
+      <a aria-current="page" href="practice.html">
+       <span class="lang-en" lang="en">
+        Practice
+       </span>
+       <span class="lang-th" lang="th">
+        แบบฝึกหัด
+       </span>
+      </a>
+     </nav>
+    </details>
+    <button aria-label="Search" class="icon-btn" data-label-en="Search" data-label-th="ค้นหา" data-search-open="">
+     <span aria-hidden="true">
+      ⌕
+     </span>
+     <span class="search-label">
+      <span class="lang-en" lang="en">
+       Search
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหา
+      </span>
+     </span>
+    </button>
+    <button aria-label="Switch to Thai" class="lang-btn" data-label-en="Switch to Thai" data-label-th="สลับเป็นภาษาอังกฤษ" data-lang-toggle="">
+     TH
+    </button>
+    <button aria-label="Toggle dark mode" aria-pressed="false" class="icon-btn" data-label-en="Toggle dark mode" data-label-th="สลับโหมดมืด" data-theme-toggle="">
+     ◐
+    </button>
+   </div>
+  </header>
+  <div class="lesson-layout">
+   <aside aria-label="Table of contents" class="sidebar" data-label-en="Table of contents" data-label-th="สารบัญ">
+    <p class="toc-title">
+     <span class="lang-en" lang="en">
+      On this page
+     </span>
+     <span class="lang-th" lang="th">
+      สารบัญหน้านี้
+     </span>
+    </p>
+    <a href="#limits-practice">
+     <span class="lang-en" lang="en">
+      Limits
+     </span>
+     <span class="lang-th" lang="th">
+      ลิมิต
+     </span>
+    </a>
+    <a href="#derivatives-practice">
+     <span class="lang-en" lang="en">
+      Derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      อนุพันธ์
+     </span>
+    </a>
+    <a href="#integrals-practice">
+     <span class="lang-en" lang="en">
+      Integrals
+     </span>
+     <span class="lang-th" lang="th">
+      ปริพันธ์
+     </span>
+    </a>
+   </aside>
+   <main class="lesson-main" id="main-content" tabindex="-1">
+    <section class="page-hero reveal">
+     <p class="eyebrow">
+      <span class="lang-en" lang="en">
+       Problem set
+      </span>
+      <span class="lang-th" lang="th">
+       ชุดแบบฝึกหัด
+      </span>
+     </p>
+     <h1>
+      <span class="lang-en" lang="en">
+       Practice.
+      </span>
+      <span class="lang-th" lang="th">
+       แบบฝึกหัด
+      </span>
+     </h1>
+     <p>
+      <span class="lang-en" lang="en">
+       Work each problem first, then reveal the solution. The steps emphasize method, not just the final answer.
+      </span>
+      <span class="lang-th" lang="th">
+       ลองทำด้วยตัวเองก่อน แล้วค่อยเปิดเฉลย แต่ละข้อเน้นวิธีคิด ไม่ใช่แค่คำตอบสุดท้าย
+      </span>
+     </p>
+     <div class="practice-toolbar">
+      <label for="practiceTopic">
+       <span class="lang-en" lang="en">
+        Topic
+       </span>
+       <span class="lang-th" lang="th">
+        หัวข้อ
+       </span>
+       <select id="practiceTopic">
+        <option data-en="All topics" data-th="ทุกหัวข้อ" value="all">
+         All topics
+        </option>
+        <option data-en="Limits" data-th="ลิมิต" value="limits">
+         Limits
+        </option>
+        <option data-en="Derivatives" data-th="อนุพันธ์" value="derivatives">
+         Derivatives
+        </option>
+        <option data-en="Integrals" data-th="ปริพันธ์" value="integrals">
+         Integrals
+        </option>
+       </select>
+      </label>
+      <label for="practiceLevel">
+       <span class="lang-en" lang="en">
+        Difficulty
+       </span>
+       <span class="lang-th" lang="th">
+        ความยาก
+       </span>
+       <select id="practiceLevel">
+        <option data-en="All levels" data-th="ทุกระดับ" value="all">
+         All levels
+        </option>
+        <option data-en="Foundation" data-th="พื้นฐาน" value="foundation">
+         Foundation
+        </option>
+        <option data-en="Core" data-th="ประยุกต์" value="core">
+         Core
+        </option>
+        <option data-en="Challenge" data-th="ท้าทาย" value="challenge">
+         Challenge
+        </option>
+       </select>
+      </label>
+      <label class="check-label">
+       <input id="hideCompleted" type="checkbox"/>
+       <span class="lang-en" lang="en">
+        Hide completed
+       </span>
+       <span class="lang-th" lang="th">
+        ซ่อนข้อที่ทำแล้ว
+       </span>
+      </label>
+     </div>
+     <output id="practiceStatus" role="status">
+     </output>
+     <progress aria-label="Practice progress" data-label-en="Practice progress" data-label-th="ความก้าวหน้าของแบบฝึกหัด" id="practiceProgress" max="36" value="0">
+     </progress>
+     <p hidden="" id="practiceEmpty">
+      <span class="lang-en" lang="en">
+       No problems match these filters. Choose all topics and levels, or show completed problems.
+      </span>
+      <span class="lang-th" lang="th">
+       ไม่มีโจทย์ตรงกับตัวกรอง เลือกทุกหัวข้อและทุกระดับ หรือแสดงข้อที่ทำแล้ว
+      </span>
+     </p>
+    </section>
+    <details class="mobile-toc">
+     <summary>
+      <span class="lang-en" lang="en">
+       On this page
+      </span>
+      <span class="lang-th" lang="th">
+       สารบัญหน้านี้
+      </span>
+     </summary>
+     <nav>
+      <p class="toc-title">
+       <span class="lang-en" lang="en">
+        On this page
+       </span>
+       <span class="lang-th" lang="th">
+        สารบัญหน้านี้
+       </span>
+      </p>
+      <a href="#limits-practice">
+       <span class="lang-en" lang="en">
+        Limits
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิต
+       </span>
+      </a>
+      <a href="#derivatives-practice">
+       <span class="lang-en" lang="en">
+        Derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        อนุพันธ์
+       </span>
+      </a>
+      <a href="#integrals-practice">
+       <span class="lang-en" lang="en">
+        Integrals
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์
+       </span>
+      </a>
+     </nav>
+    </details>
+    <section class="lesson-section reveal" id="limits-practice">
+     <h2>
+      <span class="lang-en" lang="en">
+       Limits
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิต
+      </span>
+     </h2>
+     <div class="problem-list">
+      <article class="card problem" data-level="foundation" data-topic="limits" id="limits-1">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Limit · Easy
+          </span>
+          <span class="lang-th" lang="th">
+           ลิมิต · พื้นฐาน
+          </span>
+         </span>
+         <p>
+          $$\lim_{x\to4}\frac{x^2-16}{x-4}$$
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          Factor the numerator:
+         </span>
+         <span class="lang-th" lang="th">
+          แยกตัวประกอบ:
+         </span>
+        </p>
+        $$\frac{(x-4)(x+4)}{x-4}=x+4$$ $$\therefore\;\lim_{x\to4}\frac{x^2-16}{x-4}=8$$
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-1" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="limits" id="limits-2">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Limit · Medium
+          </span>
+          <span class="lang-th" lang="th">
+           ลิมิต · ประยุกต์
+          </span>
+         </span>
+         <p>
+          $$\lim_{x\to0}\frac{\sqrt{1+3x}-1}{x}$$
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          Multiply by the conjugate.
+         </span>
+         <span class="lang-th" lang="th">
+          คูณด้วยพจน์สังยุค
+         </span>
+        </p>
+        $$\frac{\sqrt{1+3x}-1}{x}\cdot\frac{\sqrt{1+3x}+1}{\sqrt{1+3x}+1}=\frac{3}{\sqrt{1+3x}+1}\to\frac32$$
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-2" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="limits" id="limits-3">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Limit · Concept
+          </span>
+          <span class="lang-th" lang="th">
+           ลิมิต · แนวคิด
+          </span>
+         </span>
+         <p>
+          <span class="lang-en" lang="en">
+           If $\lim_{x\to2^-}f(x)=5$ and $\lim_{x\to2^+}f(x)=7$, what is $\lim_{x\to2}f(x)$?
+          </span>
+          <span class="lang-th" lang="th">
+           ถ้า $\lim_{x\to2^-}f(x)=5$ และ $\lim_{x\to2^+}f(x)=7$ แล้ว $\lim_{x\to2}f(x)$ มีค่าเท่าใด?
+          </span>
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          It does not exist because the one-sided limits are different.
+         </span>
+         <span class="lang-th" lang="th">
+          ไม่มีลิมิตสองด้าน เพราะลิมิตซ้ายและขวามีค่าไม่เท่ากัน
+         </span>
+        </p>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-3" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="foundation" data-topic="limits" id="limits-4">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Foundation
+          </span>
+          <span class="lang-th" lang="th">
+           พื้นฐาน
+          </span>
+         </span>
+         <h3>
+          04.
+          <span class="lang-en" lang="en">
+           Polynomial substitution
+          </span>
+          <span class="lang-th" lang="th">
+           แทนค่าในพหุนาม
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\lim_{x\to2}(x^3-2x+1)$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           A polynomial is continuous everywhere, so direct substitution is valid.
+          </span>
+          <span class="lang-th" lang="th">
+           พหุนามต่อเนื่องทุกจุด จึงแทนค่าตรง ๆ ได้
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Substitute $x=2$: $2^3-2(2)+1$.
+          </span>
+          <span class="lang-th" lang="th">
+           แทน $x=2$: $2^3-2(2)+1$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Simplify: 8 − 4 + 1 = 5.
+          </span>
+          <span class="lang-th" lang="th">
+           จัดรูป: 8 − 4 + 1 = 5
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-4" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="foundation" data-topic="limits" id="limits-5">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Foundation
+          </span>
+          <span class="lang-th" lang="th">
+           พื้นฐาน
+          </span>
+         </span>
+         <h3>
+          05.
+          <span class="lang-en" lang="en">
+           Scaled sine
+          </span>
+          <span class="lang-th" lang="th">
+           ลิมิต sine ที่ปรับสเกล
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\lim_{x\to0}\frac{\sin5x}{2x}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Rewrite as $\frac52\frac{\sin5x}{5x}$.
+          </span>
+          <span class="lang-th" lang="th">
+           เขียนเป็น $\frac52\frac{\sin5x}{5x}$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Let u = 5x. Then u tends to zero and sin(u)/u tends to 1 in radians.
+          </span>
+          <span class="lang-th" lang="th">
+           ให้ u = 5x แล้ว u เข้าใกล้ศูนย์ และ sin(u)/u เข้าใกล้ 1 เมื่อใช้เรเดียน
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The answer is $5/2$.
+          </span>
+          <span class="lang-th" lang="th">
+           คำตอบคือ $5/2$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-5" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="foundation" data-topic="limits" id="limits-6">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Foundation
+          </span>
+          <span class="lang-th" lang="th">
+           พื้นฐาน
+          </span>
+         </span>
+         <h3>
+          06.
+          <span class="lang-en" lang="en">
+           Dominant powers
+          </span>
+          <span class="lang-th" lang="th">
+           พจน์กำลังสูงสุด
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\lim_{x\to\infty}\frac{3x^2-x+2}{2x^2+5}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Divide every term by $x^2$.
+          </span>
+          <span class="lang-th" lang="th">
+           หารทุกพจน์ด้วย $x^2$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The quotient becomes $(3-1/x+2/x^2)/(2+5/x^2)$.
+          </span>
+          <span class="lang-th" lang="th">
+           ได้ $(3-1/x+2/x^2)/(2+5/x^2)$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The reciprocal terms tend to zero, giving 3/2.
+          </span>
+          <span class="lang-th" lang="th">
+           พจน์ส่วนกลับเข้าใกล้ศูนย์ จึงได้ 3/2
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-6" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="limits" id="limits-7">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          07.
+          <span class="lang-en" lang="en">
+           An absolute-value jump
+          </span>
+          <span class="lang-th" lang="th">
+           ค่าสัมบูรณ์กับการกระโดด
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\lim_{x\to0}\frac{|x|}{x}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           For x &gt; 0, |x|/x = 1, so the right-hand limit is 1.
+          </span>
+          <span class="lang-th" lang="th">
+           เมื่อ x &gt; 0 จะมี |x|/x = 1 ลิมิตขวาจึงเป็น 1
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           For x &lt; 0, |x| = −x, so the left-hand limit is −1.
+          </span>
+          <span class="lang-th" lang="th">
+           เมื่อ x &lt; 0 จะมี |x| = −x ลิมิตซ้ายจึงเป็น −1
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The sides disagree: the two-sided limit does not exist.
+          </span>
+          <span class="lang-th" lang="th">
+           ทั้งสองด้านไม่เท่ากัน จึงไม่มีลิมิตสองด้าน
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-7" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="limits" id="limits-8">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          08.
+          <span class="lang-en" lang="en">
+           Squeezed oscillation
+          </span>
+          <span class="lang-th" lang="th">
+           การแกว่งที่ถูกบีบ
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\lim_{x\to0}x\sin(1/x)$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Use $|\sin(1/x)|\le1$ for $x\ne0$.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้ $|\sin(1/x)|\le1$ เมื่อ $x\ne0$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Then $-|x|\le x\sin(1/x)\le|x|$.
+          </span>
+          <span class="lang-th" lang="th">
+           จึงได้ $-|x|\le x\sin(1/x)\le|x|$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Both bounds tend to zero. The squeeze theorem gives 0.
+          </span>
+          <span class="lang-th" lang="th">
+           ขอบทั้งสองเข้าใกล้ศูนย์ ทฤษฎีบทบีบจึงให้คำตอบ 0
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-8" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="limits" id="limits-9">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          09.
+          <span class="lang-en" lang="en">
+           Exponential remainder
+          </span>
+          <span class="lang-th" lang="th">
+           พจน์เหลือของเอ็กซ์โพเนนเชียล
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\lim_{x\to0}\frac{e^x-1-x}{x^2}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Substitution gives 0/0. Both functions are differentiable and the denominator derivative is nonzero near zero, excluding zero.
+          </span>
+          <span class="lang-th" lang="th">
+           แทนค่าได้ 0/0 ทั้งสองฟังก์ชันหาอนุพันธ์ได้ และอนุพันธ์ตัวส่วนไม่เป็นศูนย์ใกล้ศูนย์เมื่อยกเว้นศูนย์
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Apply L’Hôpital: $(e^x-1)/(2x)$, still 0/0.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้โลปิตาลได้ $(e^x-1)/(2x)$ ซึ่งยังเป็น 0/0
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Apply again: $e^x/2\to1/2$.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้อีกครั้งได้ $e^x/2\to1/2$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-9" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="limits" id="limits-10">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          10.
+          <span class="lang-en" lang="en">
+           Fill a removable hole
+          </span>
+          <span class="lang-th" lang="th">
+           เติมค่าที่จุดขาด
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$f(x)=\begin{cases}(x^2-1)/(x-1)&amp;x\ne1\\k&amp;x=1\end{cases}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Find k that makes f continuous at 1. Factor the numerator when x ≠ 1.
+          </span>
+          <span class="lang-th" lang="th">
+           หา k ที่ทำให้ f ต่อเนื่องที่ 1 แยกตัวประกอบตัวเศษเมื่อ x ≠ 1
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The nearby formula simplifies to x + 1, whose limit at 1 is 2.
+          </span>
+          <span class="lang-th" lang="th">
+           สูตรรอบจุดลดรูปเป็น x + 1 ซึ่งมีลิมิตที่ 1 เท่ากับ 2
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Continuity requires f(1) = lim f(x), so k = 2.
+          </span>
+          <span class="lang-th" lang="th">
+           ความต่อเนื่องต้องมี f(1) = lim f(x) จึงได้ k = 2
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-10" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="limits" id="limits-11">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          11.
+          <span class="lang-en" lang="en">
+           Choose delta
+          </span>
+          <span class="lang-th" lang="th">
+           เลือกเดลตา
+          </span>
+         </h3>
+         <div class="equation-block">
+          <p>
+           <span class="lang-en" lang="en">
+            Prove using the ε–δ definition:
+           </span>
+           <span class="lang-th" lang="th">
+            พิสูจน์ด้วยนิยาม ε–δ:
+           </span>
+          </p>
+          $$\lim_{x\to1}(4x-2)=2$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Let ε &gt; 0 be arbitrary. The output error is |(4x−2)−2| = 4|x−1|.
+          </span>
+          <span class="lang-th" lang="th">
+           ให้ ε &gt; 0 เป็นจำนวนใด ๆ ความคลาดเคลื่อนคือ |(4x−2)−2| = 4|x−1|
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Choose δ = ε/4. For every x with 0 &lt; |x−1| &lt; δ, multiply by 4.
+          </span>
+          <span class="lang-th" lang="th">
+           เลือก δ = ε/4 สำหรับทุก x ที่ 0 &lt; |x−1| &lt; δ ให้คูณด้วย 4
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Then |(4x−2)−2| &lt; 4δ = ε. This is exactly the definition of the limit.
+          </span>
+          <span class="lang-th" lang="th">
+           ได้ |(4x−2)−2| &lt; 4δ = ε ตรงตามนิยามลิมิต
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-11" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="limits" id="limits-12">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          12.
+          <span class="lang-en" lang="en">
+           A logarithmic product
+          </span>
+          <span class="lang-th" lang="th">
+           ผลคูณลอการิทึม
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\lim_{x\to0^+}x\ln x$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           The form 0·(−∞) is indeterminate; rewrite it as ln(x)/(1/x).
+          </span>
+          <span class="lang-th" lang="th">
+           รูป 0·(−∞) ไม่กำหนด ให้เขียนเป็น ln(x)/(1/x)
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Apply L’Hôpital to get $(1/x)/(-1/x^2)=-x$.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้โลปิตาลได้ $(1/x)/(-1/x^2)=-x$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           As x approaches zero from the right, −x tends to zero. Answer: 0.
+          </span>
+          <span class="lang-th" lang="th">
+           เมื่อ x เข้าใกล้ศูนย์ด้านขวา −x เข้าใกล้ศูนย์ คำตอบคือ 0
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="limits-12" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="derivatives-practice">
+     <h2>
+      <span class="lang-en" lang="en">
+       Derivatives
+      </span>
+      <span class="lang-th" lang="th">
+       อนุพันธ์
+      </span>
+     </h2>
+     <div class="problem-list">
+      <article class="card problem" data-level="foundation" data-topic="derivatives" id="derivatives-1">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Derivative · Easy
+          </span>
+          <span class="lang-th" lang="th">
+           อนุพันธ์ · พื้นฐาน
+          </span>
+         </span>
+         <p>
+          $$\frac{d}{dx}(4x^5-3x^2+7)$$
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          Apply the power rule to each term. The derivative of 4x⁵ is 20x⁴, of −3x² is −6x, and of the constant 7 is zero. Combine the terms below.
+         </span>
+         <span class="lang-th" lang="th">
+          ใช้กฎยกกำลังทีละพจน์ อนุพันธ์ของ 4x⁵ คือ 20x⁴ ของ −3x² คือ −6x และของค่าคงที่ 7 เป็นศูนย์ รวมพจน์ดังด้านล่าง
+         </span>
+        </p>
+        $$20x^4-6x$$
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-1" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="derivatives" id="derivatives-2">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Derivative · Chain rule
+          </span>
+          <span class="lang-th" lang="th">
+           อนุพันธ์ · กฎลูกโซ่
+          </span>
+         </span>
+         <p>
+          $$\frac{d}{dx}\sin(x^2+1)$$
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          Outer derivative: cosine. Inner derivative: $2x$.
+         </span>
+         <span class="lang-th" lang="th">
+          อนุพันธ์ฟังก์ชันชั้นนอกคือ cosine และชั้นในคือ $2x$
+         </span>
+        </p>
+        $$2x\cos(x^2+1)$$
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-2" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="derivatives" id="derivatives-3">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Derivative · Optimization
+          </span>
+          <span class="lang-th" lang="th">
+           อนุพันธ์ · ค่าสุดขั้ว
+          </span>
+         </span>
+         <p>
+          <span class="lang-en" lang="en">
+           Find the maximum value of $f(x)=-x^2+8x-5$.
+          </span>
+          <span class="lang-th" lang="th">
+           หาค่าสูงสุดของ $f(x)=-x^2+8x-5$
+          </span>
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        $$f'(x)=-2x+8=0\Rightarrow x=4$$ $$f(4)=-16+32-5=11$$
+        <p>
+         <span class="lang-en" lang="en">
+          Since $f''(x)=-2&lt;0$, the maximum value is $11$.
+         </span>
+         <span class="lang-th" lang="th">
+          เพราะ $f''(x)=-2&lt;0$ ค่าสูงสุดคือ $11$
+         </span>
+        </p>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-3" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="derivatives" id="derivatives-4">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          04.
+          <span class="lang-en" lang="en">
+           Product rule
+          </span>
+          <span class="lang-th" lang="th">
+           กฎผลคูณ
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\frac{d}{dx}(x^2e^x)$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Set u = x² and v = eˣ. Then u′ = 2x and v′ = eˣ.
+          </span>
+          <span class="lang-th" lang="th">
+           ให้ u = x² และ v = eˣ จะได้ u′ = 2x และ v′ = eˣ
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Use (uv)′ = u′v + uv′: 2xeˣ + x²eˣ.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้ (uv)′ = u′v + uv′ ได้ 2xeˣ + x²eˣ
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Factor to obtain eˣ(x² + 2x).
+          </span>
+          <span class="lang-th" lang="th">
+           ดึงตัวประกอบได้ eˣ(x² + 2x)
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-4" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="derivatives" id="derivatives-5">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          05.
+          <span class="lang-en" lang="en">
+           Quotient rule
+          </span>
+          <span class="lang-th" lang="th">
+           กฎผลหาร
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\frac{d}{dx}\frac{x^2+1}{x-1}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           The domain excludes x = 1. Set u = x²+1, v = x−1.
+          </span>
+          <span class="lang-th" lang="th">
+           โดเมนไม่รวม x = 1 ให้ u = x²+1, v = x−1
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Use $(u^{\prime} v-uv^{\prime})/v^2=[2x(x-1)-(x^2+1)]/(x-1)^2$.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้ $(u^{\prime} v-uv^{\prime})/v^2=[2x(x-1)-(x^2+1)]/(x-1)^2$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Simplify: $(x^2-2x-1)/(x-1)^2$, for $x\ne1$.
+          </span>
+          <span class="lang-th" lang="th">
+           จัดรูปได้ $(x^2-2x-1)/(x-1)^2$ เมื่อ $x\ne1$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-5" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="derivatives" id="derivatives-6">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          06.
+          <span class="lang-en" lang="en">
+           Logarithmic chain
+          </span>
+          <span class="lang-th" lang="th">
+           ลูกโซ่ลอการิทึม
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\frac{d}{dx}\ln(1+x^2)$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           The inner function 1+x² is positive for all real x.
+          </span>
+          <span class="lang-th" lang="th">
+           ฟังก์ชันชั้นใน 1+x² เป็นบวกสำหรับ x จริงทุกค่า
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Differentiate ln u to get u′/u; here u′ = 2x.
+          </span>
+          <span class="lang-th" lang="th">
+           หาอนุพันธ์ ln u ได้ u′/u โดย u′ = 2x
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The derivative is $2x/(1+x^2)$.
+          </span>
+          <span class="lang-th" lang="th">
+           อนุพันธ์คือ $2x/(1+x^2)$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-6" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="derivatives" id="derivatives-7">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          07.
+          <span class="lang-en" lang="en">
+           Tangent to a circle
+          </span>
+          <span class="lang-th" lang="th">
+           เส้นสัมผัสวงกลม
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$x^2+y^2=25,\quad (x,y)=(3,4)$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Differentiate implicitly: 2x + 2yy′ = 0.
+          </span>
+          <span class="lang-th" lang="th">
+           หาอนุพันธ์โดยปริยาย: 2x + 2yy′ = 0
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Solve y′ = −x/y and substitute (3,4): slope = −3/4.
+          </span>
+          <span class="lang-th" lang="th">
+           แก้ได้ y′ = −x/y แล้วแทน (3,4) ความชันคือ −3/4
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The tangent line is $y-4=-\frac34(x-3)$.
+          </span>
+          <span class="lang-th" lang="th">
+           เส้นสัมผัสคือ $y-4=-\frac34(x-3)$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-7" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="derivatives" id="derivatives-8">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          08.
+          <span class="lang-en" lang="en">
+           Variable exponent
+          </span>
+          <span class="lang-th" lang="th">
+           เลขชี้กำลังตัวแปร
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\frac{d}{dx}x^x,\quad x&gt;0$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Let y = xˣ and take logs: ln y = x ln x.
+          </span>
+          <span class="lang-th" lang="th">
+           ให้ y = xˣ แล้วใช้ลอการิทึม: ln y = x ln x
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Differentiate: y′/y = ln x + 1.
+          </span>
+          <span class="lang-th" lang="th">
+           หาอนุพันธ์: y′/y = ln x + 1
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Multiply by y = xˣ: y′ = xˣ(ln x + 1).
+          </span>
+          <span class="lang-th" lang="th">
+           คูณด้วย y = xˣ ได้ y′ = xˣ(ln x + 1)
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-8" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="derivatives" id="derivatives-9">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          09.
+          <span class="lang-en" lang="en">
+           Closed-interval extrema
+          </span>
+          <span class="lang-th" lang="th">
+           ค่าสุดขั้วบนช่วงปิด
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$f(x)=x^3-3x,\quad x\in[-2,2]$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Continuity guarantees global extrema. Solve f′ = 3x²−3 = 0 to find x = ±1.
+          </span>
+          <span class="lang-th" lang="th">
+           ความต่อเนื่องรับประกันค่าสุดขั้วสัมบูรณ์ แก้ f′ = 3x²−3 = 0 ได้ x = ±1
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Evaluate at both critical points and endpoints: f(−2)=−2, f(−1)=2, f(1)=−2, f(2)=2.
+          </span>
+          <span class="lang-th" lang="th">
+           คำนวณทั้งจุดวิกฤตและปลายช่วง: f(−2)=−2, f(−1)=2, f(1)=−2, f(2)=2
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Maximum 2 at −1 and 2; minimum −2 at −2 and 1.
+          </span>
+          <span class="lang-th" lang="th">
+           ค่าสูงสุด 2 ที่ −1 และ 2 ค่าต่ำสุด −2 ที่ −2 และ 1
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-9" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="derivatives" id="derivatives-10">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          10.
+          <span class="lang-en" lang="en">
+           Mean value point
+          </span>
+          <span class="lang-th" lang="th">
+           จุดค่ากลาง
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$f(x)=x^2,\quad [1,3]$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           The function is continuous on [1,3] and differentiable on (1,3), so the MVT applies.
+          </span>
+          <span class="lang-th" lang="th">
+           ฟังก์ชันต่อเนื่องบน [1,3] และหาอนุพันธ์ได้บน (1,3) จึงใช้ทฤษฎีบทค่ากลางได้
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The average slope is (9−1)/(3−1) = 4.
+          </span>
+          <span class="lang-th" lang="th">
+           ความชันเฉลี่ยคือ (9−1)/(3−1) = 4
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Solve f′(c) = 2c = 4 to obtain c = 2, inside the interval.
+          </span>
+          <span class="lang-th" lang="th">
+           แก้ f′(c) = 2c = 4 ได้ c = 2 ซึ่งอยู่ภายในช่วง
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-10" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="derivatives" id="derivatives-11">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          11.
+          <span class="lang-en" lang="en">
+           Related rates: sphere
+          </span>
+          <span class="lang-th" lang="th">
+           อัตราสัมพัทธ์: ทรงกลม
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$V=\frac43\pi r^3,\quad r=3\;\mathrm{cm},\quad \frac{dr}{dt}=2\;\mathrm{cm/s}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Differentiate the volume formula with respect to time before substituting the radius.
+          </span>
+          <span class="lang-th" lang="th">
+           หาอนุพันธ์สูตรปริมาตรเทียบกับเวลาก่อนแทนรัศมี
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           $dV/dt=4\pi r^2\,dr/dt$.
+          </span>
+          <span class="lang-th" lang="th">
+           $dV/dt=4\pi r^2\,dr/dt$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Substitute: $4\pi(3)^2(2)=72\pi\;\mathrm{cm^3/s}$.
+          </span>
+          <span class="lang-th" lang="th">
+           แทนค่า: $4\pi(3)^2(2)=72\pi\;\mathrm{cm^3/s}$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-11" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="foundation" data-topic="derivatives" id="derivatives-12">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Foundation
+          </span>
+          <span class="lang-th" lang="th">
+           พื้นฐาน
+          </span>
+         </span>
+         <h3>
+          12.
+          <span class="lang-en" lang="en">
+           Local approximation
+          </span>
+          <span class="lang-th" lang="th">
+           การประมาณใกล้จุด
+          </span>
+         </h3>
+         <div class="equation-block">
+          <p>
+           <span class="lang-en" lang="en">
+            Approximate using the tangent at x = 4:
+           </span>
+           <span class="lang-th" lang="th">
+            ประมาณด้วยเส้นสัมผัสที่ x = 4:
+           </span>
+          </p>
+          $$\sqrt{4.1}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Choose f(x) = √x. At a = 4, f(a) = 2 and f′(a) = 1/4.
+          </span>
+          <span class="lang-th" lang="th">
+           เลือก f(x) = √x ที่ a = 4 มี f(a) = 2 และ f′(a) = 1/4
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Build L(x) = 2 + (x−4)/4.
+          </span>
+          <span class="lang-th" lang="th">
+           สร้าง L(x) = 2 + (x−4)/4
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           L(4.1) = 2.025. This is an approximation; concavity down means the tangent overestimates.
+          </span>
+          <span class="lang-th" lang="th">
+           L(4.1) = 2.025 เป็นค่าประมาณ กราฟเว้าลงจึงได้ค่ามากกว่าค่าจริง
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="derivatives-12" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+     </div>
+    </section>
+    <section class="lesson-section reveal" id="integrals-practice">
+     <h2>
+      <span class="lang-en" lang="en">
+       Integrals
+      </span>
+      <span class="lang-th" lang="th">
+       ปริพันธ์
+      </span>
+     </h2>
+     <div class="problem-list">
+      <article class="card problem" data-level="foundation" data-topic="integrals" id="integrals-1">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Integral · Easy
+          </span>
+          <span class="lang-th" lang="th">
+           ปริพันธ์ · พื้นฐาน
+          </span>
+         </span>
+         <p>
+          $$\int(6x^2-4x+3)dx$$
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          Integrate term by term: increase each power by one and divide by the new power. This gives 6x³/3 − 4x²/2 + 3x. Add an arbitrary constant C.
+         </span>
+         <span class="lang-th" lang="th">
+          อินทิเกรตทีละพจน์ เพิ่มเลขชี้กำลังหนึ่งแล้วหารด้วยกำลังใหม่ ได้ 6x³/3 − 4x²/2 + 3x แล้วบวกค่าคงที่ C
+         </span>
+        </p>
+        $$2x^3-2x^2+3x+C$$
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-1" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="integrals" id="integrals-2">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Integral · Substitution
+          </span>
+          <span class="lang-th" lang="th">
+           ปริพันธ์ · การแทนค่า
+          </span>
+         </span>
+         <p>
+          $$\int 2x e^{x^2}dx$$
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          Let $u=x^2$, $du=2x\,dx$.
+         </span>
+         <span class="lang-th" lang="th">
+          ให้ $u=x^2$, $du=2x\,dx$
+         </span>
+        </p>
+        $$\int e^u du=e^u+C=e^{x^2}+C$$
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-2" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="integrals" id="integrals-3">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Integral · Definite
+          </span>
+          <span class="lang-th" lang="th">
+           ปริพันธ์ · จำกัดเขต
+          </span>
+         </span>
+         <p>
+          $$\int_0^2(3x^2+1)dx$$
+         </p>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <p>
+         <span class="lang-en" lang="en">
+          An antiderivative of 3x² + 1 is x³ + x. Use the FTC: evaluate at 2, then subtract its value at 0. Both bounds lie in the continuous domain.
+         </span>
+         <span class="lang-th" lang="th">
+          ปฏิยานุพันธ์ของ 3x² + 1 คือ x³ + x ใช้ทฤษฎีบทมูลฐาน แทน 2 แล้วลบค่าที่ 0 ขอบทั้งสองอยู่ในโดเมนที่ต่อเนื่อง
+         </span>
+        </p>
+        $$\left[x^3+x\right]_0^2=8+2=10$$
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-3" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="integrals" id="integrals-4">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          04.
+          <span class="lang-en" lang="en">
+           Integration by parts
+          </span>
+          <span class="lang-th" lang="th">
+           อินทิเกรตโดยส่วน
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\int xe^x\,dx$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Choose u = x and dv = eˣ dx, so du = dx and v = eˣ.
+          </span>
+          <span class="lang-th" lang="th">
+           เลือก u = x และ dv = eˣ dx จึงได้ du = dx และ v = eˣ
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Use $\int u\,dv=uv-\int v\,du$ to get $xe^x-\int e^x dx$.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้ $\int u\,dv=uv-\int v\,du$ ได้ $xe^x-\int e^x dx$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The result is eˣ(x−1) + C. Differentiate it to check: xeˣ.
+          </span>
+          <span class="lang-th" lang="th">
+           ผลคือ eˣ(x−1) + C หาอนุพันธ์ตรวจสอบได้ xeˣ
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-4" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="integrals" id="integrals-5">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          05.
+          <span class="lang-en" lang="en">
+           Recognize a logarithm
+          </span>
+          <span class="lang-th" lang="th">
+           มองหารูปลอการิทึม
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\int\frac{2x}{1+x^2}\,dx$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Set u = 1+x², so du = 2x dx.
+          </span>
+          <span class="lang-th" lang="th">
+           ให้ u = 1+x² จึงได้ du = 2x dx
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The integral becomes $\int du/u=\ln|u|+C$.
+          </span>
+          <span class="lang-th" lang="th">
+           ปริพันธ์เป็น $\int du/u=\ln|u|+C$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Since 1+x² &gt; 0, the answer is ln(1+x²) + C.
+          </span>
+          <span class="lang-th" lang="th">
+           เพราะ 1+x² &gt; 0 คำตอบคือ ln(1+x²) + C
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-5" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="integrals" id="integrals-6">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          06.
+          <span class="lang-en" lang="en">
+           Trigonometric power
+          </span>
+          <span class="lang-th" lang="th">
+           กำลังตรีโกณมิติ
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\int\sin^2x\,dx$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Use the identity sin²x = (1−cos 2x)/2.
+          </span>
+          <span class="lang-th" lang="th">
+           ใช้เอกลักษณ์ sin²x = (1−cos 2x)/2
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Integrate the constant term as x/2. The cosine term needs a factor 1/2 from its inner derivative.
+          </span>
+          <span class="lang-th" lang="th">
+           อินทิเกรตพจน์คงที่ได้ x/2 พจน์ cosine ต้องคูณ 1/2 จากอนุพันธ์ชั้นใน
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The answer is $x/2-\sin(2x)/4+C$.
+          </span>
+          <span class="lang-th" lang="th">
+           คำตอบคือ $x/2-\sin(2x)/4+C$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-6" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="integrals" id="integrals-7">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          07.
+          <span class="lang-en" lang="en">
+           Partial fractions
+          </span>
+          <span class="lang-th" lang="th">
+           เศษส่วนย่อย
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\int\frac{dx}{x^2-1}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Factor the denominator: $(x-1)(x+1)$, excluding $x=\pm1$.
+          </span>
+          <span class="lang-th" lang="th">
+           แยกตัวส่วนเป็น $(x-1)(x+1)$ โดยไม่รวม $x=\pm1$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Solve $1=A(x+1)+B(x-1)$: $A=1/2$, $B=-1/2$.
+          </span>
+          <span class="lang-th" lang="th">
+           แก้ $1=A(x+1)+B(x-1)$ ได้ $A=1/2$, $B=-1/2$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Integrate: $\frac12\ln|x-1|-\frac12\ln|x+1|+C$, on each interval of the domain.
+          </span>
+          <span class="lang-th" lang="th">
+           อินทิเกรตได้ $\frac12\ln|x-1|-\frac12\ln|x+1|+C$ แยกในแต่ละช่วงของโดเมน
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-7" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="foundation" data-topic="integrals" id="integrals-8">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Foundation
+          </span>
+          <span class="lang-th" lang="th">
+           พื้นฐาน
+          </span>
+         </span>
+         <h3>
+          08.
+          <span class="lang-en" lang="en">
+           Signed integral versus area
+          </span>
+          <span class="lang-th" lang="th">
+           ปริพันธ์แบบมีเครื่องหมายกับพื้นที่
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$f(x)=x,\quad [-1,1]$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           The signed integral is $[x^2/2]_{-1}^1=0$.
+          </span>
+          <span class="lang-th" lang="th">
+           ปริพันธ์แบบมีเครื่องหมายคือ $[x^2/2]_{-1}^1=0$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           For geometric area, split at zero and negate the part below the axis.
+          </span>
+          <span class="lang-th" lang="th">
+           สำหรับพื้นที่เรขาคณิต ให้แบ่งที่ศูนย์แล้วเปลี่ยนเครื่องหมายส่วนใต้แกน
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           $A=-\int_{-1}^0x\,dx+\int_0^1x\,dx=1/2+1/2=1$.
+          </span>
+          <span class="lang-th" lang="th">
+           $A=-\int_{-1}^0x\,dx+\int_0^1x\,dx=1/2+1/2=1$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-8" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="integrals" id="integrals-9">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          09.
+          <span class="lang-en" lang="en">
+           Area between curves
+          </span>
+          <span class="lang-th" lang="th">
+           พื้นที่ระหว่างเส้นโค้ง
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$y=x,\quad y=x^2$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Find intersections from x = x²: x = 0 and x = 1.
+          </span>
+          <span class="lang-th" lang="th">
+           หาจุดตัดจาก x = x² ได้ x = 0 และ x = 1
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           On [0,1], x ≥ x². Integrate upper minus lower.
+          </span>
+          <span class="lang-th" lang="th">
+           บน [0,1] มี x ≥ x² ให้หาปริพันธ์เส้นบนลบเส้นล่าง
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           $A=\int_0^1(x-x^2)dx=[x^2/2-x^3/3]_0^1=1/6$.
+          </span>
+          <span class="lang-th" lang="th">
+           $A=\int_0^1(x-x^2)dx=[x^2/2-x^3/3]_0^1=1/6$
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-9" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="core" data-topic="integrals" id="integrals-10">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Core
+          </span>
+          <span class="lang-th" lang="th">
+           ประยุกต์
+          </span>
+         </span>
+         <h3>
+          10.
+          <span class="lang-en" lang="en">
+           Variable upper bound
+          </span>
+          <span class="lang-th" lang="th">
+           ขอบบนเป็นตัวแปร
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\frac{d}{dx}\int_0^{x^2}\cos t\,dt$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           The integrand is continuous, so the FTC applies.
+          </span>
+          <span class="lang-th" lang="th">
+           ฟังก์ชันใต้ปริพันธ์ต่อเนื่อง จึงใช้ทฤษฎีบทมูลฐานได้
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Evaluate the integrand at the upper bound: cos(x²).
+          </span>
+          <span class="lang-th" lang="th">
+           แทนขอบบนลงในฟังก์ชันใต้ปริพันธ์: cos(x²)
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Multiply by the upper-bound derivative 2x. Answer: 2x cos(x²).
+          </span>
+          <span class="lang-th" lang="th">
+           คูณด้วยอนุพันธ์ขอบบน 2x คำตอบคือ 2x cos(x²)
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-10" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="integrals" id="integrals-11">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          11.
+          <span class="lang-en" lang="en">
+           A convergent improper integral
+          </span>
+          <span class="lang-th" lang="th">
+           ปริพันธ์ไม่ตรงแบบที่ลู่เข้า
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\int_1^{\infty}\frac{dx}{x^2}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Replace infinity by $R$ and plan to take $R\to\infty$.
+          </span>
+          <span class="lang-th" lang="th">
+           แทนอนันต์ด้วย $R$ แล้วเตรียมหาลิมิต $R\to\infty$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           $\int_1^R x^{-2}dx=[-1/x]_1^R=1-1/R$.
+          </span>
+          <span class="lang-th" lang="th">
+           $\int_1^R x^{-2}dx=[-1/x]_1^R=1-1/R$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           The limit is 1, so the improper integral converges to 1.
+          </span>
+          <span class="lang-th" lang="th">
+           ลิมิตคือ 1 ปริพันธ์ไม่ตรงแบบจึงลู่เข้าเท่ากับ 1
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-11" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+      <article class="card problem" data-level="challenge" data-topic="integrals" id="integrals-12">
+       <div class="problem-top">
+        <div>
+         <span class="tag">
+          <span class="lang-en" lang="en">
+           Challenge
+          </span>
+          <span class="lang-th" lang="th">
+           ท้าทาย
+          </span>
+         </span>
+         <h3>
+          12.
+          <span class="lang-en" lang="en">
+           A divergent singularity
+          </span>
+          <span class="lang-th" lang="th">
+           จุดเอกฐานที่ลู่ออก
+          </span>
+         </h3>
+         <div class="equation-block">
+          $$\int_{-1}^1\frac{dx}{x}$$
+         </div>
+        </div>
+       </div>
+       <details class="solution-details">
+        <summary>
+         <span class="lang-en" lang="en">
+          Step-by-step solution
+         </span>
+         <span class="lang-th" lang="th">
+          เฉลยทีละขั้นตอน
+         </span>
+        </summary>
+        <ol>
+         <li>
+          <span class="lang-en" lang="en">
+           Split at zero, where the integrand is undefined. Each side must converge independently.
+          </span>
+          <span class="lang-th" lang="th">
+           แบ่งที่ศูนย์ซึ่งฟังก์ชันไม่นิยาม แต่ละด้านต้องลู่เข้าแยกกัน
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           $\int_\varepsilon^1dx/x=-\ln\varepsilon\to+\infty$ as $\varepsilon\to0^+$.
+          </span>
+          <span class="lang-th" lang="th">
+           $\int_\varepsilon^1dx/x=-\ln\varepsilon\to+\infty$ เมื่อ $\varepsilon\to0^+$
+          </span>
+         </li>
+         <li>
+          <span class="lang-en" lang="en">
+           Already one side diverges, so the improper integral diverges. Symmetric cancellation does not fix it.
+          </span>
+          <span class="lang-th" lang="th">
+           ด้านเดียวลู่ออกก็สรุปว่าปริพันธ์ลู่ออกได้แล้ว การหักล้างแบบสมมาตรแก้ไม่ได้
+          </span>
+         </li>
+        </ol>
+       </details>
+       <label class="check-label completion">
+        <input data-complete="integrals-12" type="checkbox"/>
+        <span class="lang-en" lang="en">
+         Mark as completed
+        </span>
+        <span class="lang-th" lang="th">
+         ทำข้อนี้แล้ว
+        </span>
+       </label>
+      </article>
+     </div>
+    </section>
+   </main>
+  </div>
+  <footer class="site-footer">
+   <p>
+    Calculus Atlas
+    <span aria-hidden="true">
+     ·
+    </span>
+    <span class="lang-en" lang="en">
+     A study of change &amp; accumulation
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนรู้การเปลี่ยนแปลงและการสะสม
+    </span>
+   </p>
+  </footer>
+  <dialog aria-labelledby="searchTitle" class="search-dialog" id="searchOverlay">
+   <div class="search-box">
+    <div>
+     <label for="searchInput" id="searchTitle">
+      <span class="lang-en" lang="en">
+       Search the atlas
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหาในแอตลาส
+      </span>
+     </label>
+     <input aria-controls="searchResults" autocomplete="off" id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…" type="search"/>
+    </div>
+    <button aria-label="Close search" class="search-close" data-label-en="Close search" data-label-th="ปิดการค้นหา" id="searchClose">
+     ×
+    </button>
+   </div>
+   <p class="search-count" id="searchCount" role="status">
+   </p>
+   <div class="search-results" id="searchResults">
+   </div>
+   <p class="search-help">
+    <span class="lang-en" lang="en">
+     Ctrl / ⌘ K to open · Tab to navigate · Esc to close
+    </span>
+    <span class="lang-th" lang="th">
+     Ctrl / ⌘ K เพื่อเปิด · Tab เพื่อเลือก · Esc เพื่อปิด
+    </span>
+   </p>
+  </dialog>
+  <noscript>
+   <p class="noscript-note">
+    Notes, navigation, and solutions remain readable. Enable JavaScript for graphs, calculators, search, and language switching. อ่านบทเรียนและเฉลยได้โดยไม่ใช้ JavaScript เปิด JavaScript เพื่อใช้กราฟ เครื่องคำนวณ ค้นหา และสลับภาษา
+   </p>
+  </noscript>
+ </body>
+</html>

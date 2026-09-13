@@ -1,13 +1,680 @@
-<!doctype html><html lang="en" data-lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="University-style interactive calculus learning site with bilingual notes, graphs, calculators, and practice."><title>Calculus Atlas — University Calculus</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;600&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script><script defer src="https://cdn.jsdelivr.net/npm/mathjs@14.0.1/lib/browser/math.js"></script><script defer src="https://cdn.jsdelivr.net/npm/nerdamer@1.1.13/all.min.js"></script><script defer src="app.js"></script></head><body><div class="paper-grid"></div>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">∫</span><span>Calculus Atlas</span></a><nav class="top-nav"><a class="active" href="index.html"><span class="lang-en">Home</span><span class="lang-th">หน้าแรก</span></a><a href="limits.html">Limits</a><a href="derivatives.html">Derivatives</a><a href="integrals.html">Integrals</a><a href="practice.html"><span class="lang-en">Practice</span><span class="lang-th">แบบฝึกหัด</span></a></nav><div class="header-actions"><button class="icon-btn" data-search-open>⌕ <span class="search-label">Search</span></button><button class="lang-btn" data-lang-toggle>TH</button><button class="icon-btn" data-theme-toggle aria-label="Theme">◐</button></div></header>
-<main>
-<section class="hero section-shell"><div class="reveal"><p class="eyebrow"><span class="lang-en">Single-variable calculus · university level</span><span class="lang-th">แคลคูลัสตัวแปรเดียว · ระดับมหาวิทยาลัย</span></p><h1><span class="lang-en">Think in <em>change</em>.</span><span class="lang-th">มองโลกผ่าน <em>การเปลี่ยนแปลง</em></span></h1><p class="hero-lead"><span class="lang-en">A modern LaTeX-inspired learning environment for limits, derivatives, and integrals — with rigorous notes, visual intuition, interactive graphs, calculators, and worked practice.</span><span class="lang-th">พื้นที่เรียนแคลคูลัสสไตล์ LaTeX สมัยใหม่ ครบทั้งลิมิต อนุพันธ์ ปริพันธ์ พร้อมคำอธิบายเชิงคณิตศาสตร์ กราฟโต้ตอบ เครื่องคำนวณ และโจทย์พร้อมเฉลย</span></p><div class="hero-actions"><a class="button primary" href="limits.html"><span class="lang-en">Start chapter 1 →</span><span class="lang-th">เริ่มบทที่ 1 →</span></a><a class="button" href="practice.html"><span class="lang-en">Open practice set</span><span class="lang-th">เปิดชุดโจทย์</span></a></div></div>
-<aside class="card hero-card reveal"><span class="card-kicker"><span class="lang-en">The central bridge</span><span class="lang-th">สะพานสำคัญของแคลคูลัส</span></span><div class="equation">$$\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$$</div><p><span class="lang-en">The Fundamental Theorem connects local change to global accumulation. Much of calculus is built around this relationship.</span><span class="lang-th">ทฤษฎีบทมูลฐานเชื่อม “การเปลี่ยนแปลงเฉพาะจุด” เข้ากับ “การสะสมโดยรวม” ซึ่งเป็นแกนหลักของแคลคูลัส</span></p></aside></section>
-<section id="chapters" class="section"><div class="section-shell"><div class="section-heading reveal"><div><p class="eyebrow">Core sequence</p><h2><span class="lang-en">Three chapters, one story.</span><span class="lang-th">สามบท แต่เป็นเรื่องเดียวกัน</span></h2></div><p><span class="lang-en">Progress from approaching a value, to measuring change, to accumulating quantities.</span><span class="lang-th">เริ่มจากการเข้าใกล้ค่า → วัดอัตราการเปลี่ยนแปลง → รวมการสะสมของปริมาณ</span></p></div><div class="chapter-grid">
-<a class="card chapter-card reveal" href="limits.html"><span class="num">01 / LIMITS</span><h3>Limits</h3><p><span class="lang-en">Formalize “getting close” and build the foundation for continuity and derivatives.</span><span class="lang-th">ทำความหมายของ “เข้าใกล้” ให้แม่นยำ และวางพื้นฐานสู่ความต่อเนื่องกับอนุพันธ์</span></p><strong><span class="lang-en">Enter chapter →</span><span class="lang-th">เข้าสู่บทเรียน →</span></strong></a>
-<a class="card chapter-card reveal" href="derivatives.html"><span class="num">02 / DERIVATIVES</span><h3>Derivatives</h3><p><span class="lang-en">Study instantaneous change, tangent lines, optimization, and motion.</span><span class="lang-th">ศึกษาอัตราการเปลี่ยนแปลงฉับพลัน เส้นสัมผัส การหาค่าสุดขั้ว และการเคลื่อนที่</span></p><strong><span class="lang-en">Enter chapter →</span><span class="lang-th">เข้าสู่บทเรียน →</span></strong></a>
-<a class="card chapter-card reveal" href="integrals.html"><span class="num">03 / INTEGRALS</span><h3>Integrals</h3><p><span class="lang-en">Turn tiny contributions into total accumulation, area, displacement, and more.</span><span class="lang-th">รวมส่วนเล็ก ๆ ให้เป็นปริมาณสะสมทั้งหมด เช่น พื้นที่ การกระจัด และอื่น ๆ</span></p><strong><span class="lang-en">Enter chapter →</span><span class="lang-th">เข้าสู่บทเรียน →</span></strong></a></div></div></section>
-<section class="section"><div class="section-shell"><div class="section-heading reveal"><div><p class="eyebrow">Learning system</p><h2><span class="lang-en">Built to study, not just read.</span><span class="lang-th">สร้างมาเพื่อ “เรียน” ไม่ใช่แค่อ่าน</span></h2></div></div><div class="feature-grid"><div class="card feature reveal"><div class="symbol">⌕</div><h3><span class="lang-en">Global search</span><span class="lang-th">ค้นหาทั้งเว็บ</span></h3><p><span class="lang-en">Press Ctrl/Cmd + K to jump to any topic.</span><span class="lang-th">กด Ctrl/Cmd + K เพื่อค้นหาหัวข้อได้ทันที</span></p></div><div class="card feature reveal"><div class="symbol">ƒ′</div><h3><span class="lang-en">Calculus calculators</span><span class="lang-th">เครื่องคำนวณแคลคูลัส</span></h3><p><span class="lang-en">Differentiate and integrate symbolic expressions.</span><span class="lang-th">หาอนุพันธ์และปริพันธ์ของนิพจน์ได้</span></p></div><div class="card feature reveal"><div class="symbol">↗</div><h3><span class="lang-en">Interactive graphs</span><span class="lang-th">กราฟโต้ตอบ</span></h3><p><span class="lang-en">Visualize functions, tangent lines, and Riemann sums.</span><span class="lang-th">ดูกราฟ ฟังก์ชัน เส้นสัมผัส และผลบวกรีมันน์แบบโต้ตอบ</span></p></div><div class="card feature reveal"><div class="symbol">TH/EN</div><h3><span class="lang-en">Bilingual notes</span><span class="lang-th">ไทย / อังกฤษ</span></h3><p><span class="lang-en">Switch language instantly without leaving the page.</span><span class="lang-th">สลับภาษาได้ทันทีโดยไม่ต้องเปลี่ยนหน้า</span></p></div></div></div></section>
-<section class="section"><div class="section-shell"><div class="section-heading reveal"><div><p class="eyebrow">Graph laboratory</p><h2><span class="lang-en">Plot a function.</span><span class="lang-th">ลองพล็อตฟังก์ชัน</span></h2></div><p><span class="lang-en">Enter an expression using x, for example sin(x), x^2, exp(-x^2), or 1/x.</span><span class="lang-th">ใส่นิพจน์ที่มี x เช่น sin(x), x^2, exp(-x^2) หรือ 1/x</span></p></div><div class="panel interactive reveal"><div><span class="card-kicker">Interactive</span><h3><span class="lang-en">Function grapher</span><span class="lang-th">เครื่องพล็อตกราฟ</span></h3><div class="calc-grid"><input id="graphExpr" value="sin(x)+0.3*x" aria-label="Function"><button id="graphDraw"><span class="lang-en">Plot</span><span class="lang-th">พล็อต</span></button></div><p><span class="lang-en">Tip: use ^ for powers and standard functions such as sin, cos, tan, exp, log, sqrt.</span><span class="lang-th">ใช้ ^ สำหรับยกกำลัง และใช้ฟังก์ชัน sin, cos, tan, exp, log, sqrt ได้</span></p></div><canvas class="graph" id="functionGraph"></canvas></div></div></section>
-</main><footer class="site-footer">Calculus Atlas · Modern LaTeX learning environment · GitHub Pages ready</footer>
-<div id="searchOverlay" class="search-overlay"><div class="search-modal"><div class="search-box"><input id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…"><button id="searchClose" class="search-close">×</button></div><div id="searchResults" class="search-results"></div></div></div></body></html>
+<!DOCTYPE html>
+<html data-lang="en" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="University-style interactive calculus learning site with bilingual notes, graphs, calculators, and practice." name="description"/>
+  <script src="theme.js">
+  </script>
+  <title>
+   Calculus Atlas — University Calculus
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Noto+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Serif+Thai:wght@400;600&amp;family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script>
+   window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
+  </script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
+  <script defer="" src="vendor/math.js">
+  </script>
+  <script defer="" src="math-core.js">
+  </script>
+  <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="app.js">
+  </script>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+ </head>
+ <body>
+  <a class="skip-link" href="#main-content">
+   <span class="lang-en" lang="en">
+    Skip to content
+   </span>
+   <span class="lang-th" lang="th">
+    ข้ามไปเนื้อหา
+   </span>
+  </a>
+  <div class="paper-grid">
+  </div>
+  <header class="site-header">
+   <a class="brand" href="index.html">
+    <span class="brand-mark">
+     ∫
+    </span>
+    <span>
+     Calculus Atlas
+    </span>
+   </a>
+   <nav aria-label="Main navigation" class="top-nav" data-label-en="Main navigation" data-label-th="เมนูหลัก">
+    <a aria-current="page" class="active" href="index.html">
+     <span class="lang-en" lang="en">
+      Home
+     </span>
+     <span class="lang-th" lang="th">
+      หน้าแรก
+     </span>
+    </a>
+    <a href="limits.html">
+     <span class="lang-en" lang="en">
+      Limits
+     </span>
+     <span class="lang-th" lang="th">
+      ลิมิต
+     </span>
+    </a>
+    <a href="derivatives.html">
+     <span class="lang-en" lang="en">
+      Derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      อนุพันธ์
+     </span>
+    </a>
+    <a href="integrals.html">
+     <span class="lang-en" lang="en">
+      Integrals
+     </span>
+     <span class="lang-th" lang="th">
+      ปริพันธ์
+     </span>
+    </a>
+    <a href="practice.html">
+     <span class="lang-en" lang="en">
+      Practice
+     </span>
+     <span class="lang-th" lang="th">
+      แบบฝึกหัด
+     </span>
+    </a>
+   </nav>
+   <div class="header-actions">
+    <details class="mobile-nav">
+     <summary>
+      <span class="lang-en" lang="en">
+       Menu
+      </span>
+      <span class="lang-th" lang="th">
+       เมนู
+      </span>
+     </summary>
+     <nav aria-label="Mobile navigation" data-label-en="Mobile navigation" data-label-th="เมนูสำหรับมือถือ">
+      <a aria-current="page" href="index.html">
+       <span class="lang-en" lang="en">
+        Home
+       </span>
+       <span class="lang-th" lang="th">
+        หน้าแรก
+       </span>
+      </a>
+      <a href="limits.html">
+       <span class="lang-en" lang="en">
+        Limits
+       </span>
+       <span class="lang-th" lang="th">
+        ลิมิต
+       </span>
+      </a>
+      <a href="derivatives.html">
+       <span class="lang-en" lang="en">
+        Derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        อนุพันธ์
+       </span>
+      </a>
+      <a href="integrals.html">
+       <span class="lang-en" lang="en">
+        Integrals
+       </span>
+       <span class="lang-th" lang="th">
+        ปริพันธ์
+       </span>
+      </a>
+      <a href="practice.html">
+       <span class="lang-en" lang="en">
+        Practice
+       </span>
+       <span class="lang-th" lang="th">
+        แบบฝึกหัด
+       </span>
+      </a>
+     </nav>
+    </details>
+    <button aria-label="Search" class="icon-btn" data-label-en="Search" data-label-th="ค้นหา" data-search-open="">
+     <span aria-hidden="true">
+      ⌕
+     </span>
+     <span class="search-label">
+      <span class="lang-en" lang="en">
+       Search
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหา
+      </span>
+     </span>
+    </button>
+    <button aria-label="Switch to Thai" class="lang-btn" data-label-en="Switch to Thai" data-label-th="สลับเป็นภาษาอังกฤษ" data-lang-toggle="">
+     TH
+    </button>
+    <button aria-label="Toggle dark mode" aria-pressed="false" class="icon-btn" data-label-en="Toggle dark mode" data-label-th="สลับโหมดมืด" data-theme-toggle="">
+     ◐
+    </button>
+   </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+   <section class="hero section-shell">
+    <div class="reveal">
+     <p class="eyebrow">
+      <span class="lang-en" lang="en">
+       Single-variable calculus · university level
+      </span>
+      <span class="lang-th" lang="th">
+       แคลคูลัสตัวแปรเดียว · ระดับมหาวิทยาลัย
+      </span>
+     </p>
+     <h1>
+      <span class="lang-en" lang="en">
+       Think in
+       <em>
+        change
+       </em>
+       .
+      </span>
+      <span class="lang-th" lang="th">
+       มองโลกผ่าน
+       <em>
+        การเปลี่ยนแปลง
+       </em>
+      </span>
+     </h1>
+     <p class="hero-lead">
+      <span class="lang-en" lang="en">
+       A modern LaTeX-inspired learning environment for limits, derivatives, and integrals — with rigorous notes, visual intuition, interactive graphs, calculators, and worked practice.
+      </span>
+      <span class="lang-th" lang="th">
+       พื้นที่เรียนแคลคูลัสสไตล์ LaTeX สมัยใหม่ ครบทั้งลิมิต อนุพันธ์ ปริพันธ์ พร้อมคำอธิบายเชิงคณิตศาสตร์ กราฟโต้ตอบ เครื่องคำนวณ และโจทย์พร้อมเฉลย
+      </span>
+     </p>
+     <div class="hero-actions">
+      <a class="button primary" href="limits.html">
+       <span class="lang-en" lang="en">
+        Start chapter 1 →
+       </span>
+       <span class="lang-th" lang="th">
+        เริ่มบทที่ 1 →
+       </span>
+      </a>
+      <a class="button" href="practice.html">
+       <span class="lang-en" lang="en">
+        Open practice set
+       </span>
+       <span class="lang-th" lang="th">
+        เปิดชุดโจทย์
+       </span>
+      </a>
+     </div>
+     <div class="course-meta">
+      <span class="lang-en" lang="en">
+       03 chapters
+      </span>
+      <span class="lang-th" lang="th">
+       03 บทเรียน
+      </span>
+      <span>
+       ·
+      </span>
+      <span class="lang-en" lang="en">
+       36 worked problems
+      </span>
+      <span class="lang-th" lang="th">
+       36 โจทย์พร้อมเฉลย
+      </span>
+      <span>
+       ·
+      </span>
+      <span class="lang-en" lang="en">
+       5 visual laboratories
+      </span>
+      <span class="lang-th" lang="th">
+       5 ห้องทดลองกราฟ
+      </span>
+     </div>
+    </div>
+    <aside class="card hero-card reveal">
+     <span class="card-kicker">
+      <span class="lang-en" lang="en">
+       The central bridge
+      </span>
+      <span class="lang-th" lang="th">
+       สะพานสำคัญของแคลคูลัส
+      </span>
+     </span>
+     <svg aria-hidden="true" class="hero-curve" viewbox="0 0 400 130">
+      <path class="hero-grid" d="M0 100H400 M0 65H400 M0 30H400 M80 0V130 M160 0V130 M240 0V130 M320 0V130">
+      </path>
+      <path class="hero-fill" d="M35 100C90 115 130 100 185 60S280 0 365 60L365 100Z">
+      </path>
+      <path class="hero-line" d="M20 95C90 125 130 100 185 60S280 0 380 72">
+      </path>
+      <circle cx="185" cy="60" r="5">
+      </circle>
+     </svg>
+     <div class="equation">
+      $$\frac{d}{dx}\int_a^x f(t)\,dt=f(x)$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       The Fundamental Theorem connects local change to global accumulation. Much of calculus is built around this relationship.
+      </span>
+      <span class="lang-th" lang="th">
+       ทฤษฎีบทมูลฐานเชื่อม “การเปลี่ยนแปลงเฉพาะจุด” เข้ากับ “การสะสมโดยรวม” ซึ่งเป็นแกนหลักของแคลคูลัส
+      </span>
+     </p>
+     <p class="input-help">
+      <span class="lang-en" lang="en">
+       For a continuous function f on the interval.
+      </span>
+      <span class="lang-th" lang="th">
+       เมื่อ f ต่อเนื่องบนช่วงที่พิจารณา
+      </span>
+     </p>
+    </aside>
+   </section>
+   <section class="section-shell prerequisite">
+    <span class="lang-en" lang="en">
+     Before you begin: algebra, functions, and trigonometry in radians. Start with limits, build derivatives, then connect them through integration.
+    </span>
+    <span class="lang-th" lang="th">
+     ก่อนเริ่ม: ทบทวนพีชคณิต ฟังก์ชัน และตรีโกณมิติในหน่วยเรเดียน เริ่มจากลิมิต ต่อด้วยอนุพันธ์ แล้วเชื่อมโยงผ่านปริพันธ์
+    </span>
+   </section>
+   <section class="section" id="chapters">
+    <div class="section-shell">
+     <div class="section-heading reveal">
+      <div>
+       <p class="eyebrow">
+        <span class="lang-en" lang="en">
+         Core sequence
+        </span>
+        <span class="lang-th" lang="th">
+         ลำดับบทเรียน
+        </span>
+       </p>
+       <h2>
+        <span class="lang-en" lang="en">
+         Three chapters, one story.
+        </span>
+        <span class="lang-th" lang="th">
+         สามบท แต่เป็นเรื่องเดียวกัน
+        </span>
+       </h2>
+      </div>
+      <p>
+       <span class="lang-en" lang="en">
+        Progress from approaching a value, to measuring change, to accumulating quantities.
+       </span>
+       <span class="lang-th" lang="th">
+        เริ่มจากการเข้าใกล้ค่า → วัดอัตราการเปลี่ยนแปลง → รวมการสะสมของปริมาณ
+       </span>
+      </p>
+     </div>
+     <div class="chapter-grid">
+      <a class="card chapter-card reveal" href="limits.html">
+       <span class="num">
+        <span class="lang-en" lang="en">
+         01 / LIMITS
+        </span>
+        <span class="lang-th" lang="th">
+         01 / ลิมิต
+        </span>
+       </span>
+       <h3>
+        <span class="lang-en" lang="en">
+         Limits
+        </span>
+        <span class="lang-th" lang="th">
+         ลิมิต
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Formalize “getting close” and build the foundation for continuity and derivatives.
+        </span>
+        <span class="lang-th" lang="th">
+         ทำความหมายของ “เข้าใกล้” ให้แม่นยำ และวางพื้นฐานสู่ความต่อเนื่องกับอนุพันธ์
+        </span>
+       </p>
+       <strong>
+        <span class="lang-en" lang="en">
+         Enter chapter →
+        </span>
+        <span class="lang-th" lang="th">
+         เข้าสู่บทเรียน →
+        </span>
+       </strong>
+      </a>
+      <a class="card chapter-card reveal" href="derivatives.html">
+       <span class="num">
+        <span class="lang-en" lang="en">
+         02 / DERIVATIVES
+        </span>
+        <span class="lang-th" lang="th">
+         02 / อนุพันธ์
+        </span>
+       </span>
+       <h3>
+        <span class="lang-en" lang="en">
+         Derivatives
+        </span>
+        <span class="lang-th" lang="th">
+         อนุพันธ์
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Study instantaneous change, tangent lines, optimization, and motion.
+        </span>
+        <span class="lang-th" lang="th">
+         ศึกษาอัตราการเปลี่ยนแปลงฉับพลัน เส้นสัมผัส การหาค่าสุดขั้ว และการเคลื่อนที่
+        </span>
+       </p>
+       <strong>
+        <span class="lang-en" lang="en">
+         Enter chapter →
+        </span>
+        <span class="lang-th" lang="th">
+         เข้าสู่บทเรียน →
+        </span>
+       </strong>
+      </a>
+      <a class="card chapter-card reveal" href="integrals.html">
+       <span class="num">
+        <span class="lang-en" lang="en">
+         03 / INTEGRALS
+        </span>
+        <span class="lang-th" lang="th">
+         03 / ปริพันธ์
+        </span>
+       </span>
+       <h3>
+        <span class="lang-en" lang="en">
+         Integrals
+        </span>
+        <span class="lang-th" lang="th">
+         ปริพันธ์
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Turn tiny contributions into total accumulation, area, displacement, and more.
+        </span>
+        <span class="lang-th" lang="th">
+         รวมส่วนเล็ก ๆ ให้เป็นปริมาณสะสมทั้งหมด เช่น พื้นที่ การกระจัด และอื่น ๆ
+        </span>
+       </p>
+       <strong>
+        <span class="lang-en" lang="en">
+         Enter chapter →
+        </span>
+        <span class="lang-th" lang="th">
+         เข้าสู่บทเรียน →
+        </span>
+       </strong>
+      </a>
+     </div>
+    </div>
+   </section>
+   <section class="section">
+    <div class="section-shell">
+     <div class="section-heading reveal">
+      <div>
+       <p class="eyebrow">
+        <span class="lang-en" lang="en">
+         Learning system
+        </span>
+        <span class="lang-th" lang="th">
+         เครื่องมือการเรียนรู้
+        </span>
+       </p>
+       <h2>
+        <span class="lang-en" lang="en">
+         Built to study, not just read.
+        </span>
+        <span class="lang-th" lang="th">
+         สร้างมาเพื่อ “เรียน” ไม่ใช่แค่อ่าน
+        </span>
+       </h2>
+      </div>
+     </div>
+     <div class="feature-grid">
+      <div class="card feature reveal">
+       <div class="symbol">
+        ⌕
+       </div>
+       <h3>
+        <span class="lang-en" lang="en">
+         Global search
+        </span>
+        <span class="lang-th" lang="th">
+         ค้นหาทั้งเว็บ
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Press Ctrl/Cmd + K to jump to any topic.
+        </span>
+        <span class="lang-th" lang="th">
+         กด Ctrl/Cmd + K เพื่อค้นหาหัวข้อได้ทันที
+        </span>
+       </p>
+      </div>
+      <div class="card feature reveal">
+       <div class="symbol">
+        ƒ′
+       </div>
+       <h3>
+        <span class="lang-en" lang="en">
+         Calculus calculators
+        </span>
+        <span class="lang-th" lang="th">
+         เครื่องคำนวณแคลคูลัส
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Differentiate and integrate symbolic expressions.
+        </span>
+        <span class="lang-th" lang="th">
+         หาอนุพันธ์และปริพันธ์ของนิพจน์ได้
+        </span>
+       </p>
+      </div>
+      <div class="card feature reveal">
+       <div class="symbol">
+        ↗
+       </div>
+       <h3>
+        <span class="lang-en" lang="en">
+         Interactive graphs
+        </span>
+        <span class="lang-th" lang="th">
+         กราฟโต้ตอบ
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Visualize functions, tangent lines, and Riemann sums.
+        </span>
+        <span class="lang-th" lang="th">
+         ดูกราฟ ฟังก์ชัน เส้นสัมผัส และผลบวกรีมันน์แบบโต้ตอบ
+        </span>
+       </p>
+      </div>
+      <div class="card feature reveal">
+       <div class="symbol">
+        TH/EN
+       </div>
+       <h3>
+        <span class="lang-en" lang="en">
+         Bilingual notes
+        </span>
+        <span class="lang-th" lang="th">
+         ไทย / อังกฤษ
+        </span>
+       </h3>
+       <p>
+        <span class="lang-en" lang="en">
+         Switch language instantly without leaving the page.
+        </span>
+        <span class="lang-th" lang="th">
+         สลับภาษาได้ทันทีโดยไม่ต้องเปลี่ยนหน้า
+        </span>
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section" id="function-lab">
+    <div class="section-shell">
+     <div class="section-heading reveal">
+      <div>
+       <p class="eyebrow">
+        <span class="lang-en" lang="en">
+         Graph laboratory
+        </span>
+        <span class="lang-th" lang="th">
+         ห้องทดลองกราฟ
+        </span>
+       </p>
+       <h2>
+        <span class="lang-en" lang="en">
+         Plot a function.
+        </span>
+        <span class="lang-th" lang="th">
+         ลองพล็อตฟังก์ชัน
+        </span>
+       </h2>
+      </div>
+      <p>
+       <span class="lang-en" lang="en">
+        Enter an expression using x, for example sin(x), x^2, exp(-x^2), or 1/x.
+       </span>
+       <span class="lang-th" lang="th">
+        ใส่นิพจน์ที่มี x เช่น sin(x), x^2, exp(-x^2) หรือ 1/x
+       </span>
+      </p>
+     </div>
+     <div class="panel interactive reveal">
+      <div>
+       <span class="card-kicker">
+        <span class="lang-en" lang="en">
+         Interactive
+        </span>
+        <span class="lang-th" lang="th">
+         โต้ตอบได้
+        </span>
+       </span>
+       <h3>
+        <span class="lang-en" lang="en">
+         Function grapher
+        </span>
+        <span class="lang-th" lang="th">
+         เครื่องพล็อตกราฟ
+        </span>
+       </h3>
+       <div class="calc-grid">
+        <label class="field-label" for="graphExpr">
+         <span class="lang-en" lang="en">
+          Function f(x)
+         </span>
+         <span class="lang-th" lang="th">
+          ฟังก์ชัน f(x)
+         </span>
+        </label>
+        <input aria-label="Function" id="graphExpr" maxlength="240" value="sin(x)+0.3*x"/>
+        <button id="graphDraw">
+         <span class="lang-en" lang="en">
+          Plot
+         </span>
+         <span class="lang-th" lang="th">
+          พล็อต
+         </span>
+        </button>
+       </div>
+       <p>
+        <span class="lang-en" lang="en">
+         Tip: use ^ for powers and standard functions such as sin, cos, tan, exp, log, sqrt.
+        </span>
+        <span class="lang-th" lang="th">
+         ใช้ ^ สำหรับยกกำลัง และใช้ฟังก์ชัน sin, cos, tan, exp, log, sqrt ได้
+        </span>
+       </p>
+      </div>
+      <canvas aria-describedby="graphStatus" aria-label="Function graph" class="graph" data-label-en="Function graph" data-label-th="กราฟฟังก์ชัน" id="functionGraph" role="img">
+       <span class="lang-en" lang="en">
+        Function graph
+       </span>
+       <span class="lang-th" lang="th">
+        กราฟฟังก์ชัน
+       </span>
+      </canvas>
+      <output aria-live="polite" class="lab-status" id="graphStatus">
+      </output>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <p>
+    Calculus Atlas
+    <span aria-hidden="true">
+     ·
+    </span>
+    <span class="lang-en" lang="en">
+     A study of change &amp; accumulation
+    </span>
+    <span class="lang-th" lang="th">
+     เรียนรู้การเปลี่ยนแปลงและการสะสม
+    </span>
+   </p>
+  </footer>
+  <dialog aria-labelledby="searchTitle" class="search-dialog" id="searchOverlay">
+   <div class="search-box">
+    <div>
+     <label for="searchInput" id="searchTitle">
+      <span class="lang-en" lang="en">
+       Search the atlas
+      </span>
+      <span class="lang-th" lang="th">
+       ค้นหาในแอตลาส
+      </span>
+     </label>
+     <input aria-controls="searchResults" autocomplete="off" id="searchInput" placeholder="Search calculus… / ค้นหาแคลคูลัส…" type="search"/>
+    </div>
+    <button aria-label="Close search" class="search-close" data-label-en="Close search" data-label-th="ปิดการค้นหา" id="searchClose">
+     ×
+    </button>
+   </div>
+   <p class="search-count" id="searchCount" role="status">
+   </p>
+   <div class="search-results" id="searchResults">
+   </div>
+   <p class="search-help">
+    <span class="lang-en" lang="en">
+     Ctrl / ⌘ K to open · Tab to navigate · Esc to close
+    </span>
+    <span class="lang-th" lang="th">
+     Ctrl / ⌘ K เพื่อเปิด · Tab เพื่อเลือก · Esc เพื่อปิด
+    </span>
+   </p>
+  </dialog>
+  <noscript>
+   <p class="noscript-note">
+    Notes, navigation, and solutions remain readable. Enable JavaScript for graphs, calculators, search, and language switching. อ่านบทเรียนและเฉลยได้โดยไม่ใช้ JavaScript เปิด JavaScript เพื่อใช้กราฟ เครื่องคำนวณ ค้นหา และสลับภาษา
+   </p>
+  </noscript>
+ </body>
+</html>
