@@ -1,0 +1,11 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const {execFileSync}=require('node:child_process');
+for(const file of ['app.js','math-core.js','theme.js','calculator-worker.js','search-index.js','learning-models.js'])new vm.Script(fs.readFileSync(file,'utf8'),{filename:file});
+const practice=fs.readFileSync('practice.html','utf8');
+execFileSync(process.execPath,['scripts/build-practice.cjs'],{stdio:'inherit'});
+if(fs.readFileSync('practice.html','utf8')!==practice)throw Error('Practice HTML was stale. Commit the regenerated page.');
+const before=fs.readFileSync('search-index.js','utf8');
+execFileSync(process.execPath,['scripts/build-search.cjs'],{stdio:'inherit'});
+if(fs.readFileSync('search-index.js','utf8')!==before)throw Error('Search index was stale. Commit the regenerated index.');
+console.log('JavaScript syntax, generated practice page and search index are valid.');
