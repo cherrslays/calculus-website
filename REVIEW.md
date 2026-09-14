@@ -1,5 +1,18 @@
 # calculus-content-upgrade review
 
+## GitHub Pages display repair — v3.1
+
+The online symptom in which Thai and English appeared together and TeX delimiters such as `$$...$$` remained visible is consistent with stale or missing critical assets during deployment. Version 3.1 hardens every page against that failure mode:
+
+- Each page contains a minimal inline language-visibility guard, so only the selected language is visible even before the main stylesheet finishes loading.
+- Local styles and scripts use explicit version query strings to bypass stale GitHub Pages/browser caches after deployment.
+- Local MathJax remains the primary renderer, with a pinned CDN fallback if the local bundle is unavailable.
+- Thai font fallbacks now include native iOS and Windows choices.
+- `.nojekyll` keeps GitHub Pages from processing the static tree through Jekyll.
+- A regression test verifies the guard, versioned stylesheet, and MathJax fallback on all five pages.
+
+Final verification after this repair: 97/97 regression tests, 60 answers / 97 independent mathematical checks, reproducible generated pages and search index, and HTTP loading of all five pages plus 11 required local assets.
+
 ## Scope and preserved behavior
 
 Base: latest GitHub main, `bc80337b69b3fcae7146061ad16da8b2f2514065`. The audit inspected all five HTML pages, root JavaScript and CSS, asset references, existing explanations and all 36 previous exercises before implementation. Work is on `calculus-content-upgrade`; main and the live deployment were not modified.

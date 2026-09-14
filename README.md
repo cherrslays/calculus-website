@@ -1,5 +1,7 @@
 # Calculus Atlas
 
+Version 3.1 adds deployment hardening for GitHub Pages: cache-busted critical assets, an inline language-visibility guard, a MathJax CDN fallback, and improved Thai system-font fallbacks. These prevent stale or missing assets from exposing both translations or raw TeX during deployment.
+
 A Thai/English single-variable calculus learning platform for GitHub Pages. This upgrade extends the existing site at `bc80337`, including its newer sans-serif typography, and preserves all five page URLs and existing anchors.
 
 ## Learn
