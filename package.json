@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node --test tests/*.test.cjs",
     "check": "node scripts/check-site.cjs",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "build": "node scripts/build-practice.cjs && node scripts/build-search.cjs"
   },
   "devDependencies": {
     "axe-core": "4.10.3",

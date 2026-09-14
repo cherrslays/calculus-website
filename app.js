@@ -27,8 +27,10 @@
   const errorText = code => tr(...(errors[code] || errors.syntax));
   let typesetQueue = Promise.resolve();
   function typeset(element) {
-    if (!window.MathJax?.typesetPromise) return;
-    typesetQueue = typesetQueue.then(() => MathJax.typesetPromise([element])).catch(() => { /* Raw TeX stays readable. */ });
+    if (!element || !window.MathJax?.startup?.promise) return;
+    typesetQueue = typesetQueue.then(() => MathJax.startup.promise).then(() => {
+      if (element.isConnected) return MathJax.typesetPromise([element]);
+    }).catch(() => { /* Raw TeX stays readable. */ });
   }
   function clearMath(el) { try { window.MathJax?.typesetClear?.([el]); } catch { /* No prior math. */ } el.replaceChildren(); }
   function paragraph(parent, text, className = '') { const p = document.createElement('p'); p.textContent = text; p.className = className; parent.append(p); return p; }
@@ -181,7 +183,8 @@
   function drawTangent() {
     if (!$('derivativeCanvas')) return;
     const selected = $('tangentFunction').value, { f, d, label, rule } = demos[selected], a = Number($('xSlider').value), h = Number($('hSlider').value), m = d(a), secant = (f(a + h) - f(a)) / h;
-    const g = frame($('derivativeCanvas'), { xmin: -3, xmax: 3, ymin: selected === 'square' ? -2 : -7, ymax: 8 }); if (!g) return;
+    const end = a + h;
+    const g = frame($('derivativeCanvas'), { xmin: -3, xmax: Math.max(3, end + .3), ymin: Math.min(-7, f(a) - 1, f(end) - 1), ymax: Math.max(8, f(a) + 1, f(end) + 1) }); if (!g) return;
     curve(g, f); if ($('showDerivative').checked) curve(g, d, '--accent2', true);
     curve(g, x => f(a) + secant * (x - a), '--warning', true); curve(g, x => f(a) + m * (x - a), '--ink'); point(g, a, f(a)); point(g, a + h, f(a + h), true, '--warning'); g.ctx.restore();
     $('xValue').textContent = a.toFixed(1); $('slopeValue').textContent = m.toFixed(3);
@@ -199,14 +202,18 @@
   }
   function drawLimit() {
     if (!$('limitCanvas')) return;
-    const hole = $('limitFunction').value === 'hole', a = hole ? 2 : 0, h = 10 ** (-Number($('limitDistance').value));
-    const f = hole ? x => x === 2 ? NaN : x + 2 : x => x < 0 ? -1 : 1;
-    const g = frame($('limitCanvas'), hole ? { xmin: 0, xmax: 4, ymin: 1, ymax: 7 } : { xmin: -2, xmax: 2, ymin: -2, ymax: 2 }); if (!g) return;
+    const selected = $('limitFunction').value, hole = selected === 'hole', pole = selected === 'pole', oscillating = selected === 'oscillating';
+    const a = hole ? 2 : 0, h = 10 ** (-Number($('limitDistance').value));
+    const f = hole ? x => x === 2 ? NaN : x + 2 : pole ? x => x === 0 ? NaN : 1 / x : oscillating ? x => x === 0 ? 0 : x * x * Math.sin(1 / x) : x => x < 0 ? -1 : 1;
+    const g = frame($('limitCanvas'), hole ? { xmin: 0, xmax: 4, ymin: 1, ymax: 7 } : { xmin: -2, xmax: 2, ymin: pole ? -8 : -2, ymax: pole ? 8 : 2 }); if (!g) return;
     // Draw the two sides separately to avoid connecting across a jump.
     curve(g, x => x < a ? f(x) : NaN); curve(g, x => x > a ? f(x) : NaN);
-    point(g, a, hole ? 4 : -1, true); if (!hole) point(g, a, 1);
+    if (hole) point(g, a, 4, true);
+    else if (oscillating) { curve(g, x => x*x, '--muted', true); curve(g, x => -x*x, '--muted', true); point(g, 0, 0); }
+    else if (!pole) { point(g, 0, -1, true); point(g, 0, 1); }
     point(g, a - h, f(a - h), false, '--accent2'); point(g, a + h, f(a + h), false, '--warning'); g.ctx.restore();
-    $('limitStats').textContent = tr(`Distance h = ${number(h)}. Left: x = ${number(a - h)}, f = ${number(f(a - h))}. Right: x = ${number(a + h)}, f = ${number(f(a + h))}. ${hole ? 'Both approach 4; f(2) is undefined.' : 'Left approaches −1, right approaches 1: no two-sided limit.'}`, `ระยะ h = ${number(h)} ด้านซ้าย: x = ${number(a - h)}, f = ${number(f(a - h))} ด้านขวา: x = ${number(a + h)}, f = ${number(f(a + h))} ${hole ? 'ทั้งสองด้านเข้าใกล้ 4 แต่ f(2) ไม่นิยาม' : 'ซ้ายเข้าใกล้ −1 ขวาเข้าใกล้ 1 จึงไม่มีลิมิตสองด้าน'}`);
+    const conclusion = hole ? tr('Both approach 4; f(2) is undefined.', 'ทั้งสองด้านเข้าใกล้ 4 แต่ f(2) ไม่นิยาม') : pole ? tr('Left tends to −∞, right to +∞: no two-sided limit. Values outside the vertical window are clipped.', 'ซ้ายเข้าใกล้ −∞ ขวาเข้าใกล้ +∞ จึงไม่มีลิมิตสองด้าน ค่านอกกรอบแนวตั้งจะถูกตัด') : oscillating ? tr('The bounds ±x² squeeze both sides to 0=f(0). A finite-resolution drawing cannot resolve every oscillation.', 'ขอบ ±x² บีบทั้งสองด้านเข้าสู่ 0=f(0) รูปวาดความละเอียดจำกัดไม่อาจแสดงการแกว่งได้ทุกครั้ง') : tr('Left approaches −1, right approaches 1: no two-sided limit.', 'ซ้ายเข้าใกล้ −1 ขวาเข้าใกล้ 1 จึงไม่มีลิมิตสองด้าน');
+    $('limitStats').textContent = tr(`Distance h = ${number(h)}. Left: x = ${number(a - h)}, f = ${number(f(a - h))}. Right: x = ${number(a + h)}, f = ${number(f(a + h))}. `, `ระยะ h = ${number(h)} ด้านซ้าย: x = ${number(a - h)}, f = ${number(f(a - h))} ด้านขวา: x = ${number(a + h)}, f = ${number(f(a + h))} `) + conclusion;
   }
   function drawArea() {
     if (!$('areaCanvas')) return;
@@ -214,6 +221,43 @@
     const g = frame($('areaCanvas'), { xmin: -1.5, xmax: 2.5, ymin: -1.5, ymax: 2.5 }); if (!g) return;
     shade(g, x => x, -1, b); curve(g, x => x); g.ctx.restore();
     $('areaStats').textContent = tr(`b = ${number(b)} · Signed integral = ${number(signed)} · Geometric area = ${number(geometric)}. Green is positive; rose is negative.`, `b = ${number(b)} · ปริพันธ์แบบมีเครื่องหมาย = ${number(signed)} · พื้นที่เรขาคณิต = ${number(geometric)} สีเขียวเป็นบวก สีชมพูเป็นลบ`);
+  }
+  function drawCurveAnalysis() {
+    if (!$('curveCanvas')) return;
+    const M = LearningModels, a = Number($('curvePoint').value), second = $('curveSecond').checked;
+    const g = frame($('curveCanvas'), { xmin: -2.5, xmax: 2.5, ymin: -5, ymax: 15 }); if (!g) return;
+    curve(g, M.quartic);
+    [-Math.SQRT2,0,Math.SQRT2].forEach(x => point(g,x,M.quartic(x)));
+    [-Math.sqrt(2/3),Math.sqrt(2/3)].forEach(x => point(g,x,M.quartic(x),true));
+    point(g,a,M.quartic(a),false,'--warning'); g.ctx.restore();
+    const dg = frame($('curveDerivativeCanvas'), { xmin: -2.5, xmax: 2.5, ymin: -45, ymax: second ? 70 : 45 });
+    if (dg) { curve(dg,M.quarticD,'--accent2'); if (second) curve(dg,M.quarticDD,'--ink',true); point(dg,a,M.quarticD(a),false,'--warning'); dg.ctx.restore(); }
+    const slope = M.quarticD(a), curvature = M.quarticDD(a);
+    const direction = Math.abs(slope)<1e-10 ? tr('stationary','จุดนิ่ง') : slope>0 ? tr('increasing','เพิ่ม') : tr('decreasing','ลด');
+    const concavity = Math.abs(curvature)<1e-10 ? tr('test neighboring concavity','ตรวจความเว้าข้างเคียง') : curvature>0 ? tr('concave up','เว้าขึ้น') : tr('concave down','เว้าลง');
+    $('curveStats').textContent = `a = ${number(a)} · f(a) = ${number(M.quartic(a))} · f′(a) = ${number(slope)} · f″(a) = ${number(curvature)} · ${direction} · ${concavity}`;
+  }
+  function drawBetween() {
+    if (!$('betweenCanvas')) return;
+    const selected = $('betweenFunction').value, r = LearningModels.regions[selected], a = r.lo, b = a + (r.hi-a)*Number($('betweenFraction').value);
+    const result = LearningModels.between(selected,a,b), g = frame($('betweenCanvas'),r.bounds); if (!g) return;
+    for (let i=0;i<300;i++) {
+      const x=a+(b-a)*i/300, end=a+(b-a)*(i+1)/300, mid=(x+end)/2, top=Math.max(r.f(mid),r.g(mid)), bottom=Math.min(r.f(mid),r.g(mid));
+      g.ctx.fillStyle=color(r.f(mid)>=r.g(mid)?'--accent-soft':'--negative-soft');
+      g.ctx.fillRect(g.xp(x),g.yp(top),g.xp(end)-g.xp(x)+.3,g.yp(bottom)-g.yp(top));
+    }
+    curve(g,r.f); curve(g,r.g,'--accent2',true); r.roots.forEach(x=>point(g,x,r.f(x),true)); g.ctx.restore();
+    const pieces=result.parts.map(p=>`[${number(p.a)}, ${number(p.b)}]: ${number(Math.abs(p.signed))}`).join('; ');
+    $('betweenStats').textContent = tr(`${r.label}. Interval [${number(a)}, ${number(b)}]. Signed ∫(f−g) = ${number(result.signed)}. Geometric area = ${number(result.area)}. Area by piece: ${pieces}.`,`${r.label} ช่วง [${number(a)}, ${number(b)}] ปริพันธ์มีเครื่องหมาย ∫(f−g) = ${number(result.signed)} พื้นที่เรขาคณิต = ${number(result.area)} พื้นที่แต่ละส่วน: ${pieces}`);
+  }
+  function drawAccumulation() {
+    if (!$('accumulationCanvas')) return;
+    const a=Number($('accumulationPoint').value), A=LearningModels.accumulation, f=x=>Math.abs(x-1), bounds={xmin:-.15,xmax:3.15,ymin:-.3,ymax:3};
+    const top=frame($('accumulationIntegrand'),bounds);
+    if (top) { shade(top,f,0,a); curve(top,f); point(top,a,f(a),false,'--warning'); top.ctx.restore(); }
+    const bottom=frame($('accumulationCanvas'),bounds);
+    if (bottom) { curve(bottom,x=>x>=0&&x<=3?A(x):NaN); curve(bottom,x=>A(a)+f(a)*(x-a),'--ink',true); point(bottom,a,A(a),false,'--warning'); bottom.ctx.restore(); }
+    $('accumulationStats').textContent=tr(`x = ${number(a)} · Accumulated area A(x) = ${number(A(a))} · Tangent slope A′(x) = |x−1| = ${number(f(a))}. At x=1, slope is zero but A keeps increasing.`,`x = ${number(a)} · พื้นที่สะสม A(x) = ${number(A(a))} · ความชันเส้นสัมผัส A′(x) = |x−1| = ${number(f(a))} ที่ x=1 ความชันเป็นศูนย์ แต่ A ยังคงเพิ่ม`);
   }
   function drawCalculator() {
     const canvas = $('calcGraph') || $('intGraph'); if (!canvas) return;
@@ -248,11 +292,16 @@
     if (kind === 'derivative') {
       paragraph(out, tr(`Derivative of order ${result.order}`, `อนุพันธ์อันดับ ${result.order}`), 'result-label');
       formula(out, result.tex);
+      if (result.stages?.length > 1) {
+        const details = document.createElement('details'), summary = document.createElement('summary');
+        summary.textContent = tr('Successive derivatives', 'อนุพันธ์แต่ละอันดับ'); details.append(summary);
+        result.stages.forEach((tex,i) => formula(details, `f^{(${i+1})}(x)=${tex}`)); out.append(details);
+      }
       if (result.point !== undefined) paragraph(out, tr(`At x = ${number(result.point)}: ${number(result.value)}`, `ที่ x = ${number(result.point)}: ${number(result.value)}`));
       paragraph(out, tr('Green: original function. Blue dashed: the selected derivative. Check the real domain, corners and endpoints before interpreting the formula.', 'สีเขียว: ฟังก์ชันเดิม เส้นประน้ำเงิน: อนุพันธ์อันดับที่เลือก ตรวจโดเมนค่าจริง มุมแหลม และปลายช่วงก่อนใช้สูตร'), 'input-help');
     } else {
       if (result.tex) { paragraph(out, tr('Antiderivative', 'ปฏิยานุพันธ์'), 'result-label'); formula(out, `${result.tex}+C`); paragraph(out, tr('Valid on intervals where the real expression and its derivative exist; constants may differ between disconnected intervals.', 'ใช้บนช่วงที่นิพจน์ค่าจริงและอนุพันธ์นิยาม ค่าคงที่อาจต่างกันระหว่างช่วงที่ไม่เชื่อมต่อกัน'), 'input-help'); }
-      else paragraph(out, tr('An elementary antiderivative is unavailable from this solver. This does not affect a valid numerical estimate below.', 'เครื่องมือนี้ยังหาปฏิยานุพันธ์รูปฟังก์ชันมูลฐานไม่ได้ แต่ยังแสดงค่าประมาณเชิงตัวเลขที่คำนวณได้ด้านล่าง'), 'input-help');
+      else paragraph(out, result.pendingSymbolic ? tr('Numerical analysis finished. Looking for an antiderivative…', 'วิเคราะห์เชิงตัวเลขแล้ว กำลังหาปฏิยานุพันธ์…') : result.symbolicTimeout ? tr('Symbolic calculation timed out. The completed numerical analysis is retained below.', 'การคำนวณเชิงสัญลักษณ์หมดเวลา ผลวิเคราะห์เชิงตัวเลขที่เสร็จแล้วยังคงอยู่ด้านล่าง') : tr('An elementary antiderivative is unavailable from this solver. This does not affect a valid numerical estimate below.', 'เครื่องมือนี้ยังหาปฏิยานุพันธ์รูปฟังก์ชันมูลฐานไม่ได้ แต่ยังแสดงค่าประมาณเชิงตัวเลขที่คำนวณได้ด้านล่าง'), 'input-help');
       if (result.numeric) {
         paragraph(out, tr('Numerical definite integral ≈ ', 'ปริพันธ์จำกัดเขตเชิงตัวเลข ≈ ') + number(result.numeric.value), 'numeric-answer');
         paragraph(out, tr(`Bounds: ${number(result.numeric.a)} → ${number(result.numeric.b)}. Estimated absolute error: ${result.numeric.error.toExponential(2)}. Adaptive Simpson method; assumes continuity.`, `ขอบเขต: ${number(result.numeric.a)} → ${number(result.numeric.b)} ค่าคลาดเคลื่อนสัมบูรณ์โดยประมาณ: ${result.numeric.error.toExponential(2)} ใช้วิธีซิมป์สันปรับช่วง โดยสมมติความต่อเนื่อง`), 'input-help');
@@ -268,26 +317,39 @@
     try { CalcMath.expression(source); } catch (error) { displayError(error.code || 'engine'); drawCalculator(); return; }
     setBusy(true); clearMath(out); paragraph(out, tr('Calculating…', 'กำลังคำนวณ…'));
     try {
-      activeWorker = new Worker('calculator-worker.js');
-      activeWorker.onmessage = ({ data }) => {
-        stopWorker(); if (data.error) displayError(data.error); else { lastCalculation = { kind, source, result: data.result }; displayCalculation(lastCalculation); } drawCalculator();
+      const worker = activeWorker = new Worker('calculator-worker.js');
+      worker.onmessage = ({ data }) => {
+        if (activeWorker !== worker) return;
+        if (!data.partial) stopWorker();
+        if (data.error) displayError(data.error);
+        else { lastCalculation = { kind, source, result: { ...data.result, pendingSymbolic: Boolean(data.partial) } }; displayCalculation(lastCalculation); }
+        drawCalculator();
       };
-      activeWorker.onerror = () => { stopWorker(); displayError('worker'); };
-      jobTimer = setTimeout(() => { stopWorker(); displayError('timeout'); }, 8000);
-      activeWorker.postMessage(message);
+      worker.onerror = () => { if (activeWorker !== worker) return; stopWorker(); displayError('worker'); };
+      jobTimer = setTimeout(() => {
+        if (activeWorker !== worker) return;
+        stopWorker();
+        if (lastCalculation?.result.pendingSymbolic) {
+          lastCalculation.result.pendingSymbolic = false; lastCalculation.result.symbolicTimeout = true; displayCalculation(lastCalculation);
+        } else displayError('timeout');
+      }, 8000);
+      worker.postMessage(message);
     } catch { stopWorker(); displayError('worker'); }
   });
   // Invalidate an old answer as soon as its inputs change; never label it as a new result.
   all('#calculatorForm input, #calculatorForm select').forEach(input => input.addEventListener('input', () => {
     stopWorker(); lastCalculation = null; lastError = null; clearMath(out); paragraph(out, tr('Inputs changed. Calculate to update the result.', 'ข้อมูลเปลี่ยนแล้ว กดคำนวณเพื่ออัปเดตคำตอบ')); drawCalculator();
   }));
-  function redraw() { drawFunction(); drawTangent(); drawRiemann(); drawLimit(); drawArea(); drawCalculator(); }
+  function redraw() { drawFunction(); drawTangent(); drawRiemann(); drawLimit(); drawArea(); drawCurveAnalysis(); drawBetween(); drawAccumulation(); drawCalculator(); }
   $('graphDraw')?.addEventListener('click', drawFunction);
   $('graphExpr')?.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); drawFunction(); } });
   ['xSlider', 'hSlider', 'tangentFunction', 'showDerivative'].forEach(id => $(id)?.addEventListener('input', drawTangent));
   ['nSlider', 'riemannMethod'].forEach(id => $(id)?.addEventListener('input', drawRiemann));
   ['limitFunction', 'limitDistance'].forEach(id => $(id)?.addEventListener('input', drawLimit));
   $('areaBound')?.addEventListener('input', drawArea);
+  ['curvePoint','curveSecond'].forEach(id=>$(id)?.addEventListener('input',drawCurveAnalysis));
+  ['betweenFunction','betweenFraction'].forEach(id=>$(id)?.addEventListener('input',drawBetween));
+  $('accumulationPoint')?.addEventListener('input',drawAccumulation);
   let resizeFrame;
   window.addEventListener('resize', () => { cancelAnimationFrame(resizeFrame); resizeFrame = requestAnimationFrame(redraw); });
   window.addEventListener('load', redraw);

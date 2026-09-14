@@ -237,6 +237,49 @@ progress { width: 100%; height: 8px; accent-color: var(--accent); }
   .search-box { padding: 14px; }
 }
 @media (max-width: 390px) { .brand > span:last-child { display: none; } .hero h1 { font-size: 3.5rem; } }
+.problem { margin-block: 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; }
+.problem-top { display: block; }
+.problem-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 12px; }
+.topic-tag { color: var(--muted); font: .76rem/1.6 var(--sans); }
+.problem h3 { margin: 0 0 14px; line-height: 1.45; }
+.problem-question { margin-bottom: 18px; }
+.problem details { margin-block: 10px; border-top: 1px solid var(--line); }
+.problem details summary { min-height: 44px; padding-block: 12px; cursor: pointer; }
+.hint-details { color: var(--muted); }
+.hint-details summary { color: var(--accent); }
+.solution-steps { padding-left: 1.6em; }
+.solution-steps li { padding-left: .35em; margin-block: 20px; }
+.solution-steps li::marker { color: var(--accent); font-weight: 600; }
+.solution-steps p { margin-block: 8px; }
+.final-answer { border-left: 3px solid var(--accent); background: var(--soft); padding: 16px 20px; margin: 22px 0; }
+.final-answer strong { font: 600 .8rem/1.5 var(--sans); color: var(--accent); }
+.final-answer p { margin: 8px 0 0; }
+.completion-control { display: flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 18px; font: .83rem/1.6 var(--sans); }
+.completion-control input { width: 20px; height: 20px; flex: 0 0 auto; }
+.table-scroll { max-width: 100%; overflow-x: auto; margin-block: 22px; }
+.table-scroll table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.table-scroll caption { text-align: left; color: var(--muted); margin-bottom: 12px; }
+.table-scroll th, .table-scroll td { text-align: left; padding: 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table-scroll thead { background: var(--soft); }
+.math-figure { margin: 24px 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--paper); }
+.math-figure svg { display: block; width: 100%; max-width: 480px; margin: auto; height: auto; }
+.math-figure figcaption { color: var(--muted); font: .82rem/1.7 var(--sans); }
+.panel > label { display: block; margin: 14px 0 8px; }
+.lesson-section > .panel { padding: 20px; margin-block: 24px; }
+.panel > input[type="range"], .panel > select { width: 100%; max-width: 100%; }
+.panel > canvas + canvas { margin-top: 18px; }
+.panel .check-label { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.check-label input { width: 18px; height: 18px; }
+.lesson-main, .problem, .panel, .solution-steps li { min-width: 0; overflow-wrap: anywhere; }
+.equation-block, mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+.graph-status { min-height: 3em; }
+@media (max-width: 620px) {
+  .solution-steps { padding-left: 1.2em; }
+  .solution-steps li { padding-left: .15em; }
+  .final-answer { padding: 12px; }
+  .table-scroll th, .table-scroll td { padding: 10px; }
+  .topic-tag { max-width: 100%; }
+}
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

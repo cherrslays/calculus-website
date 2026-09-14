@@ -15,12 +15,15 @@
   <script>
    window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
   <script defer="" src="vendor/math.js">
   </script>
   <script defer="" src="math-core.js">
   </script>
   <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="learning-models.js">
   </script>
   <script defer="" src="app.js">
   </script>
@@ -253,6 +256,14 @@
       ฝึกโจทย์บทนี้ →
      </span>
     </a>
+    <a href="#continuity-classification">
+     <span class="lang-en" lang="en">
+      Continuity, discontinuities &amp; infinite limits
+     </span>
+     <span class="lang-th" lang="th">
+      ความต่อเนื่อง ความไม่ต่อเนื่อง และลิมิตอนันต์
+     </span>
+    </a>
    </aside>
    <main class="lesson-main" id="main-content" tabindex="-1">
     <section class="page-hero reveal">
@@ -377,6 +388,14 @@
        </span>
        <span class="lang-th" lang="th">
         ฝึกโจทย์บทนี้ →
+       </span>
+      </a>
+      <a href="#continuity-classification">
+       <span class="lang-en" lang="en">
+        Continuity, discontinuities &amp; infinite limits
+       </span>
+       <span class="lang-th" lang="th">
+        ความต่อเนื่อง ความไม่ต่อเนื่อง และลิมิตอนันต์
        </span>
       </a>
      </nav>
@@ -519,10 +538,10 @@
      </div>
      <div class="note">
       <span class="lang-en" lang="en">
-       Always try direct substitution first. If it gives a finite value, continuity often finishes the problem immediately.
+       Direct substitution is justified when the expression defines a function continuous at the limit point. For a piecewise definition, inspect the approaching branch on each side instead of using only the assigned value.
       </span>
       <span class="lang-th" lang="th">
-       เริ่มจากแทนค่าตรง ๆ ก่อนเสมอ ถ้าได้ค่าจำกัด มักจบโจทย์ได้ทันทีจากความต่อเนื่อง
+       แทนค่าโดยตรงได้เมื่อฟังก์ชันตามนิพจน์ต่อเนื่องที่จุดลิมิต สำหรับฟังก์ชันแยกช่วง ให้ตรวจสูตรที่เข้าใกล้จากแต่ละด้าน ไม่ใช่ดูเพียงค่าที่กำหนด ณ จุด
       </span>
      </div>
      <p>
@@ -905,10 +924,10 @@
      </h2>
      <p>
       <span class="lang-en" lang="en">
-       Compare a removable hole with a jump. Move the distance slider toward zero and inspect both sides. Numerical evidence suggests behavior; the definition or a theorem proves it.
+       Compare a hole, a jump, an infinite limit and a squeezed oscillation. Move the distance slider toward zero and inspect both sides. Numerical evidence suggests behavior; a definition or theorem proves it.
       </span>
       <span class="lang-th" lang="th">
-       เปรียบเทียบจุดขาดที่เติมเต็มได้กับการกระโดด เลื่อนระยะเข้าหาศูนย์แล้วสังเกตทั้งสองด้าน ข้อมูลเชิงตัวเลขช่วยคาดการณ์ แต่ต้องใช้นิยามหรือทฤษฎีบทเพื่อพิสูจน์
+       เปรียบเทียบรูโหว่ การกระโดด ลิมิตอนันต์ และการแกว่งที่ถูกบีบ เลื่อนระยะเข้าหาศูนย์แล้วตรวจทั้งสองด้าน ตัวเลขแนะนำพฤติกรรม แต่นิยามหรือทฤษฎีบทเป็นสิ่งพิสูจน์
       </span>
      </p>
      <div class="panel lab" data-lab="limits">
@@ -927,6 +946,12 @@
         </option>
         <option data-en="Jump: −1 on the left, 1 on the right" data-th="การกระโดด: ซ้าย −1 ขวา 1" value="jump">
          Jump: −1 on the left, 1 on the right
+        </option>
+        <option data-en="Infinite limits: 1/x" data-th="ลิมิตอนันต์: 1/x" value="pole">
+         Infinite limits: 1/x
+        </option>
+        <option data-en="Squeeze: x² sin(1/x), f(0)=0" data-th="ทฤษฎีบทบีบ: x² sin(1/x), f(0)=0" value="oscillating">
+         Squeeze: x² sin(1/x), f(0)=0
         </option>
        </select>
        <label for="limitDistance">
@@ -950,6 +975,170 @@
        </span>
       </canvas>
      </div>
+    </section>
+    <section class="lesson-section" id="continuity-classification">
+     <h2>
+      <span class="lang-en" lang="en">
+       Continuity, discontinuities &amp; infinite limits
+      </span>
+      <span class="lang-th" lang="th">
+       ความต่อเนื่อง ความไม่ต่อเนื่อง และลิมิตอนันต์
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       Continuity on a closed interval uses right continuity at the left endpoint and left continuity at the right endpoint. Inside the interval, both sides must approach the assigned value. A finite limit and a function value answer different questions.
+      </span>
+      <span class="lang-th" lang="th">
+       ความต่อเนื่องบนช่วงปิดใช้ความต่อเนื่องด้านขวาที่ปลายซ้ายและด้านซ้ายที่ปลายขวา ภายในช่วง ทั้งสองด้านต้องเข้าใกล้ค่าฟังก์ชันที่กำหนด ลิมิตจำกัดกับค่าฟังก์ชันตอบคนละคำถาม
+      </span>
+     </p>
+     <div class="table-scroll">
+      <table>
+       <caption>
+        <span class="lang-en" lang="en">
+         Classifying behavior at a
+        </span>
+        <span class="lang-th" lang="th">
+         จำแนกพฤติกรรมที่ a
+        </span>
+       </caption>
+       <thead>
+        <tr>
+         <th>
+          <span class="lang-en" lang="en">
+           Type
+          </span>
+          <span class="lang-th" lang="th">
+           ชนิด
+          </span>
+         </th>
+         <th>
+          <span class="lang-en" lang="en">
+           Test
+          </span>
+          <span class="lang-th" lang="th">
+           วิธีตรวจ
+          </span>
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <th scope="row">
+          <span class="lang-en" lang="en">
+           Removable
+          </span>
+          <span class="lang-th" lang="th">
+           ขจัดได้
+          </span>
+         </th>
+         <td>
+          <span class="lang-en" lang="en">
+           A finite two-sided limit exists, but f(a) is missing or different. Redefining only f(a) repairs continuity.
+          </span>
+          <span class="lang-th" lang="th">
+           ลิมิตสองด้านจำกัดมีอยู่ แต่ f(a) ไม่นิยามหรือต่างจากลิมิต แก้ความต่อเนื่องได้ด้วยการกำหนด f(a) ใหม่
+          </span>
+         </td>
+        </tr>
+        <tr>
+         <th scope="row">
+          <span class="lang-en" lang="en">
+           Jump
+          </span>
+          <span class="lang-th" lang="th">
+           กระโดด
+          </span>
+         </th>
+         <td>
+          <span class="lang-en" lang="en">
+           Both one-sided limits are finite but unequal. No choice of f(a) can make them agree.
+          </span>
+          <span class="lang-th" lang="th">
+           ลิมิตด้านเดียวทั้งคู่จำกัดแต่ไม่เท่ากัน ไม่อาจแก้ให้เท่ากันด้วยการเลือก f(a)
+          </span>
+         </td>
+        </tr>
+        <tr>
+         <th scope="row">
+          <span class="lang-en" lang="en">
+           Infinite
+          </span>
+          <span class="lang-th" lang="th">
+           อนันต์
+          </span>
+         </th>
+         <td>
+          <span class="lang-en" lang="en">
+           At least one one-sided value grows without bound. An infinite limit describes behavior, not a real function value.
+          </span>
+          <span class="lang-th" lang="th">
+           อย่างน้อยด้านหนึ่งโตอย่างไม่มีขอบเขต ลิมิตอนันต์บอกพฤติกรรม ไม่ใช่ค่าฟังก์ชันจำนวนจริง
+          </span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       One-sided signs matter
+      </span>
+      <span class="lang-th" lang="th">
+       เครื่องหมายด้านเดียวสำคัญ
+      </span>
+     </h3>
+     <div class="equation-block">
+      $$\lim_{x\to0^-}\frac1x=-\infty,\qquad\lim_{x\to0^+}\frac1x=+\infty$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       The two-sided limit above does not exist, even as a single signed infinity. By contrast, 1/x² tends to positive infinity from both sides. To prove f(x)→+∞ as x→a⁺, for every M&gt;0 choose δ&gt;0 so that 0&lt;x−a&lt;δ implies f(x)&gt;M.
+      </span>
+      <span class="lang-th" lang="th">
+       ลิมิตสองด้านข้างต้นไม่มีอยู่ แม้ในรูปอนันต์ที่มีเครื่องหมายเดียว ส่วน 1/x² เข้าใกล้อนันต์บวกจากทั้งสองด้าน การพิสูจน์ f(x)→+∞ เมื่อ x→a⁺ ต้องเลือก δ&gt;0 สำหรับทุก M&gt;0 ให้ 0&lt;x−a&lt;δ ส่งผลว่า f(x)&gt;M
+      </span>
+     </p>
+     <h3>
+      <span class="lang-en" lang="en">
+       Radicals at negative infinity
+      </span>
+      <span class="lang-th" lang="th">
+       รากที่ลบอนันต์
+      </span>
+     </h3>
+     <div class="equation-block">
+      $$\sqrt{x^2}=|x|,\qquad\sqrt{x^2+3x}+x=\frac{3x}{\sqrt{x^2+3x}-x}=\frac{-3}{\sqrt{1+3/x}+1}\longrightarrow-\frac32\quad(x\to-\infty)$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Rationalize first. Then use |x|=−x for negative x before canceling. Replacing √(x²) with x here would reverse the essential sign.
+      </span>
+      <span class="lang-th" lang="th">
+       ใช้สังยุคก่อน จากนั้นใช้ |x|=−x เมื่อ x ลบแล้วจึงตัดตัวประกอบ หากแทน √(x²) ด้วย x จะทำให้เครื่องหมายสำคัญผิด
+      </span>
+     </p>
+     <p>
+      <a href="practice.html#continuity-unique-root">
+       <span class="lang-en" lang="en">
+        Worked proof: existence and uniqueness of a root
+       </span>
+       <span class="lang-th" lang="th">
+        วิธีพิสูจน์: การมีอยู่และเอกลักษณ์ของราก
+       </span>
+      </a>
+     </p>
+     <p>
+      <a href="practice.html#continuity-derivative-discontinuous">
+       <span class="lang-en" lang="en">
+        Challenge: differentiability without a continuous derivative
+       </span>
+       <span class="lang-th" lang="th">
+        โจทย์ท้าทาย: หาอนุพันธ์ได้แต่อนุพันธ์ไม่ต่อเนื่อง
+       </span>
+      </a>
+     </p>
     </section>
    </main>
   </div>

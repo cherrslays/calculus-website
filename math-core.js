@@ -27,7 +27,14 @@
     }
     visit(node);
     const compiled = node.compile();
-    const evaluate = x => { try { const y = compiled.evaluate({ x }); return typeof y === 'number' && Number.isFinite(y) ? y : NaN; } catch { return NaN; } };
+    const tangentArguments = [];
+    node.traverse(n => { if (n.isFunctionNode && n.fn.name === 'tan') tangentArguments.push(n.args[0].compile()); });
+    const evaluate = x => { try {
+      // Floating-point cos(pi/2) is tiny rather than exactly zero. Do not draw a
+      // spurious finite tangent value at a numerically indistinguishable pole.
+      if (tangentArguments.some(arg => Math.abs(Math.cos(arg.evaluate({x}))) < 1e-14)) return NaN;
+      const y = compiled.evaluate({ x }); return typeof y === 'number' && Number.isFinite(y) ? y : NaN;
+    } catch { return NaN; } };
     return { node, source: node.toString(), evaluate };
   }
   function realNumber(text, optional = false) {
@@ -41,19 +48,20 @@
   function derivative(source, order = 1, point = '') {
     const f = expression(source);
     if (![1, 2, 3].includes(order)) fail('order');
-    let node = f.node;
-    try { for (let i = 0; i < order; i++) node = host.math.derivative(node, 'x'); } catch { fail('symbolic'); }
-    const result = { expression: node.toString(), tex: node.toTex(), originalTex: f.node.toTex(), order };
+    let node = f.node; const stages = [];
+    try { for (let i = 0; i < order; i++) { node = host.math.derivative(node, 'x'); stages.push(node.toTex()); } } catch { fail('symbolic'); }
+    const result = { expression: node.toString(), tex: node.toTex(), originalTex: f.node.toTex(), order, stages };
     const x = realNumber(point, true);
     if (x !== null) {
       const h = 1e-5 * Math.max(1, Math.abs(x));
       let prior = f.node;
       for (let i = 1; i < order; i++) prior = host.math.derivative(prior, 'x');
-      const g = prior.compile();
-      const value = node.evaluate({ x });
-      const at = g.evaluate({ x }), left = (at - g.evaluate({ x: x - h })) / h, right = (g.evaluate({ x: x + h }) - at) / h;
-      if (![value, at, left, right, f.evaluate(x)].every(v => typeof v === 'number' && Number.isFinite(v)) || Math.abs(left - right) > .02 * (1 + Math.abs(value))) fail('point');
-      result.point = x; result.value = value;
+      try {
+        const g = prior.compile(), value = node.evaluate({ x });
+        const at = g.evaluate({ x }), left = (at - g.evaluate({ x: x - h })) / h, right = (g.evaluate({ x: x + h }) - at) / h;
+        if (![value, at, left, right, f.evaluate(x)].every(v => typeof v === 'number' && Number.isFinite(v)) || Math.abs(left - right) > .02 * (1 + Math.abs(value))) fail('point');
+        result.point = x; result.value = value;
+      } catch { fail('point'); }
     }
     return result;
   }
@@ -113,13 +121,14 @@
     if (!Number.isFinite(value)) fail('convergence');
     return { value: sign * value, error, evaluations };
   }
-  function integral(source, lower = '', upper = '') {
+  function integral(source, lower = '', upper = '', onNumeric) {
     const parsed = expression(source), a = realNumber(lower, true), b = realNumber(upper, true);
     if ((a === null) !== (b === null)) fail('boundsPair');
     const result = { originalTex: parsed.node.toTex() };
     if (a !== null) {
       try { result.numeric = { ...integrateNumeric(parsed, a, b), a, b }; }
       catch (e) { result.numericError = e.code || 'convergence'; }
+      if (onNumeric) onNumeric({ ...result });
     }
     if (host.nerdamer) {
       try {

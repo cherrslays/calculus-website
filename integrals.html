@@ -15,12 +15,15 @@
   <script>
    window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
   <script defer="" src="vendor/math.js">
   </script>
   <script defer="" src="math-core.js">
   </script>
   <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="learning-models.js">
   </script>
   <script defer="" src="app.js">
   </script>
@@ -261,6 +264,38 @@
       ฝึกโจทย์บทนี้ →
      </span>
     </a>
+    <a href="#trig-substitution">
+     <span class="lang-en" lang="en">
+      Trigonometric substitution &amp; geometry
+     </span>
+     <span class="lang-th" lang="th">
+      การแทนค่าตรีโกณมิติและเรขาคณิต
+     </span>
+    </a>
+    <a href="#integration-strategy">
+     <span class="lang-en" lang="en">
+      Products, powers &amp; repeated partial fractions
+     </span>
+     <span class="lang-th" lang="th">
+      ผลคูณ กำลัง และเศษส่วนย่อยซ้ำ
+     </span>
+    </a>
+    <a href="#between-curves-lab">
+     <span class="lang-en" lang="en">
+      Area between curves: order and slices
+     </span>
+     <span class="lang-th" lang="th">
+      พื้นที่ระหว่างเส้นโค้ง: ลำดับและแถบพื้นที่
+     </span>
+    </a>
+    <a href="#accumulation-lab">
+     <span class="lang-en" lang="en">
+      Accumulation, slope &amp; a stationary non-extremum
+     </span>
+     <span class="lang-th" lang="th">
+      การสะสม ความชัน และจุดนิ่งที่ไม่ใช่จุดสุดขีด
+     </span>
+    </a>
    </aside>
    <main class="lesson-main" id="main-content" tabindex="-1">
     <section class="page-hero reveal">
@@ -393,6 +428,38 @@
        </span>
        <span class="lang-th" lang="th">
         ฝึกโจทย์บทนี้ →
+       </span>
+      </a>
+      <a href="#trig-substitution">
+       <span class="lang-en" lang="en">
+        Trigonometric substitution &amp; geometry
+       </span>
+       <span class="lang-th" lang="th">
+        การแทนค่าตรีโกณมิติและเรขาคณิต
+       </span>
+      </a>
+      <a href="#integration-strategy">
+       <span class="lang-en" lang="en">
+        Products, powers &amp; repeated partial fractions
+       </span>
+       <span class="lang-th" lang="th">
+        ผลคูณ กำลัง และเศษส่วนย่อยซ้ำ
+       </span>
+      </a>
+      <a href="#between-curves-lab">
+       <span class="lang-en" lang="en">
+        Area between curves: order and slices
+       </span>
+       <span class="lang-th" lang="th">
+        พื้นที่ระหว่างเส้นโค้ง: ลำดับและแถบพื้นที่
+       </span>
+      </a>
+      <a href="#accumulation-lab">
+       <span class="lang-en" lang="en">
+        Accumulation, slope &amp; a stationary non-extremum
+       </span>
+       <span class="lang-th" lang="th">
+        การสะสม ความชัน และจุดนิ่งที่ไม่ใช่จุดสุดขีด
        </span>
       </a>
      </nav>
@@ -844,7 +911,7 @@
       </span>
      </p>
      <div class="equation-block">
-      $$\frac{d}{dx}\int_{u(x)}^{v(x)}f(t)\,dt=f(v(x))v^{\prime}(x)-f(u(x))u^{\prime}(x)$$
+      $$\frac{d}{dx}\int_{u(x)}^{v(x)}f(t)\,dt=f(v(x))v'(x)-f(u(x))u'(x)$$
      </div>
      <div class="example">
       <span class="box-label">
@@ -1031,6 +1098,436 @@
       <span class="lang-th" lang="th">
        กฎซิมป์สันรวมการประมาณด้วยพาราโบลา วิธีปรับช่วงอัตโนมัติแบ่งย่อยบริเวณที่ค่าประมาณเปลี่ยนมาก ค่าคลาดเคลื่อนโดยประมาณไม่ใช่การพิสูจน์ความต่อเนื่องหรือการลู่เข้า ยอดแคบและจุดเอกฐานยังต้องวิเคราะห์ทางคณิตศาสตร์
       </span>
+     </p>
+    </section>
+    <section class="lesson-section" id="trig-substitution">
+     <h2>
+      <span class="lang-en" lang="en">
+       Trigonometric substitution &amp; geometry
+      </span>
+      <span class="lang-th" lang="th">
+       การแทนค่าตรีโกณมิติและเรขาคณิต
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       A substitution is useful when it simplifies both the radical and the differential. For a&gt;0, these identities suggest a standard choice. Choose an angle interval and check absolute values; an identity alone does not determine the sign of a square root.
+      </span>
+      <span class="lang-th" lang="th">
+       การแทนค่ามีประโยชน์เมื่อทำให้ทั้งรากและดิฟเฟอเรนเชียลง่ายขึ้น เมื่อ a&gt;0 เอกลักษณ์ต่อไปนี้แนะนำการเลือกมาตรฐาน ต้องเลือกช่วงมุมและตรวจค่าสัมบูรณ์ เพราะเอกลักษณ์อย่างเดียวไม่ระบุเครื่องหมายของราก
+      </span>
+     </p>
+     <div class="table-scroll">
+      <table>
+       <caption>
+        <span class="lang-en" lang="en">
+         Standard radical substitutions
+        </span>
+        <span class="lang-th" lang="th">
+         การแทนค่ารากมาตรฐาน
+        </span>
+       </caption>
+       <thead>
+        <tr>
+         <th>
+          <span class="lang-en" lang="en">
+           Radical
+          </span>
+          <span class="lang-th" lang="th">
+           ราก
+          </span>
+         </th>
+         <th>
+          <span class="lang-en" lang="en">
+           Substitution
+          </span>
+          <span class="lang-th" lang="th">
+           การแทนค่า
+          </span>
+         </th>
+         <th>
+          <span class="lang-en" lang="en">
+           Sign condition
+          </span>
+          <span class="lang-th" lang="th">
+           เงื่อนไขเครื่องหมาย
+          </span>
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          $\sqrt{a^2-x^2}$
+         </td>
+         <td>
+          $x=a\sin\theta$
+         </td>
+         <td>
+          $-\pi/2\le\theta\le\pi/2$
+         </td>
+        </tr>
+        <tr>
+         <td>
+          $\sqrt{a^2+x^2}$
+         </td>
+         <td>
+          $x=a\tan\theta$
+         </td>
+         <td>
+          $-\pi/2&lt;\theta&lt;\pi/2$
+         </td>
+        </tr>
+        <tr>
+         <td>
+          $\sqrt{x^2-a^2}$
+         </td>
+         <td>
+          $x=a\sec\theta$
+         </td>
+         <td>
+          <span class="lang-en" lang="en">
+           For x≥a use 0≤θ&lt;π/2; handle x≤−a on a separate branch.
+          </span>
+          <span class="lang-th" lang="th">
+           เมื่อ x≥a ใช้ 0≤θ&lt;π/2 ส่วน x≤−a ต้องเลือกอีกสาขา
+          </span>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       Worked setup: a circle identity
+      </span>
+      <span class="lang-th" lang="th">
+       ตั้งโจทย์: เอกลักษณ์วงกลม
+      </span>
+     </h3>
+     <div class="equation-block">
+      $$\int\frac{x^2}{\sqrt{9-x^2}}\,dx\quad\overset{x=3\sin\theta}{=}\quad9\int\sin^2\theta\,d\theta=\frac92\theta-\frac94\sin2\theta+C$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Here −3&lt;x&lt;3 corresponds to −π/2&lt;θ&lt;π/2, so √(9−x²)=3 cos θ is positive and dx=3 cos θ dθ. Use sin²θ=(1−cos 2θ)/2. Finally replace θ by arcsin(x/3) and sin 2θ by 2x√(9−x²)/9.
+      </span>
+      <span class="lang-th" lang="th">
+       ที่นี่ −3&lt;x&lt;3 ตรงกับ −π/2&lt;θ&lt;π/2 จึงมี √(9−x²)=3 cos θ เป็นบวกและ dx=3 cos θ dθ ใช้ sin²θ=(1−cos 2θ)/2 สุดท้ายแทน θ ด้วย arcsin(x/3) และ sin 2θ ด้วย 2x√(9−x²)/9
+      </span>
+     </p>
+     <figure class="math-figure">
+      <svg aria-labelledby="triangleTitle triangleDesc" role="img" viewbox="0 0 440 240">
+       <title id="triangleTitle">
+        &lt;span class="lang-en" lang="en"&gt;Right triangle for x = 3 sin θ&lt;/span&gt;&lt;span class="lang-th" lang="th"&gt;สามเหลี่ยมมุมฉากสำหรับ x = 3 sin θ&lt;/span&gt;
+       </title>
+       <desc id="triangleDesc">
+        <span class="lang-en" lang="en">
+         Hypotenuse 3; opposite side x; adjacent side square root of 9 minus x squared. This triangle depicts 0 less than x less than 3.
+        </span>
+        <span class="lang-th" lang="th">
+         ด้านตรงข้ามมุมฉากยาว 3 ด้านตรงข้ามมุม θ ยาว x ด้านประชิดยาวรากที่สองของ 9 ลบ x กำลังสอง รูปนี้แสดงกรณี 0 น้อยกว่า x น้อยกว่า 3
+        </span>
+       </desc>
+       <path d="M60 185 L350 185 L350 40 Z" fill="none" stroke="currentColor" stroke-width="2">
+       </path>
+       <path d="M330 185 V165 H350 M100 185 A40 40 0 0 0 96 167" fill="none" stroke="currentColor">
+       </path>
+       <g fill="currentColor" font-size="19" text-anchor="middle">
+        <text x="215" y="215">
+         √(9 − x²)
+        </text>
+        <text x="377" y="115">
+         x
+        </text>
+        <text x="195" y="96">
+         3
+        </text>
+        <text x="117" y="176">
+         θ
+        </text>
+       </g>
+      </svg>
+      <figcaption>
+       <span class="lang-en" lang="en">
+        Triangle shown for 0&lt;x&lt;3. The algebra above also covers negative x through the signed angle θ.
+       </span>
+       <span class="lang-th" lang="th">
+        สามเหลี่ยมแสดงกรณี 0&lt;x&lt;3 พีชคณิตข้างต้นครอบคลุม x ลบด้วยมุม θ ที่มีเครื่องหมาย
+       </span>
+      </figcaption>
+     </figure>
+     <p>
+      <a href="practice.html#techniques-trig-substitution">
+       <span class="lang-en" lang="en">
+        Full solution, back-substitution and derivative check
+       </span>
+       <span class="lang-th" lang="th">
+        วิธีทำครบ การแทนกลับ และตรวจอนุพันธ์
+       </span>
+      </a>
+     </p>
+    </section>
+    <section class="lesson-section" id="integration-strategy">
+     <h2>
+      <span class="lang-en" lang="en">
+       Products, powers &amp; repeated partial fractions
+      </span>
+      <span class="lang-th" lang="th">
+       ผลคูณ กำลัง และเศษส่วนย่อยซ้ำ
+      </span>
+     </h2>
+     <h3>
+      <span class="lang-en" lang="en">
+       Trigonometric powers
+      </span>
+      <span class="lang-th" lang="th">
+       กำลังตรีโกณมิติ
+      </span>
+     </h3>
+     <p>
+      <span class="lang-en" lang="en">
+       For sinᵐx cosⁿx with nonnegative integer powers, an odd sine power lets you save one sin x dx and set u=cos x; an odd cosine power lets you save cos x dx and set u=sin x. Rewrite the remaining even power using sin²x+cos²x=1. If both powers are even, use half-angle identities.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับ sinᵐx cosⁿx ที่กำลังเป็นจำนวนเต็มไม่ลบ ถ้ากำลัง sine คี่ให้แยก sin x dx หนึ่งตัวแล้วใช้ u=cos x ถ้ากำลัง cosine คี่ให้แยก cos x dx แล้วใช้ u=sin x จัดกำลังคู่ที่เหลือด้วย sin²x+cos²x=1 ถ้าทั้งสองกำลังคู่ใช้เอกลักษณ์ครึ่งมุม
+      </span>
+     </p>
+     <div class="equation-block">
+      $$\int\sin^3x\cos^2x\,dx=-\int(1-u^2)u^2\,du=-\frac{\cos^3x}3+\frac{\cos^5x}5+C\quad(u=\cos x)$$
+     </div>
+     <h3>
+      <span class="lang-en" lang="en">
+       Repeated factors require every power
+      </span>
+      <span class="lang-th" lang="th">
+       ตัวประกอบซ้ำต้องมีทุกกำลัง
+      </span>
+     </h3>
+     <div class="equation-block">
+      $$\frac{2x^2+3x+4}{x(x+1)^2}=\frac Ax+\frac B{x+1}+\frac D{(x+1)^2}$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Clear denominators and compare the resulting polynomial coefficients, or use convenient x values. The coefficients are A=4, B=−2, D=−3. Omitting the first power of a repeated denominator leaves too few terms to represent a general rational function. For an irreducible quadratic factor, use a linear numerator Ax+B.
+      </span>
+      <span class="lang-th" lang="th">
+       คูณกำจัดตัวส่วนแล้วเทียบสัมประสิทธิ์พหุนาม หรือแทนค่า x ที่สะดวก จะได้ A=4, B=−2, D=−3 หากละตัวส่วนกำลังหนึ่งของตัวประกอบซ้ำจะมีพจน์ไม่พอแทนฟังก์ชันตรรกยะทั่วไป สำหรับตัวประกอบกำลังสองที่แยกบนจำนวนจริงไม่ได้ ให้ใช้ตัวเศษเชิงเส้น Ax+B
+      </span>
+     </p>
+     <p>
+      <span class="lang-en" lang="en">
+       For repeated integration by parts, each application should reduce the polynomial degree. With x²e⁻ˣ, choose u=x² then u=x. Integrating e⁻ˣ gives −e⁻ˣ each time, so write the signs explicitly before simplifying. Always check an antiderivative by differentiating it on its stated domain.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับการอินทิเกรตโดยส่วนซ้ำ แต่ละครั้งควรลดดีกรีพหุนาม เมื่อมี x²e⁻ˣ เลือก u=x² แล้วเลือก u=x การอินทิเกรต e⁻ˣ ได้ −e⁻ˣ ทุกครั้ง จึงเขียนเครื่องหมายชัดเจนก่อนจัดรูป ตรวจปฏิยานุพันธ์ด้วยการหาอนุพันธ์บนโดเมนที่ระบุเสมอ
+      </span>
+     </p>
+     <p>
+      <a href="practice.html#techniques-repeated-parts">
+       <span class="lang-en" lang="en">
+        Worked solution: integration by parts twice
+       </span>
+       <span class="lang-th" lang="th">
+        วิธีทำ: อินทิเกรตโดยส่วนสองครั้ง
+       </span>
+      </a>
+     </p>
+     <p>
+      <a href="practice.html#techniques-repeated-fractions">
+       <span class="lang-en" lang="en">
+        Exam problem: a repeated linear factor
+       </span>
+       <span class="lang-th" lang="th">
+        แนวสอบ: ตัวประกอบเชิงเส้นซ้ำ
+       </span>
+      </a>
+     </p>
+    </section>
+    <section class="lesson-section" id="between-curves-lab">
+     <h2>
+      <span class="lang-en" lang="en">
+       Area between curves: order and slices
+      </span>
+      <span class="lang-th" lang="th">
+       พื้นที่ระหว่างเส้นโค้ง: ลำดับและแถบพื้นที่
+      </span>
+     </h2>
+     <div class="equation-block">
+      $$A=\int_a^b|f(x)-g(x)|\,dx\quad(a\le b)$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Solve f=g for every intersection in the interval, then test the sign of f−g between consecutive intersections. Geometric area is upper minus lower on each piece. The signed difference can cancel even when the geometric area is positive.
+      </span>
+      <span class="lang-th" lang="th">
+       แก้ f=g เพื่อหาจุดตัดทุกจุดในช่วง แล้วทดสอบเครื่องหมาย f−g ระหว่างจุดตัดที่ติดกัน พื้นที่เรขาคณิตคือบนลบล่างในแต่ละส่วน ผลต่างแบบมีเครื่องหมายอาจหักล้างกันแม้พื้นที่จริงเป็นบวก
+      </span>
+     </p>
+     <div class="panel">
+      <label for="betweenFunction">
+       <span class="lang-en" lang="en">
+        Curve pair
+       </span>
+       <span class="lang-th" lang="th">
+        คู่เส้นโค้ง
+       </span>
+      </label>
+      <select id="betweenFunction">
+       <option data-en="x and x³: two lobes" data-th="x และ x³: พื้นที่สองส่วน" value="crossing">
+        x and x³: two lobes
+       </option>
+       <option data-en="2x+3 and x²: line and parabola" data-th="2x+3 และ x²: เส้นตรงกับพาราโบลา" value="parabola">
+        2x+3 and x²: line and parabola
+       </option>
+      </select>
+      <label for="betweenFraction">
+       <span class="lang-en" lang="en">
+        Upper bound: fraction of the full interval
+       </span>
+       <span class="lang-th" lang="th">
+        ขอบบน: สัดส่วนของช่วงเต็ม
+       </span>
+      </label>
+      <input id="betweenFraction" max="1" min="0" step="0.01" type="range" value="1"/>
+      <canvas aria-label="Two curves with shaded area, split at intersections" class="graph" data-label-en="Two curves with shaded area, split at intersections" data-label-th="สองเส้นโค้งพร้อมแรเงาพื้นที่แบ่งที่จุดตัด" id="betweenCanvas" role="img">
+       <span class="lang-en" lang="en">
+        Two curves with shaded area, split at intersections
+       </span>
+       <span class="lang-th" lang="th">
+        สองเส้นโค้งพร้อมแรเงาพื้นที่แบ่งที่จุดตัด
+       </span>
+      </canvas>
+      <p aria-live="polite" class="graph-status" id="betweenStats">
+      </p>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       The solid curve is f; the dashed curve is g. Move the upper bound to watch each lobe accumulate. The displayed values use exact polynomial antiderivatives for these examples; the shaded strips approximate the drawing only.
+      </span>
+      <span class="lang-th" lang="th">
+       เส้นทึบคือ f เส้นประคือ g เลื่อนขอบบนเพื่อดูพื้นที่แต่ละส่วนสะสม ค่าที่แสดงใช้ปฏิยานุพันธ์พหุนามแม่นตรงของตัวอย่างเหล่านี้ แถบแรเงาเป็นเพียงการประมาณรูปวาด
+      </span>
+     </p>
+     <h3>
+      <span class="lang-en" lang="en">
+       Horizontal slices can avoid splitting
+      </span>
+      <span class="lang-th" lang="th">
+       แถบแนวนอนอาจช่วยไม่ต้องแบ่งบริเวณ
+      </span>
+     </h3>
+     <div class="equation-block">
+      $$A=\int_c^d\bigl[x_{\mathrm{right}}(y)-x_{\mathrm{left}}(y)\bigr]\,dy$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       For y²=4x and x=y+2, horizontal slices run from x=y²/4 to x=y+2. Their heights range from 2−2√3 to 2+2√3. The width is 3−(y−2)²/4 and its integral is 8√3. Choosing dx would require handling separate square-root branches.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับ y²=4x และ x=y+2 แถบแนวนอนเริ่มที่ x=y²/4 ถึง x=y+2 ความสูงอยู่ระหว่าง 2−2√3 กับ 2+2√3 ความกว้างคือ 3−(y−2)²/4 และปริพันธ์เท่ากับ 8√3 หากเลือก dx จะต้องจัดการสาขารากที่สองแยกกัน
+      </span>
+     </p>
+     <p>
+      <a href="practice.html#areas-switching-order">
+       <span class="lang-en" lang="en">
+        Worked solution: two lobes and signed cancellation
+       </span>
+       <span class="lang-th" lang="th">
+        วิธีทำ: พื้นที่สองส่วนและการหักล้างเครื่องหมาย
+       </span>
+      </a>
+     </p>
+     <p>
+      <a href="practice.html#areas-horizontal-slices">
+       <span class="lang-en" lang="en">
+        Challenge: integrate with respect to y
+       </span>
+       <span class="lang-th" lang="th">
+        โจทย์ท้าทาย: อินทิเกรตเทียบ y
+       </span>
+      </a>
+     </p>
+    </section>
+    <section class="lesson-section" id="accumulation-lab">
+     <h2>
+      <span class="lang-en" lang="en">
+       Accumulation, slope &amp; a stationary non-extremum
+      </span>
+      <span class="lang-th" lang="th">
+       การสะสม ความชัน และจุดนิ่งที่ไม่ใช่จุดสุดขีด
+      </span>
+     </h2>
+     <div class="equation-block">
+      $$A(x)=\int_0^x|t-1|\,dt,\qquad A'(x)=|x-1|\quad(0&lt;x&lt;3)$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       A(x) records the area accumulated so far; its derivative records the current height of the integrand. The integrand is continuous at 1, so A is differentiable there even though the integrand has a corner. Since A′ stays positive on both sides of 1, the horizontal tangent at 1 is not an extremum.
+      </span>
+      <span class="lang-th" lang="th">
+       A(x) บันทึกพื้นที่ที่สะสมแล้ว ส่วนอนุพันธ์บันทึกความสูงปัจจุบันของตัวถูกอินทิเกรต ตัวถูกอินทิเกรตต่อเนื่องที่ 1 ดังนั้น A หาอนุพันธ์ได้ที่นั่นแม้ตัวถูกอินทิเกรตมีมุม เพราะ A′ เป็นบวกทั้งสองด้านของ 1 เส้นสัมผัสแนวนอนที่ 1 จึงไม่เป็นจุดสุดขีด
+      </span>
+     </p>
+     <div class="panel">
+      <label for="accumulationPoint">
+       <span class="lang-en" lang="en">
+        Accumulation endpoint x
+       </span>
+       <span class="lang-th" lang="th">
+        ปลายช่วงสะสม x
+       </span>
+      </label>
+      <input id="accumulationPoint" max="3" min="0" step="0.01" type="range" value="1.5"/>
+      <canvas aria-label="Integrand |t−1| and accumulated area from 0 to x" class="graph" data-label-en="Integrand |t−1| and accumulated area from 0 to x" data-label-th="ตัวถูกอินทิเกรต |t−1| และพื้นที่สะสมจาก 0 ถึง x" id="accumulationIntegrand" role="img">
+       <span class="lang-en" lang="en">
+        Integrand |t−1| and accumulated area from 0 to x
+       </span>
+       <span class="lang-th" lang="th">
+        ตัวถูกอินทิเกรต |t−1| และพื้นที่สะสมจาก 0 ถึง x
+       </span>
+      </canvas>
+      <canvas aria-label="Accumulation A(x) with its tangent line" class="graph" data-label-en="Accumulation A(x) with its tangent line" data-label-th="ฟังก์ชันสะสม A(x) พร้อมเส้นสัมผัส" id="accumulationCanvas" role="img">
+       <span class="lang-en" lang="en">
+        Accumulation A(x) with its tangent line
+       </span>
+       <span class="lang-th" lang="th">
+        ฟังก์ชันสะสม A(x) พร้อมเส้นสัมผัส
+       </span>
+      </canvas>
+      <p aria-live="polite" class="graph-status" id="accumulationStats">
+      </p>
+     </div>
+     <div class="equation-block">
+      $$A(x)=\begin{cases}x-x^2/2,&amp;0\le x\le1,\\1/2+(x-1)^2/2,&amp;1\le x\le3.\end{cases}$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       The top graph shows the integrand and shaded accumulated area. The bottom shows A and its tangent; the tangent slope equals the top graph’s height at x. At the endpoints, the displayed slopes are the corresponding one-sided derivatives.
+      </span>
+      <span class="lang-th" lang="th">
+       กราฟบนแสดงตัวถูกอินทิเกรตและพื้นที่สะสมที่แรเงา กราฟล่างแสดง A และเส้นสัมผัส ความชันเส้นสัมผัสเท่ากับความสูงกราฟบนที่ x ณ ปลายช่วง ความชันที่แสดงเป็นอนุพันธ์ด้านเดียวที่สอดคล้องกัน
+      </span>
+     </p>
+     <p>
+      <a href="practice.html#ftc-absolute-accumulation">
+       <span class="lang-en" lang="en">
+        Derive the piecewise formula and test the second derivative
+       </span>
+       <span class="lang-th" lang="th">
+        หาสูตรแยกช่วงและตรวจอนุพันธ์อันดับสอง
+       </span>
+      </a>
+     </p>
+     <p>
+      <a href="practice.html#ftc-exponential-accumulation">
+       <span class="lang-en" lang="en">
+        Exam problem: extrema and concavity of an accumulation
+       </span>
+       <span class="lang-th" lang="th">
+        แนวสอบ: ค่าสุดขีดและความเว้าของฟังก์ชันสะสม
+       </span>
+      </a>
      </p>
     </section>
    </main>
