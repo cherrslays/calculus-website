@@ -1,0 +1,2520 @@
+[
+  {
+    "id": "limits-1",
+    "topic": "limits",
+    "level": "basic",
+    "title": {
+      "en": "Cancel only away from the limit point",
+      "th": "ตัดตัวประกอบเมื่อไม่ใช่จุดลิมิต"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to4}\\frac{x^2-16}{x-4}$$",
+      "th": "$$\\lim_{x\\to4}\\frac{x^2-16}{x-4}$$"
+    },
+    "steps": [
+      {
+        "en": "Substitution gives 0/0, an indeterminate form, so we must simplify before evaluating.",
+        "th": "แทนค่าได้ 0/0 ซึ่งเป็นรูปไม่กำหนด จึงต้องจัดรูปก่อนหาค่า"
+      },
+      {
+        "en": "Factor the numerator as a difference of squares.",
+        "th": "แยกตัวเศษด้วยสูตรผลต่างกำลังสอง",
+        "tex": "x^2-16=x^2-4^2=(x-4)(x+4)"
+      },
+      {
+        "en": "For x ≠ 4, the common factor is nonzero and may be cancelled. The two expressions agree in a punctured neighborhood of 4, so they have the same limit.",
+        "th": "เมื่อ x ≠ 4 ตัวประกอบร่วมไม่เป็นศูนย์จึงตัดได้ นิพจน์ทั้งสองเท่ากันใกล้ 4 ยกเว้นที่ 4 เอง จึงมีลิมิตเดียวกัน",
+        "tex": "\\frac{x^2-16}{x-4}=\\frac{(x-4)(x+4)}{x-4}=x+4"
+      },
+      {
+        "en": "The simplified polynomial is continuous. Substitute 4 now.",
+        "th": "พหุนามที่จัดรูปแล้วต่อเนื่อง จึงแทน 4 ได้",
+        "tex": "\\lim_{x\\to4}(x+4)=4+4=8"
+      }
+    ],
+    "hint": {
+      "en": "Factor a difference of squares. The limit does not require the original function to be defined at 4.",
+      "th": "แยกผลต่างกำลังสอง ลิมิตไม่จำเป็นต้องมีค่าฟังก์ชันเดิมที่ 4"
+    },
+    "answer": {
+      "en": "$8$",
+      "th": "$8$"
+    }
+  },
+  {
+    "id": "limits-2",
+    "topic": "limits",
+    "level": "intermediate",
+    "title": {
+      "en": "Rationalize a radical quotient",
+      "th": "จัดรูปลิมิตรากด้วยสังยุค"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to0}\\frac{\\sqrt{1+3x}-1}{x}$$",
+      "th": "$$\\lim_{x\\to0}\\frac{\\sqrt{1+3x}-1}{x}$$"
+    },
+    "steps": [
+      {
+        "en": "Near zero the radicand is positive. Direct substitution gives 0/0.",
+        "th": "ใกล้ศูนย์พจน์ใต้รากเป็นบวก แทนค่าโดยตรงได้ 0/0"
+      },
+      {
+        "en": "Multiply by 1 in the form of a conjugate quotient.",
+        "th": "คูณด้วย 1 ในรูปผลหารของพจน์สังยุค",
+        "tex": "\\frac{\\sqrt{1+3x}-1}{x}\\cdot\\frac{\\sqrt{1+3x}+1}{\\sqrt{1+3x}+1}=\\frac{(1+3x)-1}{x(\\sqrt{1+3x}+1)}"
+      },
+      {
+        "en": "Simplify the numerator to 3x and cancel x for x ≠ 0.",
+        "th": "จัดตัวเศษเป็น 3x แล้วตัด x เมื่อ x ≠ 0",
+        "tex": "\\frac{3x}{x(\\sqrt{1+3x}+1)}=\\frac3{\\sqrt{1+3x}+1}"
+      },
+      {
+        "en": "The new denominator tends to 2, which is nonzero, so the quotient law applies.",
+        "th": "ตัวส่วนใหม่เข้าใกล้ 2 ซึ่งไม่เป็นศูนย์ จึงใช้กฎผลหารได้",
+        "tex": "\\lim_{x\\to0}\\frac3{\\sqrt{1+3x}+1}=\\frac3{1+1}=\\frac32"
+      }
+    ],
+    "hint": {
+      "en": "Multiply numerator and denominator by the conjugate.",
+      "th": "คูณเศษและส่วนด้วยพจน์สังยุค"
+    },
+    "answer": {
+      "en": "$\\frac32$",
+      "th": "$\\frac32$"
+    }
+  },
+  {
+    "id": "limits-3",
+    "topic": "limits",
+    "level": "intermediate",
+    "title": {
+      "en": "Compare one-sided limits",
+      "th": "เปรียบเทียบลิมิตด้านเดียว"
+    },
+    "question": {
+      "en": "If $\\lim_{x\\to2^-}f(x)=5$ and $\\lim_{x\\to2^+}f(x)=7$, what is $\\lim_{x\\to2}f(x)$?",
+      "th": "ถ้า $\\lim_{x\\to2^-}f(x)=5$ และ $\\lim_{x\\to2^+}f(x)=7$ แล้ว $\\lim_{x\\to2}f(x)$ มีค่าเท่าใด?"
+    },
+    "steps": [
+      {
+        "en": "The stated left-hand limit is 5. This describes approaches with x < 2.",
+        "th": "ลิมิตซ้ายที่กำหนดเป็น 5 ใช้เมื่อเข้าใกล้ด้วย x < 2"
+      },
+      {
+        "en": "The right-hand limit is 7, for approaches with x > 2.",
+        "th": "ลิมิตขวาเป็น 7 ใช้เมื่อเข้าใกล้ด้วย x > 2"
+      },
+      {
+        "en": "If a two-sided finite limit L existed, both of these limits would equal L. Since 5 ≠ 7, that is impossible; changing f(2) cannot repair the jump.",
+        "th": "ถ้ามีลิมิตสองด้านจำกัด L ลิมิตทั้งสองต้องเท่ากับ L แต่ 5 ≠ 7 จึงเป็นไปไม่ได้ การเปลี่ยน f(2) ไม่แก้การกระโดดนี้"
+      }
+    ],
+    "hint": {
+      "en": "A two-sided limit needs both sides to agree.",
+      "th": "ลิมิตสองด้านต้องมีค่าซ้ายและขวาเท่ากัน"
+    },
+    "answer": {
+      "en": "The two-sided limit does not exist.",
+      "th": "ไม่มีลิมิตสองด้าน"
+    }
+  },
+  {
+    "id": "limits-4",
+    "topic": "limits",
+    "level": "basic",
+    "title": {
+      "en": "Polynomial substitution",
+      "th": "แทนค่าในพหุนาม"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to2}(x^3-2x+1)$$",
+      "th": "$$\\lim_{x\\to2}(x^3-2x+1)$$"
+    },
+    "steps": [
+      {
+        "en": "A polynomial is continuous everywhere, so direct substitution is valid.",
+        "th": "พหุนามต่อเนื่องทุกจุด จึงแทนค่าตรง ๆ ได้"
+      },
+      {
+        "en": "Substitute $x=2$: $2^3-2(2)+1$.",
+        "th": "แทน $x=2$: $2^3-2(2)+1$"
+      },
+      {
+        "en": "Simplify: 8 − 4 + 1 = 5.",
+        "th": "จัดรูป: 8 − 4 + 1 = 5"
+      }
+    ],
+    "hint": {
+      "en": "Use continuity of polynomials.",
+      "th": "ใช้ความต่อเนื่องของพหุนาม"
+    },
+    "answer": {
+      "en": "$5$",
+      "th": "$5$"
+    }
+  },
+  {
+    "id": "limits-5",
+    "topic": "limits",
+    "level": "basic",
+    "title": {
+      "en": "Scaled sine",
+      "th": "ลิมิต sine ที่ปรับสเกล"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to0}\\frac{\\sin5x}{2x}$$",
+      "th": "$$\\lim_{x\\to0}\\frac{\\sin5x}{2x}$$"
+    },
+    "steps": [
+      {
+        "en": "Rewrite as $\\frac52\\frac{\\sin5x}{5x}$.",
+        "th": "เขียนเป็น $\\frac52\\frac{\\sin5x}{5x}$"
+      },
+      {
+        "en": "Let u = 5x. Then u tends to zero and sin(u)/u tends to 1 in radians.",
+        "th": "ให้ u = 5x แล้ว u เข้าใกล้ศูนย์ และ sin(u)/u เข้าใกล้ 1 เมื่อใช้เรเดียน"
+      },
+      {
+        "en": "The answer is $5/2$.",
+        "th": "คำตอบคือ $5/2$"
+      }
+    ],
+    "hint": {
+      "en": "Make the denominator match the sine argument.",
+      "th": "จัดตัวส่วนให้ตรงกับอาร์กิวเมนต์ของ sine"
+    },
+    "answer": {
+      "en": "$5/2$",
+      "th": "$5/2$"
+    }
+  },
+  {
+    "id": "limits-6",
+    "topic": "limits",
+    "level": "basic",
+    "title": {
+      "en": "Dominant powers",
+      "th": "พจน์กำลังสูงสุด"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to\\infty}\\frac{3x^2-x+2}{2x^2+5}$$",
+      "th": "$$\\lim_{x\\to\\infty}\\frac{3x^2-x+2}{2x^2+5}$$"
+    },
+    "steps": [
+      {
+        "en": "Divide every term by $x^2$.",
+        "th": "หารทุกพจน์ด้วย $x^2$"
+      },
+      {
+        "en": "Divide every numerator and denominator term, not just the leading terms.",
+        "th": "หารทุกพจน์ทั้งเศษและส่วน ไม่ใช่เฉพาะพจน์นำ",
+        "tex": "\\frac{(3x^2)/x^2-x/x^2+2/x^2}{(2x^2)/x^2+5/x^2}=\\frac{3-1/x+2/x^2}{2+5/x^2}"
+      },
+      {
+        "en": "The quotient becomes $(3-1/x+2/x^2)/(2+5/x^2)$.",
+        "th": "ได้ $(3-1/x+2/x^2)/(2+5/x^2)$"
+      },
+      {
+        "en": "The reciprocal terms tend to zero, giving 3/2.",
+        "th": "พจน์ส่วนกลับเข้าใกล้ศูนย์ จึงได้ 3/2"
+      }
+    ],
+    "hint": {
+      "en": "Divide the numerator and denominator by their highest common power of x.",
+      "th": "หารเศษและส่วนด้วยกำลังสูงสุดที่เท่ากัน"
+    },
+    "answer": {
+      "en": "$3/2$",
+      "th": "$3/2$"
+    }
+  },
+  {
+    "id": "limits-7",
+    "topic": "limits",
+    "level": "intermediate",
+    "title": {
+      "en": "An absolute-value jump",
+      "th": "ค่าสัมบูรณ์กับการกระโดด"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to0}\\frac{|x|}{x}$$",
+      "th": "$$\\lim_{x\\to0}\\frac{|x|}{x}$$"
+    },
+    "steps": [
+      {
+        "en": "For x > 0, |x|/x = 1, so the right-hand limit is 1.",
+        "th": "เมื่อ x > 0 จะมี |x|/x = 1 ลิมิตขวาจึงเป็น 1"
+      },
+      {
+        "en": "For x < 0, |x| = −x, so the left-hand limit is −1.",
+        "th": "เมื่อ x < 0 จะมี |x| = −x ลิมิตซ้ายจึงเป็น −1"
+      },
+      {
+        "en": "The sides disagree: the two-sided limit does not exist.",
+        "th": "ทั้งสองด้านไม่เท่ากัน จึงไม่มีลิมิตสองด้าน"
+      }
+    ],
+    "hint": {
+      "en": "Write |x| separately for positive and negative x.",
+      "th": "เขียน |x| แยกกรณี x บวกและลบ"
+    },
+    "answer": {
+      "en": "The two-sided limit does not exist.",
+      "th": "ไม่มีลิมิตสองด้าน"
+    }
+  },
+  {
+    "id": "limits-8",
+    "topic": "limits",
+    "level": "intermediate",
+    "title": {
+      "en": "Squeezed oscillation",
+      "th": "การแกว่งที่ถูกบีบ"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to0}x\\sin(1/x)$$",
+      "th": "$$\\lim_{x\\to0}x\\sin(1/x)$$"
+    },
+    "steps": [
+      {
+        "en": "Use $|\\sin(1/x)|\\le1$ for $x\\ne0$.",
+        "th": "ใช้ $|\\sin(1/x)|\\le1$ เมื่อ $x\\ne0$"
+      },
+      {
+        "en": "Then $-|x|\\le x\\sin(1/x)\\le|x|$.",
+        "th": "จึงได้ $-|x|\\le x\\sin(1/x)\\le|x|$"
+      },
+      {
+        "en": "Both bounds tend to zero. The squeeze theorem gives 0.",
+        "th": "ขอบทั้งสองเข้าใกล้ศูนย์ ทฤษฎีบทบีบจึงให้คำตอบ 0"
+      }
+    ],
+    "hint": {
+      "en": "Use an absolute-value bound for the oscillating term.",
+      "th": "ใช้ค่าสัมบูรณ์ครอบพจน์ที่แกว่ง"
+    },
+    "answer": {
+      "en": "$0$",
+      "th": "$0$"
+    }
+  },
+  {
+    "id": "limits-9",
+    "topic": "limits",
+    "level": "intermediate",
+    "title": {
+      "en": "Exponential remainder",
+      "th": "พจน์เหลือของเอ็กซ์โพเนนเชียล"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to0}\\frac{e^x-1-x}{x^2}$$",
+      "th": "$$\\lim_{x\\to0}\\frac{e^x-1-x}{x^2}$$"
+    },
+    "steps": [
+      {
+        "en": "Substitution gives 0/0. Both functions are differentiable and the denominator derivative is nonzero near zero, excluding zero.",
+        "th": "แทนค่าได้ 0/0 ทั้งสองฟังก์ชันหาอนุพันธ์ได้ และอนุพันธ์ตัวส่วนไม่เป็นศูนย์ใกล้ศูนย์เมื่อยกเว้นศูนย์"
+      },
+      {
+        "en": "Apply L’Hôpital: $(e^x-1)/(2x)$, still 0/0.",
+        "th": "ใช้โลปิตาลได้ $(e^x-1)/(2x)$ ซึ่งยังเป็น 0/0"
+      },
+      {
+        "en": "Apply again: $e^x/2\\to1/2$.",
+        "th": "ใช้อีกครั้งได้ $e^x/2\\to1/2$"
+      }
+    ],
+    "hint": {
+      "en": "Verify 0/0 before each use of L’Hôpital.",
+      "th": "ตรวจรูป 0/0 ก่อนใช้โลปิตาลแต่ละครั้ง"
+    },
+    "answer": {
+      "en": "$1/2$",
+      "th": "$1/2$"
+    }
+  },
+  {
+    "id": "limits-10",
+    "topic": "continuity",
+    "level": "basic",
+    "title": {
+      "en": "Fill a removable hole",
+      "th": "เติมค่าที่จุดขาด"
+    },
+    "question": {
+      "en": "Find k so that f is continuous at x=1. $$f(x)=\\begin{cases}(x^2-1)/(x-1)&x\\ne1\\\\k&x=1\\end{cases}$$",
+      "th": "หา k ที่ทำให้ f ต่อเนื่องที่ x=1 $$f(x)=\\begin{cases}(x^2-1)/(x-1)&x\\ne1\\\\k&x=1\\end{cases}$$"
+    },
+    "steps": [
+      {
+        "en": "Find k that makes f continuous at 1. Factor the numerator when x ≠ 1.",
+        "th": "หา k ที่ทำให้ f ต่อเนื่องที่ 1 แยกตัวประกอบตัวเศษเมื่อ x ≠ 1"
+      },
+      {
+        "en": "The nearby formula simplifies to x + 1, whose limit at 1 is 2.",
+        "th": "สูตรรอบจุดลดรูปเป็น x + 1 ซึ่งมีลิมิตที่ 1 เท่ากับ 2"
+      },
+      {
+        "en": "Continuity requires f(1) = lim f(x), so k = 2.",
+        "th": "ความต่อเนื่องต้องมี f(1) = lim f(x) จึงได้ k = 2"
+      }
+    ],
+    "hint": {
+      "en": "Continuity requires the assigned value to equal the nearby limit.",
+      "th": "ความต่อเนื่องต้องมีค่าที่กำหนดเท่ากับลิมิตรอบจุด"
+    },
+    "answer": {
+      "en": "$k=2$",
+      "th": "$k=2$"
+    }
+  },
+  {
+    "id": "limits-11",
+    "topic": "limits",
+    "level": "difficult",
+    "title": {
+      "en": "Choose delta",
+      "th": "เลือกเดลตา"
+    },
+    "question": {
+      "en": "Prove using the ε–δ definition: $$\\lim_{x\\to1}(4x-2)=2$$",
+      "th": "พิสูจน์ด้วยนิยาม ε–δ: $$\\lim_{x\\to1}(4x-2)=2$$"
+    },
+    "steps": [
+      {
+        "en": "Let ε > 0 be arbitrary. The output error is |(4x−2)−2| = 4|x−1|.",
+        "th": "ให้ ε > 0 เป็นจำนวนใด ๆ ความคลาดเคลื่อนคือ |(4x−2)−2| = 4|x−1|"
+      },
+      {
+        "en": "Choose δ = ε/4. For every x with 0 < |x−1| < δ, multiply by 4.",
+        "th": "เลือก δ = ε/4 สำหรับทุก x ที่ 0 < |x−1| < δ ให้คูณด้วย 4"
+      },
+      {
+        "en": "Then |(4x−2)−2| < 4δ = ε. This is exactly the definition of the limit.",
+        "th": "ได้ |(4x−2)−2| < 4δ = ε ตรงตามนิยามลิมิต"
+      }
+    ],
+    "hint": {
+      "en": "Express the output error as a constant times |x−1|.",
+      "th": "เขียนความคลาดเคลื่อนผลลัพธ์เป็นค่าคงที่คูณ |x−1|"
+    },
+    "answer": {
+      "en": "$\\delta=\\varepsilon/4$ proves the limit is $2$.",
+      "th": "เลือก $\\delta=\\varepsilon/4$ พิสูจน์ว่าลิมิตเป็น $2$"
+    }
+  },
+  {
+    "id": "limits-12",
+    "topic": "limits",
+    "level": "intermediate",
+    "title": {
+      "en": "A logarithmic product",
+      "th": "ผลคูณลอการิทึม"
+    },
+    "question": {
+      "en": "$$\\lim_{x\\to0^+}x\\ln x$$",
+      "th": "$$\\lim_{x\\to0^+}x\\ln x$$"
+    },
+    "steps": [
+      {
+        "en": "The form 0·(−∞) is indeterminate; rewrite it as ln(x)/(1/x).",
+        "th": "รูป 0·(−∞) ไม่กำหนด ให้เขียนเป็น ln(x)/(1/x)"
+      },
+      {
+        "en": "Apply L’Hôpital to get $(1/x)/(-1/x^2)=-x$.",
+        "th": "ใช้โลปิตาลได้ $(1/x)/(-1/x^2)=-x$"
+      },
+      {
+        "en": "As x approaches zero from the right, −x tends to zero. Answer: 0.",
+        "th": "เมื่อ x เข้าใกล้ศูนย์ด้านขวา −x เข้าใกล้ศูนย์ คำตอบคือ 0"
+      }
+    ],
+    "hint": {
+      "en": "Turn the product into a quotient using 1/x.",
+      "th": "เปลี่ยนผลคูณเป็นผลหารโดยใช้ 1/x"
+    },
+    "answer": {
+      "en": "$0$",
+      "th": "$0$"
+    }
+  },
+  {
+    "id": "derivatives-1",
+    "topic": "derivatives",
+    "level": "basic",
+    "title": {
+      "en": "Differentiate term by term",
+      "th": "หาอนุพันธ์ทีละพจน์"
+    },
+    "question": {
+      "en": "$$\\frac{d}{dx}(4x^5-3x^2+7)$$",
+      "th": "$$\\frac{d}{dx}(4x^5-3x^2+7)$$"
+    },
+    "steps": [
+      {
+        "en": "Linearity lets us differentiate each term separately.",
+        "th": "สมบัติเชิงเส้นทำให้หาอนุพันธ์แยกทีละพจน์ได้",
+        "tex": "\\frac{d}{dx}(4x^5-3x^2+7)=4\\frac{d}{dx}x^5-3\\frac{d}{dx}x^2+\\frac{d}{dx}7"
+      },
+      {
+        "en": "Multiply each power by its coefficient and reduce the exponent by one.",
+        "th": "คูณด้วยเลขชี้กำลังแล้วลดกำลังลงหนึ่ง",
+        "tex": "4(5x^4)-3(2x)+0"
+      },
+      {
+        "en": "Simplify the coefficients. The formula is valid for every real x.",
+        "th": "จัดสัมประสิทธิ์ สูตรใช้ได้สำหรับ x จริงทุกค่า",
+        "tex": "20x^4-6x"
+      }
+    ],
+    "hint": {
+      "en": "Use the power rule and remember that a constant differentiates to zero.",
+      "th": "ใช้กฎยกกำลังและจำว่าอนุพันธ์ค่าคงที่เป็นศูนย์"
+    },
+    "answer": {
+      "en": "$20x^4-6x$",
+      "th": "$20x^4-6x$"
+    }
+  },
+  {
+    "id": "derivatives-2",
+    "topic": "derivatives",
+    "level": "intermediate",
+    "title": {
+      "en": "Keep the inner derivative",
+      "th": "อย่าลืมอนุพันธ์ชั้นใน"
+    },
+    "question": {
+      "en": "$$\\frac{d}{dx}\\sin(x^2+1)$$",
+      "th": "$$\\frac{d}{dx}\\sin(x^2+1)$$"
+    },
+    "steps": [
+      {
+        "en": "Introduce u = x²+1, so y = sin u.",
+        "th": "ให้ u = x²+1 จึงได้ y = sin u"
+      },
+      {
+        "en": "Differentiate the two layers.",
+        "th": "หาอนุพันธ์แต่ละชั้น",
+        "tex": "\\frac{dy}{du}=\\cos u,\\qquad\\frac{du}{dx}=2x"
+      },
+      {
+        "en": "The chain rule multiplies these derivatives; then substitute the original inner expression.",
+        "th": "กฎลูกโซ่ให้คูณอนุพันธ์ทั้งสอง แล้วแทนนิพจน์ชั้นในกลับ",
+        "tex": "\\frac{dy}{dx}=\\frac{dy}{du}\\frac{du}{dx}=\\cos(x^2+1)\\,(2x)"
+      }
+    ],
+    "hint": {
+      "en": "View sine as the outer function and x²+1 as the inner function.",
+      "th": "มอง sine เป็นฟังก์ชันชั้นนอกและ x²+1 เป็นชั้นใน"
+    },
+    "answer": {
+      "en": "$2x\\cos(x^2+1)$",
+      "th": "$2x\\cos(x^2+1)$"
+    }
+  },
+  {
+    "id": "derivatives-3",
+    "topic": "applications",
+    "level": "basic",
+    "title": {
+      "en": "Prove the maximum is global",
+      "th": "พิสูจน์ค่าสูงสุดสัมบูรณ์"
+    },
+    "question": {
+      "en": "Find the maximum value of $f(x)=-x^2+8x-5$.",
+      "th": "หาค่าสูงสุดของ $f(x)=-x^2+8x-5$"
+    },
+    "steps": [
+      {
+        "en": "Differentiate and set the derivative to zero.",
+        "th": "หาอนุพันธ์แล้วกำหนดให้เป็นศูนย์",
+        "tex": "f'(x)=-2x+8=0\\quad\\Rightarrow\\quad 2x=8\\quad\\Rightarrow\\quad x=4"
+      },
+      {
+        "en": "For x < 4 the derivative is positive; for x > 4 it is negative. Thus the function increases up to 4 and decreases afterwards over the entire real domain.",
+        "th": "เมื่อ x < 4 อนุพันธ์เป็นบวก และเมื่อ x > 4 เป็นลบ ฟังก์ชันจึงเพิ่มจนถึง 4 แล้วลดลงบนโดเมนจริงทั้งหมด"
+      },
+      {
+        "en": "Evaluate the function, not its derivative, to find the maximum value.",
+        "th": "แทนค่าในฟังก์ชัน ไม่ใช่ในอนุพันธ์ เพื่อหาค่าสูงสุด",
+        "tex": "f(4)=-(4)^2+8(4)-5=-16+32-5=11"
+      },
+      {
+        "en": "Equivalently, completing the square confirms the global bound.",
+        "th": "อีกทางหนึ่ง จัดกำลังสองสมบูรณ์ยืนยันขอบเขตสัมบูรณ์ได้",
+        "tex": "f(x)=-(x-4)^2+11\\le11"
+      }
+    ],
+    "hint": {
+      "en": "Find the stationary point and check the derivative sign on each side.",
+      "th": "หาจุดที่อนุพันธ์เป็นศูนย์แล้วตรวจเครื่องหมายทั้งสองด้าน"
+    },
+    "answer": {
+      "en": "Global maximum $11$ at $x=4$.",
+      "th": "ค่าสูงสุดสัมบูรณ์ $11$ ที่ $x=4$"
+    }
+  },
+  {
+    "id": "derivatives-4",
+    "topic": "derivatives",
+    "level": "intermediate",
+    "title": {
+      "en": "Product rule",
+      "th": "กฎผลคูณ"
+    },
+    "question": {
+      "en": "$$\\frac{d}{dx}(x^2e^x)$$",
+      "th": "$$\\frac{d}{dx}(x^2e^x)$$"
+    },
+    "steps": [
+      {
+        "en": "Set u = x² and v = eˣ. Then u′ = 2x and v′ = eˣ.",
+        "th": "ให้ u = x² และ v = eˣ จะได้ u′ = 2x และ v′ = eˣ"
+      },
+      {
+        "en": "Use (uv)′ = u′v + uv′: 2xeˣ + x²eˣ.",
+        "th": "ใช้ (uv)′ = u′v + uv′ ได้ 2xeˣ + x²eˣ"
+      },
+      {
+        "en": "Factor to obtain eˣ(x² + 2x).",
+        "th": "ดึงตัวประกอบได้ eˣ(x² + 2x)"
+      }
+    ],
+    "hint": {
+      "en": "Use both terms of the product rule.",
+      "th": "ใช้กฎผลคูณให้ครบสองพจน์"
+    },
+    "answer": {
+      "en": "$e^x(x^2+2x)$",
+      "th": "$e^x(x^2+2x)$"
+    }
+  },
+  {
+    "id": "derivatives-5",
+    "topic": "derivatives",
+    "level": "intermediate",
+    "title": {
+      "en": "Quotient rule",
+      "th": "กฎผลหาร"
+    },
+    "question": {
+      "en": "$$\\frac{d}{dx}\\frac{x^2+1}{x-1}$$",
+      "th": "$$\\frac{d}{dx}\\frac{x^2+1}{x-1}$$"
+    },
+    "steps": [
+      {
+        "en": "The domain excludes x = 1. Set u = x²+1, v = x−1.",
+        "th": "โดเมนไม่รวม x = 1 ให้ u = x²+1, v = x−1"
+      },
+      {
+        "en": "Use $(u' v-uv')/v^2=[2x(x-1)-(x^2+1)]/(x-1)^2$.",
+        "th": "ใช้ $(u' v-uv')/v^2=[2x(x-1)-(x^2+1)]/(x-1)^2$"
+      },
+      {
+        "en": "Expand each product before combining like terms; the outer minus changes both signs in the parentheses.",
+        "th": "กระจายแต่ละผลคูณก่อนรวมพจน์ เครื่องหมายลบด้านนอกเปลี่ยนเครื่องหมายทั้งสองพจน์ในวงเล็บ",
+        "tex": "2x(x-1)-(x^2+1)=2x^2-2x-x^2-1=x^2-2x-1"
+      },
+      {
+        "en": "Simplify: $(x^2-2x-1)/(x-1)^2$, for $x\\ne1$.",
+        "th": "จัดรูปได้ $(x^2-2x-1)/(x-1)^2$ เมื่อ $x\\ne1$"
+      }
+    ],
+    "hint": {
+      "en": "Keep the subtraction around the entire second numerator term.",
+      "th": "ใส่วงเล็บพจน์ที่สองของตัวเศษให้ครบก่อนกระจายลบ"
+    },
+    "answer": {
+      "en": "$\\frac{x^2-2x-1}{(x-1)^2}$ for $x\\ne1$.",
+      "th": "$\\frac{x^2-2x-1}{(x-1)^2}$ เมื่อ $x\\ne1$"
+    }
+  },
+  {
+    "id": "derivatives-6",
+    "topic": "derivatives",
+    "level": "intermediate",
+    "title": {
+      "en": "Logarithmic chain",
+      "th": "ลูกโซ่ลอการิทึม"
+    },
+    "question": {
+      "en": "$$\\frac{d}{dx}\\ln(1+x^2)$$",
+      "th": "$$\\frac{d}{dx}\\ln(1+x^2)$$"
+    },
+    "steps": [
+      {
+        "en": "The inner function 1+x² is positive for all real x.",
+        "th": "ฟังก์ชันชั้นใน 1+x² เป็นบวกสำหรับ x จริงทุกค่า"
+      },
+      {
+        "en": "Differentiate ln u to get u′/u; here u′ = 2x.",
+        "th": "หาอนุพันธ์ ln u ได้ u′/u โดย u′ = 2x"
+      },
+      {
+        "en": "The derivative is $2x/(1+x^2)$.",
+        "th": "อนุพันธ์คือ $2x/(1+x^2)$"
+      }
+    ],
+    "hint": {
+      "en": "The derivative of ln u is u′/u.",
+      "th": "อนุพันธ์ของ ln u คือ u′/u"
+    },
+    "answer": {
+      "en": "$\\frac{2x}{1+x^2}$",
+      "th": "$\\frac{2x}{1+x^2}$"
+    }
+  },
+  {
+    "id": "derivatives-7",
+    "topic": "derivatives",
+    "level": "intermediate",
+    "title": {
+      "en": "Tangent to a circle",
+      "th": "เส้นสัมผัสวงกลม"
+    },
+    "question": {
+      "en": "Find the tangent line to the curve at the given point. $$x^2+y^2=25,\\quad (x,y)=(3,4)$$",
+      "th": "หาเส้นสัมผัสเส้นโค้งที่จุดกำหนด $$x^2+y^2=25,\\quad (x,y)=(3,4)$$"
+    },
+    "steps": [
+      {
+        "en": "Differentiate implicitly: 2x + 2yy′ = 0.",
+        "th": "หาอนุพันธ์โดยปริยาย: 2x + 2yy′ = 0"
+      },
+      {
+        "en": "Isolate y′ by moving 2x to the other side and dividing by 2y, valid where y ≠ 0.",
+        "th": "แยก y′ โดยย้าย 2x ไปอีกด้านแล้วหารด้วย 2y ซึ่งทำได้เมื่อ y ≠ 0",
+        "tex": "2yy'=-2x\\quad\\Rightarrow\\quad y'=-\\frac{x}{y}"
+      },
+      {
+        "en": "Solve y′ = −x/y and substitute (3,4): slope = −3/4.",
+        "th": "แก้ได้ y′ = −x/y แล้วแทน (3,4) ความชันคือ −3/4"
+      },
+      {
+        "en": "The tangent line is $y-4=-\\frac34(x-3)$.",
+        "th": "เส้นสัมผัสคือ $y-4=-\\frac34(x-3)$"
+      }
+    ],
+    "hint": {
+      "en": "Treat y as y(x); differentiating y² produces 2yy′.",
+      "th": "มอง y เป็น y(x) อนุพันธ์ y² จึงเป็น 2yy′"
+    },
+    "answer": {
+      "en": "$y-4=-\\frac34(x-3)$",
+      "th": "$y-4=-\\frac34(x-3)$"
+    }
+  },
+  {
+    "id": "derivatives-8",
+    "topic": "derivatives",
+    "level": "intermediate",
+    "title": {
+      "en": "Variable exponent",
+      "th": "เลขชี้กำลังตัวแปร"
+    },
+    "question": {
+      "en": "$$\\frac{d}{dx}x^x,\\quad x>0$$",
+      "th": "$$\\frac{d}{dx}x^x,\\quad x>0$$"
+    },
+    "steps": [
+      {
+        "en": "Let y = xˣ and take logs: ln y = x ln x.",
+        "th": "ให้ y = xˣ แล้วใช้ลอการิทึม: ln y = x ln x"
+      },
+      {
+        "en": "Differentiate: y′/y = ln x + 1.",
+        "th": "หาอนุพันธ์: y′/y = ln x + 1"
+      },
+      {
+        "en": "Multiply by y = xˣ: y′ = xˣ(ln x + 1).",
+        "th": "คูณด้วย y = xˣ ได้ y′ = xˣ(ln x + 1)"
+      }
+    ],
+    "hint": {
+      "en": "Take natural logarithms before differentiating the variable exponent.",
+      "th": "ใช้ลอการิทึมธรรมชาติก่อนหาอนุพันธ์ที่เลขชี้กำลังเป็นตัวแปร"
+    },
+    "answer": {
+      "en": "$x^x(\\ln x+1)$, $x>0$.",
+      "th": "$x^x(\\ln x+1)$, $x>0$"
+    }
+  },
+  {
+    "id": "derivatives-9",
+    "topic": "applications",
+    "level": "intermediate",
+    "title": {
+      "en": "Closed-interval extrema",
+      "th": "ค่าสุดขั้วบนช่วงปิด"
+    },
+    "question": {
+      "en": "Find every absolute maximum and minimum on the given interval. $$f(x)=x^3-3x,\\quad x\\in[-2,2]$$",
+      "th": "หาค่าสูงสุดและต่ำสุดสัมบูรณ์ทั้งหมดในช่วงกำหนด $$f(x)=x^3-3x,\\quad x\\in[-2,2]$$"
+    },
+    "steps": [
+      {
+        "en": "Continuity guarantees global extrema. Solve f′ = 3x²−3 = 0 to find x = ±1.",
+        "th": "ความต่อเนื่องรับประกันค่าสุดขั้วสัมบูรณ์ แก้ f′ = 3x²−3 = 0 ได้ x = ±1"
+      },
+      {
+        "en": "Evaluate at both critical points and endpoints: f(−2)=−2, f(−1)=2, f(1)=−2, f(2)=2.",
+        "th": "คำนวณทั้งจุดวิกฤตและปลายช่วง: f(−2)=−2, f(−1)=2, f(1)=−2, f(2)=2"
+      },
+      {
+        "en": "The four evaluations are −8+6=−2, −1+3=2, 1−3=−2, and 8−6=2. Compare their values, not their locations.",
+        "th": "ค่าที่แทนทั้งสี่คือ −8+6=−2, −1+3=2, 1−3=−2 และ 8−6=2 เปรียบเทียบค่าฟังก์ชัน ไม่ใช่ตำแหน่ง"
+      },
+      {
+        "en": "Maximum 2 at −1 and 2; minimum −2 at −2 and 1.",
+        "th": "ค่าสูงสุด 2 ที่ −1 และ 2 ค่าต่ำสุด −2 ที่ −2 และ 1"
+      }
+    ],
+    "hint": {
+      "en": "Check the endpoints as well as stationary points.",
+      "th": "ตรวจปลายช่วงด้วย ไม่ใช่เพียงจุดที่อนุพันธ์เป็นศูนย์"
+    },
+    "answer": {
+      "en": "Maximum $2$ at $x=-1,2$; minimum $-2$ at $x=-2,1$.",
+      "th": "ค่าสูงสุด $2$ ที่ $x=-1,2$ ต่ำสุด $-2$ ที่ $x=-2,1$"
+    }
+  },
+  {
+    "id": "derivatives-10",
+    "topic": "applications",
+    "level": "intermediate",
+    "title": {
+      "en": "Mean value point",
+      "th": "จุดค่ากลาง"
+    },
+    "question": {
+      "en": "Find the point c guaranteed by the Mean Value Theorem. $$f(x)=x^2,\\quad [1,3]$$",
+      "th": "หาจุด c ที่ทฤษฎีบทค่ากลางรับประกัน $$f(x)=x^2,\\quad [1,3]$$"
+    },
+    "steps": [
+      {
+        "en": "The function is continuous on [1,3] and differentiable on (1,3), so the MVT applies.",
+        "th": "ฟังก์ชันต่อเนื่องบน [1,3] และหาอนุพันธ์ได้บน (1,3) จึงใช้ทฤษฎีบทค่ากลางได้"
+      },
+      {
+        "en": "The average slope is (9−1)/(3−1) = 4.",
+        "th": "ความชันเฉลี่ยคือ (9−1)/(3−1) = 4"
+      },
+      {
+        "en": "Solve f′(c) = 2c = 4 to obtain c = 2, inside the interval.",
+        "th": "แก้ f′(c) = 2c = 4 ได้ c = 2 ซึ่งอยู่ภายในช่วง"
+      }
+    ],
+    "hint": {
+      "en": "Set the instantaneous slope equal to the secant slope.",
+      "th": "กำหนดความชันฉับพลันเท่ากับความชันเส้นตัด"
+    },
+    "answer": {
+      "en": "$c=2$",
+      "th": "$c=2$"
+    }
+  },
+  {
+    "id": "derivatives-11",
+    "topic": "applications",
+    "level": "intermediate",
+    "title": {
+      "en": "Related rates: sphere",
+      "th": "อัตราสัมพัทธ์: ทรงกลม"
+    },
+    "question": {
+      "en": "Find the rate of change of volume at the stated instant. $$V=\\frac43\\pi r^3,\\quad r=3\\;\\mathrm{cm},\\quad \\frac{dr}{dt}=2\\;\\mathrm{cm/s}$$",
+      "th": "หาอัตราการเปลี่ยนแปลงปริมาตร ณ ขณะกำหนด $$V=\\frac43\\pi r^3,\\quad r=3\\;\\mathrm{cm},\\quad \\frac{dr}{dt}=2\\;\\mathrm{cm/s}$$"
+    },
+    "steps": [
+      {
+        "en": "Differentiate the volume formula with respect to time before substituting the radius.",
+        "th": "หาอนุพันธ์สูตรปริมาตรเทียบกับเวลาก่อนแทนรัศมี"
+      },
+      {
+        "en": "$dV/dt=4\\pi r^2\\,dr/dt$.",
+        "th": "$dV/dt=4\\pi r^2\\,dr/dt$"
+      },
+      {
+        "en": "Substitute: $4\\pi(3)^2(2)=72\\pi\\;\\mathrm{cm^3/s}$.",
+        "th": "แทนค่า: $4\\pi(3)^2(2)=72\\pi\\;\\mathrm{cm^3/s}$"
+      }
+    ],
+    "hint": {
+      "en": "Differentiate with respect to time while r is still a variable.",
+      "th": "หาอนุพันธ์เทียบเวลาก่อนแทนค่ารัศมี"
+    },
+    "answer": {
+      "en": "$72\\pi\\;\\mathrm{cm^3/s}$",
+      "th": "$72\\pi\\;\\mathrm{cm^3/s}$"
+    }
+  },
+  {
+    "id": "derivatives-12",
+    "topic": "applications",
+    "level": "basic",
+    "title": {
+      "en": "Local approximation",
+      "th": "การประมาณใกล้จุด"
+    },
+    "question": {
+      "en": "Approximate using the tangent at x = 4: $$\\sqrt{4.1}$$",
+      "th": "ประมาณด้วยเส้นสัมผัสที่ x = 4: $$\\sqrt{4.1}$$"
+    },
+    "steps": [
+      {
+        "en": "Choose f(x) = √x. At a = 4, f(a) = 2 and f′(a) = 1/4.",
+        "th": "เลือก f(x) = √x ที่ a = 4 มี f(a) = 2 และ f′(a) = 1/4"
+      },
+      {
+        "en": "Build L(x) = 2 + (x−4)/4.",
+        "th": "สร้าง L(x) = 2 + (x−4)/4"
+      },
+      {
+        "en": "L(4.1) = 2.025. This is an approximation; concavity down means the tangent overestimates.",
+        "th": "L(4.1) = 2.025 เป็นค่าประมาณ กราฟเว้าลงจึงได้ค่ามากกว่าค่าจริง"
+      }
+    ],
+    "hint": {
+      "en": "Use L(x)=f(4)+f′(4)(x−4).",
+      "th": "ใช้ L(x)=f(4)+f′(4)(x−4)"
+    },
+    "answer": {
+      "en": "$\\sqrt{4.1}\\approx2.025$ (an overestimate).",
+      "th": "$\\sqrt{4.1}\\approx2.025$ (มากกว่าค่าจริง)"
+    }
+  },
+  {
+    "id": "integrals-1",
+    "topic": "integrals",
+    "level": "basic",
+    "title": {
+      "en": "Integrate each polynomial term",
+      "th": "อินทิเกรตพหุนามทีละพจน์"
+    },
+    "question": {
+      "en": "$$\\int(6x^2-4x+3)dx$$",
+      "th": "$$\\int(6x^2-4x+3)dx$$"
+    },
+    "steps": [
+      {
+        "en": "Use linearity to split the integral.",
+        "th": "ใช้สมบัติเชิงเส้นแยกปริพันธ์",
+        "tex": "\\int(6x^2-4x+3)\\,dx=6\\int x^2\\,dx-4\\int x\\,dx+3\\int1\\,dx"
+      },
+      {
+        "en": "Apply the power rule to each term.",
+        "th": "ใช้กฎยกกำลังกับแต่ละพจน์",
+        "tex": "6\\frac{x^3}{3}-4\\frac{x^2}{2}+3x+C"
+      },
+      {
+        "en": "Simplify and check by differentiation. All integration constants combine into one arbitrary constant.",
+        "th": "จัดรูปแล้วตรวจด้วยการหาอนุพันธ์ ค่าคงที่ทั้งหมดรวมเป็นค่าคงที่อิสระตัวเดียว",
+        "tex": "F(x)=2x^3-2x^2+3x+C,\\qquad F'(x)=6x^2-4x+3"
+      }
+    ],
+    "hint": {
+      "en": "Increase each exponent by one, divide by that exponent, and keep C.",
+      "th": "เพิ่มกำลังหนึ่ง หารด้วยกำลังใหม่ และใส่ C"
+    },
+    "answer": {
+      "en": "$2x^3-2x^2+3x+C$",
+      "th": "$2x^3-2x^2+3x+C$"
+    }
+  },
+  {
+    "id": "integrals-2",
+    "topic": "techniques",
+    "level": "basic",
+    "title": {
+      "en": "Substitute the inner square",
+      "th": "แทนค่ากำลังสองชั้นใน"
+    },
+    "question": {
+      "en": "$$\\int 2x e^{x^2}dx$$",
+      "th": "$$\\int 2x e^{x^2}dx$$"
+    },
+    "steps": [
+      {
+        "en": "Choose u = x² and differentiate: du = 2x dx. This matches the entire factor outside the exponential.",
+        "th": "เลือก u = x² แล้วหาอนุพันธ์ได้ du = 2x dx ซึ่งตรงกับตัวประกอบนอกเอ็กซ์โพเนนเชียลทั้งหมด"
+      },
+      {
+        "en": "Replace both the exponent and its differential so no x remains.",
+        "th": "แทนทั้งเลขชี้กำลังและดิฟเฟอเรนเชียลจนไม่เหลือ x",
+        "tex": "\\int 2xe^{x^2}\\,dx=\\int e^u\\,du=e^u+C"
+      },
+      {
+        "en": "Return to x and verify using the chain rule.",
+        "th": "แทนกลับเป็น x แล้วตรวจด้วยกฎลูกโซ่",
+        "tex": "F(x)=e^{x^2}+C,\\qquad F'(x)=e^{x^2}(2x)"
+      }
+    ],
+    "hint": {
+      "en": "The factor 2x dx is exactly the differential of x².",
+      "th": "ตัวประกอบ 2x dx เป็นดิฟเฟอเรนเชียลของ x² พอดี"
+    },
+    "answer": {
+      "en": "$e^{x^2}+C$",
+      "th": "$e^{x^2}+C$"
+    }
+  },
+  {
+    "id": "integrals-3",
+    "topic": "ftc",
+    "level": "intermediate",
+    "title": {
+      "en": "Evaluate a definite integral",
+      "th": "หาค่าปริพันธ์จำกัดเขต"
+    },
+    "question": {
+      "en": "$$\\int_0^2(3x^2+1)dx$$",
+      "th": "$$\\int_0^2(3x^2+1)dx$$"
+    },
+    "steps": [
+      {
+        "en": "The polynomial is continuous on [0,2], so the FTC applies.",
+        "th": "พหุนามต่อเนื่องบน [0,2] จึงใช้ทฤษฎีบทมูลฐานได้"
+      },
+      {
+        "en": "Integrate term by term to obtain a convenient antiderivative.",
+        "th": "อินทิเกรตทีละพจน์เพื่อเลือกปฏิยานุพันธ์หนึ่งตัว",
+        "tex": "F(x)=\\frac{3x^3}{3}+x=x^3+x"
+      },
+      {
+        "en": "Substitute both bounds and subtract. A constant would cancel, so we may choose it as zero.",
+        "th": "แทนขอบทั้งสองแล้วลบกัน ค่าคงที่จะหักล้างกันจึงเลือกเป็นศูนย์ได้",
+        "tex": "F(2)-F(0)=(2^3+2)-(0^3+0)=8+2=10"
+      }
+    ],
+    "hint": {
+      "en": "Find an antiderivative, then use upper value minus lower value.",
+      "th": "หาปฏิยานุพันธ์แล้วใช้ค่าที่ขอบบนลบค่าที่ขอบล่าง"
+    },
+    "answer": {
+      "en": "$10$",
+      "th": "$10$"
+    }
+  },
+  {
+    "id": "integrals-4",
+    "topic": "techniques",
+    "level": "intermediate",
+    "title": {
+      "en": "Integration by parts",
+      "th": "อินทิเกรตโดยส่วน"
+    },
+    "question": {
+      "en": "$$\\int xe^x\\,dx$$",
+      "th": "$$\\int xe^x\\,dx$$"
+    },
+    "steps": [
+      {
+        "en": "Choose u = x and dv = eˣ dx, so du = dx and v = eˣ.",
+        "th": "เลือก u = x และ dv = eˣ dx จึงได้ du = dx และ v = eˣ"
+      },
+      {
+        "en": "Use $\\int u\\,dv=uv-\\int v\\,du$ to get $xe^x-\\int e^x dx$.",
+        "th": "ใช้ $\\int u\\,dv=uv-\\int v\\,du$ ได้ $xe^x-\\int e^x dx$"
+      },
+      {
+        "en": "The result is eˣ(x−1) + C. Differentiate it to check: xeˣ.",
+        "th": "ผลคือ eˣ(x−1) + C หาอนุพันธ์ตรวจสอบได้ xeˣ"
+      }
+    ],
+    "hint": {
+      "en": "Differentiate x and integrate eˣ in the parts formula.",
+      "th": "หาอนุพันธ์ x และอินทิเกรต eˣ ในสูตรโดยส่วน"
+    },
+    "answer": {
+      "en": "$e^x(x-1)+C$",
+      "th": "$e^x(x-1)+C$"
+    }
+  },
+  {
+    "id": "integrals-5",
+    "topic": "techniques",
+    "level": "basic",
+    "title": {
+      "en": "Recognize a logarithm",
+      "th": "มองหารูปลอการิทึม"
+    },
+    "question": {
+      "en": "$$\\int\\frac{2x}{1+x^2}\\,dx$$",
+      "th": "$$\\int\\frac{2x}{1+x^2}\\,dx$$"
+    },
+    "steps": [
+      {
+        "en": "Set u = 1+x², so du = 2x dx.",
+        "th": "ให้ u = 1+x² จึงได้ du = 2x dx"
+      },
+      {
+        "en": "The integral becomes $\\int du/u=\\ln|u|+C$.",
+        "th": "ปริพันธ์เป็น $\\int du/u=\\ln|u|+C$"
+      },
+      {
+        "en": "Since 1+x² > 0, the answer is ln(1+x²) + C.",
+        "th": "เพราะ 1+x² > 0 คำตอบคือ ln(1+x²) + C"
+      }
+    ],
+    "hint": {
+      "en": "The numerator is the derivative of the denominator.",
+      "th": "ตัวเศษคืออนุพันธ์ของตัวส่วน"
+    },
+    "answer": {
+      "en": "$\\ln(1+x^2)+C$",
+      "th": "$\\ln(1+x^2)+C$"
+    }
+  },
+  {
+    "id": "integrals-6",
+    "topic": "techniques",
+    "level": "intermediate",
+    "title": {
+      "en": "Trigonometric power",
+      "th": "กำลังตรีโกณมิติ"
+    },
+    "question": {
+      "en": "$$\\int\\sin^2x\\,dx$$",
+      "th": "$$\\int\\sin^2x\\,dx$$"
+    },
+    "steps": [
+      {
+        "en": "Use the identity sin²x = (1−cos 2x)/2.",
+        "th": "ใช้เอกลักษณ์ sin²x = (1−cos 2x)/2"
+      },
+      {
+        "en": "Integrate the constant term as x/2. The cosine term needs a factor 1/2 from its inner derivative.",
+        "th": "อินทิเกรตพจน์คงที่ได้ x/2 พจน์ cosine ต้องคูณ 1/2 จากอนุพันธ์ชั้นใน"
+      },
+      {
+        "en": "Integrate cos(2x) by u=2x, du=2 dx; the factor 1/2 outside the cosine multiplies the new 1/2.",
+        "th": "อินทิเกรต cos(2x) ด้วย u=2x, du=2 dx ตัวประกอบ 1/2 นอก cosine คูณกับ 1/2 ที่เกิดใหม่",
+        "tex": "\\frac12\\int\\cos(2x)\\,dx=\\frac12\\cdot\\frac12\\sin(2x)=\\frac14\\sin(2x)"
+      },
+      {
+        "en": "The answer is $x/2-\\sin(2x)/4+C$.",
+        "th": "คำตอบคือ $x/2-\\sin(2x)/4+C$"
+      }
+    ],
+    "hint": {
+      "en": "Use the half-angle identity before integrating.",
+      "th": "ใช้เอกลักษณ์ครึ่งมุมก่อนอินทิเกรต"
+    },
+    "answer": {
+      "en": "$x/2-\\sin(2x)/4+C$",
+      "th": "$x/2-\\sin(2x)/4+C$"
+    }
+  },
+  {
+    "id": "integrals-7",
+    "topic": "techniques",
+    "level": "intermediate",
+    "title": {
+      "en": "Partial fractions",
+      "th": "เศษส่วนย่อย"
+    },
+    "question": {
+      "en": "$$\\int\\frac{dx}{x^2-1}$$",
+      "th": "$$\\int\\frac{dx}{x^2-1}$$"
+    },
+    "steps": [
+      {
+        "en": "Factor the denominator: $(x-1)(x+1)$, excluding $x=\\pm1$.",
+        "th": "แยกตัวส่วนเป็น $(x-1)(x+1)$ โดยไม่รวม $x=\\pm1$"
+      },
+      {
+        "en": "Solve $1=A(x+1)+B(x-1)$: $A=1/2$, $B=-1/2$.",
+        "th": "แก้ $1=A(x+1)+B(x-1)$ ได้ $A=1/2$, $B=-1/2$"
+      },
+      {
+        "en": "Evaluate the identity at x=1 and x=−1 to isolate one coefficient at a time. This is a polynomial identity after denominators have been cleared.",
+        "th": "แทน x=1 และ x=−1 ในเอกลักษณ์เพื่อแยกสัมประสิทธิ์ทีละตัว ทำได้เพราะหลังคูณกำจัดตัวส่วนแล้วเป็นเอกลักษณ์พหุนาม",
+        "tex": "x=1:\\ 1=2A\\Rightarrow A=\\frac12;\\qquad x=-1:\\ 1=-2B\\Rightarrow B=-\\frac12"
+      },
+      {
+        "en": "Integrate: $\\frac12\\ln|x-1|-\\frac12\\ln|x+1|+C$, on each interval of the domain.",
+        "th": "อินทิเกรตได้ $\\frac12\\ln|x-1|-\\frac12\\ln|x+1|+C$ แยกในแต่ละช่วงของโดเมน"
+      }
+    ],
+    "hint": {
+      "en": "Decompose into A/(x−1)+B/(x+1).",
+      "th": "แยกเป็น A/(x−1)+B/(x+1)"
+    },
+    "answer": {
+      "en": "$\\frac12\\ln|x-1|-\\frac12\\ln|x+1|+C$, $x\\ne\\pm1$.",
+      "th": "$\\frac12\\ln|x-1|-\\frac12\\ln|x+1|+C$, $x\\ne\\pm1$"
+    }
+  },
+  {
+    "id": "integrals-8",
+    "topic": "integrals",
+    "level": "basic",
+    "title": {
+      "en": "Signed integral versus area",
+      "th": "ปริพันธ์แบบมีเครื่องหมายกับพื้นที่"
+    },
+    "question": {
+      "en": "Find both the signed integral and the geometric area. $$f(x)=x,\\quad [-1,1]$$",
+      "th": "หาทั้งปริพันธ์แบบมีเครื่องหมายและพื้นที่เรขาคณิต $$f(x)=x,\\quad [-1,1]$$"
+    },
+    "steps": [
+      {
+        "en": "The signed integral is $[x^2/2]_{-1}^1=0$.",
+        "th": "ปริพันธ์แบบมีเครื่องหมายคือ $[x^2/2]_{-1}^1=0$"
+      },
+      {
+        "en": "For geometric area, split at zero and negate the part below the axis.",
+        "th": "สำหรับพื้นที่เรขาคณิต ให้แบ่งที่ศูนย์แล้วเปลี่ยนเครื่องหมายส่วนใต้แกน"
+      },
+      {
+        "en": "$A=-\\int_{-1}^0x\\,dx+\\int_0^1x\\,dx=1/2+1/2=1$.",
+        "th": "$A=-\\int_{-1}^0x\\,dx+\\int_0^1x\\,dx=1/2+1/2=1$"
+      }
+    ],
+    "hint": {
+      "en": "Split at the zero of the function before finding geometric area.",
+      "th": "แบ่งช่วงที่รากของฟังก์ชันก่อนหาพื้นที่เรขาคณิต"
+    },
+    "answer": {
+      "en": "Signed integral $0$; geometric area $1$.",
+      "th": "ปริพันธ์แบบมีเครื่องหมาย $0$ พื้นที่เรขาคณิต $1$"
+    }
+  },
+  {
+    "id": "integrals-9",
+    "topic": "areas",
+    "level": "basic",
+    "title": {
+      "en": "Area between curves",
+      "th": "พื้นที่ระหว่างเส้นโค้ง"
+    },
+    "question": {
+      "en": "Find the total bounded area enclosed by the two curves. $$y=x,\\quad y=x^2$$",
+      "th": "หาพื้นที่ปิดล้อมทั้งหมดระหว่างสองเส้นโค้ง $$y=x,\\quad y=x^2$$"
+    },
+    "steps": [
+      {
+        "en": "Find intersections from x = x²: x = 0 and x = 1.",
+        "th": "หาจุดตัดจาก x = x² ได้ x = 0 และ x = 1"
+      },
+      {
+        "en": "On [0,1], x ≥ x². Integrate upper minus lower.",
+        "th": "บน [0,1] มี x ≥ x² ให้หาปริพันธ์เส้นบนลบเส้นล่าง"
+      },
+      {
+        "en": "$A=\\int_0^1(x-x^2)dx=[x^2/2-x^3/3]_0^1=1/6$.",
+        "th": "$A=\\int_0^1(x-x^2)dx=[x^2/2-x^3/3]_0^1=1/6$"
+      }
+    ],
+    "hint": {
+      "en": "Find intersections and identify the upper curve on the enclosed interval.",
+      "th": "หาจุดตัดและเส้นที่อยู่บนในช่วงปิดล้อม"
+    },
+    "answer": {
+      "en": "$A=1/6$",
+      "th": "$A=1/6$"
+    }
+  },
+  {
+    "id": "integrals-10",
+    "topic": "ftc",
+    "level": "basic",
+    "title": {
+      "en": "Variable upper bound",
+      "th": "ขอบบนเป็นตัวแปร"
+    },
+    "question": {
+      "en": "$$\\frac{d}{dx}\\int_0^{x^2}\\cos t\\,dt$$",
+      "th": "$$\\frac{d}{dx}\\int_0^{x^2}\\cos t\\,dt$$"
+    },
+    "steps": [
+      {
+        "en": "The integrand is continuous, so the FTC applies.",
+        "th": "ฟังก์ชันใต้ปริพันธ์ต่อเนื่อง จึงใช้ทฤษฎีบทมูลฐานได้"
+      },
+      {
+        "en": "Evaluate the integrand at the upper bound: cos(x²).",
+        "th": "แทนขอบบนลงในฟังก์ชันใต้ปริพันธ์: cos(x²)"
+      },
+      {
+        "en": "Multiply by the upper-bound derivative 2x. Answer: 2x cos(x²).",
+        "th": "คูณด้วยอนุพันธ์ขอบบน 2x คำตอบคือ 2x cos(x²)"
+      }
+    ],
+    "hint": {
+      "en": "Combine the FTC with the derivative of the upper bound.",
+      "th": "ใช้ทฤษฎีบทมูลฐานร่วมกับอนุพันธ์ขอบบน"
+    },
+    "answer": {
+      "en": "$2x\\cos(x^2)$",
+      "th": "$2x\\cos(x^2)$"
+    }
+  },
+  {
+    "id": "integrals-11",
+    "topic": "integrals",
+    "level": "intermediate",
+    "title": {
+      "en": "A convergent improper integral",
+      "th": "ปริพันธ์ไม่ตรงแบบที่ลู่เข้า"
+    },
+    "question": {
+      "en": "$$\\int_1^{\\infty}\\frac{dx}{x^2}$$",
+      "th": "$$\\int_1^{\\infty}\\frac{dx}{x^2}$$"
+    },
+    "steps": [
+      {
+        "en": "Replace infinity by $R$ and plan to take $R\\to\\infty$.",
+        "th": "แทนอนันต์ด้วย $R$ แล้วเตรียมหาลิมิต $R\\to\\infty$"
+      },
+      {
+        "en": "$\\int_1^R x^{-2}dx=[-1/x]_1^R=1-1/R$.",
+        "th": "$\\int_1^R x^{-2}dx=[-1/x]_1^R=1-1/R$"
+      },
+      {
+        "en": "The limit is 1, so the improper integral converges to 1.",
+        "th": "ลิมิตคือ 1 ปริพันธ์ไม่ตรงแบบจึงลู่เข้าเท่ากับ 1"
+      }
+    ],
+    "hint": {
+      "en": "Replace infinity by R; take the limit only after integrating.",
+      "th": "แทนอนันต์ด้วย R แล้วหาลิมิตหลังอินทิเกรต"
+    },
+    "answer": {
+      "en": "Converges to $1$.",
+      "th": "ลู่เข้าเท่ากับ $1$"
+    }
+  },
+  {
+    "id": "integrals-12",
+    "topic": "integrals",
+    "level": "intermediate",
+    "title": {
+      "en": "A divergent singularity",
+      "th": "จุดเอกฐานที่ลู่ออก"
+    },
+    "question": {
+      "en": "$$\\int_{-1}^1\\frac{dx}{x}$$",
+      "th": "$$\\int_{-1}^1\\frac{dx}{x}$$"
+    },
+    "steps": [
+      {
+        "en": "Split at zero, where the integrand is undefined. Each side must converge independently.",
+        "th": "แบ่งที่ศูนย์ซึ่งฟังก์ชันไม่นิยาม แต่ละด้านต้องลู่เข้าแยกกัน"
+      },
+      {
+        "en": "$\\int_\\varepsilon^1dx/x=-\\ln\\varepsilon\\to+\\infty$ as $\\varepsilon\\to0^+$.",
+        "th": "$\\int_\\varepsilon^1dx/x=-\\ln\\varepsilon\\to+\\infty$ เมื่อ $\\varepsilon\\to0^+$"
+      },
+      {
+        "en": "Already one side diverges, so the improper integral diverges. Symmetric cancellation does not fix it.",
+        "th": "ด้านเดียวลู่ออกก็สรุปว่าปริพันธ์ลู่ออกได้แล้ว การหักล้างแบบสมมาตรแก้ไม่ได้"
+      }
+    ],
+    "hint": {
+      "en": "Split at the singularity; both sides must converge separately.",
+      "th": "แบ่งที่จุดเอกฐาน ทั้งสองด้านต้องลู่เข้าแยกกัน"
+    },
+    "answer": {
+      "en": "Diverges; the improper integral is not $0$.",
+      "th": "ลู่ออก ปริพันธ์ไม่ตรงแบบนี้ไม่ใช่ $0$"
+    }
+  },
+  {
+    "id": "limits-piecewise",
+    "topic": "limits",
+    "level": "difficult",
+    "title": {
+      "en": "Match two different one-sided limits",
+      "th": "จับคู่ลิมิตด้านเดียวต่างรูป"
+    },
+    "question": {
+      "en": "For $x<0$, $f(x)=(\\sqrt{1+3x}-1)/x$; $f(0)=7$; for $x>0$, $f(x)=a\\sin(2x)/x$. Find $a$ for which $\\lim_{x\\to0}f(x)$ exists. Is $f$ then continuous at $0$?",
+      "th": "เมื่อ $x<0$ ให้ $f(x)=(\\sqrt{1+3x}-1)/x$; $f(0)=7$; เมื่อ $x>0$ ให้ $f(x)=a\\sin(2x)/x$ หา $a$ ที่ทำให้ $\\lim_{x\\to0}f(x)$ มีอยู่ แล้ว $f$ ต่อเนื่องที่ $0$ หรือไม่"
+    },
+    "hint": {
+      "en": "Rationalize the left branch and use the sine limit on the right. The assigned value is a separate test.",
+      "th": "ใช้สังยุคกับฝั่งซ้ายและลิมิต sine กับฝั่งขวา ค่าที่กำหนด ณ จุดต้องตรวจแยกต่างหาก"
+    },
+    "steps": [
+      {
+        "en": "Near zero the radical is real. For x ≠ 0, multiply the left quotient by its conjugate divided by itself.",
+        "th": "ใกล้ศูนย์รากมีค่าจริง เมื่อ x ≠ 0 คูณเศษและส่วนของฝั่งซ้ายด้วยสังยุค",
+        "tex": "\\frac{\\sqrt{1+3x}-1}{x}=\\frac{(1+3x)-1}{x(\\sqrt{1+3x}+1)}=\\frac{3}{\\sqrt{1+3x}+1}"
+      },
+      {
+        "en": "The simplified denominator tends to 2, so substitution is now valid.",
+        "th": "ตัวส่วนที่จัดรูปแล้วเข้าใกล้ 2 จึงแทนค่าได้",
+        "tex": "\\lim_{x\\to0^-}f(x)=\\frac32"
+      },
+      {
+        "en": "For the right branch, match the denominator to the sine argument; angles are in radians.",
+        "th": "ฝั่งขวาจัดตัวส่วนให้ตรงกับอาร์กิวเมนต์ sine โดยมุมวัดเป็นเรเดียน",
+        "tex": "a\\frac{\\sin(2x)}x=2a\\frac{\\sin(2x)}{2x}\\longrightarrow2a"
+      },
+      {
+        "en": "A finite two-sided limit exists exactly when the two one-sided limits agree. Solve for the parameter.",
+        "th": "ลิมิตสองด้านแบบจำกัดมีอยู่ก็ต่อเมื่อลิมิตด้านเดียวเท่ากัน จึงแก้หาพารามิเตอร์",
+        "tex": "2a=\\frac32\\quad\\Rightarrow\\quad a=\\frac34"
+      },
+      {
+        "en": "The resulting limit is 3/2, but the assigned value is 7. Changing a does not fix that mismatch.",
+        "th": "ลิมิตที่ได้คือ 3/2 แต่ค่าที่จุดเป็น 7 การเปลี่ยน a ไม่แก้ความไม่เท่ากันนี้",
+        "tex": "\\lim_{x\\to0}f(x)=\\frac32\\ne f(0)=7"
+      }
+    ],
+    "answer": {
+      "en": "$a=3/4$, limit $3/2$; not continuous at $0$. Setting $f(0)=3/2$ would remove the discontinuity.",
+      "th": "$a=3/4$ ลิมิต $3/2$ แต่ไม่ต่อเนื่องที่ $0$ หากกำหนด $f(0)=3/2$ จะขจัดความไม่ต่อเนื่องได้"
+    }
+  },
+  {
+    "id": "limits-negative-infinity",
+    "topic": "limits",
+    "level": "difficult",
+    "title": {
+      "en": "A radical at negative infinity",
+      "th": "รากที่ลบอนันต์"
+    },
+    "question": {
+      "en": "Evaluate $\\lim_{x\\to-\\infty}(\\sqrt{x^2+3x}+x)$.",
+      "th": "หา $\\lim_{x\\to-\\infty}(\\sqrt{x^2+3x}+x)$"
+    },
+    "hint": {
+      "en": "Use a conjugate, then remember that √(x²) = |x| = −x for negative x.",
+      "th": "ใช้สังยุคแล้วจำว่า √(x²) = |x| = −x เมื่อ x เป็นลบ"
+    },
+    "steps": [
+      {
+        "en": "For sufficiently negative x the radicand is positive. The expression has competing unbounded terms, so direct substitution is not arithmetic.",
+        "th": "เมื่อ x ติดลบมากพอ ตัวในรากเป็นบวก แต่พจน์สองพจน์โตไม่จำกัดและหักล้างกัน จึงแทนอนันต์แล้วบวกลบตามปกติไม่ได้"
+      },
+      {
+        "en": "Multiply and divide by the conjugate.",
+        "th": "คูณและหารด้วยสังยุค",
+        "tex": "\\sqrt{x^2+3x}+x=\\frac{(x^2+3x)-x^2}{\\sqrt{x^2+3x}-x}=\\frac{3x}{\\sqrt{x^2+3x}-x}"
+      },
+      {
+        "en": "Factor x² inside the square root. Its square root is |x|, not x.",
+        "th": "ดึง x² ออกจากราก โดยรากของ x² คือ |x| ไม่ใช่ x",
+        "tex": "\\sqrt{x^2+3x}=|x|\\sqrt{1+3/x}=-x\\sqrt{1+3/x}\\quad(x<0)"
+      },
+      {
+        "en": "Factor −x out of the denominator and cancel x, which is nonzero.",
+        "th": "ดึง −x จากตัวส่วนแล้วตัด x ซึ่งไม่เป็นศูนย์",
+        "tex": "\\frac{3x}{-x(\\sqrt{1+3/x}+1)}=\\frac{-3}{\\sqrt{1+3/x}+1}"
+      },
+      {
+        "en": "Now 3/x tends to zero and the denominator tends to 2.",
+        "th": "ตอนนี้ 3/x เข้าใกล้ศูนย์และตัวส่วนเข้าใกล้ 2",
+        "tex": "\\lim_{x\\to-\\infty}\\frac{-3}{\\sqrt{1+3/x}+1}=-\\frac32"
+      }
+    ],
+    "answer": {
+      "en": "$-3/2$",
+      "th": "$-3/2$"
+    }
+  },
+  {
+    "id": "limits-radical-squeeze",
+    "topic": "limits",
+    "level": "challenge",
+    "title": {
+      "en": "Two rationalizations and a squeeze",
+      "th": "สังยุคสองครั้งและทฤษฎีบทบีบ"
+    },
+    "question": {
+      "en": "Without Taylor series, evaluate $\\displaystyle\\lim_{x\\to0}\\left[\\frac{\\sqrt{1+2x}-1-x}{x^2}+x\\sin(1/x^2)\\right]$.",
+      "th": "โดยไม่ใช้อนุกรมเทย์เลอร์ หา $\\displaystyle\\lim_{x\\to0}\\left[\\frac{\\sqrt{1+2x}-1-x}{x^2}+x\\sin(1/x^2)\\right]$"
+    },
+    "hint": {
+      "en": "First rationalize √(1+2x)−1, combine with −x, and rationalize again. Bound the oscillating term separately.",
+      "th": "ใช้สังยุคกับ √(1+2x)−1 ก่อน รวมกับ −x แล้วใช้สังยุคอีกครั้ง ครอบพจน์แกว่งแยกต่างหาก"
+    },
+    "steps": [
+      {
+        "en": "Work in a punctured neighborhood of zero with x > −1/2. Write r = √(1+2x) to keep the algebra readable.",
+        "th": "พิจารณารอบศูนย์แต่ไม่รวมศูนย์ โดย x > −1/2 เขียน r = √(1+2x) เพื่อให้จัดรูปง่าย"
+      },
+      {
+        "en": "The first conjugate gives r−1 = 2x/(r+1). Combine the numerator over a common denominator.",
+        "th": "สังยุคครั้งแรกให้ r−1 = 2x/(r+1) รวมตัวเศษให้มีตัวส่วนร่วม",
+        "tex": "r-1-x=\\frac{2x-x(r+1)}{r+1}=\\frac{x(1-r)}{r+1}"
+      },
+      {
+        "en": "Use 1−r = −2x/(r+1), then cancel x² only because x ≠ 0.",
+        "th": "ใช้ 1−r = −2x/(r+1) แล้วตัด x² ซึ่งทำได้เพราะ x ≠ 0",
+        "tex": "\\frac{r-1-x}{x^2}=\\frac{x[-2x/(r+1)]}{x^2(r+1)}=\\frac{-2}{(r+1)^2}"
+      },
+      {
+        "en": "As x tends to zero, r tends to 1; evaluate the now continuous expression.",
+        "th": "เมื่อ x เข้าใกล้ศูนย์ r เข้าใกล้ 1 จึงแทนค่าในนิพจน์ที่ต่อเนื่องแล้ว",
+        "tex": "\\frac{-2}{(r+1)^2}\\longrightarrow-\\frac12"
+      },
+      {
+        "en": "Sine remains between −1 and 1 even though its argument has no finite limit. Apply an absolute-value bound.",
+        "th": "sine อยู่ระหว่าง −1 กับ 1 แม้อาร์กิวเมนต์ไม่มีลิมิตจำกัด ใช้ค่าสัมบูรณ์ครอบ",
+        "tex": "\\left|x\\sin(1/x^2)\\right|\\le|x|\\longrightarrow0"
+      },
+      {
+        "en": "Both terms now have finite limits, so the sum law applies.",
+        "th": "ทั้งสองพจน์มีลิมิตจำกัดแล้ว จึงใช้กฎลิมิตผลบวกได้",
+        "tex": "-\\frac12+0=-\\frac12"
+      }
+    ],
+    "answer": {
+      "en": "$-1/2$",
+      "th": "$-1/2$"
+    }
+  },
+  {
+    "id": "continuity-two-joins",
+    "topic": "continuity",
+    "level": "intermediate",
+    "title": {
+      "en": "Continuity at two joins",
+      "th": "ความต่อเนื่องที่รอยต่อสองจุด"
+    },
+    "question": {
+      "en": "Let $f(x)=x^2$ for $x\\le1$, $f(x)=ax+b$ for $1<x<3$, and $f(x)=2x+1$ for $x\\ge3$. Find $a,b$ making $f$ continuous everywhere.",
+      "th": "ให้ $f(x)=x^2$ เมื่อ $x\\le1$, $f(x)=ax+b$ เมื่อ $1<x<3$ และ $f(x)=2x+1$ เมื่อ $x\\ge3$ หา $a,b$ ที่ทำให้ $f$ ต่อเนื่องทุกจุด"
+    },
+    "hint": {
+      "en": "Each branch is a polynomial. Only the joins 1 and 3 need matching conditions.",
+      "th": "แต่ละช่วงเป็นพหุนาม ต้องตรวจการเชื่อมกันที่ 1 และ 3 เท่านั้น"
+    },
+    "steps": [
+      {
+        "en": "Each polynomial is continuous inside its own interval. At x=1 the left limit and assigned value are 1²=1.",
+        "th": "พหุนามต่อเนื่องภายในแต่ละช่วง ที่ x=1 ลิมิตซ้ายและค่าฟังก์ชันคือ 1²=1"
+      },
+      {
+        "en": "The right limit at 1 is a+b. Match it with the assigned value.",
+        "th": "ลิมิตขวาที่ 1 คือ a+b กำหนดให้เท่ากับค่าฟังก์ชัน",
+        "tex": "a+b=1"
+      },
+      {
+        "en": "At 3 the assigned value and right limit are 2(3)+1=7; the left limit is 3a+b.",
+        "th": "ที่ 3 ค่าฟังก์ชันและลิมิตขวาคือ 2(3)+1=7 ส่วนลิมิตซ้ายคือ 3a+b",
+        "tex": "3a+b=7"
+      },
+      {
+        "en": "Subtract the first equation from the second and then substitute back.",
+        "th": "นำสมการที่สองลบสมการแรกแล้วแทนกลับ",
+        "tex": "(3a+b)-(a+b)=7-1\\Rightarrow2a=6\\Rightarrow a=3,\\qquad b=1-3=-2"
+      },
+      {
+        "en": "Check both joins: 3(1)−2=1 and 3(3)−2=7. Together with continuity inside the branches, this proves continuity on all real numbers.",
+        "th": "ตรวจรอยต่อทั้งสอง: 3(1)−2=1 และ 3(3)−2=7 รวมกับความต่อเนื่องภายในแต่ละช่วง จึงต่อเนื่องบนจำนวนจริงทั้งหมด"
+      }
+    ],
+    "answer": {
+      "en": "$a=3,\\ b=-2$",
+      "th": "$a=3,\\ b=-2$"
+    }
+  },
+  {
+    "id": "continuity-unique-root",
+    "topic": "continuity",
+    "level": "difficult",
+    "title": {
+      "en": "Existence is not uniqueness",
+      "th": "การมีอยู่ไม่เท่ากับการมีเพียงค่าเดียว"
+    },
+    "question": {
+      "en": "Prove $x^3+x-1=0$ has exactly one real root. Locate it between two numbers a quarter unit apart.",
+      "th": "พิสูจน์ว่า $x^3+x-1=0$ มีรากจริงเพียงรากเดียว และหาช่วงครอบรากที่ปลายช่วงห่างกันหนึ่งส่วนสี่"
+    },
+    "hint": {
+      "en": "Use the IVT for existence and the sign of the derivative for uniqueness; then test 1/2 and 3/4.",
+      "th": "ใช้ทฤษฎีบทค่าระหว่างพิสูจน์การมีอยู่ ใช้เครื่องหมายอนุพันธ์พิสูจน์เอกลักษณ์ แล้วทดสอบ 1/2 กับ 3/4"
+    },
+    "steps": [
+      {
+        "en": "Set g(x)=x³+x−1. A polynomial is continuous on [0,1], and its endpoint values have opposite signs.",
+        "th": "ให้ g(x)=x³+x−1 พหุนามต่อเนื่องบน [0,1] และค่าปลายช่วงมีเครื่องหมายตรงข้าม",
+        "tex": "g(0)=-1<0,\\qquad g(1)=1>0"
+      },
+      {
+        "en": "The Intermediate Value Theorem guarantees at least one c in (0,1) with g(c)=0. This alone does not rule out additional roots.",
+        "th": "ทฤษฎีบทค่าระหว่างรับประกันอย่างน้อยหนึ่ง c ใน (0,1) ที่ g(c)=0 แต่ยังไม่ได้ตัดความเป็นไปได้ที่จะมีรากอื่น"
+      },
+      {
+        "en": "Differentiate on the entire real line. The derivative is strictly positive, so the Mean Value Theorem makes g strictly increasing.",
+        "th": "หาอนุพันธ์บนจำนวนจริงทั้งหมด อนุพันธ์เป็นบวกเสมอ ทฤษฎีบทค่ากลางจึงทำให้ g เพิ่มอย่างเคร่งครัด",
+        "tex": "g'(x)=3x^2+1>0"
+      },
+      {
+        "en": "A strictly increasing function cannot take the same value 0 twice. This proves uniqueness on the entire real line.",
+        "th": "ฟังก์ชันเพิ่มอย่างเคร่งครัดไม่อาจมีค่า 0 ที่สองจุดต่างกัน จึงมีรากจริงเพียงรากเดียว"
+      },
+      {
+        "en": "Evaluate two closer rational endpoints exactly.",
+        "th": "คำนวณค่าปลายช่วงที่ใกล้ขึ้นด้วยเศษส่วนอย่างแม่นยำ",
+        "tex": "g(1/2)=1/8+1/2-1=-3/8;\\quad g(3/4)=27/64+48/64-64/64=11/64"
+      },
+      {
+        "en": "Apply the IVT again; the interval width is 3/4−1/2=1/4.",
+        "th": "ใช้ทฤษฎีบทค่าระหว่างอีกครั้ง ความกว้างของช่วงคือ 3/4−1/2=1/4"
+      }
+    ],
+    "answer": {
+      "en": "Exactly one real root $c$, with $1/2<c<3/4$.",
+      "th": "มีรากจริง $c$ เพียงรากเดียว โดย $1/2<c<3/4$"
+    }
+  },
+  {
+    "id": "continuity-derivative-discontinuous",
+    "topic": "continuity",
+    "level": "challenge",
+    "title": {
+      "en": "Differentiable with a discontinuous derivative",
+      "th": "หาอนุพันธ์ได้แต่อนุพันธ์ไม่ต่อเนื่อง"
+    },
+    "question": {
+      "en": "Let $f(0)=0$ and $f(x)=x^2\\sin(1/x)$ for $x\\ne0$. Prove continuity and differentiability at $0$, then show $f'$ is not continuous there.",
+      "th": "ให้ $f(0)=0$ และ $f(x)=x^2\\sin(1/x)$ เมื่อ $x\\ne0$ พิสูจน์ความต่อเนื่องและการหาอนุพันธ์ได้ที่ $0$ แล้วแสดงว่า $f'$ ไม่ต่อเนื่องที่จุดนั้น"
+    },
+    "hint": {
+      "en": "Use a bound for continuity and the definition for f′(0). To disprove a limit, find two sequences with different limits.",
+      "th": "ใช้การครอบเพื่อพิสูจน์ความต่อเนื่องและนิยามหา f′(0) หากจะหักล้างลิมิตให้หาสองลำดับที่ให้ลิมิตต่างกัน"
+    },
+    "steps": [
+      {
+        "en": "The oscillation is bounded. The squeeze theorem makes the function limit equal to its assigned value.",
+        "th": "พจน์แกว่งมีขอบเขต ทฤษฎีบทบีบทำให้ลิมิตฟังก์ชันเท่ากับค่าที่กำหนด",
+        "tex": "|f(x)|\\le x^2\\longrightarrow0=f(0)"
+      },
+      {
+        "en": "At zero use the difference quotient; the formula containing 1/x cannot be differentiated by substitution at zero.",
+        "th": "ที่ศูนย์ใช้อัตราส่วนผลต่าง ห้ามแทนศูนย์ในสูตรอนุพันธ์ที่มี 1/x",
+        "tex": "f'(0)=\\lim_{h\\to0}\\frac{h^2\\sin(1/h)-0}{h}=\\lim_{h\\to0}h\\sin(1/h)=0"
+      },
+      {
+        "en": "The last limit follows from |h sin(1/h)| ≤ |h|. For nonzero x, apply the product and chain rules.",
+        "th": "ลิมิตสุดท้ายตามจาก |h sin(1/h)| ≤ |h| เมื่อ x ไม่เป็นศูนย์ใช้กฎผลคูณและลูกโซ่",
+        "tex": "f'(x)=2x\\sin(1/x)+x^2\\cos(1/x)(-1/x^2)=2x\\sin(1/x)-\\cos(1/x)"
+      },
+      {
+        "en": "Choose a sequence whose reciprocal is an even multiple of π. The sine term is zero and cosine is 1.",
+        "th": "เลือกลำดับที่ส่วนกลับเป็นพหุคูณคู่ของ π พจน์ sine เป็นศูนย์และ cosine เป็น 1",
+        "tex": "x_n=\\frac1{2\\pi n}\\longrightarrow0,\\qquad f'(x_n)=-1"
+      },
+      {
+        "en": "Choose a second sequence whose reciprocal is an odd multiple of π. Cosine is now −1.",
+        "th": "เลือกอีกลำดับที่ส่วนกลับเป็นพหุคูณคี่ของ π ตอนนี้ cosine เป็น −1",
+        "tex": "y_n=\\frac1{(2n+1)\\pi}\\longrightarrow0,\\qquad f'(y_n)=1"
+      },
+      {
+        "en": "A function with a limit must approach the same value along every sequence. These two values disagree, so the derivative has no limit at zero.",
+        "th": "หากฟังก์ชันมีลิมิตจะต้องเข้าใกล้ค่าเดียวกันตามทุกลำดับ แต่สองค่านี้ต่างกัน อนุพันธ์จึงไม่มีลิมิตที่ศูนย์"
+      }
+    ],
+    "answer": {
+      "en": "$f$ is continuous and differentiable at $0$, with $f'(0)=0$, but $f'$ is not continuous at $0$.",
+      "th": "$f$ ต่อเนื่องและหาอนุพันธ์ได้ที่ $0$ โดย $f'(0)=0$ แต่ $f'$ ไม่ต่อเนื่องที่ $0$"
+    }
+  },
+  {
+    "id": "derivatives-implicit-second",
+    "topic": "derivatives",
+    "level": "difficult",
+    "title": {
+      "en": "Second derivative of an implicit curve",
+      "th": "อนุพันธ์อันดับสองของเส้นโค้งโดยปริยาย"
+    },
+    "question": {
+      "en": "For $x^2+xy+y^2=3$, find $y'$, $y''$ at $(1,1)$ and the tangent line there.",
+      "th": "สำหรับ $x^2+xy+y^2=3$ หา $y'$, $y''$ ที่ $(1,1)$ และสมการเส้นสัมผัสที่จุดนั้น"
+    },
+    "hint": {
+      "en": "Differentiate the original equation twice, keeping y as a function of x. The product xy needs the product rule.",
+      "th": "หาอนุพันธ์สมการเดิมสองครั้ง โดยมอง y เป็นฟังก์ชันของ x พจน์ xy ต้องใช้กฎผลคูณ"
+    },
+    "steps": [
+      {
+        "en": "Check the point: 1+1+1=3. Differentiate each term with respect to x.",
+        "th": "ตรวจจุด: 1+1+1=3 หาอนุพันธ์ทุกพจน์เทียบ x",
+        "tex": "2x+(y+xy')+2yy'=0"
+      },
+      {
+        "en": "Group the terms containing y′, and divide where x+2y ≠ 0. At (1,1) this denominator is 3.",
+        "th": "รวมพจน์ที่มี y′ แล้วหารเมื่อ x+2y ≠ 0 ที่ (1,1) ตัวส่วนเป็น 3",
+        "tex": "(x+2y)y'=-(2x+y)\\quad\\Rightarrow\\quad y'=-\\frac{2x+y}{x+2y},\\qquad y'(1)=-1"
+      },
+      {
+        "en": "For the second derivative, return to the differentiated equation. Both xy′ and yy′ require the product rule.",
+        "th": "เพื่อหาอนุพันธ์อันดับสอง กลับไปสมการที่หาอนุพันธ์แล้ว ทั้ง xy′ และ yy′ ต้องใช้กฎผลคูณ",
+        "tex": "2+y'+(y'+xy'')+2[(y')^2+yy'']=0"
+      },
+      {
+        "en": "Collect y″ terms without substituting the point too early.",
+        "th": "รวมพจน์ y″ โดยไม่แทนจุดก่อนหาอนุพันธ์เสร็จ",
+        "tex": "2+2y'+2(y')^2+(x+2y)y''=0"
+      },
+      {
+        "en": "Now insert x=y=1 and y′=−1, then solve.",
+        "th": "ตอนนี้แทน x=y=1 และ y′=−1 แล้วแก้สมการ",
+        "tex": "2-2+2+3y''=0\\quad\\Rightarrow\\quad y''=-\\frac23"
+      },
+      {
+        "en": "The tangent uses the first derivative as slope and passes through the given point.",
+        "th": "เส้นสัมผัสใช้อนุพันธ์อันดับหนึ่งเป็นความชันและผ่านจุดที่กำหนด",
+        "tex": "y-1=-(x-1)\\quad\\Rightarrow\\quad y=2-x"
+      }
+    ],
+    "answer": {
+      "en": "At $(1,1)$: $y'=-1$, $y''=-2/3$; tangent $y=2-x$.",
+      "th": "ที่ $(1,1)$: $y'=-1$, $y''=-2/3$ เส้นสัมผัส $y=2-x$"
+    }
+  },
+  {
+    "id": "derivatives-log-composite",
+    "topic": "derivatives",
+    "level": "challenge",
+    "title": {
+      "en": "Logarithmic differentiation with three rules",
+      "th": "อนุพันธ์ลอการิทึมที่ใช้สามกฎ"
+    },
+    "question": {
+      "en": "Differentiate $y=\\dfrac{(x^2+1)^{\\sin x}}{\\sqrt{x+2}}$ and state its real domain.",
+      "th": "หาอนุพันธ์ $y=\\dfrac{(x^2+1)^{\\sin x}}{\\sqrt{x+2}}$ และระบุโดเมนจริง"
+    },
+    "hint": {
+      "en": "Take ln of the whole positive expression. The exponent sin x becomes a factor, so a product rule remains.",
+      "th": "ใช้ ln กับนิพจน์บวกทั้งหมด เลขชี้กำลัง sin x จะกลายเป็นตัวคูณ จึงยังต้องใช้กฎผลคูณ"
+    },
+    "steps": [
+      {
+        "en": "The base x²+1 is always positive. The square root is in a denominator, so x+2 must be strictly positive. Thus x > −2 and y > 0.",
+        "th": "ฐาน x²+1 เป็นบวกเสมอ ส่วนรากอยู่ในตัวส่วนจึงต้องมี x+2 > 0 ดังนั้น x > −2 และ y > 0"
+      },
+      {
+        "en": "Logarithms turn division into subtraction and powers into products.",
+        "th": "ลอการิทึมเปลี่ยนการหารเป็นการลบและเปลี่ยนเลขชี้กำลังเป็นตัวคูณ",
+        "tex": "\\ln y=\\sin x\\ln(x^2+1)-\\frac12\\ln(x+2)"
+      },
+      {
+        "en": "On the left use the chain rule. On the first term on the right differentiate both factors.",
+        "th": "ฝั่งซ้ายใช้กฎลูกโซ่ พจน์แรกฝั่งขวาต้องหาอนุพันธ์ทั้งสองตัวประกอบ",
+        "tex": "\\frac{y'}y=\\cos x\\ln(x^2+1)+\\sin x\\frac{2x}{x^2+1}-\\frac1{2(x+2)}"
+      },
+      {
+        "en": "The inner derivatives are 2x and 1 respectively; omitting 2x would lose the chain rule.",
+        "th": "อนุพันธ์ชั้นในคือ 2x และ 1 ตามลำดับ หากลืม 2x จะผิดกฎลูกโซ่"
+      },
+      {
+        "en": "Multiply by y, then replace y by the original expression. There is no need to expand this useful factored form.",
+        "th": "คูณด้วย y แล้วแทน y ด้วยนิพจน์เดิม ไม่จำเป็นต้องกระจายรูปแยกตัวประกอบที่อ่านง่ายนี้",
+        "tex": "y'=\\frac{(x^2+1)^{\\sin x}}{\\sqrt{x+2}}\\left[\\cos x\\ln(x^2+1)+\\frac{2x\\sin x}{x^2+1}-\\frac1{2(x+2)}\\right]"
+      }
+    ],
+    "answer": {
+      "en": "$y'=\\dfrac{(x^2+1)^{\\sin x}}{\\sqrt{x+2}}\\left[\\cos x\\ln(x^2+1)+\\dfrac{2x\\sin x}{x^2+1}-\\dfrac1{2(x+2)}\\right]$, $x>-2$.",
+      "th": "$y'=\\dfrac{(x^2+1)^{\\sin x}}{\\sqrt{x+2}}\\left[\\cos x\\ln(x^2+1)+\\dfrac{2x\\sin x}{x^2+1}-\\dfrac1{2(x+2)}\\right]$, $x>-2$"
+    }
+  },
+  {
+    "id": "derivatives-inverse-trig",
+    "topic": "derivatives",
+    "level": "difficult",
+    "title": {
+      "en": "An absolute value hidden in arcsine",
+      "th": "ค่าสัมบูรณ์ที่ซ่อนอยู่ใน arcsine"
+    },
+    "question": {
+      "en": "Find the derivative of $y=\\arcsin\\!\\left(\\frac{2x}{1+x^2}\\right)$ wherever it exists. Identify all exceptional points.",
+      "th": "หาอนุพันธ์ของ $y=\\arcsin\\!\\left(\\frac{2x}{1+x^2}\\right)$ ทุกจุดที่หาได้ และระบุจุดยกเว้นทั้งหมด"
+    },
+    "hint": {
+      "en": "When simplifying √((1−x²)²), retain the absolute value.",
+      "th": "เมื่อจัดรูป √((1−x²)²) ต้องเก็บค่าสัมบูรณ์ไว้"
+    },
+    "steps": [
+      {
+        "en": "Because 1+x²−2|x|=(|x|−1)² ≥ 0, the arcsine argument lies in [−1,1] for every real x. The function is defined everywhere.",
+        "th": "เพราะ 1+x²−2|x|=(|x|−1)² ≥ 0 อาร์กิวเมนต์ arcsine อยู่ใน [−1,1] สำหรับ x จริงทุกค่า ฟังก์ชันจึงนิยามทุกจุด"
+      },
+      {
+        "en": "Set u=2x/(1+x²) and use the quotient rule.",
+        "th": "ให้ u=2x/(1+x²) แล้วใช้กฎผลหาร",
+        "tex": "u'=\\frac{2(1+x^2)-2x(2x)}{(1+x^2)^2}=\\frac{2(1-x^2)}{(1+x^2)^2}"
+      },
+      {
+        "en": "For |u| < 1, the arcsine chain rule gives u′/√(1−u²). Simplify its radicand before canceling.",
+        "th": "เมื่อ |u| < 1 กฎลูกโซ่ของ arcsine ให้ u′/√(1−u²) จัดรูปภายในรากก่อนตัดตัวประกอบ",
+        "tex": "1-u^2=\\frac{(1+x^2)^2-4x^2}{(1+x^2)^2}=\\frac{(1-x^2)^2}{(1+x^2)^2}"
+      },
+      {
+        "en": "The denominator 1+x² is positive. The numerator square root requires an absolute value.",
+        "th": "ตัวส่วน 1+x² เป็นบวก ส่วนรากในตัวเศษต้องใช้ค่าสัมบูรณ์",
+        "tex": "\\sqrt{1-u^2}=\\frac{|1-x^2|}{1+x^2},\\qquad y'=\\frac{2(1-x^2)}{(1+x^2)|1-x^2|}\\quad(x\\ne\\pm1)"
+      },
+      {
+        "en": "For |x| < 1 the sign is positive; for |x| > 1 it is negative.",
+        "th": "เมื่อ |x| < 1 เครื่องหมายเป็นบวก และเมื่อ |x| > 1 เป็นลบ",
+        "tex": "y'=\\begin{cases}2/(1+x^2),&|x|<1,\\\\-2/(1+x^2),&|x|>1.\\end{cases}"
+      },
+      {
+        "en": "At x=1 the limiting left and right slopes are 1 and −1; at x=−1 they are −1 and 1. By continuity and the one-sided Mean Value Theorem these are the one-sided difference-quotient limits. Unequal slopes mean neither point is differentiable.",
+        "th": "ที่ x=1 ความชันซ้ายและขวาเข้าใกล้ 1 และ −1 ส่วนที่ x=−1 เข้าใกล้ −1 และ 1 ความต่อเนื่องร่วมกับทฤษฎีบทค่ากลางด้านเดียวทำให้ค่าเหล่านี้เป็นลิมิตอัตราส่วนผลต่าง เมื่อไม่เท่ากันจึงหาอนุพันธ์ไม่ได้ทั้งสองจุด"
+      }
+    ],
+    "answer": {
+      "en": "$y'=2/(1+x^2)$ for $|x|<1$; $y'=-2/(1+x^2)$ for $|x|>1$. Undefined at $x=\\pm1$.",
+      "th": "$y'=2/(1+x^2)$ เมื่อ $|x|<1$; $y'=-2/(1+x^2)$ เมื่อ $|x|>1$ ไม่นิยามที่ $x=\\pm1$"
+    }
+  },
+  {
+    "id": "applications-ladder",
+    "topic": "applications",
+    "level": "difficult",
+    "title": {
+      "en": "A sliding ladder",
+      "th": "บันไดเลื่อนลงกำแพง"
+    },
+    "question": {
+      "en": "A 10 m ladder rests against a vertical wall. Its foot moves away at $2\\,\\mathrm{m/s}$. How fast does its top move when the foot is 6 m from the wall?",
+      "th": "บันไดยาว 10 m พาดกำแพงตั้งฉาก โคนบันไดเคลื่อนออกด้วยอัตรา $2\\,\\mathrm{m/s}$ ยอดบันไดเคลื่อนเร็วเท่าใดเมื่อโคนอยู่ห่างกำแพง 6 m"
+    },
+    "hint": {
+      "en": "Relate horizontal and vertical distances first, then differentiate with respect to time before substituting distances.",
+      "th": "เชื่อมระยะแนวนอนและแนวตั้งก่อน แล้วหาอนุพันธ์เทียบเวลาก่อนแทนระยะ"
+    },
+    "steps": [
+      {
+        "en": "Let x(t) be the foot’s distance from the wall and y(t) the top’s height. The fixed ladder is the hypotenuse of a right triangle.",
+        "th": "ให้ x(t) เป็นระยะโคนจากกำแพง และ y(t) เป็นความสูงยอด บันไดยาวคงที่เป็นด้านตรงข้ามมุมฉาก",
+        "tex": "x^2+y^2=100"
+      },
+      {
+        "en": "At the stated instant x=6 and height is positive.",
+        "th": "ณ ขณะกำหนด x=6 และความสูงเป็นบวก",
+        "tex": "y^2=100-36=64\\quad\\Rightarrow\\quad y=8"
+      },
+      {
+        "en": "Differentiate the relation with respect to time. Both distances change; the ladder length does not.",
+        "th": "หาอนุพันธ์ความสัมพันธ์เทียบเวลา ระยะทั้งสองเปลี่ยนแต่ความยาวบันไดคงที่",
+        "tex": "2x\\frac{dx}{dt}+2y\\frac{dy}{dt}=0"
+      },
+      {
+        "en": "Isolate the requested rate before inserting the values.",
+        "th": "แยกอัตราที่ต้องการก่อนแทนค่า",
+        "tex": "\\frac{dy}{dt}=-\\frac{x}{y}\\frac{dx}{dt}=-\\frac68(2)=-\\frac32\\ \\mathrm{m/s}"
+      },
+      {
+        "en": "The negative sign means decreasing height. Report the direction as well as the speed.",
+        "th": "เครื่องหมายลบหมายถึงความสูงลดลง จึงต้องรายงานทิศทางพร้อมอัตราเร็ว"
+      }
+    ],
+    "answer": {
+      "en": "The top moves downward at $1.5\\,\\mathrm{m/s}$; $dy/dt=-1.5\\,\\mathrm{m/s}$.",
+      "th": "ยอดเลื่อนลงด้วยอัตราเร็ว $1.5\\,\\mathrm{m/s}$ โดย $dy/dt=-1.5\\,\\mathrm{m/s}$"
+    }
+  },
+  {
+    "id": "applications-box",
+    "topic": "applications",
+    "level": "challenge",
+    "title": {
+      "en": "An open box: prove the global optimum",
+      "th": "กล่องเปิดฝา: พิสูจน์ค่าสูงสุดสัมบูรณ์"
+    },
+    "question": {
+      "en": "Cut squares of side $x$ cm from the corners of a $30\\times20$ cm sheet and fold an open box. Find the cut size and maximum volume.",
+      "th": "ตัดสี่เหลี่ยมจัตุรัสด้าน $x$ cm ที่มุมทั้งสี่ของแผ่นขนาด $30\\times20$ cm แล้วพับเป็นกล่องเปิดฝา หาขนาดที่ตัดและปริมาตรมากที่สุด"
+    },
+    "hint": {
+      "en": "Model all three dimensions and the feasible interval. Only stationary points inside that interval are candidates.",
+      "th": "เขียนมิติทั้งสามและช่วงที่ทำได้จริง จุดที่อนุพันธ์เป็นศูนย์ต้องอยู่ในช่วงนี้จึงเป็นผู้สมัคร"
+    },
+    "steps": [
+      {
+        "en": "The height is x, length 30−2x and width 20−2x. All must be positive, giving 0 < x < 10.",
+        "th": "ความสูงคือ x ความยาว 30−2x และความกว้าง 20−2x ทั้งหมดต้องบวก จึงได้ 0 < x < 10"
+      },
+      {
+        "en": "Multiply the dimensions and expand carefully.",
+        "th": "คูณมิติแล้วกระจายอย่างระมัดระวัง",
+        "tex": "V=x(30-2x)(20-2x)=x(600-100x+4x^2)=600x-100x^2+4x^3"
+      },
+      {
+        "en": "Set the derivative to zero and simplify the quadratic.",
+        "th": "กำหนดอนุพันธ์เท่ากับศูนย์แล้วจัดสมการกำลังสอง",
+        "tex": "V'=600-200x+12x^2=0\\quad\\Leftrightarrow\\quad3x^2-50x+150=0"
+      },
+      {
+        "en": "Use the quadratic formula; the discriminant is 2500−1800=700=100·7.",
+        "th": "ใช้สูตรสมการกำลังสอง ดิสคริมิแนนต์คือ 2500−1800=700=100·7",
+        "tex": "x=\\frac{50\\pm\\sqrt{700}}6=\\frac{25\\pm5\\sqrt7}3"
+      },
+      {
+        "en": "The plus root exceeds 10, so it is infeasible. The minus root is approximately 3.924 and lies inside the feasible interval.",
+        "th": "รากเครื่องหมายบวกมากกว่า 10 จึงใช้ไม่ได้ รากเครื่องหมายลบประมาณ 3.924 อยู่ในช่วงที่ทำได้จริง"
+      },
+      {
+        "en": "Extend V continuously to [0,10]; both endpoints have zero volume. The only interior stationary point has positive volume, so the extreme value theorem makes it the global maximum.",
+        "th": "ขยาย V อย่างต่อเนื่องสู่ [0,10] ปลายทั้งสองมีปริมาตรศูนย์ จุดที่อนุพันธ์เป็นศูนย์ภายในมีเพียงจุดเดียวและปริมาตรบวก ทฤษฎีบทค่าสุดขีดจึงรับประกันว่าเป็นค่าสูงสุดสัมบูรณ์"
+      },
+      {
+        "en": "Substitute the admissible root into all three dimensions. For r=√7, (25−5r)(40+10r)=50r+650 and (50r+650)(10+10r)=1000(10+7r).",
+        "th": "แทนรากที่ใช้ได้ในมิติทั้งสาม ให้ r=√7 จะได้ (25−5r)(40+10r)=50r+650 และ (50r+650)(10+10r)=1000(10+7r)",
+        "tex": "V_{\\max}=\\frac{(25-5\\sqrt7)(40+10\\sqrt7)(10+10\\sqrt7)}{27}=\\frac{1000(10+7\\sqrt7)}{27}"
+      }
+    ],
+    "answer": {
+      "en": "$x=(25-5\\sqrt7)/3\\approx3.924\\,\\mathrm{cm}$; $V_{\\max}=1000(10+7\\sqrt7)/27\\approx1056.306\\,\\mathrm{cm^3}$.",
+      "th": "$x=(25-5\\sqrt7)/3\\approx3.924\\,\\mathrm{cm}$; $V_{\\max}=1000(10+7\\sqrt7)/27\\approx1056.306\\,\\mathrm{cm^3}$"
+    }
+  },
+  {
+    "id": "applications-quartic",
+    "topic": "applications",
+    "level": "difficult",
+    "title": {
+      "en": "A complete quartic curve analysis",
+      "th": "วิเคราะห์กราฟกำลังสี่ครบขั้นตอน"
+    },
+    "question": {
+      "en": "Analyze $f(x)=x^4-4x^2$: intercepts, end behavior, monotonicity, extrema, concavity and inflection points.",
+      "th": "วิเคราะห์ $f(x)=x^4-4x^2$: จุดตัดแกน พฤติกรรมปลายกราฟ การเพิ่มลด ค่าสุดขีด ความเว้า และจุดเปลี่ยนเว้า"
+    },
+    "hint": {
+      "en": "Build separate sign charts for f′ and f″. A zero of f″ needs a concavity change.",
+      "th": "สร้างตารางเครื่องหมาย f′ และ f″ แยกกัน จุดที่ f″ เป็นศูนย์ต้องมีการเปลี่ยนความเว้าจึงเป็นจุดเปลี่ยนเว้า"
+    },
+    "steps": [
+      {
+        "en": "Factor f. Its zeros are −2, 0 and 2; zero has multiplicity two. The function is even and tends to positive infinity at both ends.",
+        "th": "แยกตัวประกอบ f มีราก −2, 0 และ 2 โดยศูนย์เป็นรากซ้ำสอง ฟังก์ชันเป็นคู่และเข้าใกล้อนันต์บวกที่ปลายทั้งสอง",
+        "tex": "f(x)=x^2(x-2)(x+2),\\qquad f(-x)=f(x)"
+      },
+      {
+        "en": "Factor the first derivative to find every stationary point.",
+        "th": "แยกตัวประกอบอนุพันธ์อันดับหนึ่งเพื่อหาจุดที่อนุพันธ์เป็นศูนย์ทั้งหมด",
+        "tex": "f'(x)=4x^3-8x=4x(x-\\sqrt2)(x+\\sqrt2)"
+      },
+      {
+        "en": "Read the signs in order across −√2, 0, √2: negative, positive, negative, positive. A positive derivative means increasing.",
+        "th": "อ่านเครื่องหมายตามลำดับผ่าน −√2, 0, √2 ได้ ลบ บวก ลบ บวก อนุพันธ์บวกหมายถึงฟังก์ชันเพิ่ม"
+      },
+      {
+        "en": "Thus f decreases on (−∞,−√2) and (0,√2), and increases on (−√2,0) and (√2,∞). The sign switches identify minima at ±√2 and a maximum at 0.",
+        "th": "ดังนั้น f ลดบน (−∞,−√2) และ (0,√2) เพิ่มบน (−√2,0) และ (√2,∞) การเปลี่ยนเครื่องหมายระบุจุดต่ำสุดที่ ±√2 และจุดสูงสุดที่ 0",
+        "tex": "f(\\pm\\sqrt2)=4-8=-4,\\qquad f(0)=0"
+      },
+      {
+        "en": "The minima are global since f=(x²−2)²−4 ≥ −4. The maximum at zero is only local; f is unbounded above.",
+        "th": "จุดต่ำสุดเป็นค่าสัมบูรณ์เพราะ f=(x²−2)²−4 ≥ −4 จุดสูงสุดที่ศูนย์เป็นเพียงเฉพาะที่ เพราะ f ไม่มีขอบเขตบน"
+      },
+      {
+        "en": "Set the second derivative to zero and check its signs.",
+        "th": "กำหนดอนุพันธ์อันดับสองเป็นศูนย์แล้วตรวจเครื่องหมาย",
+        "tex": "f''(x)=12x^2-8=0\\quad\\Rightarrow\\quad x=\\pm\\sqrt{2/3}"
+      },
+      {
+        "en": "The second derivative is positive outside these two values and negative between them. Both are genuine concavity changes; evaluate their heights using x²=2/3.",
+        "th": "อนุพันธ์อันดับสองเป็นบวกด้านนอกและลบระหว่างสองค่านี้ ทั้งคู่เปลี่ยนความเว้าจริง หาความสูงโดยใช้ x²=2/3",
+        "tex": "f(x)=\\frac49-\\frac83=-\\frac{20}9"
+      }
+    ],
+    "answer": {
+      "en": "Global minima $(\\pm\\sqrt2,-4)$; local maximum $(0,0)$; inflections $(\\pm\\sqrt{2/3},-20/9)$. Concave up for $|x|>\\sqrt{2/3}$ and down for $|x|<\\sqrt{2/3}$.",
+      "th": "จุดต่ำสุดสัมบูรณ์ $(\\pm\\sqrt2,-4)$ จุดสูงสุดเฉพาะที่ $(0,0)$ จุดเปลี่ยนเว้า $(\\pm\\sqrt{2/3},-20/9)$ เว้าขึ้นเมื่อ $|x|>\\sqrt{2/3}$ และเว้าลงเมื่อ $|x|<\\sqrt{2/3}$"
+    }
+  },
+  {
+    "id": "integrals-motion",
+    "topic": "integrals",
+    "level": "intermediate",
+    "title": {
+      "en": "Recover motion from acceleration",
+      "th": "หาการเคลื่อนที่จากความเร่ง"
+    },
+    "question": {
+      "en": "For $0\\le t\\le2$, acceleration is $a(t)=6t-4\\,\\mathrm{m/s^2}$, $v(0)=2\\,\\mathrm{m/s}$ and $s(0)=1\\,\\mathrm{m}$. Find $v(t),s(t)$, displacement and total distance.",
+      "th": "เมื่อ $0\\le t\\le2$ ความเร่งคือ $a(t)=6t-4\\,\\mathrm{m/s^2}$ โดย $v(0)=2\\,\\mathrm{m/s}$ และ $s(0)=1\\,\\mathrm{m}$ หา $v(t),s(t)$ การกระจัด และระยะทางรวม"
+    },
+    "hint": {
+      "en": "Integrate twice, applying a different initial condition each time. Check the sign of velocity for distance.",
+      "th": "อินทิเกรตสองครั้ง ใช้เงื่อนไขเริ่มต้นต่างกันแต่ละครั้ง แล้วตรวจเครื่องหมายความเร็วเพื่อหาระยะทาง"
+    },
+    "steps": [
+      {
+        "en": "Acceleration is the derivative of velocity. Integrate once and use v(0)=2 to determine the first constant.",
+        "th": "ความเร่งเป็นอนุพันธ์ของความเร็ว อินทิเกรตครั้งแรกแล้วใช้ v(0)=2 หาค่าคงที่ตัวแรก",
+        "tex": "v(t)=3t^2-4t+C_1,\\qquad C_1=2"
+      },
+      {
+        "en": "Velocity is the derivative of position. Integrate the resulting velocity, introducing a new constant.",
+        "th": "ความเร็วเป็นอนุพันธ์ของตำแหน่ง อินทิเกรตความเร็วที่ได้โดยใส่ค่าคงที่ตัวใหม่",
+        "tex": "s(t)=t^3-2t^2+2t+C_2,\\qquad s(0)=1\\Rightarrow C_2=1"
+      },
+      {
+        "en": "Displacement is final position minus initial position, not just final position.",
+        "th": "การกระจัดคือตำแหน่งสุดท้ายลบตำแหน่งเริ่มต้น ไม่ใช่ตำแหน่งสุดท้ายเพียงอย่างเดียว",
+        "tex": "s(2)=8-8+4+1=5,\\qquad s(2)-s(0)=5-1=4"
+      },
+      {
+        "en": "Distance integrates |v|. Complete the square to decide whether velocity changes sign.",
+        "th": "ระยะทางคือปริพันธ์ของ |v| จัดกำลังสองสมบูรณ์เพื่อตรวจว่าความเร็วเปลี่ยนเครื่องหมายหรือไม่",
+        "tex": "v(t)=3\\left(t-\\frac23\\right)^2+\\frac23>0"
+      },
+      {
+        "en": "Since velocity is positive throughout the interval, distance equals displacement in this example.",
+        "th": "เพราะความเร็วเป็นบวกตลอดช่วง ระยะทางจึงเท่ากับการกระจัดในข้อนี้",
+        "tex": "\\int_0^2|v(t)|\\,dt=\\int_0^2v(t)\\,dt=4"
+      }
+    ],
+    "answer": {
+      "en": "$v=3t^2-4t+2\\,\\mathrm{m/s}$, $s=t^3-2t^2+2t+1\\,\\mathrm{m}$; displacement and distance both $4\\,\\mathrm{m}$.",
+      "th": "$v=3t^2-4t+2\\,\\mathrm{m/s}$, $s=t^3-2t^2+2t+1\\,\\mathrm{m}$ การกระจัดและระยะทางเท่ากับ $4\\,\\mathrm{m}$"
+    }
+  },
+  {
+    "id": "integrals-log-tail",
+    "topic": "integrals",
+    "level": "difficult",
+    "title": {
+      "en": "A logarithmic improper integral",
+      "th": "ปริพันธ์ไม่ตรงแบบที่มีลอการิทึม"
+    },
+    "question": {
+      "en": "Determine convergence and evaluate $\\displaystyle\\int_e^\\infty\\frac{dx}{x(\\ln x)^2}$.",
+      "th": "ตรวจการลู่เข้าและหา $\\displaystyle\\int_e^\\infty\\frac{dx}{x(\\ln x)^2}$"
+    },
+    "hint": {
+      "en": "Replace infinity by a finite R before using u = ln x.",
+      "th": "แทนอนันต์ด้วย R ที่จำกัดก่อนใช้ u = ln x"
+    },
+    "steps": [
+      {
+        "en": "The integrand is continuous for x ≥ e. The only improper endpoint is infinity; define a limit of proper integrals.",
+        "th": "ตัวถูกอินทิเกรตต่อเนื่องเมื่อ x ≥ e จุดไม่ตรงแบบมีเพียงอนันต์ จึงนิยามด้วยลิมิตของปริพันธ์ตรงแบบ",
+        "tex": "I=\\lim_{R\\to\\infty}\\int_e^R\\frac{dx}{x(\\ln x)^2}"
+      },
+      {
+        "en": "Choose u=ln x so du=dx/x. Convert both bounds: x=e gives u=1 and x=R gives u=ln R.",
+        "th": "เลือก u=ln x จึงมี du=dx/x แปลงขอบทั้งสอง: x=e ให้ u=1 และ x=R ให้ u=ln R",
+        "tex": "\\int_e^R\\frac{dx}{x(\\ln x)^2}=\\int_1^{\\ln R}u^{-2}\\,du"
+      },
+      {
+        "en": "The power rule gives −u⁻¹. Subtract the lower endpoint value with its sign intact.",
+        "th": "กฎยกกำลังให้ −u⁻¹ ลบค่าขอบล่างโดยรักษาเครื่องหมาย",
+        "tex": "\\left[-\\frac1u\\right]_1^{\\ln R}=-\\frac1{\\ln R}-(-1)=1-\\frac1{\\ln R}"
+      },
+      {
+        "en": "As R tends to infinity, ln R tends to infinity and its reciprocal tends to zero. The finite limit proves convergence.",
+        "th": "เมื่อ R เข้าใกล้อนันต์ ln R เข้าใกล้อนันต์และส่วนกลับเข้าใกล้ศูนย์ ลิมิตจำกัดนี้พิสูจน์การลู่เข้า",
+        "tex": "I=\\lim_{R\\to\\infty}\\left(1-\\frac1{\\ln R}\\right)=1"
+      }
+    ],
+    "answer": {
+      "en": "Converges to $1$.",
+      "th": "ลู่เข้าเท่ากับ $1$"
+    }
+  },
+  {
+    "id": "integrals-two-improper-ends",
+    "topic": "integrals",
+    "level": "challenge",
+    "title": {
+      "en": "Two improper endpoints, two limits",
+      "th": "ปลายไม่ตรงแบบสองด้าน ต้องใช้สองลิมิต"
+    },
+    "question": {
+      "en": "Determine convergence and evaluate $\\displaystyle\\int_0^\\infty\\frac{dx}{\\sqrt{x}(1+x)}$.",
+      "th": "ตรวจการลู่เข้าและหา $\\displaystyle\\int_0^\\infty\\frac{dx}{\\sqrt{x}(1+x)}$"
+    },
+    "hint": {
+      "en": "Split at 1, then use u = √x separately on each finite truncated interval.",
+      "th": "แบ่งที่ 1 แล้วใช้ u = √x แยกบนแต่ละช่วงที่ตัดให้จำกัด"
+    },
+    "steps": [
+      {
+        "en": "The integrand is unbounded at zero and the upper interval is infinite. Each improper part must converge separately.",
+        "th": "ตัวถูกอินทิเกรตไม่มีขอบเขตที่ศูนย์ และช่วงด้านบนเป็นอนันต์ ส่วนไม่ตรงแบบแต่ละส่วนต้องลู่เข้าแยกกัน",
+        "tex": "I=\\lim_{\\varepsilon\\to0^+}\\int_\\varepsilon^1\\frac{dx}{\\sqrt{x}(1+x)}+\\lim_{R\\to\\infty}\\int_1^R\\frac{dx}{\\sqrt{x}(1+x)}"
+      },
+      {
+        "en": "On positive x, choose u=√x, so x=u² and dx=2u du. Cancel u only where u>0.",
+        "th": "เมื่อ x บวก เลือก u=√x จึงมี x=u² และ dx=2u du ตัด u ได้เพราะ u>0",
+        "tex": "\\frac{dx}{\\sqrt{x}(1+x)}=\\frac{2u\\,du}{u(1+u^2)}=\\frac{2\\,du}{1+u^2}"
+      },
+      {
+        "en": "For the lower part the transformed bounds are √ε and 1. Integrate using arctangent.",
+        "th": "ส่วนล่างมีขอบแปลงเป็น √ε และ 1 อินทิเกรตด้วย arctangent",
+        "tex": "\\int_\\varepsilon^1\\frac{dx}{\\sqrt{x}(1+x)}=2[\\arctan u]_{\\sqrt\\varepsilon}^1=\\frac\\pi2-2\\arctan\\sqrt\\varepsilon"
+      },
+      {
+        "en": "As ε tends to zero from the right, this part tends to π/2.",
+        "th": "เมื่อ ε เข้าใกล้ศูนย์จากขวา ส่วนนี้เข้าใกล้ π/2"
+      },
+      {
+        "en": "For the upper part the transformed bounds are 1 and √R.",
+        "th": "ส่วนบนมีขอบแปลงเป็น 1 และ √R",
+        "tex": "\\int_1^R\\frac{dx}{\\sqrt{x}(1+x)}=2\\arctan\\sqrt R-\\frac\\pi2\\longrightarrow\\pi-\\frac\\pi2=\\frac\\pi2"
+      },
+      {
+        "en": "Both limits are finite, so adding them is legitimate. Coupling the two limits would not by itself establish convergence.",
+        "th": "ทั้งสองลิมิตจำกัดจึงบวกกันได้ การผูกสองลิมิตเข้าด้วยกันอย่างเดียวไม่เพียงพอที่จะพิสูจน์การลู่เข้า",
+        "tex": "I=\\frac\\pi2+\\frac\\pi2=\\pi"
+      }
+    ],
+    "answer": {
+      "en": "Both improper parts converge; the integral equals $\\pi$.",
+      "th": "ส่วนไม่ตรงแบบทั้งสองลู่เข้า ปริพันธ์เท่ากับ $\\pi$"
+    }
+  },
+  {
+    "id": "techniques-repeated-parts",
+    "topic": "techniques",
+    "level": "difficult",
+    "title": {
+      "en": "Integration by parts twice",
+      "th": "อินทิเกรตโดยส่วนสองครั้ง"
+    },
+    "question": {
+      "en": "Evaluate $\\displaystyle\\int x^2e^{-x}\\,dx$.",
+      "th": "หา $\\displaystyle\\int x^2e^{-x}\\,dx$"
+    },
+    "hint": {
+      "en": "Differentiate the polynomial and integrate the exponential; watch the minus sign at both applications.",
+      "th": "เลือกหาอนุพันธ์พหุนามและอินทิเกรตเอ็กซ์โพเนนเชียล ระวังเครื่องหมายลบทั้งสองครั้ง"
+    },
+    "steps": [
+      {
+        "en": "Use the parts formula ∫u dv=uv−∫v du with u=x² and dv=e⁻ˣ dx. Then du=2x dx and v=−e⁻ˣ.",
+        "th": "ใช้สูตรโดยส่วน ∫u dv=uv−∫v du โดย u=x² และ dv=e⁻ˣ dx จะได้ du=2x dx และ v=−e⁻ˣ"
+      },
+      {
+        "en": "Substitute all four pieces; subtracting a negative creates a plus.",
+        "th": "แทนทั้งสี่ส่วน การลบจำนวนลบทำให้เป็นบวก",
+        "tex": "I=-x^2e^{-x}+2\\int xe^{-x}\\,dx"
+      },
+      {
+        "en": "For the remaining integral J, choose u=x and dv=e⁻ˣ dx. Now du=dx and v=−e⁻ˣ.",
+        "th": "สำหรับปริพันธ์ที่เหลือ J เลือก u=x และ dv=e⁻ˣ dx ตอนนี้ du=dx และ v=−e⁻ˣ",
+        "tex": "J=-xe^{-x}+\\int e^{-x}\\,dx=-xe^{-x}-e^{-x}"
+      },
+      {
+        "en": "Substitute J back into I. Add one final arbitrary constant rather than losing it.",
+        "th": "แทน J กลับใน I ใส่ค่าคงที่อิสระสุดท้ายหนึ่งตัว",
+        "tex": "I=-x^2e^{-x}-2xe^{-x}-2e^{-x}+C=-e^{-x}(x^2+2x+2)+C"
+      },
+      {
+        "en": "Differentiate the factored result to check the signs and cancellation.",
+        "th": "หาอนุพันธ์รูปแยกตัวประกอบเพื่อตรวจเครื่องหมายและการหักล้าง",
+        "tex": "\\frac{d}{dx}[-e^{-x}(x^2+2x+2)]=e^{-x}(x^2+2x+2)-e^{-x}(2x+2)=x^2e^{-x}"
+      }
+    ],
+    "answer": {
+      "en": "$-e^{-x}(x^2+2x+2)+C$",
+      "th": "$-e^{-x}(x^2+2x+2)+C$"
+    }
+  },
+  {
+    "id": "techniques-trig-substitution",
+    "topic": "techniques",
+    "level": "difficult",
+    "title": {
+      "en": "A trigonometric substitution with its domain",
+      "th": "การแทนค่าตรีโกณมิติพร้อมโดเมน"
+    },
+    "question": {
+      "en": "Evaluate $\\displaystyle\\int\\frac{x^2}{\\sqrt{9-x^2}}\\,dx$ for $-3<x<3$.",
+      "th": "หา $\\displaystyle\\int\\frac{x^2}{\\sqrt{9-x^2}}\\,dx$ เมื่อ $-3<x<3$"
+    },
+    "hint": {
+      "en": "Set x=3 sin θ and choose −π/2<θ<π/2 so cos θ is positive.",
+      "th": "ให้ x=3 sin θ และเลือก −π/2<θ<π/2 เพื่อให้ cos θ เป็นบวก"
+    },
+    "steps": [
+      {
+        "en": "Choose x=3 sin θ with θ=arcsin(x/3). This interval makes the substitution one-to-one and guarantees cos θ>0.",
+        "th": "เลือก x=3 sin θ โดย θ=arcsin(x/3) ช่วงนี้ทำให้การแทนค่าเป็นหนึ่งต่อหนึ่งและรับประกัน cos θ>0",
+        "tex": "dx=3\\cos\\theta\\,d\\theta,\\qquad\\sqrt{9-x^2}=3\\sqrt{1-\\sin^2\\theta}=3\\cos\\theta"
+      },
+      {
+        "en": "Replace the numerator, denominator and differential together.",
+        "th": "แทนตัวเศษ ตัวส่วน และดิฟเฟอเรนเชียลพร้อมกัน",
+        "tex": "\\int\\frac{x^2}{\\sqrt{9-x^2}}\\,dx=\\int\\frac{9\\sin^2\\theta}{3\\cos\\theta}(3\\cos\\theta)\\,d\\theta=9\\int\\sin^2\\theta\\,d\\theta"
+      },
+      {
+        "en": "Use the half-angle identity to integrate the even power of sine.",
+        "th": "ใช้เอกลักษณ์ครึ่งมุมเพื่ออินทิเกรตกำลังคู่ของ sine",
+        "tex": "\\sin^2\\theta=\\frac{1-\\cos(2\\theta)}2,\\qquad I=\\frac92\\theta-\\frac94\\sin(2\\theta)+C"
+      },
+      {
+        "en": "Convert every trigonometric expression back to x. The double-angle identity uses both sine and cosine.",
+        "th": "แปลงนิพจน์ตรีโกณมิติทุกตัวกลับเป็น x เอกลักษณ์มุมสองเท่าใช้ทั้ง sine และ cosine",
+        "tex": "\\sin\\theta=\\frac x3,\\quad\\cos\\theta=\\frac{\\sqrt{9-x^2}}3,\\quad\\sin(2\\theta)=\\frac{2x\\sqrt{9-x^2}}9"
+      },
+      {
+        "en": "Substitute and simplify the coefficient 9·2/(4·9)=1/2.",
+        "th": "แทนกลับและจัดสัมประสิทธิ์ 9·2/(4·9)=1/2",
+        "tex": "I=\\frac92\\arcsin(x/3)-\\frac{x\\sqrt{9-x^2}}2+C"
+      },
+      {
+        "en": "Check: the two derivatives combine over 2√(9−x²); their numerator is 9−(9−x²)+x²=2x².",
+        "th": "ตรวจ: อนุพันธ์สองพจน์รวมบนตัวส่วน 2√(9−x²) โดยตัวเศษคือ 9−(9−x²)+x²=2x²",
+        "tex": "I'=\\frac9{2\\sqrt{9-x^2}}-\\frac{\\sqrt{9-x^2}}2+\\frac{x^2}{2\\sqrt{9-x^2}}=\\frac{x^2}{\\sqrt{9-x^2}}"
+      }
+    ],
+    "answer": {
+      "en": "$\\frac92\\arcsin(x/3)-\\frac12x\\sqrt{9-x^2}+C$, $-3<x<3$.",
+      "th": "$\\frac92\\arcsin(x/3)-\\frac12x\\sqrt{9-x^2}+C$, $-3<x<3$"
+    }
+  },
+  {
+    "id": "techniques-repeated-fractions",
+    "topic": "techniques",
+    "level": "challenge",
+    "title": {
+      "en": "A repeated linear factor",
+      "th": "ตัวประกอบเชิงเส้นซ้ำ"
+    },
+    "question": {
+      "en": "Evaluate $\\displaystyle\\int\\frac{2x^2+3x+4}{x(x+1)^2}\\,dx$.",
+      "th": "หา $\\displaystyle\\int\\frac{2x^2+3x+4}{x(x+1)^2}\\,dx$"
+    },
+    "hint": {
+      "en": "A repeated factor (x+1)² needs both B/(x+1) and D/(x+1)².",
+      "th": "ตัวประกอบซ้ำ (x+1)² ต้องมีทั้ง B/(x+1) และ D/(x+1)²"
+    },
+    "steps": [
+      {
+        "en": "The numerator degree is less than the denominator degree, so no polynomial division is needed. Include every power of the repeated factor.",
+        "th": "ดีกรีตัวเศษต่ำกว่าตัวส่วนจึงไม่ต้องหารพหุนาม ใส่ตัวส่วนทุกกำลังของตัวประกอบซ้ำ",
+        "tex": "\\frac{2x^2+3x+4}{x(x+1)^2}=\\frac Ax+\\frac B{x+1}+\\frac D{(x+1)^2}"
+      },
+      {
+        "en": "Clear denominators to obtain a polynomial identity. It can be evaluated even at the original excluded points.",
+        "th": "คูณกำจัดตัวส่วนให้เป็นเอกลักษณ์พหุนาม ซึ่งแทนค่าที่เดิมถูกยกเว้นได้",
+        "tex": "2x^2+3x+4=A(x+1)^2+Bx(x+1)+Dx"
+      },
+      {
+        "en": "At x=0 obtain A=4. At x=−1 obtain 3=−D, so D=−3.",
+        "th": "ที่ x=0 ได้ A=4 ที่ x=−1 ได้ 3=−D จึงมี D=−3",
+        "tex": "x=0:\\ 4=A;\\qquad x=-1:\\ 2-3+4=-D\\Rightarrow D=-3"
+      },
+      {
+        "en": "Compare x² coefficients: 2=A+B, hence B=−2. Check x coefficients: 2A+B+D=8−2−3=3.",
+        "th": "เทียบสัมประสิทธิ์ x² ได้ 2=A+B จึงมี B=−2 ตรวจสัมประสิทธิ์ x: 2A+B+D=8−2−3=3"
+      },
+      {
+        "en": "Integrate the three terms separately. Use log absolute values and the power rule for the squared denominator.",
+        "th": "อินทิเกรตสามพจน์แยกกัน ใช้ลอการิทึมค่าสัมบูรณ์และกฎยกกำลังกับตัวส่วนกำลังสอง",
+        "tex": "I=4\\ln|x|-2\\ln|x+1|-3\\frac{(x+1)^{-1}}{-1}+C"
+      },
+      {
+        "en": "The last term is +3/(x+1). Its derivative is −3/(x+1)², which checks the sign. Constants may differ on the three separate intervals cut by −1 and 0.",
+        "th": "พจน์สุดท้ายคือ +3/(x+1) อนุพันธ์เป็น −3/(x+1)² จึงตรวจเครื่องหมายได้ ค่าคงที่อาจต่างกันบนสามช่วงที่แบ่งด้วย −1 และ 0"
+      }
+    ],
+    "answer": {
+      "en": "$4\\ln|x|-2\\ln|x+1|+\\frac3{x+1}+C$, $x\\ne-1,0$.",
+      "th": "$4\\ln|x|-2\\ln|x+1|+\\frac3{x+1}+C$, $x\\ne-1,0$"
+    }
+  },
+  {
+    "id": "ftc-two-moving-bounds",
+    "topic": "ftc",
+    "level": "intermediate",
+    "title": {
+      "en": "Both integration bounds move",
+      "th": "ขอบปริพันธ์เปลี่ยนทั้งสองด้าน"
+    },
+    "question": {
+      "en": "Differentiate $F(x)=\\displaystyle\\int_{\\sin x}^{x^2}(1+t^4)\\,dt$.",
+      "th": "หาอนุพันธ์ $F(x)=\\displaystyle\\int_{\\sin x}^{x^2}(1+t^4)\\,dt$"
+    },
+    "hint": {
+      "en": "Write the integral as an accumulation at the upper bound minus one at the lower bound.",
+      "th": "เขียนปริพันธ์เป็นฟังก์ชันสะสมที่ขอบบนลบฟังก์ชันสะสมที่ขอบล่าง"
+    },
+    "steps": [
+      {
+        "en": "The integrand is continuous for all real t. Define G(u)=∫₀ᵘ(1+t⁴)dt; the FTC gives G′(u)=1+u⁴.",
+        "th": "ตัวถูกอินทิเกรตต่อเนื่องทุก t จริง ให้ G(u)=∫₀ᵘ(1+t⁴)dt ทฤษฎีบทมูลฐานให้ G′(u)=1+u⁴"
+      },
+      {
+        "en": "Additivity with oriented bounds rewrites the expression even when sin x exceeds x².",
+        "th": "สมบัติบวกของปริพันธ์ที่มีทิศทางขอบเขียนนิพจน์ใหม่ได้ แม้ sin x มากกว่า x²",
+        "tex": "F(x)=G(x^2)-G(\\sin x)"
+      },
+      {
+        "en": "Apply the chain rule to each composition. The lower bound carries a minus sign.",
+        "th": "ใช้กฎลูกโซ่กับฟังก์ชันประกอบแต่ละตัว ขอบล่างมีเครื่องหมายลบ",
+        "tex": "F'(x)=G'(x^2)(2x)-G'(\\sin x)\\cos x"
+      },
+      {
+        "en": "Substitute G′ and simplify (x²)⁴=x⁸. No antiderivative expansion is required.",
+        "th": "แทน G′ แล้วจัด (x²)⁴=x⁸ ไม่จำเป็นต้องกระจายปฏิยานุพันธ์",
+        "tex": "F'(x)=2x(1+x^8)-\\cos x(1+\\sin^4x)"
+      }
+    ],
+    "answer": {
+      "en": "$2x(1+x^8)-\\cos x(1+\\sin^4x)$",
+      "th": "$2x(1+x^8)-\\cos x(1+\\sin^4x)$"
+    }
+  },
+  {
+    "id": "ftc-absolute-accumulation",
+    "topic": "ftc",
+    "level": "difficult",
+    "title": {
+      "en": "Accumulation smooths a corner",
+      "th": "ฟังก์ชันสะสมทำให้มุมเรียบขึ้น"
+    },
+    "question": {
+      "en": "For $0\\le x\\le3$, find a piecewise formula for $A(x)=\\displaystyle\\int_0^x|t-1|\\,dt$. Is $A$ differentiable at 1? Twice differentiable? Is 1 an extremum?",
+      "th": "เมื่อ $0\\le x\\le3$ หาสูตรแยกช่วงของ $A(x)=\\displaystyle\\int_0^x|t-1|\\,dt$ ฟังก์ชัน $A$ หาอนุพันธ์ที่ 1 ได้หรือไม่ หาได้สองครั้งหรือไม่ และ 1 เป็นจุดสุดขีดหรือไม่"
+    },
+    "hint": {
+      "en": "Split at t=1. The integrand is continuous there even though its own derivative has a jump.",
+      "th": "แบ่งที่ t=1 ตัวถูกอินทิเกรตต่อเนื่องที่นั่น แม้อนุพันธ์ของมันเองกระโดด"
+    },
+    "steps": [
+      {
+        "en": "Write the absolute value in two branches.",
+        "th": "เขียนค่าสัมบูรณ์แยกสองช่วง",
+        "tex": "|t-1|=\\begin{cases}1-t,&t\\le1,\\\\t-1,&t\\ge1.\\end{cases}"
+      },
+      {
+        "en": "For x ≤ 1, the whole integration interval uses the first branch.",
+        "th": "เมื่อ x ≤ 1 ช่วงอินทิเกรตทั้งหมดใช้สูตรแรก",
+        "tex": "A(x)=\\int_0^x(1-t)\\,dt=[t-t^2/2]_0^x=x-x^2/2"
+      },
+      {
+        "en": "For x ≥ 1, keep the already accumulated area from 0 to 1, then add the remaining portion.",
+        "th": "เมื่อ x ≥ 1 เก็บพื้นที่ที่สะสมจาก 0 ถึง 1 แล้วบวกส่วนที่เหลือ",
+        "tex": "A(x)=\\int_0^1(1-t)\\,dt+\\int_1^x(t-1)\\,dt=\\frac12+\\frac{(x-1)^2}2"
+      },
+      {
+        "en": "The two formulas both give 1/2 at x=1. The integrand is continuous, so the FTC guarantees A′=|x−1|, including A′(1)=0.",
+        "th": "ทั้งสองสูตรให้ 1/2 ที่ x=1 ตัวถูกอินทิเกรตต่อเนื่อง ทฤษฎีบทมูลฐานจึงรับประกัน A′=|x−1| รวมถึง A′(1)=0"
+      },
+      {
+        "en": "Differentiate A′ on each side. Its left derivative at 1 is −1 and right derivative is 1, so the second derivative does not exist there.",
+        "th": "หาอนุพันธ์ A′ แยกสองด้าน อนุพันธ์ซ้ายที่ 1 คือ −1 และขวาคือ 1 จึงไม่มีอนุพันธ์อันดับสองที่จุดนั้น",
+        "tex": "A''(x)=-1\\ (0<x<1),\\qquad A''(x)=1\\ (1<x<3)"
+      },
+      {
+        "en": "A′ is positive on both sides of 1, so A increases through its horizontal tangent. A stationary point need not be an extremum.",
+        "th": "A′ เป็นบวกทั้งสองด้านของ 1 ดังนั้น A เพิ่มผ่านเส้นสัมผัสแนวนอน จุดที่อนุพันธ์เป็นศูนย์ไม่จำเป็นต้องเป็นจุดสุดขีด"
+      }
+    ],
+    "answer": {
+      "en": "$A=x-x^2/2$ for $0\\le x\\le1$; $A=1/2+(x-1)^2/2$ for $1\\le x\\le3$. $A'(1)=0$, $A''(1)$ does not exist; 1 is not an extremum.",
+      "th": "$A=x-x^2/2$ เมื่อ $0\\le x\\le1$; $A=1/2+(x-1)^2/2$ เมื่อ $1\\le x\\le3$ มี $A'(1)=0$ แต่ไม่มี $A''(1)$ และ 1 ไม่เป็นจุดสุดขีด"
+    }
+  },
+  {
+    "id": "ftc-exponential-accumulation",
+    "topic": "ftc",
+    "level": "challenge",
+    "title": {
+      "en": "Analyze an accumulation before integrating",
+      "th": "วิเคราะห์ฟังก์ชันสะสมก่อนอินทิเกรต"
+    },
+    "question": {
+      "en": "For $0\\le x\\le3$, let $A(x)=\\displaystyle\\int_0^x(t^2-1)e^{-t}\\,dt$. Find its monotonicity, concavity, absolute extrema and inflection point.",
+      "th": "เมื่อ $0\\le x\\le3$ ให้ $A(x)=\\displaystyle\\int_0^x(t^2-1)e^{-t}\\,dt$ หาช่วงเพิ่มลด ความเว้า ค่าสุดขีดสัมบูรณ์ และจุดเปลี่ยนเว้า"
+    },
+    "hint": {
+      "en": "Use the FTC to study A′ first. You only need an explicit integral to compare heights.",
+      "th": "ใช้ทฤษฎีบทมูลฐานศึกษา A′ ก่อน ต้องหาปริพันธ์ชัดเจนเมื่อเปรียบเทียบความสูงเท่านั้น"
+    },
+    "steps": [
+      {
+        "en": "The integrand is continuous. The FTC gives the derivative directly; e⁻ˣ is strictly positive.",
+        "th": "ตัวถูกอินทิเกรตต่อเนื่อง ทฤษฎีบทมูลฐานให้อนุพันธ์โดยตรง และ e⁻ˣ เป็นบวกเสมอ",
+        "tex": "A'(x)=(x^2-1)e^{-x}"
+      },
+      {
+        "en": "On [0,3], A′ is negative for 0<x<1, zero at 1, and positive for 1<x<3. Thus A decreases then increases and has its absolute minimum at 1.",
+        "th": "บน [0,3] A′ เป็นลบเมื่อ 0<x<1 เป็นศูนย์ที่ 1 และเป็นบวกเมื่อ 1<x<3 ดังนั้น A ลดแล้วเพิ่มและมีค่าต่ำสุดสัมบูรณ์ที่ 1"
+      },
+      {
+        "en": "Differentiate using the product rule and factor the positive exponential.",
+        "th": "ใช้กฎผลคูณแล้วดึงเอ็กซ์โพเนนเชียลที่เป็นบวก",
+        "tex": "A''(x)=2xe^{-x}-(x^2-1)e^{-x}=e^{-x}(-x^2+2x+1)"
+      },
+      {
+        "en": "Solve −x²+2x+1=0 to get x=1±√2. Only 1+√2 lies in the interval. Concavity is up before this point and down after it.",
+        "th": "แก้ −x²+2x+1=0 ได้ x=1±√2 มีเพียง 1+√2 ที่อยู่ในช่วง ความเว้าเป็นขึ้นก่อนจุดนี้และลงหลังจุดนี้"
+      },
+      {
+        "en": "For heights, integrate t²e⁻ᵗ by parts twice: ∫t²e⁻ᵗdt=−e⁻ᵗ(t²+2t+2). Subtract ∫e⁻ᵗdt=−e⁻ᵗ.",
+        "th": "เพื่อหาความสูง อินทิเกรต t²e⁻ᵗ โดยส่วนสองครั้งได้ ∫t²e⁻ᵗdt=−e⁻ᵗ(t²+2t+2) แล้วลบ ∫e⁻ᵗdt=−e⁻ᵗ",
+        "tex": "\\int(t^2-1)e^{-t}\\,dt=-e^{-t}(t^2+2t+1)=-e^{-t}(t+1)^2"
+      },
+      {
+        "en": "Evaluate the lower bound too; at t=0 the primitive is −1.",
+        "th": "แทนขอบล่างด้วย ที่ t=0 ปฏิยานุพันธ์เป็น −1",
+        "tex": "A(x)=1-(x+1)^2e^{-x}"
+      },
+      {
+        "en": "Compare the two endpoints for the absolute maximum. A(3)≈0.2034 exceeds A(0)=0. The minimum value is A(1)=1−4/e≈−0.4715.",
+        "th": "เปรียบเทียบปลายช่วงทั้งสองเพื่อหาค่าสูงสุดสัมบูรณ์ A(3)≈0.2034 มากกว่า A(0)=0 ค่าต่ำสุดคือ A(1)=1−4/e≈−0.4715"
+      },
+      {
+        "en": "Evaluate A at the concavity change for the full inflection point.",
+        "th": "แทนจุดเปลี่ยนความเว้าใน A เพื่อระบุพิกัดครบ",
+        "tex": "A(1+\\sqrt2)=1-(2+\\sqrt2)^2e^{-(1+\\sqrt2)}"
+      }
+    ],
+    "answer": {
+      "en": "Minimum $1-4/e$ at $x=1$; maximum $1-16/e^3$ at $x=3$. Inflection at $\\left(1+\\sqrt2,1-(2+\\sqrt2)^2e^{-(1+\\sqrt2)}\\right)$.",
+      "th": "ค่าต่ำสุด $1-4/e$ ที่ $x=1$ ค่าสูงสุด $1-16/e^3$ ที่ $x=3$ จุดเปลี่ยนเว้า $\\left(1+\\sqrt2,1-(2+\\sqrt2)^2e^{-(1+\\sqrt2)}\\right)$"
+    }
+  },
+  {
+    "id": "areas-switching-order",
+    "topic": "areas",
+    "level": "intermediate",
+    "title": {
+      "en": "Two curves switch order",
+      "th": "สองเส้นโค้งสลับบนล่าง"
+    },
+    "question": {
+      "en": "Find the total area enclosed by $y=x$ and $y=x^3$.",
+      "th": "หาพื้นที่ปิดล้อมทั้งหมดระหว่าง $y=x$ กับ $y=x^3$"
+    },
+    "hint": {
+      "en": "Solve for all three intersections and test the upper curve on each interval.",
+      "th": "หาจุดตัดทั้งสามและทดสอบว่าเส้นใดอยู่บนในแต่ละช่วง"
+    },
+    "steps": [
+      {
+        "en": "Equate the two functions and factor to find every intersection.",
+        "th": "กำหนดฟังก์ชันเท่ากันแล้วแยกตัวประกอบเพื่อหาจุดตัดทั้งหมด",
+        "tex": "x=x^3\\Rightarrow x(x-1)(x+1)=0\\Rightarrow x=-1,0,1"
+      },
+      {
+        "en": "At x=−1/2, x³=−1/8 is above x=−1/2. At x=1/2, x=1/2 is above x³=1/8. The upper function changes at zero.",
+        "th": "ที่ x=−1/2 มี x³=−1/8 อยู่เหนือ x=−1/2 ที่ x=1/2 มี x=1/2 อยู่เหนือ x³=1/8 ฟังก์ชันด้านบนจึงเปลี่ยนที่ศูนย์"
+      },
+      {
+        "en": "Split the area integral at that change. Each integrand is nonnegative on its own interval.",
+        "th": "แบ่งปริพันธ์พื้นที่ที่จุดเปลี่ยน แต่ละตัวถูกอินทิเกรตไม่เป็นลบบนช่วงของตน",
+        "tex": "A=\\int_{-1}^0(x^3-x)\\,dx+\\int_0^1(x-x^3)\\,dx"
+      },
+      {
+        "en": "Evaluate the left lobe with both endpoints.",
+        "th": "หาพื้นที่ด้านซ้ายโดยแทนขอบทั้งสอง",
+        "tex": "\\left[\\frac{x^4}4-\\frac{x^2}2\\right]_{-1}^0=0-\\left(\\frac14-\\frac12\\right)=\\frac14"
+      },
+      {
+        "en": "Evaluate the right lobe and add. Integrating x−x³ over the entire interval would instead give zero through signed cancellation.",
+        "th": "หาพื้นที่ด้านขวาแล้วบวก หากอินทิเกรต x−x³ ตลอดช่วงจะได้ศูนย์จากการหักล้างเครื่องหมาย",
+        "tex": "\\left[\\frac{x^2}2-\\frac{x^4}4\\right]_0^1=\\frac12-\\frac14=\\frac14,\\qquad A=\\frac12"
+      }
+    ],
+    "answer": {
+      "en": "$1/2$ square units.",
+      "th": "พื้นที่ $1/2$ ตารางหน่วย"
+    }
+  },
+  {
+    "id": "areas-line-parabola",
+    "topic": "areas",
+    "level": "difficult",
+    "title": {
+      "en": "Area with unequal intersection bounds",
+      "th": "พื้นที่ที่ขอบจุดตัดไม่สมมาตรกับศูนย์"
+    },
+    "question": {
+      "en": "Find the area enclosed by $y=x^2$ and $y=2x+3$.",
+      "th": "หาพื้นที่ปิดล้อมระหว่าง $y=x^2$ กับ $y=2x+3$"
+    },
+    "hint": {
+      "en": "Find both intersections, including the negative one; test which function is above.",
+      "th": "หาจุดตัดทั้งสองรวมจุดที่ติดลบ แล้วทดสอบว่าเส้นใดอยู่บน"
+    },
+    "steps": [
+      {
+        "en": "Set the functions equal and move all terms to one side.",
+        "th": "กำหนดฟังก์ชันเท่ากันแล้วย้ายทุกพจน์ไปด้านเดียว",
+        "tex": "x^2=2x+3\\Rightarrow x^2-2x-3=(x-3)(x+1)=0"
+      },
+      {
+        "en": "The intersections are x=−1 and x=3. Between them the gap is −(x−3)(x+1)>0, so the line is above the parabola throughout.",
+        "th": "จุดตัดคือ x=−1 และ x=3 ระหว่างนั้นผลต่าง −(x−3)(x+1)>0 จึงมีเส้นตรงอยู่เหนือพาราโบลาตลอดช่วง"
+      },
+      {
+        "en": "Area integrates upper minus lower with left-to-right bounds.",
+        "th": "พื้นที่อินทิเกรตบนลบล่างโดยใช้ขอบจากซ้ายไปขวา",
+        "tex": "A=\\int_{-1}^3(2x+3-x^2)\\,dx=\\left[x^2+3x-\\frac{x^3}3\\right]_{-1}^3"
+      },
+      {
+        "en": "At the upper bound the primitive is 9+9−9=9. At the lower bound keep the negative cube.",
+        "th": "ที่ขอบบนปฏิยานุพันธ์เป็น 9+9−9=9 ที่ขอบล่างระวังกำลังสามของจำนวนลบ",
+        "tex": "F(-1)=1-3-\\frac{-1}3=-2+\\frac13=-\\frac53"
+      },
+      {
+        "en": "Subtracting the negative lower value increases the result.",
+        "th": "เมื่อลบค่าขอบล่างที่ติดลบ ผลลัพธ์จึงเพิ่มขึ้น",
+        "tex": "A=9-(-5/3)=\\frac{27+5}3=\\frac{32}3"
+      }
+    ],
+    "answer": {
+      "en": "$32/3$ square units.",
+      "th": "พื้นที่ $32/3$ ตารางหน่วย"
+    }
+  },
+  {
+    "id": "areas-horizontal-slices",
+    "topic": "areas",
+    "level": "challenge",
+    "title": {
+      "en": "Choose horizontal slices",
+      "th": "เลือกแถบพื้นที่แนวนอน"
+    },
+    "question": {
+      "en": "Find the area enclosed by $y^2=4x$ and $x=y+2$. Use the integration direction that avoids splitting the region.",
+      "th": "หาพื้นที่ปิดล้อมระหว่าง $y^2=4x$ และ $x=y+2$ เลือกทิศทางอินทิเกรตที่ไม่ต้องแบ่งบริเวณ"
+    },
+    "hint": {
+      "en": "Write both curves as x in terms of y, then integrate right minus left.",
+      "th": "เขียนทั้งสองเส้นเป็น x ในรูป y แล้วอินทิเกรตขวาลบซ้าย"
+    },
+    "steps": [
+      {
+        "en": "Horizontal slices have left boundary x=y²/4 and right boundary x=y+2 inside the enclosed region. Find their intersection heights.",
+        "th": "แถบแนวนอนมีขอบซ้าย x=y²/4 และขอบขวา x=y+2 ภายในบริเวณปิดล้อม หาความสูงจุดตัด",
+        "tex": "\\frac{y^2}4=y+2\\Rightarrow y^2-4y-8=0\\Rightarrow y=2\\pm2\\sqrt3"
+      },
+      {
+        "en": "Complete the square in the width; this also proves it is nonnegative between the intersections.",
+        "th": "จัดกำลังสองสมบูรณ์ในความกว้าง ซึ่งยืนยันด้วยว่าไม่เป็นลบระหว่างจุดตัด",
+        "tex": "(y+2)-\\frac{y^2}4=3-\\frac{(y-2)^2}4\\ge0\\quad\\text{for }|y-2|\\le2\\sqrt3"
+      },
+      {
+        "en": "Set up the area using dy because slices run horizontally.",
+        "th": "ตั้งปริพันธ์พื้นที่ด้วย dy เพราะแถบวางแนวนอน",
+        "tex": "A=\\int_{2-2\\sqrt3}^{2+2\\sqrt3}\\left(3-\\frac{(y-2)^2}4\\right)\\,dy"
+      },
+      {
+        "en": "For straightforward evaluation choose u=y−2, du=dy. Convert both bounds.",
+        "th": "เพื่อคำนวณโดยตรงเลือก u=y−2 และ du=dy แปลงขอบทั้งสอง",
+        "tex": "A=\\int_{-2\\sqrt3}^{2\\sqrt3}(3-u^2/4)\\,du=\\left[3u-\\frac{u^3}{12}\\right]_{-2\\sqrt3}^{2\\sqrt3}"
+      },
+      {
+        "en": "Let a=2√3. Then a³=24√3, so the upper value is 6√3−2√3=4√3 and the lower value is −4√3.",
+        "th": "ให้ a=2√3 จะมี a³=24√3 ดังนั้นค่าขอบบนคือ 6√3−2√3=4√3 ส่วนค่าขอบล่างคือ −4√3",
+        "tex": "A=4\\sqrt3-(-4\\sqrt3)=8\\sqrt3"
+      },
+      {
+        "en": "This choice of variable handles both branches of the sideways parabola at once; no square-root branch switching is needed.",
+        "th": "การเลือกตัวแปรนี้จัดการพาราโบลาแนวนอนทั้งสองแขนพร้อมกัน จึงไม่ต้องสลับสาขารากที่สอง"
+      }
+    ],
+    "answer": {
+      "en": "$8\\sqrt3$ square units.",
+      "th": "พื้นที่ $8\\sqrt3$ ตารางหน่วย"
+    }
+  }
+]

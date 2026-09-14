@@ -1,0 +1,72 @@
+{
+  "practice.html": [
+    "limits-practice",
+    "derivatives-practice",
+    "integrals-practice",
+    "searchOverlay",
+    "searchInput",
+    "searchClose",
+    "searchResults"
+  ],
+  "index.html": [
+    "chapters",
+    "graphExpr",
+    "graphDraw",
+    "functionGraph",
+    "searchOverlay",
+    "searchInput",
+    "searchClose",
+    "searchResults"
+  ],
+  "integrals.html": [
+    "riemann",
+    "riemannCanvas",
+    "nValue",
+    "nSlider",
+    "areaValue",
+    "antiderivative",
+    "ftc",
+    "techniques",
+    "calculator",
+    "intExpr",
+    "intCalcBtn",
+    "intA",
+    "intB",
+    "intOut",
+    "intGraph",
+    "searchOverlay",
+    "searchInput",
+    "searchClose",
+    "searchResults"
+  ],
+  "limits.html": [
+    "intuition",
+    "laws",
+    "indeterminate",
+    "continuity",
+    "infinity",
+    "searchOverlay",
+    "searchInput",
+    "searchClose",
+    "searchResults"
+  ],
+  "derivatives.html": [
+    "definition",
+    "rules",
+    "tangent",
+    "xValue",
+    "xSlider",
+    "slopeValue",
+    "derivativeCanvas",
+    "applications",
+    "calculator",
+    "derivExpr",
+    "derivCalcBtn",
+    "derivOut",
+    "calcGraph",
+    "searchOverlay",
+    "searchInput",
+    "searchClose",
+    "searchResults"
+  ]
+}
