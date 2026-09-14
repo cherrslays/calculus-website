@@ -5,8 +5,8 @@
   --accent-soft: rgba(40, 111, 85, .16); --negative-soft: rgba(165, 57, 70, .2);
   --warning: #946019; --error: #a12d3a;
   --shadow: 0 8px 30px rgba(28, 40, 32, .035);
-  --sans: Inter, "Noto Sans Thai", system-ui, sans-serif;
-  --serif: Inter, "Noto Sans Thai", system-ui, sans-serif;
+  --sans: Inter, "Noto Sans Thai", Thonburi, "Leelawadee UI", Tahoma, system-ui, sans-serif;
+  --serif: Inter, "Noto Sans Thai", Thonburi, "Leelawadee UI", Tahoma, system-ui, sans-serif;
   --max: 1220px;
 }
 html[data-theme="dark"] {
