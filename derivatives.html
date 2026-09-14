@@ -15,12 +15,15 @@
   <script>
    window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},svg:{fontCache:'global'},options:{enableMenu:false},startup:{typeset:true}};
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer="" src="vendor/mathjax.js">
+  </script>
   <script defer="" src="vendor/math.js">
   </script>
   <script defer="" src="math-core.js">
   </script>
   <script defer="" src="search-index.js">
+  </script>
+  <script defer="" src="learning-models.js">
   </script>
   <script defer="" src="app.js">
   </script>
@@ -253,6 +256,22 @@
       ฝึกโจทย์บทนี้ →
      </span>
     </a>
+    <a href="#inverse-and-higher">
+     <span class="lang-en" lang="en">
+      Inverse functions &amp; higher implicit derivatives
+     </span>
+     <span class="lang-th" lang="th">
+      ฟังก์ชันผกผันและอนุพันธ์โดยปริยายอันดับสูง
+     </span>
+    </a>
+    <a href="#optimization-lab">
+     <span class="lang-en" lang="en">
+      Optimization &amp; curve-analysis laboratory
+     </span>
+     <span class="lang-th" lang="th">
+      การหาค่าเหมาะที่สุดและห้องทดลองวิเคราะห์กราฟ
+     </span>
+    </a>
    </aside>
    <main class="lesson-main" id="main-content" tabindex="-1">
     <section class="page-hero reveal">
@@ -377,6 +396,22 @@
        </span>
        <span class="lang-th" lang="th">
         ฝึกโจทย์บทนี้ →
+       </span>
+      </a>
+      <a href="#inverse-and-higher">
+       <span class="lang-en" lang="en">
+        Inverse functions &amp; higher implicit derivatives
+       </span>
+       <span class="lang-th" lang="th">
+        ฟังก์ชันผกผันและอนุพันธ์โดยปริยายอันดับสูง
+       </span>
+      </a>
+      <a href="#optimization-lab">
+       <span class="lang-en" lang="en">
+        Optimization &amp; curve-analysis laboratory
+       </span>
+       <span class="lang-th" lang="th">
+        การหาค่าเหมาะที่สุดและห้องทดลองวิเคราะห์กราฟ
        </span>
       </a>
      </nav>
@@ -869,7 +904,7 @@
       </span>
      </p>
      <div class="equation-block">
-      $$y=x^x\;\Rightarrow\;\ln y=x\ln x\;\Rightarrow\;\frac{y^{\prime}}y=\ln x+1\;\Rightarrow\;y^{\prime}=x^x(\ln x+1)$$
+      $$y=x^x\;\Rightarrow\;\ln y=x\ln x\;\Rightarrow\;\frac{y'}y=\ln x+1\;\Rightarrow\;y'=x^x(\ln x+1)$$
      </div>
     </section>
     <section class="lesson-section" id="mean-value">
@@ -899,7 +934,7 @@
        </span>
       </p>
       <div class="equation-block">
-       $$f^{\prime}(c)=\frac{f(b)-f(a)}{b-a},\qquad c\in(a,b)$$
+       $$f'(c)=\frac{f(b)-f(a)}{b-a},\qquad c\in(a,b)$$
       </div>
      </div>
      <p>
@@ -947,7 +982,7 @@
       </span>
      </p>
      <div class="equation-block">
-      $$f(x)=x^3-3x,\quad f^{\prime}(x)=3(x-1)(x+1),\quad f^{\prime^{\prime}}(x)=6x$$
+      $$f(x)=x^3-3x,\quad f'(x)=3(x-1)(x+1),\quad f''(x)=6x$$
      </div>
      <p>
       <span class="lang-en" lang="en">
@@ -1024,6 +1059,180 @@
       <span class="lang-th" lang="th">
        สำหรับวิธีนิวตัน ใช้จุดตัดแกน x ของเส้นสัมผัสเป็นค่าประมาณถัดไป: xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ) หากอนุพันธ์เป็นศูนย์ ค่าเริ่มต้นไม่เหมาะสม หรือมีจุดไม่ต่อเนื่อง อาจไม่ลู่เข้า
       </span>
+     </p>
+    </section>
+    <section class="lesson-section" id="inverse-and-higher">
+     <h2>
+      <span class="lang-en" lang="en">
+       Inverse functions &amp; higher implicit derivatives
+      </span>
+      <span class="lang-th" lang="th">
+       ฟังก์ชันผกผันและอนุพันธ์โดยปริยายอันดับสูง
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       If f is one-to-one near a, its inverse is continuous near b=f(a), and f is differentiable at a with f′(a)≠0, then its inverse is differentiable at b. Differentiate f(f⁻¹(y))=y by the chain rule.
+      </span>
+      <span class="lang-th" lang="th">
+       หาก f เป็นหนึ่งต่อหนึ่งใกล้ a ฟังก์ชันผกผันต่อเนื่องใกล้ b=f(a) และ f หาอนุพันธ์ได้ที่ a โดย f′(a)≠0 ฟังก์ชันผกผันจะหาอนุพันธ์ได้ที่ b หาอนุพันธ์ f(f⁻¹(y))=y ด้วยกฎลูกโซ่
+      </span>
+     </p>
+     <div class="equation-block">
+      $$(f^{-1})'(b)=\frac1{f'(a)},\qquad (\arcsin x)'=\frac1{\sqrt{1-x^2}}\ (|x|&lt;1),\qquad(\arctan x)'=\frac1{1+x^2}$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       These domains belong to the derivative formulas, not just to the functions. Arcsine is defined at ±1, but has no finite derivative there. In a composite, simplify square roots with √(u²)=|u| and examine exceptional points separately.
+      </span>
+      <span class="lang-th" lang="th">
+       โดเมนเหล่านี้เป็นของสูตรอนุพันธ์ ไม่ใช่เพียงของฟังก์ชัน arcsine นิยามที่ ±1 แต่ไม่มีอนุพันธ์จำกัดที่นั่น สำหรับฟังก์ชันประกอบ ให้จัดรากด้วย √(u²)=|u| และตรวจจุดยกเว้นแยกกัน
+      </span>
+     </p>
+     <h3>
+      <span class="lang-en" lang="en">
+       Differentiate an equation before substituting a point
+      </span>
+      <span class="lang-th" lang="th">
+       หาอนุพันธ์สมการก่อนแทนจุด
+      </span>
+     </h3>
+     <div class="equation-block">
+      $$x^2+xy+y^2=3\quad\Rightarrow\quad2x+y+(x+2y)y'=0$$
+     </div>
+     <div class="equation-block">
+      $$2+2y'+2(y')^2+(x+2y)y''=0$$
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       The second differentiation uses the product rule on both xy′ and yy′. At (1,1), first find y′=−1 and then substitute into the second equation to obtain y″=−2/3. Substituting y=1 before differentiating would incorrectly treat a changing quantity as constant.
+      </span>
+      <span class="lang-th" lang="th">
+       การหาอนุพันธ์ครั้งที่สองใช้กฎผลคูณกับทั้ง xy′ และ yy′ ที่ (1,1) หา y′=−1 ก่อนแล้วแทนในสมการที่สองได้ y″=−2/3 หากแทน y=1 ก่อนหาอนุพันธ์จะถือปริมาณที่เปลี่ยนเป็นค่าคงที่อย่างผิดพลาด
+      </span>
+     </p>
+     <p>
+      <a href="practice.html#derivatives-inverse-trig">
+       <span class="lang-en" lang="en">
+        Worked problem: the absolute value in an arcsine composite
+       </span>
+       <span class="lang-th" lang="th">
+        โจทย์พร้อมวิธีทำ: ค่าสัมบูรณ์ในฟังก์ชันประกอบ arcsine
+       </span>
+      </a>
+     </p>
+     <p>
+      <a href="practice.html#derivatives-log-composite">
+       <span class="lang-en" lang="en">
+        Exam problem: a variable exponent and a quotient
+       </span>
+       <span class="lang-th" lang="th">
+        แนวสอบ: เลขชี้กำลังแปรผันร่วมกับผลหาร
+       </span>
+      </a>
+     </p>
+    </section>
+    <section class="lesson-section" id="optimization-lab">
+     <h2>
+      <span class="lang-en" lang="en">
+       Optimization &amp; curve-analysis laboratory
+      </span>
+      <span class="lang-th" lang="th">
+       การหาค่าเหมาะที่สุดและห้องทดลองวิเคราะห์กราฟ
+      </span>
+     </h2>
+     <p>
+      <span class="lang-en" lang="en">
+       A critical point is a candidate, not an answer. For a modelling problem: define variables and units, derive a one-variable objective using the constraints, state the feasible domain, find interior critical points, then justify the global comparison with endpoints or boundary limits.
+      </span>
+      <span class="lang-th" lang="th">
+       จุดวิกฤตเป็นเพียงผู้สมัคร ไม่ใช่คำตอบ สำหรับโจทย์จำลองสถานการณ์ ให้กำหนดตัวแปรและหน่วย ใช้ข้อจำกัดสร้างฟังก์ชันวัตถุประสงค์ตัวแปรเดียว ระบุโดเมนที่ทำได้ หาจุดวิกฤตภายใน แล้วเปรียบเทียบกับปลายช่วงหรือลิมิตที่ขอบเพื่อยืนยันค่าสัมบูรณ์
+      </span>
+     </p>
+     <p>
+      <span class="lang-en" lang="en">
+       For an open box cut from a 30×20 sheet, V=x(30−2x)(20−2x) with 0&lt;x&lt;10. Extending to [0,10] gives zero boundary volumes, so the only feasible positive stationary volume is the global maximum. A second-derivative test by itself establishes only a local result.
+      </span>
+      <span class="lang-th" lang="th">
+       สำหรับกล่องเปิดฝาจากแผ่น 30×20 มี V=x(30−2x)(20−2x) โดย 0&lt;x&lt;10 เมื่อขยายสู่ [0,10] ปริมาตรที่ขอบเป็นศูนย์ จุดที่อนุพันธ์เป็นศูนย์และปริมาตรบวกซึ่งมีเพียงจุดเดียวจึงเป็นค่าสูงสุดสัมบูรณ์ การทดสอบอนุพันธ์อันดับสองเพียงอย่างเดียวรับรองเฉพาะผลเฉพาะที่
+      </span>
+     </p>
+     <h3>
+      <span class="lang-en" lang="en">
+       Explore a quartic: height, slope and concavity
+      </span>
+      <span class="lang-th" lang="th">
+       สำรวจกำลังสี่: ความสูง ความชัน และความเว้า
+      </span>
+     </h3>
+     <div class="equation-block">
+      $$f(x)=x^4-4x^2,\qquad f'(x)=4x^3-8x,\qquad f''(x)=12x^2-8$$
+     </div>
+     <div class="panel">
+      <label for="curvePoint">
+       <span class="lang-en" lang="en">
+        Point a
+       </span>
+       <span class="lang-th" lang="th">
+        จุด a
+       </span>
+      </label>
+      <input id="curvePoint" max="2.4" min="-2.4" step="0.01" type="range" value="0.5"/>
+      <label class="check-label">
+       <input id="curveSecond" type="checkbox"/>
+       <span class="lang-en" lang="en">
+        Show f″ alongside f′ in the lower graph
+       </span>
+       <span class="lang-th" lang="th">
+        แสดง f″ คู่กับ f′ ในกราฟล่าง
+       </span>
+      </label>
+      <canvas aria-label="Quartic curve with extrema and inflection points" class="graph" data-label-en="Quartic curve with extrema and inflection points" data-label-th="กราฟกำลังสี่พร้อมจุดสุดขีดและจุดเปลี่ยนเว้า" id="curveCanvas" role="img">
+       <span class="lang-en" lang="en">
+        Quartic curve with extrema and inflection points
+       </span>
+       <span class="lang-th" lang="th">
+        กราฟกำลังสี่พร้อมจุดสุดขีดและจุดเปลี่ยนเว้า
+       </span>
+      </canvas>
+      <canvas aria-label="First and optional second derivative of the quartic" class="graph" data-label-en="First and optional second derivative of the quartic" data-label-th="อนุพันธ์อันดับหนึ่งและตัวเลือกอันดับสองของกำลังสี่" id="curveDerivativeCanvas" role="img">
+       <span class="lang-en" lang="en">
+        First and optional second derivative of the quartic
+       </span>
+       <span class="lang-th" lang="th">
+        อนุพันธ์อันดับหนึ่งและตัวเลือกอันดับสองของกำลังสี่
+       </span>
+      </canvas>
+      <p aria-live="polite" class="graph-status" id="curveStats">
+      </p>
+     </div>
+     <p>
+      <span class="lang-en" lang="en">
+       Solid markers on the original curve indicate extrema: (±√2,−4) and (0,0). Hollow markers indicate inflections: (±√(2/3),−20/9). The moving marker follows a. The lower graph has its own vertical scale; blue is f′ and dashed ink is f″.
+      </span>
+      <span class="lang-th" lang="th">
+       จุดทึบบนกราฟเดิมคือจุดสุดขีด (±√2,−4) และ (0,0) จุดโปร่งคือจุดเปลี่ยนเว้า (±√(2/3),−20/9) จุดเคลื่อนที่ตาม a กราฟล่างใช้สเกลแนวตั้งของตนเอง สีน้ำเงินคือ f′ และเส้นประสีหมึกคือ f″
+      </span>
+     </p>
+     <p>
+      <a href="practice.html#applications-quartic">
+       <span class="lang-en" lang="en">
+        Full sign analysis and exact coordinates
+       </span>
+       <span class="lang-th" lang="th">
+        วิเคราะห์เครื่องหมายครบและพิกัดแม่นตรง
+       </span>
+      </a>
+     </p>
+     <p>
+      <a href="practice.html#applications-box">
+       <span class="lang-en" lang="en">
+        Worked optimization: the open box
+       </span>
+       <span class="lang-th" lang="th">
+        โจทย์หาค่าเหมาะที่สุด: กล่องเปิดฝา
+       </span>
+      </a>
      </p>
     </section>
    </main>
