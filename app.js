@@ -317,7 +317,7 @@
     try { CalcMath.expression(source); } catch (error) { displayError(error.code || 'engine'); drawCalculator(); return; }
     setBusy(true); clearMath(out); paragraph(out, tr('Calculating…', 'กำลังคำนวณ…'));
     try {
-      const worker = activeWorker = new Worker('calculator-worker.js');
+      const worker = activeWorker = new Worker('calculator-worker.js?v=mathfix-20260915');
       worker.onmessage = ({ data }) => {
         if (activeWorker !== worker) return;
         if (!data.partial) stopWorker();
