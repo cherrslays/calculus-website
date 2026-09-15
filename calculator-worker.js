@@ -1,5 +1,5 @@
 'use strict';
-importScripts('vendor/math.js', 'vendor/nerdamer.js', 'math-core.js');
+importScripts('math.js', 'nerdamer.js', 'math-core.js');
 self.onmessage = ({ data }) => {
   try {
     const result = data.kind === 'derivative'
