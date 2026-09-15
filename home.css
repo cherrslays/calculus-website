@@ -101,3 +101,41 @@ html[data-lang="th"] .home-title small { font-size:.43em; line-height:1.6; lette
  .cover-running { font-size:.48rem; padding:14px 17px; }
 }
 @media(prefers-reduced-motion:reduce) { .home-page *, .home-page *::before, .home-page *::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
+/* Classic full-viewport integration scene. */
+.home-page { --bg:#f2eee4; --paper:#fcf9f0; --soft:#e8e2d5; --ink:#2c2923; --muted:#655e50; --accent:#675330; --accent2:#725044; --line:#d5cebf; --motion-line:#544631; --motion-fill:#a78c57; }
+html[data-theme="dark"] .home-page { --bg:#1c1b18; --paper:#25231f; --soft:#302d25; --ink:#f0e9d9; --muted:#c2b9a6; --accent:#d2bc8e; --accent2:#dbb9a5; --line:#494337; --motion-line:#ddc599; --motion-fill:#b2975c; }
+.home-page .integral-hero { position:relative; isolation:isolate; display:block; width:100%; max-width:none; margin:0; padding:clamp(35px,6vh,75px) max(40px,calc((100vw - 1180px)/2)) 265px; min-height:calc(100svh - 76px); overflow:hidden; }
+.integral-backdrop { position:absolute; inset:0; z-index:-2; pointer-events:none; }
+.integral-backdrop svg { width:100%; height:100%; display:block; }
+#integralGrid { stroke:var(--motion-line); stroke-width:.55; opacity:.12; }
+#integralAxis { stroke:var(--motion-line); stroke-width:1; opacity:.45; fill:none; }
+#integralFill { fill:var(--motion-fill); opacity:.09; }
+#integralBars rect { fill:var(--motion-fill); fill-opacity:.23; stroke:var(--motion-line); stroke-opacity:.35; stroke-width:.7; }
+#integralCurve { stroke:var(--motion-line); stroke-width:2.1; fill:none; }
+.integral-hero .home-intro { position:relative; max-width:740px; padding:0 0 70px; }
+.home-page .integral-hero .home-title { font-family:"STIX Two Text",Georgia,"Noto Serif Thai",serif; font-size:clamp(76px,8.8vw,130px); font-weight:400; letter-spacing:-.055em; margin:18px 0 24px; }
+.integral-hero .home-title small { font:400 clamp(24px,2.4vw,35px)/1.4 var(--sans); letter-spacing:-.035em; margin-top:10px; }
+html[data-lang="th"] .home-page .integral-hero .home-title { font-family:"Noto Serif Thai","Noto Sans Thai",serif; font-size:clamp(57px,6.7vw,90px); line-height:1.3; }
+html[data-lang="th"] .integral-hero .home-title small { font:400 clamp(23px,2.4vw,32px)/1.6 var(--sans); }
+.integral-hero .hero-lead { max-width:46ch; margin:0 0 24px; }
+.integral-hero .hero-actions { margin-top:20px; }
+.integral-caption { position:absolute; bottom:30px; left:max(40px,calc((100vw - 1180px)/2)); right:max(40px,calc((100vw - 1180px)/2)); display:flex; align-items:end; justify-content:space-between; gap:20px; }
+.integral-caption .eyebrow { margin:0 0 5px; }
+.integral-notation { font:400 27px/1.5 Georgia,serif; margin:0; color:var(--ink); }
+#integralReadout { font:400 .69rem/1.8 var(--sans); margin:5px 0 0; color:var(--muted); }
+#integralPause { border:1px solid var(--line); background:var(--paper); color:var(--ink); border-radius:2px; padding:10px 16px; min-height:44px; font-size:.73rem; }
+.home-page .home-metrics .course-meta { margin:0; padding-block:27px; border-top:0; border-bottom:1px solid var(--line); }
+.home-page .home-theorem { margin-top:12px; }
+.home-theorem-card { border-top:0; }
+@media(min-width:1051px) { .integral-hero .home-intro { background:radial-gradient(ellipse at 30% 25%,var(--bg) 40%,transparent 73%); } }
+@media(max-width:760px) {
+ .home-page .integral-hero { min-height:calc(100svh - 70px); padding:30px 24px 280px; }
+ .integral-hero .home-intro { padding-bottom:65px; }
+ .home-page .integral-hero .home-title { font-size:clamp(65px,12vw,94px); }
+ .integral-hero .hero-lead { font-size:.88rem; line-height:1.85; }
+ .integral-caption { left:24px; right:24px; bottom:24px; align-items:start; }
+ .integral-notation { font-size:23px; }
+ #integralReadout { max-width:230px; }
+ #integralPause { padding:8px 11px; flex-shrink:0; }
+}
+@media(max-width:420px) { .home-page .integral-hero { padding-inline:20px; padding-bottom:305px; } .integral-caption { left:20px; right:20px; flex-wrap:wrap; gap:10px; } .integral-hero .home-intro { padding-bottom:25px; } }
