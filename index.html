@@ -204,7 +204,7 @@ foreignObject[data-mjx-xml] {
 mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
   stroke-width: 3;
 }
-</style><link rel="stylesheet" href="home.css?v=classic-20260915"><script defer="" src="home-motion.js?v=classic-20260915"></script></head>
+</style><link rel="stylesheet" href="home-surface.css?v=surface-01"><script defer="" src="home-surface.js?v=surface-01"></script></head>
  <body class="home-page">
   <a class="skip-link" href="#main-content">
    <span class="lang-en" lang="en">
@@ -342,11 +342,11 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
    </div>
   </header>
   <main id="main-content" tabindex="-1">
-   <section class="hero section-shell integral-hero"><div class="integral-backdrop" aria-hidden="true"><svg id="integralScene" viewBox="0 0 1440 900" preserveAspectRatio="none"><g id="integralGrid"></g><path id="integralFill"></path><g id="integralBars"></g><path id="integralCurve"></path><path id="integralAxis"></path></svg></div>
+   <section class="hero section-shell integral-hero"><div class="integral-backdrop" aria-hidden="true"><canvas id="surfaceScene" aria-hidden="true"></canvas></div>
     <div class="home-intro">
      <p class="eyebrow"><span class="lang-en" lang="en">THE MATHEMATICS OF CHANGE</span><span class="lang-th" lang="th">คณิตศาสตร์แห่งการเปลี่ยนแปลง</span></p>
-     <h1 class="home-title"><span class="lang-en" lang="en">Calculus.<small>The art of accumulation.</small></span><span class="lang-th" lang="th">แคลคูลัส<small>มองเห็นการสะสม ทีละส่วนเล็ก ๆ</small></span></h1>
-     <p class="hero-lead"><span class="lang-en" lang="en">Small pieces. A complete picture. Discover the mathematics of change through ideas you can see, explore, and understand.</span><span class="lang-th" lang="th">จากส่วนเล็ก ๆ สู่ภาพที่สมบูรณ์ สำรวจคณิตศาสตร์แห่งการเปลี่ยนแปลง ผ่านแนวคิดที่มองเห็น ทดลอง และเข้าใจได้</span></p>
+     <h1 class="home-title"><span class="lang-en" lang="en">Calculus.<small>A new dimension of understanding.</small></span><span class="lang-th" lang="th">แคลคูลัส<small>เปิดมิติใหม่ของความเข้าใจ</small></span></h1>
+     <p class="hero-lead"><span class="lang-en" lang="en">Explore a world shaped by functions. See a curve travel across a three-dimensional surface, then discover the ideas behind it.</span><span class="lang-th" lang="th">สำรวจโลกที่สร้างจากฟังก์ชัน มองเส้นโค้งเคลื่อนผ่านพื้นผิวสามมิติ แล้วค่อยทำความเข้าใจคณิตศาสตร์ที่อยู่เบื้องหลัง</span></p>
      <div class="hero-actions">
       <a class="button primary" href="limits.html"><span class="lang-en" lang="en">Begin with limits <span aria-hidden="true">↗</span></span><span class="lang-th" lang="th">เริ่มเรียนลิมิต <span aria-hidden="true">↗</span></span></a>
       <a class="button" href="#chapters"><span class="lang-en" lang="en">Explore the chapters</span><span class="lang-th" lang="th">สำรวจบทเรียน</span></a>
@@ -354,7 +354,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
      
     </div>
     
-   <div class="integral-caption"><div><p class="eyebrow"><span class="lang-en" lang="en">FROM SUMS TO AN INTEGRAL</span><span class="lang-th" lang="th">จากผลบวก สู่ปริพันธ์</span></p><p class="integral-notation">∫₀⁶ f(x) dx <span aria-hidden="true">≈</span> <span id="integralApprox">—</span></p><p id="integralReadout"></p></div><button type="button" id="integralPause" aria-pressed="false"><span class="lang-en" lang="en">Pause motion</span><span class="lang-th" lang="th">หยุดภาพเคลื่อนไหว</span></button></div></section><div class="section-shell home-metrics"><div class="course-meta"><div><strong>03</strong><span class="lang-en" lang="en">core chapters</span><span class="lang-th" lang="th">บทเรียนหลัก</span></div><div><strong>60</strong><span class="lang-en" lang="en">worked problems</span><span class="lang-th" lang="th">โจทย์พร้อมเฉลย</span></div><div><strong>TH / EN</strong><span class="lang-en" lang="en">learn in two languages</span><span class="lang-th" lang="th">เรียนได้สองภาษา</span></div></div></div><section class="section-shell home-theorem"><aside class="home-theorem-card">
+   <div class="integral-caption"><div><p class="eyebrow"><span class="lang-en" lang="en">EXPLORE THE SURFACE</span><span class="lang-th" lang="th">สำรวจพื้นผิวสามมิติ</span></p><p class="integral-notation">f(x, y) = sin(x) cos(y)</p><p id="integralReadout"></p></div><button type="button" id="integralPause" aria-pressed="false"><span class="lang-en" lang="en">Pause motion</span><span class="lang-th" lang="th">หยุดภาพเคลื่อนไหว</span></button></div></section><div class="section-shell home-metrics"><div class="course-meta"><div><strong>03</strong><span class="lang-en" lang="en">core chapters</span><span class="lang-th" lang="th">บทเรียนหลัก</span></div><div><strong>60</strong><span class="lang-en" lang="en">worked problems</span><span class="lang-th" lang="th">โจทย์พร้อมเฉลย</span></div><div><strong>TH / EN</strong><span class="lang-en" lang="en">learn in two languages</span><span class="lang-th" lang="th">เรียนได้สองภาษา</span></div></div></div><section class="section-shell home-theorem"><aside class="home-theorem-card">
      <span class="card-kicker">
       <span class="lang-en" lang="en">
        The central bridge
@@ -778,6 +778,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
    </p>
   </noscript>
  
+
 
 
 
